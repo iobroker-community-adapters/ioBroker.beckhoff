@@ -1,26 +1,8 @@
 {
     "common": {
-        "name": "template",
-        "version": "0.6.0",
+        "name": "beckhoff",
+        "version": "0.0.1",
         "news": {
-            "0.6.0": {
-                "en": "Support of admin3",
-                "de": "Unterstützung von admin3",
-                "ru": "Поддержка admin3",
-                "pt": "Suporte de admin3",
-                "nl": "Ondersteuning van admin3",
-                "fr": "Support de admin3",
-                "it": "Supporto di admin3",
-                "es": "Soporte de admin3"
-            },
-            "0.5.0": {
-                "en": "beta version",
-                "de": "Betaversion",
-                "ru": "Бета версия",
-                "pt": "Versão beta",
-                "fr": "Version bêta",
-                "nl": "Beta versie"
-            },
             "0.0.1": {
                 "en": "initial adapter",
                 "de": "Initiale Version",
@@ -30,9 +12,9 @@
                 "nl": "Eerste release"
             }
         },
-		"title": "Javascript/Node.js based template",
+		"title": "Javascript/Node.js based beckhoff",
         "titleLang": {
-            "en": "Javascript/Node.js based template",
+            "en": "Javascript/Node.js based beckhoff",
             "de": "Javascript / Node.js basierte Vorlagenadapter",
             "ru": "Адаптер шаблонов на основе Javascript / Node.js",
             "pt": "Adaptador de modelo baseado em Javascript / Node.js",
@@ -42,17 +24,17 @@
             "es": "Adaptador de plantilla basado en JavaScript / Node.js"
         },
         "desc": {
-            "en": "ioBroker template",
-            "de": "ioBroker Template",
-            "ru": "ioBroker Template как образец",
+            "en": "ioBroker beckhoff",
+            "de": "ioBroker Beckhoff",
+            "ru": "ioBroker Beckhoff как образец",
             "pt": "Modelo de adaptador para o ioBroker",
             "fr": "ioBroker adaptateur modèle",
-            "nl": "ioBroker Template",
+            "nl": "ioBroker Beckhoff",
             "it": "Adattatore modello ioBroker",
             "es": "Adaptador de plantilla ioBroker"
         },
         "authors": [
-            "@@Author@@ <@@email@@>"
+            "dkleber89 <dkleber@gmail.com>"
         ],
         "docs": {
             "en": "docs/en/admin.md",
@@ -66,12 +48,12 @@
         },
         "platform": "Javascript/Node.js",
         "mode": "daemon",
-        "icon": "template.png",
+        "icon": "beckhoff.png",
         "materialize": true,
         "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.template/master/admin/template.png",
-        "keywords": ["template", "vis", "GUI", "graphical", "scada"],
-        "readme": "https://github.com/ioBroker/ioBroker.template/blob/master/README.md",
+        "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.beckhoff/master/admin/beckhoff.png",
+        "keywords": ["beckhoff", "vis", "GUI", "graphical", "scada"],
+        "readme": "https://github.com/ioBroker/ioBroker.beckhoff/blob/master/README.md",
         "loglevel": "info",
         "type": "general",
         "license": "MIT",

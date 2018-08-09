@@ -1,19 +1,19 @@
 /**
  *
- * template adapter
+ * beckhoff adapter
  *
  *
  *  file io-package.json comments:
  *
  *  {
  *      "common": {
- *          "name":         "template",                  // name has to be set and has to be equal to adapters folder name and main file name excluding extension
- *          "version":      "0.0.0",                    // use "Semantic Versioning"! see http://semver.org/
- *          "title":        "Node.js template Adapter",  // Adapter title shown in User Interfaces
+ *          "name":         "beckhoff",                  // name has to be set and has to be equal to adapters folder name and main file name excluding extension
+ *          "version":      "0.0.1",                    // use "Semantic Versioning"! see http://semver.org/
+ *          "title":        "Node.js beckhoff Adapter",  // Adapter title shown in User Interfaces
  *          "authors":  [                               // Array of authord
- *              "name <mail@template.com>"
+ *              "name <mail@beckhoff.com>"
  *          ]
- *          "desc":         "template adapter",          // Adapter description shown in User Interfaces. Can be a language object {de:"...",ru:"..."} or a string
+ *          "desc":         "beckhoff adapter",          // Adapter description shown in User Interfaces. Can be a language object {de:"...",ru:"..."} or a string
  *          "platform":     "Javascript/Node.js",       // possible values "javascript", "javascript/Node.js" - more coming
  *          "mode":         "daemon",                   // possible values "daemon", "schedule", "subscribe"
  *          "materialize":  true,                       // support of admin3
@@ -38,8 +38,8 @@ const utils =    require(__dirname + '/lib/utils'); // Get common adapter utils
 
 // you have to call the adapter function and pass a options object
 // name has to be set and has to be equal to adapters folder name and main file name excluding extension
-// adapter will be restarted automatically every time as the configuration changed, e.g system.adapter.template.0
-const adapter = new utils.Adapter('template');
+// adapter will be restarted automatically every time as the configuration changed, e.g system.adapter.beckhoff.0
+const adapter = new utils.Adapter('beckhoff');
 
 /*Variable declaration, since ES6 there are let to declare variables. Let has a more clearer definition where 
 it is available then var.The variable is available inside a block and it's childs, but not outside. 
@@ -105,7 +105,7 @@ function main() {
      *
      *      For every state in the system there has to be also an object of type state
      *
-     *      Here a simple template for a boolean variable named "testVariable"
+     *      Here a simple beckhoff for a boolean variable named "testVariable"
      *
      *      Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
      *
@@ -121,7 +121,7 @@ function main() {
         native: {}
     });
 
-    // in this template all states changes inside the adapters namespace are subscribed
+    // in this beckhoff all states changes inside the adapters namespace are subscribed
     adapter.subscribeStates('*');
 
 

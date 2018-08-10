@@ -31,11 +31,11 @@
     "gulp": "^3.9.1",
     "mocha": "^4.1.0",
     "chai": "^4.1.2",
-    "eslint": "^4.8.0",
-    "grunt": "^1.0.1",
+    "eslint": "^5.0.0",
+    "grunt": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-eslint": "^20.1.0",
-    "load-grunt-tasks": "^3.5.2"
+    "grunt-eslint": "^21.0.0",
+    "load-grunt-tasks": "^4.0.0"
   },
   "main": "main.js",
   "scripts": {

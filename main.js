@@ -29,8 +29,6 @@
  *
  */
 
-/* jshint -W097 */// jshint strict:false
-/*jslint node: true */
 'use strict';
 
 // you have to require the utils module and call adapter function

@@ -1,5 +1,4 @@
-/* jshint -W097 */// jshint strict:false
-/*jslint node: true */
+
 // check if tmp directory exists
 var fs            = require('fs');
 var path          = require('path');

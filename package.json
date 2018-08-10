@@ -18,7 +18,9 @@
     "ioBroker",
     "beckhoff",
     "Smart Home",
-    "home automation"
+    "home automation",
+    "ads",
+    "plc"
   ],
   "repository": {
     "type": "git",

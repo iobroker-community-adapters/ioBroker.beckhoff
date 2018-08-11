@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dkleber89/ioBroker.beckhoff.svg?branch=master)](https://travis-ci.org/dkleber89/ioBroker.beckhoff)
+
 ![Logo](admin/beckhoff.png)
 
 # ioBroker.beckhoff

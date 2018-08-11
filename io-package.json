@@ -12,26 +12,26 @@
                 "nl": "Eerste release"
             }
         },
-		"title": "Javascript/Node.js based beckhoff",
+        "title": "Javascript/Node.js based Beckhoff ADS Adapter",
         "titleLang": {
-            "en": "Javascript/Node.js based beckhoff",
-            "de": "Javascript / Node.js basierte Vorlagenadapter",
+            "en": "Javascript/Node.js based Beckhoff ADS Adapter",
+            "de": "Javascript / Node.js basierter Beckhoff ADS Adapter",
             "ru": "Адаптер шаблонов на основе Javascript / Node.js",
-            "pt": "Adaptador de modelo baseado em Javascript / Node.js",
-            "nl": "Javascript / Node.js gebaseerde sjabloonadapter",
-            "fr": "Javascript / Node.js basé adaptateur de modèle",
-            "it": "Adattatore modello basato su Javascript / Node.js",
-            "es": "Adaptador de plantilla basado en JavaScript / Node.js"
+            "pt": "Beckhoff ADS Adaptador baseado em Javascript / Node.js",
+            "nl": "Javascript / Node.js gebaseerde Beckhoff ADS Adapter",
+            "fr": "Javascript / Node.js basé Beckhoff ADS adaptateur",
+            "it": "Beckhoff ADS Adattatore su Javascript / Node.js",
+            "es": "Adaptador de Beckhoff ADS en JavaScript / Node.js"
         },
         "desc": {
-            "en": "ioBroker beckhoff",
-            "de": "ioBroker Beckhoff",
-            "ru": "ioBroker Beckhoff как образец",
-            "pt": "Modelo de adaptador para o ioBroker",
-            "fr": "ioBroker adaptateur modèle",
-            "nl": "ioBroker Beckhoff",
-            "it": "Adattatore modello ioBroker",
-            "es": "Adaptador de plantilla ioBroker"
+            "en": "ioBroker Beckhoff ADS Adapter to communicate with Beckhoff Automation System",
+            "de": "ioBroker Beckhoff ADS Adapter für den Datenaustausch mit einer Beckhoff Steuerung",
+            "ru": "ioBroker Beckhoff ADS как образец",
+            "pt": "Beckhoff ADS adaptador para o ioBroker",
+            "fr": "ioBroker Beckhoff ADS adaptateur ",
+            "nl": "ioBroker Beckhoff ADS",
+            "it": "Adattatore Beckhoff ADS ioBroker",
+            "es": "Adaptador de Beckhoff ADS ioBroker"
         },
         "authors": [
             "dkleber89 <dkleber@gmail.com>"
@@ -51,21 +51,26 @@
         "icon": "beckhoff.png",
         "materialize": true,
         "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.beckhoff/master/admin/beckhoff.png",
-        "keywords": ["beckhoff", "vis", "GUI", "graphical", "scada"],
-        "readme": "https://github.com/ioBroker/ioBroker.beckhoff/blob/master/README.md",
+        "extIcon": "https://raw.githubusercontent.com/dkleber89/ioBroker.beckhoff/master/admin/beckhoff.png",
+        "keywords": [
+            "beckhoff",
+            "ads",
+            "plc",
+            "sps",
+            "steuerung",
+            "twincat"
+        ],
+        "readme": "https://github.com/dkleber89/ioBroker.beckhoff/blob/master/README.md",
         "loglevel": "info",
-        "type": "general",
+        "type": "hardware",
         "license": "MIT",
         "messagebox": false,
-        "restartAdapters": ["vis"]
+        "restartAdapters": []
     },
     "native": {
         "test1": true,
         "test2": 42,
         "mySelect": "auto"
     },
-    "objects": [
-
-    ]
+    "objects": []
 }

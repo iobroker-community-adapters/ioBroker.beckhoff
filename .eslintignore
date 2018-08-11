@@ -4,3 +4,6 @@
 # Testfile doesen´t need to be checked
 # testFile.js
 
+# Files doesn't need to be checked
+/admin/*
+/widgets/*

@@ -1,9 +1,3 @@
-# /node_modules/* and /bower_components/* ignored by default
-
-# EXAMPLE:
-# Testfile doesen´t need to be checked
-# testFile.js
-
 # Files doesn't need to be checked
 /admin/*
 /widgets/*

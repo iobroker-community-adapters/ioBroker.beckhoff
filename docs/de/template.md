@@ -1,3 +1,3 @@
 # Das ist die Dokumentation
 
-(Picture)[img/beckhoff.png)
+![Picture](img/beckhoff.png)

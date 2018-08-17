@@ -1,10 +1,11 @@
-gulpfile.js
+# Folders ignored by Node Package Manager
 admin/i18n
-tasks
 node_modules
 .idea
 .git
-/node_modules
 test
+
+# Files ignored by Node Package Manager
+gulpfile.js
 .travis.yml
 appveyor.yml

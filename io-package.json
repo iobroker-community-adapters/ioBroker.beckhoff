@@ -12,39 +12,21 @@
                 "nl": "Eerste release"
             }
         },
-        "title": "Javascript/Node.js based Beckhoff ADS Adapter",
+        "title": "Beckhoff ADS Adapter",
         "titleLang": {
-            "en": "Javascript/Node.js based Beckhoff ADS Adapter",
-            "de": "Javascript / Node.js basierter Beckhoff ADS Adapter",
-            "ru": "Адаптер шаблонов на основе Javascript / Node.js",
-            "pt": "Beckhoff ADS Adaptador baseado em Javascript / Node.js",
-            "nl": "Javascript / Node.js gebaseerde Beckhoff ADS Adapter",
-            "fr": "Javascript / Node.js basé Beckhoff ADS adaptateur",
-            "it": "Beckhoff ADS Adattatore su Javascript / Node.js",
-            "es": "Adaptador de Beckhoff ADS en JavaScript / Node.js"
+            "en": "Beckhoff ADS Adapter",
+            "de": "Beckhoff ADS Adapter",
         },
         "desc": {
             "en": "ioBroker Beckhoff ADS Adapter to communicate with Beckhoff Automation System",
             "de": "ioBroker Beckhoff ADS Adapter für den Datenaustausch mit einer Beckhoff Steuerung",
-            "ru": "ioBroker Beckhoff ADS как образец",
-            "pt": "Beckhoff ADS adaptador para o ioBroker",
-            "fr": "ioBroker Beckhoff ADS adaptateur ",
-            "nl": "ioBroker Beckhoff ADS",
-            "it": "Adattatore Beckhoff ADS ioBroker",
-            "es": "Adaptador de Beckhoff ADS ioBroker"
         },
         "authors": [
-            "dkleber89 <dkleber@gmail.com>"
+            "dkleber89 <dkleber89@gmail.com>"
         ],
         "docs": {
             "en": "docs/en/admin.md",
-            "ru": "docs/ru/admin.md",
             "de": "docs/de/admin.md",
-            "es": "docs/es/admin.md",
-            "it": "docs/it/admin.md",
-            "fr": "docs/fr/admin.md",
-            "nl": "docs/nl/admin.md",
-            "pt": "docs/pt/admin.md"
         },
         "platform": "Javascript/Node.js",
         "mode": "daemon",

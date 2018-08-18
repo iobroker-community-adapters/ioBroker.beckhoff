@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/dkleber89/ioBroker.beckhoff.svg?branch=master)](https://travis-ci.org/dkleber89/ioBroker.beckhoff)
+[![Build Status](https://travis-ci.org/dkleber89/ioBroker.beckhoff.svg?branch=master)](https://travis-ci.org/dkleber89/ioBroker.beckhoff) [![Build status](https://ci.appveyor.com/api/projects/status/laebb0pq4pd4d08x/branch/master?svg=true)](https://ci.appveyor.com/project/DietmarKleber/iobroker-beckhoff/branch/master)
+
 
 ![Logo](admin/beckhoff.png)
 

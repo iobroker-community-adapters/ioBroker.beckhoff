@@ -12,14 +12,14 @@
                 "nl": "Eerste release"
             }
         },
-        "title": "Beckhoff ADS Adapter",
+        "title": "Beckhoff TwinCat ADS",
         "titleLang": {
-            "en": "Beckhoff ADS Adapter",
-            "de": "Beckhoff ADS Adapter"
+            "en": "Beckhoff TwinCat ADS",
+            "de": "Beckhoff TwinCat ADS"
         },
         "desc": {
-            "en": "ioBroker Beckhoff ADS Adapter to communicate with Beckhoff Automation System",
-            "de": "ioBroker Beckhoff ADS Adapter für den Datenaustausch mit einer Beckhoff Steuerung"
+            "en": "ioBroker Beckhoff TwinCat ADS Adapter to communicate with Beckhoff Automation System",
+            "de": "ioBroker Beckhoff TwinCat ADS Adapter für den Datenaustausch mit einer Beckhoff Steuerung"
         },
         "authors": [
             "dkleber89 <dkleber89@gmail.com>"

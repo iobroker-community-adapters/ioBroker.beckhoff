@@ -1,45 +1,21 @@
-/*
- * The MIT License (MIT)
- *
- * Copyright (c) 2018 dkleber89 <dkleber89@gmail.com>
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- */
 
 'use strict';
 
 // you have to require the utils module and call adapter function
-const utils =    require(__dirname + '/lib/utils'); // Get common adapter utils
+const utils = require(`${__dirname}/lib/utils`); // Get common adapter utils
 
 // you have to call the adapter function and pass a options object
 // name has to be set and has to be equal to adapters folder name and main file name excluding extension
 // adapter will be restarted automatically every time as the configuration changed, e.g system.adapter.beckhoff.0
 const adapter = new utils.Adapter('beckhoff');
 
-/*Variable declaration, since ES6 there are let to declare variables. Let has a more clearer definition where 
+/* Variable declaration, since ES6 there are let to declare variables. Let has a more clearer definition where 
 it is available then var.The variable is available inside a block and it's childs, but not outside. 
 You can define the same variable name inside a child without produce a conflict with the variable of the parent block.*/
-let variable = 1234;
+const variable = 1234;
 
 // is called when adapter shuts down - callback has to be called under any circumstances!
-adapter.on('unload', function (callback) {
+adapter.on('unload', (callback) => {
     try {
         adapter.log.info('cleaned everything up...');
         callback();
@@ -49,15 +25,15 @@ adapter.on('unload', function (callback) {
 });
 
 // is called if a subscribed object changes
-adapter.on('objectChange', function (id, obj) {
+adapter.on('objectChange', (id, obj) => {
     // Warning, obj can be null if it was deleted
-    adapter.log.info('objectChange ' + id + ' ' + JSON.stringify(obj));
+    adapter.log.info(`objectChange ${id} ${JSON.stringify(obj)}`);
 });
 
 // is called if a subscribed state changes
-adapter.on('stateChange', function (id, state) {
+adapter.on('stateChange', (id, state) => {
     // Warning, state can be null if it was deleted
-    adapter.log.info('stateChange ' + id + ' ' + JSON.stringify(state));
+    adapter.log.info(`stateChange ${id} ${JSON.stringify(state)}`);
 
     // you can use the ack flag to detect if it is status (true) or command (false)
     if (state && !state.ack) {
@@ -66,7 +42,7 @@ adapter.on('stateChange', function (id, state) {
 });
 
 // Some message was sent to adapter instance over message box. Used by email, pushover, text2speech, ...
-adapter.on('message', function (obj) {
+adapter.on('message', (obj) => {
     if (typeof obj === 'object' && obj.message) {
         if (obj.command === 'send') {
             // e.g. send email or pushover or whatever
@@ -80,17 +56,16 @@ adapter.on('message', function (obj) {
 
 // is called when databases are connected and adapter received configuration.
 // start here!
-adapter.on('ready', function () {
+adapter.on('ready', () => {
     main();
 });
 
-function main() {
-
+function main () {
     // The adapters config (in the instance object everything under the attribute "native") is accessible via
     // adapter.config:
-    adapter.log.info('config test1: '    + adapter.config.test1);
-    adapter.log.info('config test1: '    + adapter.config.test2);
-    adapter.log.info('config mySelect: ' + adapter.config.mySelect);
+    adapter.log.info(`config test1: ${adapter.config.test1}`);
+    adapter.log.info(`config test1: ${adapter.config.test2}`);
+    adapter.log.info(`config mySelect: ${adapter.config.mySelect}`);
 
 
     /**
@@ -104,13 +79,13 @@ function main() {
      */
 
     adapter.setObject('testVariable', {
-        type: 'state',
-        common: {
-            name: 'testVariable',
-            type: 'boolean',
-            role: 'indicator'
+        'type': 'state',
+        'common': {
+            'name': 'testVariable',
+            'type': 'boolean',
+            'role': 'indicator'
         },
-        native: {}
+        'native': {}
     });
 
     // in this beckhoff all states changes inside the adapters namespace are subscribed
@@ -129,22 +104,18 @@ function main() {
 
     // same thing, but the value is flagged "ack"
     // ack should be always set to true if the value is received from or acknowledged from the target system
-    adapter.setState('testVariable', {val: true, ack: true});
+    adapter.setState('testVariable', {'val': true, 'ack': true});
 
     // same thing, but the state is deleted after 30s (getState will return null afterwards)
-    adapter.setState('testVariable', {val: true, ack: true, expire: 30});
-
+    adapter.setState('testVariable', {'val': true, 'ack': true, 'expire': 30});
 
 
     // examples for the checkPassword/checkGroup functions
-    adapter.checkPassword('admin', 'iobroker', function (res) {
-        console.log('check user admin pw ioboker: ' + res);
+    adapter.checkPassword('admin', 'iobroker', (res) => {
+        console.log(`check user admin pw ioboker: ${res}`);
     });
 
-    adapter.checkGroup('admin', 'admin', function (res) {
-        console.log('check group user admin group admin: ' + res);
+    adapter.checkGroup('admin', 'admin', (res) => {
+        console.log(`check group user admin group admin: ${res}`);
     });
-
-
-
 }

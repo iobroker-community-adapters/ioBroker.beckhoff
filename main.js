@@ -1,21 +1,14 @@
 
 'use strict';
 
-// you have to require the utils module and call adapter function
-const utils = require(`${__dirname}/lib/utils`); // Get common adapter utils
+const utils = require(`${__dirname}/lib/utils`),
+    ads = require('node-ads-api');
 
-// you have to call the adapter function and pass a options object
-// name has to be set and has to be equal to adapters folder name and main file name excluding extension
-// adapter will be restarted automatically every time as the configuration changed, e.g system.adapter.beckhoff.0
 const adapter = new utils.Adapter('beckhoff');
 
-/* Variable declaration, since ES6 there are let to declare variables. Let has a more clearer definition where 
-it is available then var.The variable is available inside a block and it's childs, but not outside. 
-You can define the same variable name inside a child without produce a conflict with the variable of the parent block.*/
-const variable = 1234;
 
-// is called when adapter shuts down - callback has to be called under any circumstances!
-adapter.on('unload', (callback) => {
+// Adapter shuts down
+adapter.on('unload', (callback) => {    // TODO What i have to do when Adapter shuts down??
     try {
         adapter.log.info('cleaned everything up...');
         callback();
@@ -46,7 +39,7 @@ adapter.on('message', (obj) => {
     if (typeof obj === 'object' && obj.message) {
         if (obj.command === 'send') {
             // e.g. send email or pushover or whatever
-            console.log('send command');
+            adapter.log.info('send command');
 
             // Send response in callback if required
             if (obj.callback) adapter.sendTo(obj.from, obj.command, 'Message received', obj.callback);
@@ -60,6 +53,10 @@ adapter.on('ready', () => {
     main();
 });
 
+/**
+ *
+ * @returns {void}
+ */
 function main () {
     // The adapters config (in the instance object everything under the attribute "native") is accessible via
     // adapter.config:
@@ -108,14 +105,4 @@ function main () {
 
     // same thing, but the state is deleted after 30s (getState will return null afterwards)
     adapter.setState('testVariable', {'val': true, 'ack': true, 'expire': 30});
-
-
-    // examples for the checkPassword/checkGroup functions
-    adapter.checkPassword('admin', 'iobroker', (res) => {
-        console.log(`check user admin pw ioboker: ${res}`);
-    });
-
-    adapter.checkGroup('admin', 'admin', (res) => {
-        console.log(`check group user admin group admin: ${res}`);
-    });
 }

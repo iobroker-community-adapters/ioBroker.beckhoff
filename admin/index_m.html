@@ -1,129 +1,152 @@
 
 <html>
-<head>
-<!-- these 4 files always have to be included -->
-<link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
-<link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
+    <head>
+        <!-- these 4 files always have to be included -->
+        <link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
+        <link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
 
-<script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="../../socket.io/socket.io.js"></script>
 
-<!-- these files always have to be included -->
-<script type="text/javascript" src="../../js/translate.js"></script>
-<script type="text/javascript" src="../../lib/js/materialize.js"></script>
-<script type="text/javascript" src="../../js/adapter-settings.js"></script>
-<script type="text/javascript" src="words.js"></script>
- <style>
-  .m .col .select-wrapper+label {
-   top: -26px;  
-  }
-     .m span{
-         font-size: 0.9em;
-     }
- </style>
-<!-- you have to define 2 functions in the global scope: -->
-<script type="text/javascript">
-
-    // the function loadSettings has to exist ...
-    function load(settings, onChange) {
-        // example: select elements with id=key and class=value and insert value
-       if (!settings) return;
-        $('.value').each(function () {            
-            var $key = $(this);
-            var id = $key.attr('id');
-            if ($key.attr('type') === 'checkbox') {
-		        // do not call onChange direct, because onChange could expect some arguments
-                $key.prop('checked', settings[id]).on('change', function() {
-                    onChange();
-                });
-            } else {
-		        // do not call onChange direct, because onChange could expect some arguments
-                $key.val(settings[id]).on('change', function() {
-                    onChange();
-                }).on('keyup', function() {
-                    onChange();
-                });
+        <!-- these files always have to be included -->
+        <script type="text/javascript" src="../../js/translate.js"></script>
+        <script type="text/javascript" src="../../lib/js/materialize.js"></script>
+        <script type="text/javascript" src="../../js/adapter-settings.js"></script>
+        <script type="text/javascript" src="words.js"></script>
+        <style>
+            .m .col .select-wrapper+label {
+                top: -26px;
             }
-        });
-        onChange(false);
-        M.updateTextFields();  // function Materialize.updateTextFields(); to reinitialize all the Materialize labels on the page if you are dynamically adding inputs.
-    }
-
-    // ... and the function save has to exist.
-    // you have to make sure the callback is called with the settings object as first param!
-    function save(callback) {
-        // example: select elements with class=value and build settings object
-        var obj = {};
-        $('.value').each(function () {
-            var $this = $(this);
-            if ($this.attr('type') === 'checkbox') {
-                obj[$this.attr('id')] = $this.prop('checked');
-            } else {
-                obj[$this.attr('id')] = $this.val();
+            .m span{
+                font-size: 0.9em;
             }
-        });
-        callback(obj);
-    }
-</script>
-</head>
-<body>
-    <!-- you have to put your config page in a div with id adapter-container -->
-    <div class="m adapter-container">
-        <div class="row">
-            <!-- Forms are the standard way to receive user inputted data.
-         Learn more http://materializecss.com/forms.html-->
+        </style>
+        <!-- you have to define 2 functions in the global scope: -->
+        <script type="text/javascript">
+
+            // the function loadSettings has to exist ...
+            function load(settings, onChange) {
+                // example: select elements with id=key and class=value and insert value
+                if (!settings) return;
+
+                $('.value').each(() => {
+                    let $key = $(this);
+                    let id = $key.attr('id');
+
+                    if ($key.attr('type') === 'checkbox') {
+                        // do not call onChange direct, because onChange could expect some arguments
+                        $key.prop('checked', settings[id]).on('change', () => {
+                            onChange();
+                        });
+                    } else {
+                        // do not call onChange direct, because onChange could expect some arguments
+                        $key.val(settings[id]).on('change', () => {
+                            onChange();
+                        }).on('keyup', () => {
+                            onChange();
+                        });
+                    }
+                });
+
+                onChange(false);
+
+                M.updateTextFields();  // function Materialize.updateTextFields(); to reinitialize all the Materialize labels on the page if you are dynamically adding inputs.
+            }
+
+            // ... and the function save has to exist.
+            // you have to make sure the callback is called with the settings object as first param!
+            function save(callback) {
+                // example: select elements with class=value and build settings object
+                let obj = {};
+
+                $('.value').each(() => {
+                    let $this = $(this);
+
+                    if ($this.attr('type') === 'checkbox') {
+                        obj[$this.attr('id')] = $this.prop('checked');
+                    } else {
+                        obj[$this.attr('id')] = $this.val();
+                    }
+                });
+
+                callback(obj);
+            }
+        </script>
+    </head>
+    <body>
+        <!-- you have to put your config page in a div with id adapter-container -->
+        <div class="m adapter-container">
             <div class="row">
-                <div class="input-field col s6">
-                    <img src="beckhoff.png" class="logo">
+                <!-- Forms are the standard way to receive user inputted data.
+             Learn more http://materializecss.com/forms.html-->
+                <div class="row">
+                    <div class="input-field col s6">
+                        <img src="beckhoff.png" class="logo">
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s3">
-                    <input class="value" id="test1" type="checkbox" />
-                    <label for="test1" class="translate">test1</label>
+                <div class="row">
+                    <div class="input-field col s12 m4">
+                        <select class="value" id="targetAmsPort">
+                            <option value=801 class="translate">TwinCat 2</option>
+                            <option value=851 class="translate">TwinCat 3</option>
+                        </select>
+                        <label for="targetAmsPort" class="translate">Version</label>
+                        <!-- Important: label must come directly after select. Label is important. -->
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12 m6 l4">
-                    <input class="value" id="myText" type="text">
-                    <label for="myText">Text</label>
-                    <span class="translate">Descriptions of the input field</span>
+                <div class="row">
+                    <div class="input-field col s12 m6 l4">
+                        <input id="targetIpAdress" type="text" pattern="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" class="value validate">
+                        <label for="targetIpAdress" data-error="wrong" data-success="right">Ziel IP-Adresse</label>
+                        <!--  You can add custom validation messages by adding either data-error or data-success attributes to your input field labels.-->
+                        <span class="translate">192.168.0.1</span>
+                    </div>
+                    <div class="input-field col s12 m6 l4">
+                        <input id="targetAmsNetId" type="text" pattern="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" class="value validate">
+                        <label for="targetAmsNetId" data-error="wrong" data-success="right">Ziel AMS-Net-ID</label>
+                        <!--  You can add custom validation messages by adding either data-error or data-success attributes to your input field labels.-->
+                        <span class="translate">192.168.0.1.1.1</span>
+                    </div>
+                    <div class="input-field col s12 m6 l4">
+                        <input type="number" class="value validate" id="targetTcpPort" />
+                        <label for="targetTcpPort" class="translate">Ziel TCP Port</label>
+                        <!-- Important: label must come directly after input. Label is important. -->
+                        <span class="translate">48898</span>
+                    </div>
                 </div>
-                <div class="input-field col s12 m6 l4">
-                    <input type="number" class="value" id="test2" />
-                    <label for="test2" class="translate">Number</label>
-                    <!-- Important: label must come directly after input. Label is important. -->
-                    <span class="translate">test2</span>
+                <div class="row">
+                    <div class="input-field col s12 m6 l4">
+                        <input id="targetVTable" type="text" class="value">
+                        <label for="targetVTable" data-error="wrong" data-success="right">Ziel Variablentabelle</label>
+                        <!--  You can add custom validation messages by adding either data-error or data-success attributes to your input field labels.-->
+                        <span class="translate">ioBrokerSchnittstelle</span>
+                    </div>
                 </div>
-                <div class="input-field col s12 m6 l4">
-                    <input id="email" type="email" class="value validate">
-                    <label for="email" data-error="wrong" data-success="right">Email</label>
-                    <!--  You can add custom validation messages by adding either data-error or data-success attributes to your input field labels.-->
-                    <span class="translate">Verification input</span>
+                <div class="row">
+                    <div class="col s12">
+                        <h5 class="translate">Optional:</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12 m4">
-                    <select class="value" id="mySelect">
-                        <option value="auto" class="translate">Auto</option>
-                        <option value="manual" class="translate">Manual</option>
-                    </select>
-                    <label for="mySelect" class="translate">My select</label>
-                    <!-- Important: label must come directly after select. Label is important. -->
+                <div class="row">
+                    <div class="input-field col s12 m6 l4">
+                        <input id="sourceAmsNetId" type="text" pattern="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" class="value validate">
+                        <label for="sourceAmsNetId" data-error="wrong" data-success="right">Adapter AMS-Net-ID</label>
+                        <!--  You can add custom validation messages by adding either data-error or data-success attributes to your input field labels.-->
+                        <span class="translate">192.168.254.254.1.1</span>
+                    </div>
+                    <div class="input-field col s12 m6 l4">
+                        <input type="number" class="value validate" id="sourceAmsPort" />
+                        <label for="sourceAmsPort" class="translate">Adapter AMS Port</label>
+                        <!-- Important: label must come directly after input. Label is important. -->
+                        <span class="translate">32905</span>
+                    </div>
                 </div>
-                <div class="input-field col s12 m8">
-                    <i class="material-icons prefix">mode_edit</i>
-                    <textarea id="Textarea" class="value materialize-textarea"></textarea>
-                    <label for="Textarea">Message</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12">
-                    <p class="translate">on save adapter restarts with new config immediately</p>
+                <div class="row">
+                    <div class="col s12">
+                        <p class="translate">On save Adapter restarts with new config immediately</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</body>
-
+    </body>
 </html>

@@ -55,7 +55,8 @@
         "targetAmsPort": 851,
         "targetTcpPort": 48898,
         "sourceAmsNetId": "192.168.254.254.1.1",
-        "sourceAmsPort": 32905
+        "sourceAmsPort": 32905,
+        "targetVTable": ""
     },
     "objects": []
 }

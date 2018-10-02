@@ -1,8 +1,7 @@
 
 'use strict';
 
-const utils = require(`${__dirname}/lib/utils`),
-    ads = require('node-ads-api');
+const utils = require(`${__dirname}/lib/utils`);
 
 const adapter = new utils.Adapter('beckhoff');
 

@@ -21,46 +21,71 @@
                 font-size: 0.9em;
             }
         </style>
-        <!-- you have to define 2 functions in the global scope: -->
         <script type="text/javascript">
 
-            // the function loadSettings has to exist ...
+
             function load(settings, onChange) {
-                // example: select elements with id=key and class=value and insert value
+                // Select elements with id=key and class=value
                 if (!settings) return;
 
-                $('.value').each(() => {
-                    let $key = $(this);
-                    let id = $key.attr('id');
+                // Every Field is Valid?
+                function checkvalidity () {
+                    let valid = true;
+
+                    $('.value').each(function () {
+                        const $key = $(this);
+                        const element = document.getElementById($key.attr('id'));
+
+                        if ($key.attr('type') !== 'checkbox' && !element.checkValidity()) {
+                            valid = false;
+                        }
+                    });
+
+                    return valid;
+                }
+
+                // When something Changed then check if all Valid -> activate Save Buttons
+                $('.value').each(function () {
+                    const $key = $(this);
+                    const id = $key.attr('id');
 
                     if ($key.attr('type') === 'checkbox') {
-                        // do not call onChange direct, because onChange could expect some arguments
                         $key.prop('checked', settings[id]).on('change', () => {
-                            onChange();
+                            if (checkvalidity()){
+                                onChange();
+                            } else {
+                                onChange(false);
+                            }
                         });
                     } else {
-                        // do not call onChange direct, because onChange could expect some arguments
-                        $key.val(settings[id]).on('change', () => {
-                            onChange();
-                        }).on('keyup', () => {
-                            onChange();
-                        });
+                        $key.val(settings[id])
+                            .on('change', () => {
+                                if (checkvalidity()){
+                                    onChange();
+                                } else {
+                                    onChange(false);
+                                }
+                            })
+                            .on('keyup', () => {
+                                if (checkvalidity()){
+                                    onChange();
+                                } else {
+                                    onChange(false);
+                                }
+                            });
                     }
                 });
 
+                // Nothing is Changed so Save Button doesen´t need to be activated
                 onChange(false);
-
-                M.updateTextFields();  // function Materialize.updateTextFields(); to reinitialize all the Materialize labels on the page if you are dynamically adding inputs.
             }
 
-            // ... and the function save has to exist.
-            // you have to make sure the callback is called with the settings object as first param!
             function save(callback) {
-                // example: select elements with class=value and build settings object
-                let obj = {};
+                //  Select elements with id=key and class=value and build settings object
+                const obj = {};
 
-                $('.value').each(() => {
-                    let $this = $(this);
+                $('.value').each(function () {
+                    const $this = $(this);
 
                     if ($this.attr('type') === 'checkbox') {
                         obj[$this.attr('id')] = $this.prop('checked');
@@ -74,11 +99,10 @@
         </script>
     </head>
     <body>
-        <!-- you have to put your config page in a div with id adapter-container -->
+        <!-- Config page in a div with class m and adapter-container -> We are using here Materialize Design...
+            Learn more http:// materializecc.com -->
         <div class="m adapter-container">
             <div class="row">
-                <!-- Forms are the standard way to receive user inputted data.
-             Learn more http://materializecss.com/forms.html-->
                 <div class="row">
                     <div class="input-field col s6">
                         <img src="beckhoff.png" class="logo">
@@ -87,39 +111,39 @@
                 <div class="row">
                     <div class="input-field col s12 m4">
                         <select class="value" id="targetAmsPort">
-                            <option value=801 class="translate">TwinCat 2</option>
-                            <option value=851 class="translate">TwinCat 3</option>
+                            <option value=801>TwinCat 2</option>
+                            <option value=851>TwinCat 3</option>
                         </select>
-                        <label for="targetAmsPort" class="translate">Version</label>
-                        <!-- Important: label must come directly after select. Label is important. -->
+                        <label for="targetAmsPort" class="translate">PLC Runtime Version</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m6 l4">
-                        <input id="targetIpAdress" type="text" pattern="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" class="value validate">
-                        <label for="targetIpAdress" data-error="wrong" data-success="right">Ziel IP-Adresse</label>
-                        <!--  You can add custom validation messages by adding either data-error or data-success attributes to your input field labels.-->
-                        <span class="translate">192.168.0.1</span>
+                        <input id="targetIpAdress" type="text" required pattern="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" class="value validate">
+                        <label for="targetIpAdress" class="translate">Target IP-Adress</label>
+                        <span class="translate">e.g. 192.168.0.1</span>
                     </div>
                     <div class="input-field col s12 m6 l4">
-                        <input id="targetAmsNetId" type="text" pattern="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" class="value validate">
-                        <label for="targetAmsNetId" data-error="wrong" data-success="right">Ziel AMS-Net-ID</label>
-                        <!--  You can add custom validation messages by adding either data-error or data-success attributes to your input field labels.-->
-                        <span class="translate">192.168.0.1.1.1</span>
+                        <input id="targetAmsNetId" type="text" required pattern="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" class="value validate">
+                        <label for="targetAmsNetId" class="translate">Target AMS-Net-ID</label>
+                        <span class="translate">e.g. 192.168.0.1.1.1</span>
                     </div>
                     <div class="input-field col s12 m6 l4">
-                        <input type="number" class="value validate" id="targetTcpPort" />
-                        <label for="targetTcpPort" class="translate">Ziel TCP Port</label>
-                        <!-- Important: label must come directly after input. Label is important. -->
-                        <span class="translate">48898</span>
+                        <input type="number" class="value validate" id="targetTcpPort" required step="1"/>
+                        <label for="targetTcpPort" class="translate">Target TCP Port</label>
+                        <span class="translate">e.g. 48898</span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m6 l4">
                         <input id="targetVTable" type="text" class="value">
-                        <label for="targetVTable" data-error="wrong" data-success="right">Ziel Variablentabelle</label>
-                        <!--  You can add custom validation messages by adding either data-error or data-success attributes to your input field labels.-->
-                        <span class="translate">ioBrokerSchnittstelle</span>
+                        <label for="targetVTable" class="translate">Target variable table</label>
+                        <span class="translate">e.g. ioBrokerHandshake</span>
+                    </div>
+                    <div class="input-field col s12 m6 l4">
+                        <input type="number" class="value validate" id="reconnectInterval" min="5" required step="1"/>
+                        <label for="reconnectInterval" class="translate">Interval for reconnect</label>
+                        <span class="translate">In Seconds (min. 5 Sec)</span>
                     </div>
                 </div>
                 <div class="row">
@@ -129,16 +153,14 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m6 l4">
-                        <input id="sourceAmsNetId" type="text" pattern="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" class="value validate">
-                        <label for="sourceAmsNetId" data-error="wrong" data-success="right">Adapter AMS-Net-ID</label>
-                        <!--  You can add custom validation messages by adding either data-error or data-success attributes to your input field labels.-->
-                        <span class="translate">192.168.254.254.1.1</span>
+                        <input id="sourceAmsNetId" type="text" required pattern="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" class="value validate">
+                        <label for="sourceAmsNetId"  class="translate">Adapter AMS-Net-ID</label>
+                        <span class="translate">e.g. 192.168.254.254.1.1</span>
                     </div>
                     <div class="input-field col s12 m6 l4">
-                        <input type="number" class="value validate" id="sourceAmsPort" />
+                        <input type="number" class="value validate" id="sourceAmsPort" required step="1"/>
                         <label for="sourceAmsPort" class="translate">Adapter AMS Port</label>
-                        <!-- Important: label must come directly after input. Label is important. -->
-                        <span class="translate">32905</span>
+                        <span class="translate">e.g. 32905</span>
                     </div>
                 </div>
                 <div class="row">

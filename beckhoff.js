@@ -1,28 +1,38 @@
 
 'use strict';
 
-const utils = require(`${__dirname}/lib/utils`);
+const utils = require(`${__dirname}/lib/utils.js`),
+    plcConnection = require(`${__dirname}/lib/plcConnection.js`),
+    events = require('events');
 
-const adapter = new utils.Adapter('beckhoff');
+const emitter = new events.EventEmitter();
 
+let adsClient = {};
 
-// Adapter shuts down
-adapter.on('unload', (callback) => {    // TODO What i have to do when Adapter shuts down??
-    try {
-        adapter.log.info('cleaned everything up...');
-        callback();
-    } catch (e) {
-        callback();
+const adapter = new utils.Adapter({
+    'name': 'beckhoff',
+    'ready': () => {
+        plcConnection(adapter, emitter, (adsC) => {
+            adsClient = adsC;
+        });
+
+        adapter.subscribeStates('*');
+    },
+    'unload': () => {
+        adsClient.end();
+        adapter.setState('info.connection', false, true);
+
+        adapter.log.info('Stopped and Connection closed');
     }
 });
 
-// is called if a subscribed object changes
+// A subscribed object changes
 adapter.on('objectChange', (id, obj) => {
     // Warning, obj can be null if it was deleted
     adapter.log.info(`objectChange ${id} ${JSON.stringify(obj)}`);
 });
 
-// is called if a subscribed state changes
+// A subscribed state changes
 adapter.on('stateChange', (id, state) => {
     // Warning, state can be null if it was deleted
     adapter.log.info(`stateChange ${id} ${JSON.stringify(state)}`);
@@ -33,7 +43,7 @@ adapter.on('stateChange', (id, state) => {
     }
 });
 
-// Some message was sent to adapter instance over message box. Used by email, pushover, text2speech, ...
+// Some message was sent to adapter instance over message box.
 adapter.on('message', (obj) => {
     if (typeof obj === 'object' && obj.message) {
         if (obj.command === 'send') {
@@ -46,20 +56,11 @@ adapter.on('message', (obj) => {
     }
 });
 
-// is called when databases are connected and adapter received configuration.
-// start here!
-adapter.on('ready', () => {
-    main();
-});
 
-/**
- *
- * @returns {void}
- */
-function main () {
+function template () {
     // The adapters config (in the instance object everything under the attribute "native") is accessible via
     // adapter.config:
-    adapter.log.info(`config test1: ${adapter.config.test1}`);
+    adapter.log.info(`config test1: ${adapter.config.test2}`);
     adapter.log.info(`config test1: ${adapter.config.test2}`);
     adapter.log.info(`config mySelect: ${adapter.config.mySelect}`);
 

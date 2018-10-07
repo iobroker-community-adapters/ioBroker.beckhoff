@@ -438,7 +438,7 @@ gulp.task('rename', function ()  {
         __dirname + '/LICENSE',
         __dirname + '/package.json',
         __dirname + '/README.md',
-        __dirname + '/main.js',
+        __dirname + '/beckhoff.js',
         __dirname + '/gulpfile.js',
         __dirname + '/widgets/' + newname +'.html',
         __dirname + '/www/index.html',

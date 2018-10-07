@@ -56,7 +56,30 @@
         "targetTcpPort": 48898,
         "sourceAmsNetId": "192.168.254.254.1.1",
         "sourceAmsPort": 32905,
-        "targetVTable": ""
+        "targetVTable": "",
+        "reconnectInterval": 15
     },
-    "objects": []
+    "objects": [
+        {
+            "_id": "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "Connected to PLC",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        }
+    ]
 }

@@ -7,7 +7,7 @@ const utils = require(`${__dirname}/lib/utils.js`),
 
 const emitter = new events.EventEmitter();
 
-let adsClient = {};
+let adsClient = null;
 
 const adapter = new utils.Adapter({
     'name': 'beckhoff',
@@ -19,7 +19,10 @@ const adapter = new utils.Adapter({
         adapter.subscribeStates('*');
     },
     'unload': () => {
-        adsClient.end();
+        if (adsClient !== null) {
+            adsClient.end();
+        }
+
         adapter.setState('info.connection', false, true);
 
         adapter.log.info('Stopped and Connection closed');

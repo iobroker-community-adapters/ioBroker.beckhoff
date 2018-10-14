@@ -3,6 +3,7 @@
 
 const utils = require(`${__dirname}/lib/utils.js`),
     plcConnection = require(`${__dirname}/lib/plcConnection.js`),
+    plcVarSync = require(`${__dirname}/lib/plcVarSync.js`),
     events = require('events');
 
 const emitter = new events.EventEmitter();
@@ -26,6 +27,15 @@ const adapter = new utils.Adapter({
         adapter.setState('info.connection', false, true);
 
         adapter.log.info('Stopped and Connection closed');
+    },
+    'objectChange': (id, obj) => {
+        if (!obj) {
+            return;
+        }
+
+        if (id === 'info.plcRun' && obj.value === true) {
+            plcVarSync(adsClient, adapter);
+        }
     }
 });
 
@@ -60,52 +70,52 @@ adapter.on('message', (obj) => {
 });
 
 
-function template () {
-    // The adapters config (in the instance object everything under the attribute "native") is accessible via
-    // adapter.config:
-    adapter.log.info(`config test1: ${adapter.config.test2}`);
-    adapter.log.info(`config test1: ${adapter.config.test2}`);
-    adapter.log.info(`config mySelect: ${adapter.config.mySelect}`);
-
-
-    /**
-     *
-     *      For every state in the system there has to be also an object of type state
-     *
-     *      Here a simple beckhoff for a boolean variable named "testVariable"
-     *
-     *      Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
-     *
-     */
-
-    adapter.setObject('testVariable', {
-        'type': 'state',
-        'common': {
-            'name': 'testVariable',
-            'type': 'boolean',
-            'role': 'indicator'
-        },
-        'native': {}
-    });
-
-    // in this beckhoff all states changes inside the adapters namespace are subscribed
-    adapter.subscribeStates('*');
-
-
-    /**
-     *   setState examples
-     *
-     *   you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
-     *
-     */
-
-    // the variable testVariable is set to true as command (ack=false)
-    adapter.setState('testVariable', true);
-
-    // same thing, but the value is flagged "ack"
-    // ack should be always set to true if the value is received from or acknowledged from the target system
-    adapter.setState('testVariable', {'val': true, 'ack': true});
-
-    // same thing, but the state is deleted after 30s (getState will return null afterwards)
-    adapter.setState('testVariable', {'val': true, 'ack': true, 'expire': 30});
-}
+// function template () {
+//     // The adapters config (in the instance object everything under the attribute "native") is accessible via
+//     // adapter.config:
+//     adapter.log.info(`config test1: ${adapter.config.test2}`);
+//     adapter.log.info(`config test1: ${adapter.config.test2}`);
+//     adapter.log.info(`config mySelect: ${adapter.config.mySelect}`);
+//
+//
+//     /**
+//      *
+//      *      For every state in the system there has to be also an object of type state
+//      *
+//      *      Here a simple beckhoff for a boolean variable named "testVariable"
+//      *
+//      *      Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
+//      *
+//      */
+//
+//     adapter.setObject('testVariable', {
+//         'type': 'state',
+//         'common': {
+//             'name': 'testVariable',
+//             'type': 'boolean',
+//             'role': 'indicator'
+//         },
+//         'native': {}
+//     });
+//
+//     // in this beckhoff all states changes inside the adapters namespace are subscribed
+//     adapter.subscribeStates('*');
+//
+//
+//     /**
+//      *   setState examples
+//      *
+//      *   you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
+//      *
+//      */
+//
+//     // the variable testVariable is set to true as command (ack=false)
+//     adapter.setState('testVariable', true);
+//
+//     // same thing, but the value is flagged "ack"
+//     // ack should be always set to true if the value is received from or acknowledged from the target system
+//     adapter.setState('testVariable', {'val': true, 'ack': true});
+//
+//     // same thing, but the state is deleted after 30s (getState will return null afterwards)
+//     adapter.setState('testVariable', {'val': true, 'ack': true, 'expire': 30});
+// }

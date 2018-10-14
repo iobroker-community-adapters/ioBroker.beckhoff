@@ -116,7 +116,7 @@ module.exports = {
         "max-depth": "error",
         "max-len": ["error",
             {
-                "code": 100,
+                "code": 150,
                 "ignoreComments": true,
                 "ignoreTrailingComments": true,
                 "ignoreStrings": true
@@ -287,7 +287,12 @@ module.exports = {
         ],
         "padding-line-between-statements": "error",
         "prefer-arrow-callback": "error",
-        "prefer-const": "error",
+        "prefer-const": [
+            "error",
+            {
+                "destructuring": "all"
+            }
+        ],
         "prefer-destructuring": "off",
         "prefer-numeric-literals": "error",
         "prefer-object-spread": "off",

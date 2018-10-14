@@ -57,7 +57,8 @@
         "sourceAmsNetId": "192.168.254.254.1.1",
         "sourceAmsPort": 32905,
         "targetVTable": "",
-        "reconnectInterval": 15
+        "reconnectInterval": 15,
+        "symbolObjectList" : []
     },
     "objects": [
         {
@@ -74,6 +75,19 @@
             "common": {
                 "role": "indicator.connected",
                 "name": "Connected to PLC",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.plcRun",
+            "type": "state",
+            "common": {
+                "role": "indicator.maintenance",
+                "name": "Connected PLC are in Run Mode",
                 "type": "boolean",
                 "read": true,
                 "write": false,

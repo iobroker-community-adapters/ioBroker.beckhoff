@@ -13,6 +13,8 @@ The ADS Protocol is implemented in every System of Beckhoff and can be used with
 
 ## Changelog
 
+### 0.0.2 (2018-10-20)
+* (dkleber89) Milestone Connection and Sync, no Release yet
 ### 0.0.1 (2018-08-17)
 * (dkleber89) Development, no Release yet
 

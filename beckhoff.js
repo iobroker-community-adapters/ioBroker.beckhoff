@@ -1,14 +1,41 @@
 
+/*
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2018 dkleber89 <dkleber89@gmail.com>
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ */
+
 'use strict';
 
 const utils = require(`${__dirname}/lib/utils.js`),
     plcConnection = require(`${__dirname}/lib/plcConnection.js`),
     plcVarSync = require(`${__dirname}/lib/plcVarSync.js`),
+    ads = require('node-ads-api'),
     events = require('events');
 
 const emitter = new events.EventEmitter();
 
-let adsClient = null;
+let adsClient = null,
+    checkPlcStateInterval = null;
 
 const adapter = new utils.Adapter({
     'name': 'beckhoff',
@@ -29,94 +56,41 @@ const adapter = new utils.Adapter({
 
         adapter.log.info('Stopped and Connection closed');
     },
-    'objectChange': (id, obj) => {
-        if (!obj) {
+    'stateChange': (id, state) => {
+        if (!state) {
             return;
         }
 
-        if (id === 'info.plcRun' && obj.value === true) {
-            plcVarSync(adsClient, adapter);
+        if (id === `${adapter.namespace}.info.connection` && state.val === true) {
+            if (checkPlcStateInterval === null) {
+                checkPlcStateInterval = setInterval(() => {
+                    this.readState((err, res) => {
+                        if (err) {
+                            adapter.log.error(`adsClientReadDeviceStateError: ${err}`);
+                            emitter.emit('disconnecting');
+                        } else {
+                            if (res.adsState === ads.ADSSTATE.RUN) {
+                                adapter.setState('info.plcRun', true, true);
+                            } else {
+                                adapter.setState('info.plcRun', false, true);
+                            }
+
+                            adapter.log.debug(`State of PLC: ${ads.ADSSTATE.fromId(res.adsState)}`);
+                        }
+                    });
+                }, adapter.config.reconnectInterval * 1000);
+            }
+        }
+
+        if (id === `${adapter.namespace}.info.connection` && state.val !== false) {
+            if (checkPlcStateInterval !== null) {
+                clearInterval(checkPlcStateInterval);
+                checkPlcStateInterval = null;
+            }
+        }
+
+        if (id === `${adapter.namespace}.info.plcRun` && state.val === true) {
+            plcVarSync(adsClient, adapter, emitter);
         }
     }
 });
-
-// A subscribed object changes
-adapter.on('objectChange', (id, obj) => {
-    // Warning, obj can be null if it was deleted
-    adapter.log.info(`objectChange ${id} ${JSON.stringify(obj)}`);
-});
-
-// A subscribed state changes
-adapter.on('stateChange', (id, state) => {
-    // Warning, state can be null if it was deleted
-    adapter.log.info(`stateChange ${id} ${JSON.stringify(state)}`);
-
-    // you can use the ack flag to detect if it is status (true) or command (false)
-    if (state && !state.ack) {
-        adapter.log.info('ack is not set!');
-    }
-});
-
-// Some message was sent to adapter instance over message box.
-adapter.on('message', (obj) => {
-    if (typeof obj === 'object' && obj.message) {
-        if (obj.command === 'send') {
-            // e.g. send email or pushover or whatever
-            adapter.log.info('send command');
-
-            // Send response in callback if required
-            if (obj.callback) adapter.sendTo(obj.from, obj.command, 'Message received', obj.callback);
-        }
-    }
-});
-
-
-// function template () {
-//     // The adapters config (in the instance object everything under the attribute "native") is accessible via
-//     // adapter.config:
-//     adapter.log.info(`config test1: ${adapter.config.test2}`);
-//     adapter.log.info(`config test1: ${adapter.config.test2}`);
-//     adapter.log.info(`config mySelect: ${adapter.config.mySelect}`);
-//
-//
-//     /**
-//      *
-//      *      For every state in the system there has to be also an object of type state
-//      *
-//      *      Here a simple beckhoff for a boolean variable named "testVariable"
-//      *
-//      *      Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
-//      *
-//      */
-//
-//     adapter.setObject('testVariable', {
-//         'type': 'state',
-//         'common': {
-//             'name': 'testVariable',
-//             'type': 'boolean',
-//             'role': 'indicator'
-//         },
-//         'native': {}
-//     });
-//
-//     // in this beckhoff all states changes inside the adapters namespace are subscribed
-//     adapter.subscribeStates('*');
-//
-//
-//     /**
-//      *   setState examples
-//      *
-//      *   you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
-//      *
-//      */
-//
-//     // the variable testVariable is set to true as command (ack=false)
-//     adapter.setState('testVariable', true);
-//
-//     // same thing, but the value is flagged "ack"
-//     // ack should be always set to true if the value is received from or acknowledged from the target system
-//     adapter.setState('testVariable', {'val': true, 'ack': true});
-//
-//     // same thing, but the state is deleted after 30s (getState will return null afterwards)
-//     adapter.setState('testVariable', {'val': true, 'ack': true, 'expire': 30});
-// }

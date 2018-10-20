@@ -1,47 +1,47 @@
 {
-  "name": "iobroker.beckhoff",
-  "version": "0.0.1",
-  "description": "beckhoff",
-  "author": {
-    "name": "dkleber89",
-    "email": "dkleber89@gmail.com"
-  },
-  "contributors": [
-    {
-      "name": "dkleber89",
-      "email": "dkleber89@gmail.com"
-    }
-  ],
-  "homepage": "https://github.com/ioBroker/ioBroker.beckhoff",
-  "license": "MIT",
-  "keywords": [
-    "ioBroker",
-    "beckhoff",
-    "smart home",
-    "home automation",
-    "ads",
-    "plc",
-    "twincat",
-    "plc"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ioBroker/ioBroker.beckhoff"
-  },
-  "dependencies": {
-    "node-ads-api": "^1.4.5"
-  },
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "mocha": "^4.1.0",
-    "chai": "^4.1.2"
-  },
-  "main": "beckhoff.js",
-  "scripts": {
-    "test": "node node_modules/mocha/bin/mocha --exit"
-  },
-  "bugs": {
-    "url": "https://github.com/ioBroker/ioBroker.beckhoff/issues"
-  },
-  "readmeFilename": "README.md"
+    "name": "iobroker.beckhoff",
+    "version": "0.0.2",
+    "description": "beckhoff",
+    "author": {
+        "name": "dkleber89",
+        "email": "dkleber89@gmail.com"
+    },
+    "contributors": [
+        {
+            "name": "dkleber89",
+            "email": "dkleber89@gmail.com"
+        }
+    ],
+    "homepage": "https://github.com/ioBroker/ioBroker.beckhoff",
+    "license": "MIT",
+    "keywords": [
+        "ioBroker",
+        "beckhoff",
+        "smart home",
+        "home automation",
+        "ads",
+        "plc",
+        "twincat",
+        "plc"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ioBroker/ioBroker.beckhoff"
+    },
+    "dependencies": {
+        "node-ads-api": "^1.4.5"
+    },
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "mocha": "^4.1.0",
+        "chai": "^4.1.2"
+    },
+    "main": "beckhoff.js",
+    "scripts": {
+        "test": "node node_modules/mocha/bin/mocha --exit"
+    },
+    "bugs": {
+        "url": "https://github.com/ioBroker/ioBroker.beckhoff/issues"
+    },
+    "readmeFilename": "README.md"
 }

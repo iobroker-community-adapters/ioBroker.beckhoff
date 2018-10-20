@@ -60,7 +60,7 @@
         "reconnectInterval": 15,
         "symbolObjectList" : []
     },
-    "objects": [
+    "instanceObjects": [
         {
             "_id": "info",
             "type": "channel",

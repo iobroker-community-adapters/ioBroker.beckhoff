@@ -13,11 +13,11 @@ let adsClient = null;
 const adapter = new utils.Adapter({
     'name': 'beckhoff',
     'ready': () => {
+        adapter.subscribeStates('*');
+
         plcConnection(adapter, emitter, (adsC) => {
             adsClient = adsC;
         });
-
-        adapter.subscribeStates('*');
     },
     'unload': () => {
         if (adsClient !== null) {
@@ -25,6 +25,7 @@ const adapter = new utils.Adapter({
         }
 
         adapter.setState('info.connection', false, true);
+        adapter.setState('info.plcRun', false, true);
 
         adapter.log.info('Stopped and Connection closed');
     },

@@ -54,6 +54,11 @@ const adapter = new utils.Adapter({
         adapter.setState('info.connection', false, true);
         adapter.setState('info.plcRun', false, true);
 
+        if (checkPlcStateInterval !== null) {
+            clearInterval(checkPlcStateInterval);
+            checkPlcStateInterval = null;
+        }
+
         adapter.log.info('Stopped and Connection closed');
     },
     'stateChange': (id, state) => {
@@ -80,6 +85,8 @@ const adapter = new utils.Adapter({
                     });
                 }, adapter.config.reconnectInterval * 1000);
             }
+
+            return;
         }
 
         if (id === `${adapter.namespace}.info.connection` && state.val !== false) {
@@ -87,6 +94,8 @@ const adapter = new utils.Adapter({
                 clearInterval(checkPlcStateInterval);
                 checkPlcStateInterval = null;
             }
+
+            return;
         }
 
         if (id === `${adapter.namespace}.info.plcRun` && state.val === true) {

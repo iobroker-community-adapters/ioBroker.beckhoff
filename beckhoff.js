@@ -26,26 +26,29 @@
 
 'use strict';
 
-const utils = require(`${__dirname}/lib/utils.js`),
-    plcConnection = require(`${__dirname}/lib/plcConnection.js`),
-    plcVarSync = require(`${__dirname}/lib/plcVarSync.js`),
-    ads = require('node-ads-api'),
-    events = require('events');
+const ads = require('node-ads-api'),
+    events = require('events'),
+    lib = require('./lib');
 
 const emitter = new events.EventEmitter();
 
 let adsClient = null,
     checkPlcStateInterval = null;
 
-const adapter = new utils.Adapter({
+// Create new Adapter instance
+const adapter = new lib.utils.Adapter({
     'name': 'beckhoff',
+    // When Adapter is ready then connecting to PLC and Subscribe necessary Handlers
     'ready': () => {
         adapter.subscribeStates('*');
 
-        plcConnection(adapter, emitter, (adsC) => {
+        lib.plcConnection(adapter, emitter, (adsC) => {
             adsClient = adsC;
         });
+
+        lib.workerPlcToAdapter(adsClient, adapter, emitter);
     },
+    // When Adapter would be stopped some last work we have to do
     'unload': () => {
         if (adsClient !== null) {
             adsClient.end();
@@ -61,15 +64,38 @@ const adapter = new utils.Adapter({
 
         adapter.log.info('Stopped and Connection closed');
     },
+    // These Function is called when one of the subscribed State fires a 'stateChange' event
     'stateChange': (id, state) => {
         if (!state) {
             return;
         }
 
+        if (id === `${adapter.namespace}.info.connection` && state.val !== false) {
+            if (checkPlcStateInterval !== null) {
+                clearInterval(checkPlcStateInterval);
+                checkPlcStateInterval = null;
+            }
+
+            return;
+        }
+
+        // When PLC State changes to true make a Resync of Symbol Table
+        if (id === `${adapter.namespace}.info.plcRun` && state.val === true) {
+            lib.plcVarSyncronizing(adsClient, adapter, emitter);
+
+            return;
+        }
+
+        // Write the Changes of States to PLC
+        if (lib.workerAdapterToPlc(adsClient, adapter, emitter, state)) {
+            return;
+        }
+
+        // When connection is established checking Run State of PLC in some Intervals
         if (id === `${adapter.namespace}.info.connection` && state.val === true) {
             if (checkPlcStateInterval === null) {
                 checkPlcStateInterval = setInterval(() => {
-                    this.readState((err, res) => {
+                    adsClient.readState((err, res) => {
                         if (err) {
                             adapter.log.error(`adsClientReadDeviceStateError: ${err}`);
                             emitter.emit('disconnecting');
@@ -85,21 +111,6 @@ const adapter = new utils.Adapter({
                     });
                 }, adapter.config.reconnectInterval * 1000);
             }
-
-            return;
-        }
-
-        if (id === `${adapter.namespace}.info.connection` && state.val !== false) {
-            if (checkPlcStateInterval !== null) {
-                clearInterval(checkPlcStateInterval);
-                checkPlcStateInterval = null;
-            }
-
-            return;
-        }
-
-        if (id === `${adapter.namespace}.info.plcRun` && state.val === true) {
-            plcVarSync(adsClient, adapter, emitter);
         }
     }
 });

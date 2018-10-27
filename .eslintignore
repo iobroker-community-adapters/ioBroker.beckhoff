@@ -1,4 +1,6 @@
 # Files doesn't need to be checked
-/admin/*
 gulpfile.js
-/test/*
+/lib/utils.js
+/admin/
+/test/
+

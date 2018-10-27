@@ -38,7 +38,7 @@ let adsClient = null,
 // Create new Adapter instance
 const adapter = new lib.utils.Adapter({
     'name': 'beckhoff',
-    // When Adapter is ready then connecting to PLC and Subscribe necessary Handlers
+    // When Adapter is ready then connecting to PLC and Subscribe necessary Handles
     'ready': () => {
         adapter.subscribeStates('*');
 
@@ -46,7 +46,9 @@ const adapter = new lib.utils.Adapter({
             adsClient = adsC;
         });
 
-        lib.workerPlcToAdapter(adsClient, adapter, emitter);
+        emitter.on('updateObjects', () => {
+            lib.createObjectsAndHandles(adsClient, adapter);
+        });
     },
     // When Adapter would be stopped some last work we have to do
     'unload': () => {
@@ -70,15 +72,6 @@ const adapter = new lib.utils.Adapter({
             return;
         }
 
-        if (id === `${adapter.namespace}.info.connection` && state.val !== false) {
-            if (checkPlcStateInterval !== null) {
-                clearInterval(checkPlcStateInterval);
-                checkPlcStateInterval = null;
-            }
-
-            return;
-        }
-
         // When PLC State changes to true make a Resync of Symbol Table
         if (id === `${adapter.namespace}.info.plcRun` && state.val === true) {
             lib.plcVarSyncronizing(adsClient, adapter, emitter);
@@ -87,12 +80,21 @@ const adapter = new lib.utils.Adapter({
         }
 
         // Write the Changes of States to PLC
-        if (lib.workerAdapterToPlc(adsClient, adapter, emitter, state)) {
+        if (lib.workerAdapterToPlc(adsClient, adapter, emitter, state, id)) {
             return;
         }
 
         // When connection is established checking Run State of PLC in some Intervals
-        if (id === `${adapter.namespace}.info.connection` && state.val === true) {
+        if (id === `${adapter.namespace}.info.connection`) {
+            if (state.val === false) {
+                if (checkPlcStateInterval !== null) {
+                    clearInterval(checkPlcStateInterval);
+                    checkPlcStateInterval = null;
+                }
+
+                return;
+            }
+
             if (checkPlcStateInterval === null) {
                 checkPlcStateInterval = setInterval(() => {
                     adsClient.readState((err, res) => {
@@ -111,6 +113,8 @@ const adapter = new lib.utils.Adapter({
                     });
                 }, adapter.config.reconnectInterval * 1000);
             }
+
+            lib.workerPlcToAdapter(adsClient, adapter, emitter);
         }
     }
 });

@@ -33,7 +33,9 @@ const ads = require('node-ads-api'),
 const emitter = new events.EventEmitter();
 
 let adsClient = null,
-    checkPlcStateInterval = null;
+    checkPlcStateInterval = null,
+    oldConnectionState = false,
+    oldPlcState = false;
 
 // Create new Adapter instance
 const adapter = new lib.utils.Adapter({
@@ -52,17 +54,19 @@ const adapter = new lib.utils.Adapter({
     },
     // When Adapter would be stopped some last work we have to do
     'unload': () => {
+        emitter.removeAllListeners();
+
+        if (checkPlcStateInterval !== null) {
+            clearInterval(checkPlcStateInterval);
+            checkPlcStateInterval = null;
+        }
+
         if (adsClient !== null) {
             adsClient.end();
         }
 
         adapter.setState('info.connection', false, true);
         adapter.setState('info.plcRun', false, true);
-
-        if (checkPlcStateInterval !== null) {
-            clearInterval(checkPlcStateInterval);
-            checkPlcStateInterval = null;
-        }
 
         adapter.log.info('Stopped and Connection closed');
     },
@@ -73,19 +77,35 @@ const adapter = new lib.utils.Adapter({
         }
 
         // When PLC State changes to true make a Resync of Symbol Table
-        if (id === `${adapter.namespace}.info.plcRun` && state.val === true) {
-            lib.plcVarSyncronizing(adsClient, adapter, emitter);
+        if (id === `${adapter.namespace}.info.plcRun`) {
+            // Only when Value has changed need to do something
+            if (oldPlcState === state.val) {
+                return;
+            }
+
+            oldPlcState = state.val;
+
+            if (state.val === true) {
+                lib.plcVarSyncronizing(adsClient, adapter, emitter);
+            }
 
             return;
         }
 
-        // Write the Changes of States to PLC
+        // Write changes of States to PLC
         if (lib.workerAdapterToPlc(adsClient, adapter, emitter, state, id)) {
             return;
         }
 
-        // When connection is established checking Run State of PLC in some Intervals
+        // When connection is established checking Run State of PLC in some Intervals otherwise delete Interval
         if (id === `${adapter.namespace}.info.connection`) {
+            // Only when Value has changed need to do something
+            if (oldConnectionState === state.val) {
+                return;
+            }
+
+            oldConnectionState = state.val;
+
             if (state.val === false) {
                 if (checkPlcStateInterval !== null) {
                     clearInterval(checkPlcStateInterval);
@@ -114,6 +134,7 @@ const adapter = new lib.utils.Adapter({
                 }, adapter.config.reconnectInterval * 1000);
             }
 
+            // Connect Worker to write changes of Symbol Values in PLC to ioBroker
             lib.workerPlcToAdapter(adsClient, adapter, emitter);
         }
     }

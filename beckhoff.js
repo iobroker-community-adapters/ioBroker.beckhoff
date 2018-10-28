@@ -26,8 +26,7 @@
 
 'use strict';
 
-const ads = require('node-ads-api'),
-    events = require('events'),
+const events = require('events'),
     lib = require('./lib');
 
 const emitter = new events.EventEmitter();
@@ -68,7 +67,9 @@ const adapter = new lib.utils.Adapter({
         adapter.setState('info.connection', false, true);
         adapter.setState('info.plcRun', false, true);
 
-        adapter.log.info('Stopped and Connection closed');
+        if (adapter.log) {
+            adapter.log.info('Stopped and Connection closed');
+        }
     },
     // These Function is called when one of the subscribed State fires a 'stateChange' event
     'stateChange': (id, state) => {
@@ -76,66 +77,49 @@ const adapter = new lib.utils.Adapter({
             return;
         }
 
-        // When PLC State changes to true make a Resync of Symbol Table
-        if (id === `${adapter.namespace}.info.plcRun`) {
-            // Only when Value has changed need to do something
-            if (oldPlcState === state.val) {
-                return;
-            }
+        const shortId = id.substring(id.indexOf('.', 9) + 1, id.length);
 
-            oldPlcState = state.val;
+        switch (shortId) {
+            case 'info.connection':
+                // Only when Value has changed need to do something
+                if (oldConnectionState === state.val) {
+                    return;
+                }
 
-            if (state.val === true) {
-                lib.plcVarSyncronizing(adsClient, adapter, emitter);
-            }
+                oldConnectionState = state.val;
 
-            return;
-        }
+                if (state.val === true) {
+                    // Connect Worker to write changes of Symbol Values in PLC to ioBroker
+                    lib.workerPlcToAdapter(adsClient, adapter, emitter);
 
-        // Write changes of States to PLC
-        if (lib.workerAdapterToPlc(adsClient, adapter, emitter, state, id)) {
-            return;
-        }
-
-        // When connection is established checking Run State of PLC in some Intervals otherwise delete Interval
-        if (id === `${adapter.namespace}.info.connection`) {
-            // Only when Value has changed need to do something
-            if (oldConnectionState === state.val) {
-                return;
-            }
-
-            oldConnectionState = state.val;
-
-            if (state.val === false) {
-                if (checkPlcStateInterval !== null) {
+                    if (checkPlcStateInterval === null) {
+                        checkPlcStateInterval = setInterval(() => {
+                            lib.checkPlcState(adsClient, adapter, emitter);
+                        }, adapter.config.reconnectInterval * 1000);
+                    }
+                } else if (checkPlcStateInterval !== null) {
                     clearInterval(checkPlcStateInterval);
                     checkPlcStateInterval = null;
                 }
+                break;
+            case 'info.plcRun':
+                // Only when Value has changed need to do something
+                if (oldPlcState === state.val) {
+                    break;
+                }
 
-                return;
-            }
+                oldPlcState = state.val;
 
-            if (checkPlcStateInterval === null) {
-                checkPlcStateInterval = setInterval(() => {
-                    adsClient.readState((err, res) => {
-                        if (err) {
-                            adapter.log.error(`adsClientReadDeviceStateError: ${err}`);
-                            emitter.emit('disconnecting');
-                        } else {
-                            if (res.adsState === ads.ADSSTATE.RUN) {
-                                adapter.setState('info.plcRun', true, true);
-                            } else {
-                                adapter.setState('info.plcRun', false, true);
-                            }
+                if (state.val === true) {
+                    lib.plcVarSyncronizing(adsClient, adapter, emitter);
+                }
 
-                            adapter.log.debug(`State of PLC: ${ads.ADSSTATE.fromId(res.adsState)}`);
-                        }
-                    });
-                }, adapter.config.reconnectInterval * 1000);
-            }
-
-            // Connect Worker to write changes of Symbol Values in PLC to ioBroker
-            lib.workerPlcToAdapter(adsClient, adapter, emitter);
+                break;
+            default:
+                if (oldConnectionState) {
+                    lib.workerAdapterToPlc(adsClient, adapter, emitter, state, id);
+                }
+                break;
         }
     }
 });

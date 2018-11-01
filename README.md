@@ -9,8 +9,8 @@
 This adapter for ioBroker can Communicate with a Beckhoff Automation System (Twincat 2 or 3) over the ADS Protocol.
 The ADS Protocol is implemented in every System of Beckhoff and can be used without any License on ioBroker or Automation System.
 
-## Description
 
+## Description
 ### Requirements
 * Beckhoff PLC that has an ethernet connection and is connected to your LAN
     * Make your you give the PLC a fixed IP address
@@ -45,7 +45,6 @@ The ADS Protocol is implemented in every System of Beckhoff and can be used with
 * When some Value is changed in PLC then it will be automatic transferred to ioBroker
 * When a Value is changed in ioBroker (Important: ACK need to be FALSE!!) then the Value will be automatic transferred to PLC. After that the Adapter set ACK to TRUE.
 
-
 ### Attention
 1. TwinCAT AMS Router doesn't allow multiple TCP connections from the same host. So when you use two instances on the same host to connect to the same TwinCAT router, you will see that TwinCAT will close the first TCP connection and only respond to the newest.
 2. The Adapter Sync the complete GlobalVariableTable. U have different options to trigger a resync:
@@ -57,13 +56,15 @@ The ADS Protocol is implemented in every System of Beckhoff and can be used with
 
 
 ## Changelog
-
 ### 0.1.0 (2018-11-01)
 * (dkleber89) First Beta Release
+
 ### 0.0.2 (2018-10-20)
 * (dkleber89) Milestone Connection and Sync, no Release yet
+
 ### 0.0.1 (2018-08-17)
 * (dkleber89) Development, no Release yet
+
 
 ## License
 The MIT License (MIT)

@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "beckhoff",
-        "version": "0.0.1",
+        "version": "0.1.0",
         "news": {
             "0.0.1": {
                 "en": "initial adapter",
@@ -10,6 +10,14 @@
                 "pt": "Versão inicial",
                 "fr": "Version initiale",
                 "nl": "Eerste release"
+            },
+            "0.0.2": {
+                "en": "milestone Connection and Sync",
+                "de": "Meilenstein Verbindung und Syncronisation erledigt"
+            },
+            "0.1.0": {
+                "en": "First Beta Release",
+                "de": "Erste Beta Version"
             }
         },
         "title": "Beckhoff TwinCat ADS",
@@ -50,9 +58,50 @@
         "restartAdapters": []
     },
     "native": {
-        "test1": true,
-        "test2": 42,
-        "mySelect": "auto"
+        "targetIpAdress": "xxx.xxx.xxx.xxx",
+        "targetAmsNetId": "xxx.xxx.xxx.xxx.xxx.xxx",
+        "targetAmsPort": 851,
+        "targetTcpPort": 48898,
+        "sourceAmsNetId": "192.168.254.254.1.1",
+        "sourceAmsPort": 32905,
+        "targetVTable": "",
+        "reconnectInterval": 15,
+        "symbolObjectList" : []
     },
-    "objects": []
+    "instanceObjects": [
+        {
+            "_id": "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "Connected to PLC",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.plcRun",
+            "type": "state",
+            "common": {
+                "role": "indicator.maintenance",
+                "name": "Connected PLC are in Run Mode",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        }
+    ]
 }

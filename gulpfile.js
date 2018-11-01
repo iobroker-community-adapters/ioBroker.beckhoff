@@ -1,3 +1,4 @@
+
 'use strict';
 
 var gulp      = require('gulp');
@@ -6,7 +7,6 @@ var pkg       = require('./package.json');
 var iopackage = require('./io-package.json');
 var version   = (pkg && pkg.version) ? pkg.version : iopackage.common.version;
 /*var appName   = getAppName();
-
 function getAppName() {
     var parts = __dirname.replace(/\\/g, '/').split('/');
     return parts[parts.length - 1].split('.')[0].toLowerCase();
@@ -438,7 +438,7 @@ gulp.task('rename', function ()  {
         __dirname + '/LICENSE',
         __dirname + '/package.json',
         __dirname + '/README.md',
-        __dirname + '/main.js',
+        __dirname + '/beckhoff.js',
         __dirname + '/gulpfile.js',
         __dirname + '/widgets/' + newname +'.html',
         __dirname + '/www/index.html',

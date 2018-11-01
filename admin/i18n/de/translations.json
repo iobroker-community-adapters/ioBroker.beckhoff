@@ -1,9 +1,19 @@
+
 {
-  "Auto": "Auto",
-  "Manual": "Manual",
-  "My select": "Mein Auswahl",
-  "on save adapter restarts with new config immediately": "Beim Speichern von Einstellungen der Adapter wird sofort neu gestartet.",
-  "template adapter settings": "Beispiel",
-  "test1": "Test 1",
-  "test2": "Test 2"
+"PLC Runtime Version": "SPS Laufzeit Version",
+"Target IP-Adress": "Ziel IP-Adresse",
+"e.g. 192.168.0.1": "z.B. 192.168.0.1",
+"Target AMS-Net-ID": "Ziel AMS-Net-ID",
+"e.g. 192.168.0.1.1.1": "z.B. 192.168.0.1.1.1",
+"Target TCP Port": "Ziel TCP Port",
+"Target variable table": "Ziel Variablentabelle",
+"e.g. ioBrokerHandshake": "z.B. ioBrokerSchnittstelle",
+"Interval for reconnect": "Intervall für Verbindungsaufbau",
+"In Seconds (min. 5 Sec)": "In Sekunden (min. 5 Sek)",
+"Optional:": "Optional:",
+"Adapter AMS-Net-ID": "Adapter AMS-Net-ID",
+"e.g. 192.168.254.254.1.1": "z.B. 192.168.254.254.1.1",
+"Adapter AMS Port": "Adapter AMS Port",
+"e.g. 32905": "z.B. 32905",
+"On save Adapter restarts with new config immediately": "Nach dem Speichern startet der Adapter neu"
 }

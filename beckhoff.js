@@ -50,6 +50,10 @@ const adapter = new lib.utils.Adapter({
         emitter.on('updateObjects', () => {
             lib.createObjectsAndHandles(adsClient, adapter);
         });
+
+        emitter.on('newSyncReq', () => {
+            lib.plcVarSyncronizing(adsClient, adapter, emitter);
+        });
     },
     // When Adapter would be stopped some last work we have to do
     'unload': () => {
@@ -61,15 +65,13 @@ const adapter = new lib.utils.Adapter({
         }
 
         if (adsClient !== null) {
-            adsClient.end();
+            adsClient.end(() => {
+                adapter.log.info('Stopped and Connection closed');
+            });
         }
 
         adapter.setState('info.connection', false, true);
         adapter.setState('info.plcRun', false, true);
-
-        if (adapter.log) {
-            adapter.log.info('Stopped and Connection closed');
-        }
     },
     // These Function is called when one of the subscribed State fires a 'stateChange' event
     'stateChange': (id, state) => {
@@ -111,7 +113,7 @@ const adapter = new lib.utils.Adapter({
                 oldPlcState = state.val;
 
                 if (state.val === true) {
-                    lib.plcVarSyncronizing(adsClient, adapter, emitter);
+                    emitter.emit('newSyncReq');
                 }
 
                 break;

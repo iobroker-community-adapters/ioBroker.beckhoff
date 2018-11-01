@@ -1,6 +1,6 @@
 {
     "name": "iobroker.beckhoff",
-    "version": "0.0.2",
+    "version": "0.1.0",
     "description": "beckhoff",
     "author": {
         "name": "dkleber89",
@@ -35,7 +35,7 @@
         "url": "https://github.com/dkleber89/ioBroker.beckhoff"
     },
     "dependencies": {
-        "node-ads-api": "^1.4.5"
+        "node-ads-api": "^1.4.8"
     },
     "devDependencies": {
         "gulp": "^3.9.1",

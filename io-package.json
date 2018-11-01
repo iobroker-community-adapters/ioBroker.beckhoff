@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "beckhoff",
-        "version": "0.0.2",
+        "version": "0.1.0",
         "news": {
             "0.0.1": {
                 "en": "initial adapter",
@@ -14,6 +14,10 @@
             "0.0.2": {
                 "en": "milestone Connection and Sync",
                 "de": "Meilenstein Verbindung und Syncronisation erledigt"
+            },
+            "0.1.0": {
+                "en": "First Beta Release",
+                "de": "Erste Beta Version"
             }
         },
         "title": "Beckhoff TwinCat ADS",

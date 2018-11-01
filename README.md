@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/dkleber89/ioBroker.beckhoff.svg?branch=master)](https://travis-ci.org/dkleber89/ioBroker.beckhoff) [![Build status](https://ci.appveyor.com/api/projects/status/laebb0pq4pd4d08x/branch/master?svg=true)](https://ci.appveyor.com/project/DietmarKleber/iobroker-beckhoff/branch/master)
+[![npm](https://img.shields.io/npm/v/iobroker.beckhoff.svg)](https://www.npmjs.com/package/iobroker.beckhoff)
+
 
 
 ![Logo](docs/en/img/beckhoff.png)
@@ -27,7 +29,7 @@ The ADS Protocol is implemented in every System of Beckhoff and can be used with
 
     ![createSymbols](docs/en/img/addRoute.png)
     
-    Important is that the AmsNetId and the AdressInfo (IP-Adress) matches with the Adapter Settings. For further Information about TwinCat Router and Security read Documentation on Synchronisierung[Beckhoff Information System](https://infosys.beckhoff.com/ "Beckhoff Information System")
+    Important is that the AmsNetId and the AdressInfo (IP-Adress) matches with the Adapter Settings. For further Information about TwinCat Router and Security read Documentation on Synchronisierung [Beckhoff Information System](https://infosys.beckhoff.com/ "Beckhoff Information System")
     
 3. Create a GlobalVariableTable and fill in your needed Symbols.
 

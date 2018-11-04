@@ -27,12 +27,12 @@
 'use strict';
 
 const events = require('events'),
-    lib = require('./lib');
+    lib = require('./lib'),
+    ads = require('node-ads-api');
 
 const emitter = new events.EventEmitter();
 
-
-let adsClient = {}, // eslint-disable-line prefer-const
+let adsClient = null,
     checkPlcStateInterval = null,
     oldConnectionState = false,
     oldPlcState = false;
@@ -44,7 +44,7 @@ const adapter = new lib.utils.Adapter({
     'ready': () => {
         adapter.subscribeStates('*');
 
-        lib.plcConnection(adapter, emitter, adsClient);
+        plcConnection();
 
         emitter.on('updateObjects', () => {
             lib.createObjectsAndHandles(adsClient, adapter);
@@ -64,7 +64,7 @@ const adapter = new lib.utils.Adapter({
         }
 
         try {
-            if (adsClient !== {}) {
+            if (adsClient !== null) {
                 adsClient.end(() => {
                     adapter.log.info('Stopped and Connection closed');
                 });
@@ -128,3 +128,92 @@ const adapter = new lib.utils.Adapter({
         }
     }
 });
+
+/**
+ * Establish Connection to PLC and handles some Connectionerror
+ *
+ * @returns     {void}
+ */
+function plcConnection () {
+    // Create connection configuration for PLC
+    const options = {
+        'host': adapter.config.targetIpAdress,
+        'amsNetIdTarget': adapter.config.targetAmsNetId,
+        'amsPortTarget': adapter.config.targetAmsPort,
+        'port': adapter.config.targetTcpPort,
+        'amsNetIdSource': adapter.config.sourceAmsNetId,
+        'amsPortSource': adapter.config.sourceAmsPort
+    };
+
+    // New Connection needed -> Create Ads Client and read Deviceinformation
+    emitter.on('reConnect', () => {
+        adapter.log.debug('Start establish Connection to PLC');
+
+        adsClient = ads.connect(options, () => {   // eslint-disable-line no-param-reassign
+            adsClient.readState((err, res) => {
+                if (err) {
+                    adapter.log.error(`ADS Client: Error: ${err}`);
+                    endConnReconnect(adsClient, adapter, emitter);
+                } else {
+                    adapter.setState('info.connection', true, true);
+
+                    if (res.adsState === ads.ADSSTATE.RUN) {
+                        adapter.setState('info.plcRun', true, true);
+                    }
+
+                    adapter.log.info(`Connected to PLC. State of PLC: ${ads.ADSSTATE.fromId(res.adsState)}`);
+                }
+            });
+        });
+
+        // When the Connection have some Problem write Error Log, set disconnected Event and close Connection properly.
+        adsClient.on('error', (err) => {
+            adapter.log.error(`ADS Client: ${err}`);
+
+            endConnReconnect();
+        });
+
+        adsClient.on('timeout', (err) => {
+            adapter.log.error(`ADS Client: ${err}`);
+
+            endConnReconnect();
+        });
+    });
+
+    emitter.on('disconnecting', () => {
+        endConnReconnect();
+    });
+
+    // On first run we need a initial connection
+    emitter.emit('reConnect');
+}
+
+let timeAlreadyRunning = false;
+
+/**
+ * Set States, end connection to PLC properly and shedule reConnect
+ *
+ * @returns {void}
+ */
+function endConnReconnect () {
+    adapter.setState('info.connection', false, true);
+    adapter.setState('info.plcRun', false, true);
+
+    if (timeAlreadyRunning) {
+        return;
+    }
+
+    timeAlreadyRunning = true;
+
+    adsClient.end(() => {
+        adsClient = null;
+    });
+
+    adapter.log.info(`Try to reconnect in ${adapter.config.reconnectInterval} seconds`);
+
+    setTimeout(() => {
+        timeAlreadyRunning = false;
+
+        emitter.emit('reConnect');
+    }, adapter.config.reconnectInterval * 1000);
+}

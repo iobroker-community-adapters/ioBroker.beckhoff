@@ -66,15 +66,17 @@ const adapter = new lib.utils.Adapter({
         try {
             if (adsClient !== null) {
                 adsClient.end(() => {
-                    adapter.log.info('Stopped and Connection closed');
+                    adsClient = null;
                 });
             }
         } catch (err) {
-            adapter.log.warn('Closing Adapter on shutdown failed');
+            adapter.log.warn('Closing Socket on shutdown failed');
         }
 
         adapter.setState('info.connection', false, true);
         adapter.setState('info.plcRun', false, true);
+
+        adapter.log.info('Stopped and Connection closed');
     },
     // These Function is called when one of the subscribed State fires a 'stateChange' event
     'stateChange': (id, state) => {

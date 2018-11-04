@@ -31,7 +31,8 @@ const events = require('events'),
 
 const emitter = new events.EventEmitter();
 
-let adsClient = null,
+
+let adsClient = {}, // eslint-disable-line prefer-const
     checkPlcStateInterval = null,
     oldConnectionState = false,
     oldPlcState = false;
@@ -43,9 +44,7 @@ const adapter = new lib.utils.Adapter({
     'ready': () => {
         adapter.subscribeStates('*');
 
-        lib.plcConnection(adapter, emitter, (adsC) => {
-            adsClient = adsC;
-        });
+        lib.plcConnection(adapter, emitter, adsClient);
 
         emitter.on('updateObjects', () => {
             lib.createObjectsAndHandles(adsClient, adapter);
@@ -64,10 +63,14 @@ const adapter = new lib.utils.Adapter({
             checkPlcStateInterval = null;
         }
 
-        if (adsClient !== null) {
-            adsClient.end(() => {
-                adapter.log.info('Stopped and Connection closed');
-            });
+        try {
+            if (adsClient !== {}) {
+                adsClient.end(() => {
+                    adapter.log.info('Stopped and Connection closed');
+                });
+            }
+        } catch (err) {
+            adapter.log.warn('Closing Adapter on shutdown failed');
         }
 
         adapter.setState('info.connection', false, true);

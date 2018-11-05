@@ -2,8 +2,6 @@
 ![Logo](img/beckhoff.png)
 
 # ioBroker.beckhoff
-=================
-
 Dieser ioBroker Adapter realisiert die Kommunikation mit eine Beckhof Steuerung (Twincat 2 oder 3) über das ADS Protokoll.
 Das ADS Protocol ist in jeder Beckhoff Steuerung implementiert und kann ohne Lizenz verwendet werden.
 

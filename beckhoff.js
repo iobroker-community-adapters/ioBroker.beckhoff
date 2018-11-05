@@ -211,9 +211,11 @@ function endConnReconnect () {
 
     timeAlreadyRunning = true;
 
-    adsClient.end(() => {
-        adsClient = null;
-    });
+    if (adsClient !== null) {
+        adsClient.end(() => {
+            adsClient = null;
+        });
+    }
 
     adapter.log.info(`Try to reconnect in ${adapter.config.reconnectInterval} seconds`);
 

@@ -55,7 +55,7 @@ const adapter = new lib.utils.Adapter({
         });
     },
     // When Adapter would be stopped some last work we have to do
-    'unload': () => {
+    'unload': (cb) => {
         emitter.removeAllListeners();
 
         if (checkPlcStateInterval !== null) {
@@ -63,20 +63,24 @@ const adapter = new lib.utils.Adapter({
             checkPlcStateInterval = null;
         }
 
+        adapter.setState('info.connection', false, true);
+        adapter.setState('info.plcRun', false, true);
+
         try {
-            if (adsClient !== null) {
+            if (adsClient === null) {
+                adapter.log.info('Stopped and Connection closed');
+                cb();
+            } else {
                 adsClient.end(() => {
                     adsClient = null;
+                    adapter.log.info('Stopped and Connection closed');
+                    cb();
                 });
             }
         } catch (err) {
             adapter.log.warn('Closing Socket on shutdown failed');
+            cb();
         }
-
-        adapter.setState('info.connection', false, true);
-        adapter.setState('info.plcRun', false, true);
-
-        adapter.log.info('Stopped and Connection closed');
     },
     // These Function is called when one of the subscribed State fires a 'stateChange' event
     'stateChange': (id, state) => {

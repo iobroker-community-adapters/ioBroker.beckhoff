@@ -19,9 +19,9 @@
                 "en": "First Beta Release",
                 "de": "Erste Beta Version"
             },
-            "0.1.1": {
-                "en": "Bugfix Connection handling",
-                "de": "Bugfix Verbindungsverwaltung zur Steuerung"
+            "0.1.2": {
+                "en": "Bugfix in Adapter Unload",
+                "de": "Bugfix beim beenden des Adapters"
             }
         },
         "title": "Beckhoff TwinCat ADS",

@@ -72,6 +72,8 @@ const adapter = new lib.utils.Adapter({
             adapter.setState('info.plcRun', false, true);
 
             adapter.log.info('Stopped and Connection closed');
+        } catch (e) {
+
         } finally {
             cb();
         }

@@ -56,6 +56,9 @@ The ADS Protocol is implemented in every System of Beckhoff and can be used with
 
 
 ## Changelog
+### 0.1.3 (2018-11-11)
+* (dkleber89) Bugfix on ending Processes
+
 ### 0.1.2 (2018-11-05)
 * (dkleber89) Bugfix in Adapter Unload
 

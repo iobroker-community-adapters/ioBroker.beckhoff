@@ -58,27 +58,21 @@ const adapter = new lib.utils.Adapter({
     'unload': (cb) => {
         emitter.removeAllListeners();
 
+        if (adsClient !== null) {
+            adsClient.end();
+        }
+
         if (checkPlcStateInterval !== null) {
             clearInterval(checkPlcStateInterval);
             checkPlcStateInterval = null;
         }
 
-        adapter.setState('info.connection', false, true);
-        adapter.setState('info.plcRun', false, true);
-
         try {
-            if (adsClient === null) {
-                adapter.log.info('Stopped and Connection closed');
-                cb();
-            } else {
-                adsClient.end(() => {
-                    adsClient = null;
-                    adapter.log.info('Stopped and Connection closed');
-                    cb();
-                });
-            }
-        } catch (err) {
-            adapter.log.warn('Closing Socket on shutdown failed');
+            adapter.setState('info.connection', false, true);
+            adapter.setState('info.plcRun', false, true);
+
+            adapter.log.info('Stopped and Connection closed');
+        } finally {
             cb();
         }
     },

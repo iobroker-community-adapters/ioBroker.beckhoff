@@ -40,8 +40,8 @@ The ADS Protocol is implemented in every System of Beckhoff and can be used with
 ### Adapter Configuration
 1. Choose your Runtime Version
 2. Fill in Target IP-Adress and AMS-Net-ID.
-3. On TwinCat 2 fill in the Instance Name of Struct. (Case Sensitiv!!)
-4. On TwinCat 3 fill in the correct Tablename of the before created GlobalVariableTable (Case Sensitiv!!)
+3. On TwinCat 2 fill in the Instance Name of Struct.
+4. On TwinCat 3 fill in the correct Tablename of the before created GlobalVariableTable.
 5. All other Points u mostly not need to Change.
 
 ### Dataexchange

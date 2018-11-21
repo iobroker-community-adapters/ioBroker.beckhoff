@@ -40,8 +40,8 @@ Das ADS Protocol ist in jeder Beckhoff Steuerung implementiert und kann ohne Liz
 ### Adapter Einstellungen
 1. Runtimeversion auswählen
 2. Ziel IP-Adress und AMS-Net-ID eintragen.
-3. Bei TwinCat 2 den Instanznamen der Struktur aus der globale Variablentabelle eintragen. Groß-/Kleinschreibung ist zu beachten!
-4. Bei TwinCat 3 den korrekten Variablentabellennamen eintragen. Groß-/Kleinschreibung ist zu beachen!
+3. Bei TwinCat 2 den Instanznamen der Struktur aus der globale Variablentabelle eintragen.
+4. Bei TwinCat 3 den korrekten Variablentabellennamen eintragen.
 5. Die restlichen Punkte müssen normalerweise nicht geändert werden.
 
 ### Datenaustausch

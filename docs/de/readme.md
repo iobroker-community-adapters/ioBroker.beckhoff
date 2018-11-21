@@ -25,7 +25,13 @@ Das ADS Protocol ist in jeder Beckhoff Steuerung implementiert und kann ohne Liz
     
     Weitere Informationen über den TwinCat Router und die Steuerung allgemein kann im [Beckhoff Information System](https://infosys.beckhoff.com/ "Beckhoff Information System") nachgelesen werden.
     
-3. In der Steuerung muss noch eine globale Variablentabelle angelegt werden. Hier können dann alle benötigten Variablen angelegt werden. Der Datenaustausch wird dann von ADS und dem Adapter selbstständig ausgeführt.
+3. Bei TwinCat 2 muss in der Steuerung noch eine Struktur angelegt werden. Die Struktur danach zu einer globalen Variablentabelle hinzufügen. Hier können dann alle benötigten Variablen angelegt werden. Der Datenaustausch wird dann von ADS und dem Adapter selbstständig ausgeführt.
+    
+    ##### Derzeit unterstützte Datentypen: BOOL, BYTE, WORD, DWORD, SINT, USINT, INT, UINT, DINT, UDINT, REAL
+        
+    OPTIONAL: Es kann eine Variable direkt in der Variablentabelle ohne Verschachtelung mit einem exakten Namen angelegt werden -> ioBrokerResync (Groß-/Kleinschreibung und Datentyp ist egal) -> Jedes mal wenn sich dieser Wert ändert wird die Variablentabelle im ioBroker neu eingelesen.
+
+3. Bei TwinCat 3 muss in der Steuerung noch eine globale Variablentabelle angelegt werden. Hier können dann alle benötigten Variablen angelegt werden. Der Datenaustausch wird dann von ADS und dem Adapter selbstständig ausgeführt.
 
     ##### Derzeit unterstützte Datentypen: BOOL, BYTE, WORD, DWORD, SINT, USINT, INT, UINT, DINT, UDINT, REAL
     
@@ -34,8 +40,9 @@ Das ADS Protocol ist in jeder Beckhoff Steuerung implementiert und kann ohne Liz
 ### Adapter Einstellungen
 1. Runtimeversion auswählen
 2. Ziel IP-Adress und AMS-Net-ID eintragen.
-3. Den korrekten Variablentabellennamen eintragen. Groß-/Kleinschreibung ist zu beachen!
-4. Die restlichen Punkte müssen normalerweise nicht geändert werden.
+3. Bei TwinCat 2 den Instanznamen der Struktur aus der globale Variablentabelle eintragen.
+4. Bei TwinCat 3 den korrekten Variablentabellennamen eintragen.
+5. Die restlichen Punkte müssen normalerweise nicht geändert werden.
 
 ### Datenaustausch
 * Sobald sich eine Variable in der Steuerung ändert wird dieser Wert selbstständig in den jeweiligen State im ioBroker übertragen.

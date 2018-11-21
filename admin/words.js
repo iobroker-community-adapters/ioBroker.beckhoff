@@ -9,6 +9,7 @@ systemDictionary = {
     "e.g. 192.168.0.1.1.1": {                        "en": "e.g. 192.168.0.1.1.1",                            "de": "z.B. 192.168.0.1.1.1"},
     "Target TCP Port": {                             "en": "Target TCP Port",                                 "de": "Ziel TCP Port"},
     "Target variable table": {                       "en": "Target variable table",                           "de": "Ziel Variablentabelle"},
+    "Target Struct": {                               "en": "Target Struct",                                   "de": "Ziel Struktur"},
     "e.g. ioBrokerHandshake": {                      "en": "e.g. ioBrokerHandshake",                          "de": "z.B. ioBrokerSchnittstelle"},
     "Interval for reconnect": {                      "en": "Interval for reconnect",                          "de": "Intervall für Verbindungsaufbau"},
     "In Seconds (min. 5 Sec)": {                     "en": "In Seconds (min. 5 Sec)",                         "de": "In Sekunden (min. 5 Sek)"},

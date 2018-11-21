@@ -29,7 +29,13 @@ The ADS Protocol is implemented in every System of Beckhoff and can be used with
     
     Important is that the AmsNetId and the AdressInfo (IP-Adress) matches with the Adapter Settings. For further Information about TwinCat Router and Security read Documentation on Synchronisierung [Beckhoff Information System](https://infosys.beckhoff.com/ "Beckhoff Information System")
     
-3. Create a GlobalVariableTable and fill in your needed Symbols.
+3. On TwinCat 2 Create a Struct and fill in your needed Symbols. Then add this Struct to a GlobalVariableTable.
+
+    ##### Currently Supported Types: BOOL, BYTE, WORD, DWORD, SINT, USINT, INT, UINT, DINT, UDINT, REAL
+    
+    OPTIONAL: You can create a Variable in root of Struct with the exact name -> ioBrokerResync (Not Casesensitiv and not matter which Type) -> Every time this Variable changes his value the Table get resynced in ioBroker.
+
+4. On TwinCat 3 Create a GlobalVariableTable and fill in your needed Symbols.
 
     ##### Currently Supported Types: BOOL, BYTE, WORD, DWORD, SINT, USINT, INT, UINT, DINT, UDINT, REAL
     
@@ -38,8 +44,9 @@ The ADS Protocol is implemented in every System of Beckhoff and can be used with
 ### Adapter Configuration
 1. Choose your Runtime Version
 2. Fill in Target IP-Adress and AMS-Net-ID.
-3. Fill in the correct Tablename of the before created GlobalVariableTable (Case Sensitiv!!)
-4. All other Points u mostly not need to Change.
+3. On TwinCat 2 fill in the Instance Name of Struct.
+4. On TwinCat 3 fill in the correct Tablename of the before created GlobalVariableTable.
+5. All other Points u mostly not need to Change.
 
 ### Dataexchange
 * When some Value is changed in PLC then it will be automatic transferred to ioBroker
@@ -56,6 +63,9 @@ The ADS Protocol is implemented in every System of Beckhoff and can be used with
 
 
 ## Changelog
+### 0.1.4 (2018-11-21)
+* (dkleber89) Fixing Dataexchange on TwinCat 2 Runtime
+
 ### 0.1.3 (2018-11-11)
 * (dkleber89) Bugfix on ending Processes
 

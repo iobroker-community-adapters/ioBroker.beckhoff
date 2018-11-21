@@ -22,8 +22,6 @@
             }
         </style>
         <script type="text/javascript">
-
-
             function load(settings, onChange) {
                 // Select elements with id=key and class=value
                 if (!settings) return;
@@ -44,6 +42,20 @@
                     return valid;
                 }
 
+                // Select correct Label for Runtime Version
+                function selectLabel () {
+                    const targetAmsPortElement = document.getElementById('targetAmsPort');
+                    const targetAmsPort = targetAmsPortElement.options[targetAmsPortElement.selectedIndex].value;
+
+                    if (targetAmsPort === '801') {
+                        document.getElementById('labTc2').style.display = 'inline'
+                        document.getElementById('labTc3').style.display = 'none'
+                    } else {
+                        document.getElementById('labTc2').style.display = 'none'
+                        document.getElementById('labTc3').style.display = 'inline'
+                    }
+                }
+
                 // When something Changed then check if all Valid -> activate Save Buttons
                 $('.value').each(function () {
                     const $key = $(this);
@@ -60,6 +72,8 @@
                     } else {
                         $key.val(settings[id])
                             .on('change', () => {
+                                selectLabel();
+
                                 if (checkvalidity()){
                                     onChange();
                                 } else {
@@ -67,6 +81,8 @@
                                 }
                             })
                             .on('keyup', () => {
+                                selectLabel();
+
                                 if (checkvalidity()){
                                     onChange();
                                 } else {
@@ -78,6 +94,9 @@
 
                 // Nothing is Changed so Save Button doesen´t need to be activated
                 onChange(false);
+
+                // Select Label after Loading
+                selectLabel();
             }
 
             function save(callback) {
@@ -137,7 +156,8 @@
                 <div class="row">
                     <div class="input-field col s12 m6 l4">
                         <input id="targetVTable" type="text" class="value">
-                        <label for="targetVTable" class="translate">Target variable table</label>
+                        <label for="targetVTable" class="translate" id="labTc2">Target Struct</label>
+                        <label for="targetVTable" class="translate" id="labTc3">Target variable table</label>
                         <span class="translate">e.g. ioBrokerHandshake</span>
                     </div>
                     <div class="input-field col s12 m6 l4">

@@ -26,6 +26,10 @@
             "0.1.3": {
                 "en": "Bugfix closing Processes",
                 "de": "Bugfix beim beenden des Prozesses"
+            },
+            "0.1.4": {
+                "en": "Fixing Dataexchange on TwinCat 2 Runtime",
+                "de": "Datenaustausch zu TwinCat2 angepasst"
             }
         },
         "title": "Beckhoff TwinCat ADS",

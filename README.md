@@ -63,6 +63,9 @@ The ADS Protocol is implemented in every System of Beckhoff and can be used with
 
 
 ## Changelog
+### 0.2.0 (2018-11-24)
+* (dkleber89) Code cleanup and second Beta Release
+
 ### 0.1.4 (2018-11-21)
 * (dkleber89) Fixing Dataexchange on TwinCat 2 Runtime
 

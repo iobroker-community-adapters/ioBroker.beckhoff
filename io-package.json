@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "beckhoff",
-        "version": "0.1.4",
+        "version": "0.2.0",
         "news": {
             "0.0.1": {
                 "en": "initial adapter",
@@ -30,6 +30,10 @@
             "0.1.4": {
                 "en": "Fixing Dataexchange on TwinCat 2 Runtime",
                 "de": "Datenaustausch zu TwinCat2 angepasst"
+            },
+            "0.2.0": {
+                "en": "Code cleanup and second Beta Release",
+                "de": "Aufräumen und zweites Beta Release"
             }
         },
         "title": "Beckhoff TwinCat ADS",

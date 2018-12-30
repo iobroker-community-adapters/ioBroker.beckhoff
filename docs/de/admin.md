@@ -11,6 +11,7 @@ Das ADS Protocol ist in jeder Beckhoff Steuerung implementiert und kann ohne Liz
 * Beckhoff mit Netzwerkanschluss die in einem vom ioBroker erreichbaren Netzwerk hängt
     * Der Steuerung muss eine fixe IP-Adresse vergeben werden
     * Die Steuerung muss vom ioBroker pingbar sein
+    * TwinCat 2 **ausgenommen BC** (Benötigte Symbolinformation wird nicht in der BC Laufzeitumgebung gespeichert) oder TwinCat 3
 
 ### Konfiguration der Steuerung
 1. Im Projekt muss ADS aktiviert sein. Dazu im Steuerungsproject in die Taskkonfiguration gehen und die Checkbox `Symbole erzeugen` aktivieren. Dann die Konfiguration auf die Steuerung laden und diese neu starten. Ein Neustart ist nur nötig wenn TwinCat 2 verwendet wird.

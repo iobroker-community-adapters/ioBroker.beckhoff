@@ -48,11 +48,11 @@
                     const targetAmsPort = targetAmsPortElement.options[targetAmsPortElement.selectedIndex].value;
 
                     if (targetAmsPort === '801') {
-                        document.getElementById('labTc2').style.display = 'inline'
-                        document.getElementById('labTc3').style.display = 'none'
+                        document.getElementById('labTc2').style.display = 'inline';
+                        document.getElementById('labTc3').style.display = 'none';
                     } else {
-                        document.getElementById('labTc2').style.display = 'none'
-                        document.getElementById('labTc3').style.display = 'inline'
+                        document.getElementById('labTc2').style.display = 'none';
+                        document.getElementById('labTc3').style.display = 'inline';
                     }
                 }
 
@@ -62,7 +62,7 @@
                     const id = $key.attr('id');
 
                     if ($key.attr('type') === 'checkbox') {
-                        $key.prop('checked', settings[id]).on('change', () => {
+                        $key.prop('checked', settings[id]).on('change', function () {
                             if (checkvalidity()){
                                 onChange();
                             } else {
@@ -71,7 +71,7 @@
                         });
                     } else {
                         $key.val(settings[id])
-                            .on('change', () => {
+                            .on('change', function () {
                                 selectLabel();
 
                                 if (checkvalidity()){
@@ -80,7 +80,7 @@
                                     onChange(false);
                                 }
                             })
-                            .on('keyup', () => {
+                            .on('keyup', function () {
                                 selectLabel();
 
                                 if (checkvalidity()){
@@ -124,7 +124,7 @@
             <div class="row">
                 <div class="row">
                     <div class="input-field col s6">
-                        <img src="beckhoff.png" class="logo">
+                        <img src="beckhoff.png" class="logo" alt="Logo Image">
                     </div>
                 </div>
                 <div class="row">

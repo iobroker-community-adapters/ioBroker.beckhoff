@@ -1,16 +1,16 @@
 
-![Logo](img/beckhoff.png)
+![Logo](docs/en/img/beckhoff.png)
 
 # ioBroker.beckhoff
 This adapter for ioBroker can Communicate with a Beckhoff Automation System (Twincat 2 or 3) over the ADS Protocol.
 The ADS Protocol is implemented in every System of Beckhoff and can be used without any License on ioBroker or Automation System.
 
 ## Description
-
 ### Requirements
 * Beckhoff PLC that has an ethernet connection and is connected to your LAN
     * Make your you give the PLC a fixed IP address
     * Make sure you can ping the PLC from ioBroker
+    * TwinCat 2 **excluding BC Runtimes** (Needed Symbolinformation are not saved on BC Runtime) or TwinCat 3
 
 ### PLC Configuration
 1. Enable ADS on your PLC project. To do this click on your task and then enable the checkbox before `Create symbols`. Download the new configuration and make sure you reboot your PLC. The reboot is only needed when you are using TwinCat 2.
@@ -23,7 +23,7 @@ The ADS Protocol is implemented in every System of Beckhoff and can be used with
 
     ![createSymbols](img/addRoute.png)
     
-    Important is that the AmsNetId and the AdressInfo (IP-Adress) matches with the Adapter Settings. For further Information about TwinCat Router and Security read Documentation on [Beckhoff Information System](https://infosys.beckhoff.com/ "Beckhoff Information System")
+    Important is that the AmsNetId and the AdressInfo (IP-Adress) matches with the Adapter Settings. For further Information about TwinCat Router and Security read Documentation on Synchronisierung [Beckhoff Information System](https://infosys.beckhoff.com/ "Beckhoff Information System")
     
 3. On TwinCat 2 Create a Struct and fill in your needed Symbols. Then add this Struct to a GlobalVariableTable.
 

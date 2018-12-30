@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "beckhoff",
-        "version": "0.2.0",
+        "version": "0.2.1",
         "news": {
             "0.0.1": {
                 "en": "initial adapter",
@@ -34,6 +34,10 @@
             "0.2.0": {
                 "en": "Code cleanup and second Beta Release",
                 "de": "Aufräumen und zweites Beta Release"
+            },
+            "0.2.1": {
+                "en": "Adding IE11 and Mobile Support",
+                "de": "IE11 und Mobile Unterstützung hinzugefügt"
             }
         },
         "title": "Beckhoff TwinCat ADS",

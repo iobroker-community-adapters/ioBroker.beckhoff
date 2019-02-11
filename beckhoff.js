@@ -59,6 +59,7 @@ const adapter = new lib.utils.Adapter({
         emitter.removeAllListeners();
 
         if (adsClient !== null) {
+            adapter.log.warn('unload adsClient.end()');
             adsClient.end();
         }
 
@@ -151,6 +152,7 @@ function plcConnection () {
     emitter.on('reConnect', () => {
         adapter.log.debug('Start establish Connection to PLC');
 
+        adapter.log.warn('reconnect adsClient.connect()');
         adsClient = ads.connect(options, () => {   // eslint-disable-line no-param-reassign
             if (adsClient === null) {
                 endConnReconnect();
@@ -158,6 +160,7 @@ function plcConnection () {
                 return;
             }
 
+            adapter.log.warn('reconnect adsClient.readState()');
             adsClient.readState((err, res) => {
                 if (err) {
                     adapter.log.error(`ADS Client: Error: ${err}`);
@@ -175,12 +178,14 @@ function plcConnection () {
         });
 
         // When the Connection have some Problem write Error Log, set disconnected Event and close Connection properly.
+        adapter.log.warn('reconnect adsClient.on(error)');
         adsClient.on('error', (err) => {
             adapter.log.error(`ADS Client: ${err}`);
 
             endConnReconnect();
         });
 
+        adapter.log.warn('reconnect adsClient.on(timeout)');
         adsClient.on('timeout', (err) => {
             adapter.log.error(`ADS Client: ${err}`);
 
@@ -214,6 +219,7 @@ function endConnReconnect () {
     timeAlreadyRunning = true;
 
     if (adsClient !== null) {
+        adapter.log.warn('endconnrecconect adsClient.end()');
         adsClient.end(() => {
             adsClient = null;
         });

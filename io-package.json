@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "beckhoff",
-        "version": "0.2.1",
+        "version": "0.2.2",
         "news": {
             "0.0.1": {
                 "en": "initial adapter",
@@ -38,6 +38,10 @@
             "0.2.1": {
                 "en": "Adding IE11 and Mobile Support",
                 "de": "IE11 und Mobile Unterstützung hinzugefügt"
+            },
+            "0.2.2": {
+                "en": "Debug Version - Send log on 'write after end' error. Issue #2",
+                "de": "Debug Version - Bei 'write after end' fehler log schicken. Issue #2"
             }
         },
         "title": "Beckhoff TwinCat ADS",

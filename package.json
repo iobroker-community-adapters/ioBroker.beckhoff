@@ -1,54 +1,55 @@
 {
-    "name": "iobroker.beckhoff",
-    "version": "0.2.2",
-    "description": "beckhoff",
-    "author": {
-        "name": "dkleber89",
-        "email": "dkleber89@gmail.com"
-    },
-    "contributors": [
-        {
-            "name": "dkleber89",
-            "email": "dkleber89@gmail.com"
-        }
-    ],
-    "homepage": "https://github.com/dkleber89/ioBroker.beckhoff",
-    "license": "MIT",
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "https://github.com/dkleber89/ioBroker.beckhoff/blob/master/LICENSE"
-        }
-    ],
-    "keywords": [
-        "ioBroker",
-        "beckhoff",
-        "smart home",
-        "home automation",
-        "ads",
-        "plc",
-        "twincat",
-        "plc"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/dkleber89/ioBroker.beckhoff"
-    },
-    "dependencies": {
-        "node-ads-api": "^1.4.8"
-    },
-    "devDependencies": {
-        "gulp": "^3.9.1",
-        "mocha": "^4.1.0",
-        "chai": "^4.1.2"
-    },
-    "deprecated": false,
-    "main": "beckhoff.js",
-    "scripts": {
-        "test": "node node_modules/mocha/bin/mocha --exit"
-    },
-    "bugs": {
-        "url": "https://github.com/dkleber89/ioBroker.beckhoff/issues"
-    },
-    "readmeFilename": "README.md"
+  "name": "iobroker.beckhoff",
+  "version": "0.2.2",
+  "description": "beckhoff",
+  "author": {
+    "name": "dkleber89",
+    "email": "dkleber89@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "dkleber89",
+      "email": "dkleber89@gmail.com"
+    }
+  ],
+  "homepage": "https://github.com/dkleber89/ioBroker.beckhoff",
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/dkleber89/ioBroker.beckhoff/blob/master/LICENSE"
+    }
+  ],
+  "keywords": [
+    "ioBroker",
+    "beckhoff",
+    "smart home",
+    "home automation",
+    "ads",
+    "plc",
+    "twincat",
+    "plc"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dkleber89/ioBroker.beckhoff"
+  },
+  "dependencies": {
+    "node-ads-api": "^1.4.8"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "mocha": "^4.1.0",
+    "chai": "^4.1.2",
+    "@iobroker/adapter-core": "^1.0.3"
+  },
+  "deprecated": false,
+  "main": "beckhoff.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha --exit"
+  },
+  "bugs": {
+    "url": "https://github.com/dkleber89/ioBroker.beckhoff/issues"
+  },
+  "readmeFilename": "README.md"
 }

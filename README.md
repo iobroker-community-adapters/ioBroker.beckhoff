@@ -5,11 +5,11 @@
 
 ![Logo](docs/en/img/beckhoff.png)
 
-# DEBUG Version -> Please post iobroker logs after a 'write after end' error in ISSUE #2. Please use the Adapter in this Version on log level 'debug' 
-
 # ioBroker.beckhoff
 This adapter for ioBroker can Communicate with a Beckhoff Automation System (Twincat 2 or 3) over the ADS Protocol.
 The ADS Protocol is implemented in every System of Beckhoff and can be used without any License on ioBroker or Automation System.
+
+This Project is not affilate to Beckhoff in any way
 
 ## Description
 ### Requirements
@@ -65,6 +65,10 @@ The ADS Protocol is implemented in every System of Beckhoff and can be used with
 
 
 ## Changelog
+### 0.3.0 (2019-03-09)
+* (Appollon77) Core Files/Testing Update and introduce adapter-core
+* (dkleber89) Fix Problem 'write after End'
+
 ### 0.2.2 (2019-02-11)
 * (dkleber89) DEBUG Version -> Still Problems with 'write after end'
 

@@ -28,7 +28,8 @@
 
 const events = require('events'),
     lib = require('./lib'),
-    ads = require('node-ads-api');
+    ads = require('node-ads-api'),
+    ping = require('ping');
 
 const emitter = new events.EventEmitter();
 
@@ -219,17 +220,34 @@ function endConnReconnect () {
     timeAlreadyRunning = true;
 
     if (adsClient !== null) {
-        adapter.log.warn('endconnrecconect adsClient.end()');
-        adsClient.end(() => {
-            adsClient = null;
-        });
+        ping.sys.probe(adapter.config.targetIpAdress, (isAlive) => {
+            adapter.log.info('Close Connection to PLC for reconnection');
+
+            if (isAlive) {
+                adsClient.end(() => {
+                    adsClient = null;
+
+                    adapter.log.info(`Try to reconnect in ${adapter.config.reconnectInterval} seconds`);
+
+                    setTimeout(() => {
+                        timeAlreadyRunning = false;
+
+                        emitter.emit('reConnect');
+                    }, adapter.config.reconnectInterval * 1000);
+                });
+            } else {
+                adsClient.endNoConn(() => {
+                    adsClient = null;
+
+                    adapter.log.info(`Try to reconnect in ${adapter.config.reconnectInterval} seconds`);
+
+                    setTimeout(() => {
+                        timeAlreadyRunning = false;
+
+                        emitter.emit('reConnect');
+                    }, adapter.config.reconnectInterval * 1000);
+                });
+            }
+        }, {'timeout': 2});
     }
-
-    adapter.log.info(`Try to reconnect in ${adapter.config.reconnectInterval} seconds`);
-
-    setTimeout(() => {
-        timeAlreadyRunning = false;
-
-        emitter.emit('reConnect');
-    }, adapter.config.reconnectInterval * 1000);
 }

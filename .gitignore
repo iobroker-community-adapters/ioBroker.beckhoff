@@ -57,6 +57,18 @@ fabric.properties
 
 # Editor-based Rest Client
 .idea/httpRequests
+### WebStorm+all Patch ###
+# Ignores the whole .idea folder and all .iml files
+# See https://github.com/joeblau/gitignore.io/issues/186 and https://github.com/joeblau/gitignore.io/issues/360
+
+.idea/
+
+# Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-249601023
+
+*.iml
+modules.xml
+.idea/misc.xml
+*.ipr
 ### Windows template
 # Windows thumbnail cache files
 Thumbs.db
@@ -81,6 +93,20 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
 ### Node template
 # Logs
 logs

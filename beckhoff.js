@@ -28,6 +28,7 @@
 
 const events = require('events'),
     lib = require('./lib'),
+    utils = require('@iobroker/adapter-core'),
     ads = require('node-ads-api'),
     ping = require('ping');
 
@@ -39,7 +40,7 @@ let adsClient = null,
     oldPlcState = false;
 
 // Create new Adapter instance
-const adapter = new lib.utils.Adapter({
+const adapter = new utils.Adapter({
     'name': 'beckhoff',
     // When Adapter is ready then connecting to PLC and Subscribe necessary Handles
     'ready': () => {
@@ -60,8 +61,19 @@ const adapter = new lib.utils.Adapter({
         emitter.removeAllListeners();
 
         if (adsClient !== null) {
-            adapter.log.warn('unload adsClient.end()');
-            adsClient.end();
+            ping.sys.probe(adapter.config.targetIpAdress, (isAlive) => {
+                adapter.log.info('Close Connection to PLC');
+
+                if (isAlive) {
+                    adsClient.end(() => {
+                        adsClient = null;
+                    });
+                } else {
+                    adsClient.endNoConn(() => {
+                        adsClient = null;
+                    });
+                }
+            }, {'timeout': 2});
         }
 
         if (checkPlcStateInterval !== null) {

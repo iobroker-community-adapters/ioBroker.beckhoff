@@ -6,7 +6,7 @@
 ![Logo](docs/en/img/beckhoff.png)
 
 # DEBUG Version -> Please post iobroker logs after a 'write after end' error in ISSUE #2. Please use the Adapter in this Version on log level 'debug' 
-
+![Number of Installations](http://iobroker.live/badges/beckhoff-installed.svg) ![Number of Installations](http://iobroker.live/badges/beckhoff-stable.svg) 
 # ioBroker.beckhoff
 This adapter for ioBroker can Communicate with a Beckhoff Automation System (Twincat 2 or 3) over the ADS Protocol.
 The ADS Protocol is implemented in every System of Beckhoff and can be used without any License on ioBroker or Automation System.

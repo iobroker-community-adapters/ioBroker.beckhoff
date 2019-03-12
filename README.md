@@ -103,7 +103,7 @@ This Project is not affilate to Beckhoff in any way
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018 dkleber89 <dkleber89@gmail.com>
+Copyright (c) 2018-2019 dkleber89 <dkleber89@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

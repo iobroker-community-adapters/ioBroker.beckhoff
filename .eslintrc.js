@@ -6,8 +6,11 @@ module.exports = {
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "ecmaVersion": 2016,
-        "sourceType": "module"
+        'ecmaVersion': 2017,
+        'ecmaFeatures': {
+            'impliedStrict': true
+        },
+        'sourceType': 'module'
     },
     "rules": {
         "accessor-pairs": "error",
@@ -107,7 +110,7 @@ module.exports = {
         "line-comment-position": "off",
         "linebreak-style": [
             "error",
-            "windows"
+            "unix"
         ],
         "lines-around-comment": "error",
         "lines-around-directive": "off",

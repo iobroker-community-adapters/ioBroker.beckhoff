@@ -28,6 +28,7 @@
 
 const events = require('events'),
     lib = require('./lib'),
+    utils = require('@iobroker/adapter-core'),
     ads = require('node-ads-api');
 
 const emitter = new events.EventEmitter();
@@ -38,7 +39,7 @@ let adsClient = null,
     oldPlcState = false;
 
 // Create new Adapter instance
-const adapter = new lib.utils.Adapter({
+const adapter = new utils.Adapter({
     'name': 'beckhoff',
     // When Adapter is ready then connecting to PLC and Subscribe necessary Handles
     'ready': () => {
@@ -59,8 +60,9 @@ const adapter = new lib.utils.Adapter({
         emitter.removeAllListeners();
 
         if (adsClient !== null) {
-            adapter.log.warn('unload adsClient.end()');
-            adsClient.end();
+            adsClient.end(() => {
+                adsClient = null;
+            });
         }
 
         if (checkPlcStateInterval !== null) {
@@ -152,7 +154,6 @@ function plcConnection () {
     emitter.on('reConnect', () => {
         adapter.log.debug('Start establish Connection to PLC');
 
-        adapter.log.warn('reconnect adsClient.connect()');
         adsClient = ads.connect(options, () => {   // eslint-disable-line no-param-reassign
             if (adsClient === null) {
                 endConnReconnect();
@@ -160,7 +161,6 @@ function plcConnection () {
                 return;
             }
 
-            adapter.log.warn('reconnect adsClient.readState()');
             adsClient.readState((err, res) => {
                 if (err) {
                     adapter.log.error(`ADS Client: Error: ${err}`);
@@ -178,14 +178,12 @@ function plcConnection () {
         });
 
         // When the Connection have some Problem write Error Log, set disconnected Event and close Connection properly.
-        adapter.log.warn('reconnect adsClient.on(error)');
         adsClient.on('error', (err) => {
             adapter.log.error(`ADS Client: ${err}`);
 
             endConnReconnect();
         });
 
-        adapter.log.warn('reconnect adsClient.on(timeout)');
         adsClient.on('timeout', (err) => {
             adapter.log.error(`ADS Client: ${err}`);
 
@@ -219,7 +217,6 @@ function endConnReconnect () {
     timeAlreadyRunning = true;
 
     if (adsClient !== null) {
-        adapter.log.warn('endconnrecconect adsClient.end()');
         adsClient.end(() => {
             adsClient = null;
         });

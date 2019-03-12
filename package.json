@@ -35,9 +35,8 @@
     "url": "https://github.com/dkleber89/ioBroker.beckhoff"
   },
   "dependencies": {
-    "node-ads-api": "^1.4.8",
-    "@iobroker/adapter-core": "^1.0.3",
-    "ping": "^0.2.2"
+    "node-ads-api": "^1.4.11",
+    "@iobroker/adapter-core": "^1.0.3"
   },
   "devDependencies": {
     "chai": "^4.2.0",

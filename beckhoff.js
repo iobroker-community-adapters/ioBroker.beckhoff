@@ -29,8 +29,7 @@
 const events = require('events'),
     lib = require('./lib'),
     utils = require('@iobroker/adapter-core'),
-    ads = require('node-ads-api'),
-    ping = require('ping');
+    ads = require('node-ads-api');
 
 const emitter = new events.EventEmitter();
 
@@ -61,19 +60,9 @@ const adapter = new utils.Adapter({
         emitter.removeAllListeners();
 
         if (adsClient !== null) {
-            ping.sys.probe(adapter.config.targetIpAdress, (isAlive) => {
-                adapter.log.info('Close Connection to PLC');
-
-                if (isAlive) {
-                    adsClient.end(() => {
-                        adsClient = null;
-                    });
-                } else {
-                    adsClient.endNoConn(() => {
-                        adsClient = null;
-                    });
-                }
-            }, {'timeout': 2});
+            adsClient.end(() => {
+                adsClient = null;
+            });
         }
 
         if (checkPlcStateInterval !== null) {
@@ -165,7 +154,6 @@ function plcConnection () {
     emitter.on('reConnect', () => {
         adapter.log.debug('Start establish Connection to PLC');
 
-        adapter.log.warn('reconnect adsClient.connect()');
         adsClient = ads.connect(options, () => {   // eslint-disable-line no-param-reassign
             if (adsClient === null) {
                 endConnReconnect();
@@ -173,7 +161,6 @@ function plcConnection () {
                 return;
             }
 
-            adapter.log.warn('reconnect adsClient.readState()');
             adsClient.readState((err, res) => {
                 if (err) {
                     adapter.log.error(`ADS Client: Error: ${err}`);
@@ -191,14 +178,12 @@ function plcConnection () {
         });
 
         // When the Connection have some Problem write Error Log, set disconnected Event and close Connection properly.
-        adapter.log.warn('reconnect adsClient.on(error)');
         adsClient.on('error', (err) => {
             adapter.log.error(`ADS Client: ${err}`);
 
             endConnReconnect();
         });
 
-        adapter.log.warn('reconnect adsClient.on(timeout)');
         adsClient.on('timeout', (err) => {
             adapter.log.error(`ADS Client: ${err}`);
 
@@ -232,34 +217,16 @@ function endConnReconnect () {
     timeAlreadyRunning = true;
 
     if (adsClient !== null) {
-        ping.sys.probe(adapter.config.targetIpAdress, (isAlive) => {
-            adapter.log.info('Close Connection to PLC for reconnection');
-
-            if (isAlive) {
-                adsClient.end(() => {
-                    adsClient = null;
-
-                    adapter.log.info(`Try to reconnect in ${adapter.config.reconnectInterval} seconds`);
-
-                    setTimeout(() => {
-                        timeAlreadyRunning = false;
-
-                        emitter.emit('reConnect');
-                    }, adapter.config.reconnectInterval * 1000);
-                });
-            } else {
-                adsClient.endNoConn(() => {
-                    adsClient = null;
-
-                    adapter.log.info(`Try to reconnect in ${adapter.config.reconnectInterval} seconds`);
-
-                    setTimeout(() => {
-                        timeAlreadyRunning = false;
-
-                        emitter.emit('reConnect');
-                    }, adapter.config.reconnectInterval * 1000);
-                });
-            }
-        }, {'timeout': 2});
+        adsClient.end(() => {
+            adsClient = null;
+        });
     }
+
+    adapter.log.info(`Try to reconnect in ${adapter.config.reconnectInterval} seconds`);
+
+    setTimeout(() => {
+        timeAlreadyRunning = false;
+
+        emitter.emit('reConnect');
+    }, adapter.config.reconnectInterval * 1000);
 }

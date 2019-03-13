@@ -1,9 +1,10 @@
 [![Build Status](https://travis-ci.org/dkleber89/ioBroker.beckhoff.svg?branch=master)](https://travis-ci.org/dkleber89/ioBroker.beckhoff) [![Build status](https://ci.appveyor.com/api/projects/status/laebb0pq4pd4d08x/branch/master?svg=true)](https://ci.appveyor.com/project/DietmarKleber/iobroker-beckhoff/branch/master)
-[![npm](https://img.shields.io/npm/v/iobroker.beckhoff.svg)](https://www.npmjs.com/package/iobroker.beckhoff) [![Waffle.io - Columns and their card count](https://badge.waffle.io/dkleber89/ioBroker.beckhoff.svg?columns=all)](https://waffle.io/dkleber89/ioBroker.beckhoff)
+[![npm](https://img.shields.io/npm/v/iobroker.beckhoff.svg)](https://www.npmjs.com/package/iobroker.beckhoff) [![Waffle.io - Columns and their card count](https://badge.waffle.io/dkleber89/ioBroker.beckhoff.svg?columns=all)](https://waffle.io/dkleber89/ioBroker.beckhoff) ![Number of Installations](http://iobroker.live/badges/beckhoff-installed.svg) ![Number of Installations] (http://iobroker.live/badges/beckhoff-stable.svg) 
 
 
 
 ![Logo](docs/en/img/beckhoff.png)
+
 
 # ioBroker.beckhoff
 This adapter for ioBroker can Communicate with a Beckhoff Automation System (Twincat 2 or 3) over the ADS Protocol.

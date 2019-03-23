@@ -1,0 +1,19 @@
+{
+    "Adapter AMS Port": "适配器AMS口",
+    "Adapter AMS-Net-ID": "适配器AMS-Net-ID",
+    "In Seconds (min. 5 Sec)": "在几秒钟内(分钟。 5秒)",
+    "Interval for reconnect": "时间间隔为重新连接",
+    "On save Adapter restarts with new config immediately": "在保存适配器重新启动与新的配置立即",
+    "Optional:": "可选：",
+    "PLC Runtime Version": "PLC运行时版本",
+    "Target AMS-Net-ID": "目标AMS-Net-ID",
+    "Target IP-Adress": "目标IP地址",
+    "Target Struct": "目标结构",
+    "Target TCP Port": "目标TCP Port",
+    "Target variable table": "目标变量表",
+    "e.g. 192.168.0.1": "例如为192.168.0.1",
+    "e.g. 192.168.0.1.1.1": "例如192.168.0.1.1.1",
+    "e.g. 192.168.254.254.1.1": "例如192.168.254.254.1.1",
+    "e.g. 32905": "例如32905",
+    "e.g. ioBrokerHandshake": "例如ioBrokerHandshake"
+}

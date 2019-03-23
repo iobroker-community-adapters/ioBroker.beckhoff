@@ -1,0 +1,19 @@
+{
+    "Adapter AMS Port": "Adapter portu AMC ",
+    "Adapter AMS-Net-ID": "Adapter AMC-netto-kod",
+    "In Seconds (min. 5 Sec)": "W sekundach (min 5 s)",
+    "Interval for reconnect": "Czas na ponowne podłączenie",
+    "On save Adapter restarts with new config immediately": "Zapisz ponownym uruchomieniu zasilacza z nowy konfig raz",
+    "Optional:": "Dodatkowo:",
+    "PLC Runtime Version": "PLC wersji środowiska wykonawczego",
+    "Target AMS-Net-ID": "Celem AMC-netto-kod",
+    "Target IP-Adress": "Docelowy adres IP",
+    "Target Struct": "Docelowa Struktura",
+    "Target TCP Port": "Docelowy port TCP",
+    "Target variable table": "Docelowa zmienna stół",
+    "e.g. 192.168.0.1": "na przykład, 192.168.0.1",
+    "e.g. 192.168.0.1.1.1": "na przykład, 192.168.0.1.1.1",
+    "e.g. 192.168.254.254.1.1": "na przykład, 192.168.254.254.1.1",
+    "e.g. 32905": "na przykład 32905",
+    "e.g. ioBrokerHandshake": "na przykład, ioBrokerHandshake"
+}

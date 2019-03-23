@@ -1,0 +1,19 @@
+{
+    "Adapter AMS Port": "Adaptateur AMS Port",
+    "Adapter AMS-Net-ID": "Adaptateur AMS-Net-ID",
+    "In Seconds (min. 5 Sec)": "En secondes (min. 5 sec)",
+    "Interval for reconnect": "Intervalle de reconnexion",
+    "On save Adapter restarts with new config immediately": "Lors de la sauvegarde, l’adaptateur redémarre immédiatement avec une nouvelle configuration.",
+    "Optional:": "Optionnel:",
+    "PLC Runtime Version": "Version d'exécution de l'automate",
+    "Target AMS-Net-ID": "Identifiant AMS-Net cible",
+    "Target IP-Adress": "Adresse IP cible",
+    "Target Struct": "Structure cible",
+    "Target TCP Port": "Port TCP cible",
+    "Target variable table": "Table de variables cible",
+    "e.g. 192.168.0.1": "par exemple. ",
+    "e.g. 192.168.0.1.1.1": "par exemple. ",
+    "e.g. 192.168.254.254.1.1": "par exemple. ",
+    "e.g. 32905": "par exemple. ",
+    "e.g. ioBrokerHandshake": "par exemple. "
+}

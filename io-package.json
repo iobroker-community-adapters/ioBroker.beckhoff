@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "beckhoff",
-        "version": "0.3.0",
+        "version": "1.0.0",
         "news": {
             "0.0.1": {
                 "en": "initial adapter",
@@ -122,6 +122,18 @@
                 "es": "Nuevo Núcleo - y Testfiles de Apollon77 y arreglar \"escribir después de la final\". Problema #2",
                 "pl": "Nowe jądro - Smsd od Apollon77 i naprawić 'pisać po końca'. Odcinek #2",
                 "zh-cn": "新的核心和Testfiles从Apollon77和修复写信之后结束的。 第2个问题"
+            },
+            "1.0.0": {
+                "en": "Stable Release, Update Gulp, add new Translations",
+                "de": "Stable-Release, Update Gulp, hinzufügen neuer Übersetzungen",
+                "ru": "Стабильный релиз, обновление залпом, добавить новые переводы",
+                "pt": "Versão estável, Atualização Gole, adicionar novas Traduções",
+                "nl": "Een stabiele versie, Update Gulp, het toevoegen van nieuwe Vertalingen",
+                "fr": "Publication de la Version Stable, mise à Jour de Gulp, ajouter de nouvelles Traductions",
+                "it": "Stabile di Rilascio, l'Aggiornamento Gulp, aggiungere nuove Traduzioni",
+                "es": "La Versión estable, la Actualización de Gulp, añadir nuevas Traducciones",
+                "pl": "Wersja stabilna, aktualizacja duszkiem, dodać nowe tłumaczenia",
+                "zh-cn": "稳定释放、更新口，添加新的翻译"
             }
         },
         "title": "Beckhoff TwinCat ADS",

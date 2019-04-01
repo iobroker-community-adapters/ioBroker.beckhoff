@@ -1,6 +1,6 @@
 {
   "name": "iobroker.beckhoff",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "beckhoff",
   "author": {
     "name": "dkleber89",

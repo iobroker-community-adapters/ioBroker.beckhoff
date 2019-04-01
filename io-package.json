@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "beckhoff",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "news": {
             "0.0.1": {
                 "en": "initial adapter",
@@ -134,6 +134,18 @@
                 "es": "La Versión estable, la Actualización de Gulp, añadir nuevas Traducciones",
                 "pl": "Wersja stabilna, aktualizacja duszkiem, dodać nowe tłumaczenia",
                 "zh-cn": "稳定释放、更新口，添加新的翻译"
+            },
+            "1.0.1": {
+                "en": "Random Bugfixes",
+                "de": "Verschieden Bugfixes",
+                "ru": "Случайные исправления",
+                "pt": "Bugfixes Aleatórios",
+                "nl": "Willekeurige Bugfixes",
+                "fr": "Correction de bugs aléatoires",
+                "it": "Bugfix casuali",
+                "es": "Corrección de errores aleatorios",
+                "pl": "Losowe poprawki błędów",
+                "zh-cn": "随机错误修正"
             }
         },
         "title": "Beckhoff TwinCat ADS",

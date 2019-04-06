@@ -66,6 +66,9 @@ This Project is not affilate to Beckhoff in any way
 
 
 ## Changelog
+### 1.0.1 (2019-04-06)
+* (dkleber89) Random Bugfixes, Add some monitoring that States get correct Ack
+
 ### 1.0.0 (2019-03-23)
 * (dkleber 89) Stable Release, Update Gulp, add new Translations
 
@@ -99,9 +102,6 @@ This Project is not affilate to Beckhoff in any way
 
 ### 0.0.2 (2018-10-20)
 * (dkleber89) Milestone Connection and Sync, no Release yet
-
-### 0.0.1 (2018-08-17)
-* (dkleber89) Development, no Release yet
 
 
 ## License

@@ -3,18 +3,6 @@
         "name": "beckhoff",
         "version": "1.0.1",
         "news": {
-            "0.0.1": {
-                "en": "initial adapter",
-                "de": "Initiale Version",
-                "ru": "Первоначальный адаптер",
-                "pt": "Versão inicial",
-                "fr": "Version initiale",
-                "nl": "Eerste release",
-                "it": "iniziale adattatore",
-                "es": "adaptador inicial",
-                "pl": "początkowa adapter",
-                "zh-cn": "最初的适配器"
-            },
             "0.0.2": {
                 "en": "milestone Connection and Sync",
                 "de": "Meilenstein Verbindung und Syncronisation erledigt",
@@ -38,6 +26,18 @@
                 "es": "La Primera Versión Beta",
                 "pl": "Pierwsza Wersja Beta",
                 "zh-cn": "第一个测试版本"
+            },
+            "0.1.1": {
+                "en": "Bugfix in Connection handling",
+                "de": "Bugfix bei der Verbindungsbehandlung",
+                "ru": "Исправлена ​​ошибка в обработке соединений",
+                "pt": "Correção de bug no manuseio de conexão",
+                "nl": "Bugfix in verbindingsafhandeling",
+                "fr": "Correction de bug dans la gestion de la connexion",
+                "it": "Bugfix nella gestione delle connessioni",
+                "es": "Corrección de errores en el manejo de la conexión",
+                "pl": "Bugfix w obsłudze połączeń",
+                "zh-cn": "连接处理中的错误修正"
             },
             "0.1.2": {
                 "en": "Bugfix in Adapter Unload",

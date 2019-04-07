@@ -1,5 +1,5 @@
 
-![Logo](docs/en/img/beckhoff.png)
+![Logo](img/beckhoff.png)
 
 # ioBroker.beckhoff
 This adapter for ioBroker can Communicate with a Beckhoff Automation System (Twincat 2 or 3) over the ADS Protocol.

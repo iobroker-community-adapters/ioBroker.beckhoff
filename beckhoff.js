@@ -23,7 +23,7 @@ const adapter = new utils.Adapter({
         plcConnection();
 
         emitter.on('updateObjects', () => {
-            lib.createObjectsAndHandles(adsClient, adapter, emitter);
+            lib.createObjectsAndHandles(adsClient, adapter);
         });
 
         emitter.on('newSyncReq', () => {

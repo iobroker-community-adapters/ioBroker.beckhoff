@@ -1,0 +1,45 @@
+  
+Einzelner Datentyp
+
+
+
+
+    {  
+        "size":12,						BitSize[0] / 8
+        "arrayDim":0,					ArrayInfo[0].Elements[0] oder 0
+        "subItems":3,					SubItem.length oder 0
+        "name":"beispieldatentyp",		Name[0]._
+        "type":"",						Wenn arrayDim > 0 then Type[0]
+        "comment":"",					Comment[0]
+
+
+        "datatyps":[  					Nur wenn Struct
+            {  
+                "index":1,				Einfach Postition hochzählen
+                "size":1,				SubItem[Postition].BitSize[0]
+                "arrayDim":0,			???
+                "name":"varBool",       SubItem[Postition].Name[0]
+                "type":"BOOL",          SubItem[Postition].Type[0]
+            },
+            ....
+        ]
+
+
+        "array":[                       Nur wenn Array
+            {
+                "lBound":1,
+                "elements":1
+            }
+        ]
+    }
+	
+	
+	{  
+        "size":128,
+        "arrayDim":1,
+        "subItems":0,
+        "name":"ARRAY [1..1] OF PLC.PlcTaskSystemInfo",
+        "type":"PLC.PlcTaskSystemInfo",
+        "comment":"",
+
+    }

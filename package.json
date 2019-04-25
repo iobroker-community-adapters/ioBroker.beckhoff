@@ -30,7 +30,8 @@
   },
   "dependencies": {
     "node-ads-api": "^1.4.11",
-    "@iobroker/adapter-core": "^1.0.3"
+    "@iobroker/adapter-core": "^1.0.3",
+    "xml2js": "^0.4.19"
   },
   "devDependencies": {
     "axios": "^0.18.0",

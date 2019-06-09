@@ -1,0 +1,325 @@
+{
+    "Name": [
+        {
+            "_": "Parameter",
+            "$": {
+                "Decoration": "1016A0A7",
+                "Crc32": "1826734206",
+                "LastChange": "2018-06-24T21:15:34"
+            }
+        }
+    ],
+    "BitSize": [
+        "464"
+    ],
+    "SubItem": [
+        {
+            "Name": [
+                "MinTimeDayFilterpump"
+            ],
+            "Type": [
+                "TIME"
+            ],
+            "BitSize": [
+                "32"
+            ],
+            "BitOffs": [
+                "0"
+            ]
+        },
+        {
+            "Name": [
+                "MaxTimeDayFilterpump"
+            ],
+            "Type": [
+                "TIME"
+            ],
+            "BitSize": [
+                "32"
+            ],
+            "BitOffs": [
+                "32"
+            ]
+        },
+        {
+            "Name": [
+                "MinTermFilterpump"
+            ],
+            "Type": [
+                "TIME"
+            ],
+            "BitSize": [
+                "32"
+            ],
+            "BitOffs": [
+                "64"
+            ]
+        },
+        {
+            "Name": [
+                "MinTimeDayWFilterpump"
+            ],
+            "Type": [
+                "BYTE"
+            ],
+            "BitSize": [
+                "8"
+            ],
+            "BitOffs": [
+                "96"
+            ]
+        },
+        {
+            "Name": [
+                "StartThresholdFilterpump"
+            ],
+            "Type": [
+                "INT"
+            ],
+            "BitSize": [
+                "16"
+            ],
+            "BitOffs": [
+                "112"
+            ]
+        },
+        {
+            "Name": [
+                "StopHystereseFilterpump"
+            ],
+            "Type": [
+                "INT"
+            ],
+            "BitSize": [
+                "16"
+            ],
+            "BitOffs": [
+                "128"
+            ]
+        },
+        {
+            "Name": [
+                "TargetValueFilterpumpAutomatik"
+            ],
+            "Type": [
+                "BYTE"
+            ],
+            "BitSize": [
+                "8"
+            ],
+            "BitOffs": [
+                "144"
+            ]
+        },
+        {
+            "Name": [
+                "TargetValueFilterpumpManual"
+            ],
+            "Type": [
+                "BYTE"
+            ],
+            "BitSize": [
+                "8"
+            ],
+            "BitOffs": [
+                "152"
+            ]
+        },
+        {
+            "Name": [
+                "OffPointBoiler"
+            ],
+            "Type": [
+                "INT"
+            ],
+            "BitSize": [
+                "16"
+            ],
+            "BitOffs": [
+                "160"
+            ]
+        },
+        {
+            "Name": [
+                "PowerMovingAverageTimeBoiler"
+            ],
+            "Type": [
+                "TIME"
+            ],
+            "BitSize": [
+                "32"
+            ],
+            "BitOffs": [
+                "176"
+            ]
+        },
+        {
+            "Name": [
+                "TimeDelaySumppumpStop"
+            ],
+            "Type": [
+                "TIME"
+            ],
+            "BitSize": [
+                "32"
+            ],
+            "BitOffs": [
+                "208"
+            ]
+        },
+        {
+            "Name": [
+                "TimeDelayWaterlevelAlarm"
+            ],
+            "Type": [
+                "TIME"
+            ],
+            "BitSize": [
+                "32"
+            ],
+            "BitOffs": [
+                "240"
+            ]
+        },
+        {
+            "Name": [
+                "MinTermHeatingpump"
+            ],
+            "Type": [
+                "TIME"
+            ],
+            "BitSize": [
+                "32"
+            ],
+            "BitOffs": [
+                "272"
+            ]
+        },
+        {
+            "Name": [
+                "MinBreakHeatingpump"
+            ],
+            "Type": [
+                "TIME"
+            ],
+            "BitSize": [
+                "32"
+            ],
+            "BitOffs": [
+                "304"
+            ]
+        },
+        {
+            "Name": [
+                "StartThresholdHeatingpump"
+            ],
+            "Type": [
+                "INT"
+            ],
+            "BitSize": [
+                "16"
+            ],
+            "BitOffs": [
+                "336"
+            ]
+        },
+        {
+            "Name": [
+                "StopHystereseHeatingpump"
+            ],
+            "Type": [
+                "INT"
+            ],
+            "BitSize": [
+                "16"
+            ],
+            "BitOffs": [
+                "352"
+            ]
+        },
+        {
+            "Name": [
+                "StartThresholdCabinetHeating"
+            ],
+            "Type": [
+                "INT"
+            ],
+            "BitSize": [
+                "16"
+            ],
+            "BitOffs": [
+                "368"
+            ]
+        },
+        {
+            "Name": [
+                "PowerMovingAverageTime"
+            ],
+            "Type": [
+                "TIME"
+            ],
+            "BitSize": [
+                "32"
+            ],
+            "BitOffs": [
+                "384"
+            ]
+        },
+        {
+            "Name": [
+                "SummerMode"
+            ],
+            "Type": [
+                "BOOL"
+            ],
+            "BitSize": [
+                "8"
+            ],
+            "BitOffs": [
+                "416"
+            ]
+        },
+        {
+            "Name": [
+                "SunsetTime"
+            ],
+            "Type": [
+                "INT"
+            ],
+            "BitSize": [
+                "16"
+            ],
+            "BitOffs": [
+                "432"
+            ]
+        },
+        {
+            "Name": [
+                "SaltProportion"
+            ],
+            "Type": [
+                "BYTE"
+            ],
+            "BitSize": [
+                "8"
+            ],
+            "BitOffs": [
+                "448"
+            ]
+        },
+        {
+            "Name": [
+                "BoilerOn"
+            ],
+            "Type": [
+                "BOOL"
+            ],
+            "BitSize": [
+                "8"
+            ],
+            "BitOffs": [
+                "456"
+            ]
+        }
+    ]
+}

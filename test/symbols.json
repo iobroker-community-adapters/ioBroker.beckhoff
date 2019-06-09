@@ -1,0 +1,203 @@
+[
+  {
+    "indexGroup": 16448,
+    "indexOffset": 512912,
+    "size": 1,
+    "name": "Constants.bFPUSupport",
+    "type": "BOOL",
+    "comment": ""
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 512030,
+    "size": 1,
+    "name": "Constants.bLittleEndian",
+    "type": "BOOL",
+    "comment": " Does the target support an FPU"
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 512031,
+    "size": 1,
+    "name": "Constants.bSimulationMode",
+    "type": "BOOL",
+    "comment": " Does the target support an FPU"
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 512900,
+    "size": 8,
+    "name": "Constants.CompilerVersion",
+    "type": "VERSION",
+    "comment": " Does the target support an FPU"
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 512920,
+    "size": 4,
+    "name": "Constants.CompilerVersionNumeric",
+    "type": "DWORD",
+    "comment": ""
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 512910,
+    "size": 2,
+    "name": "Constants.nPackMode",
+    "type": "UINT",
+    "comment": " Does the target support an FPU"
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 512908,
+    "size": 2,
+    "name": "Constants.nRegisterSize",
+    "type": "WORD",
+    "comment": " Does the target support an FPU"
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 512892,
+    "size": 8,
+    "name": "Constants.RuntimeVersion",
+    "type": "VERSION",
+    "comment": " Does the target support an FPU"
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 512916,
+    "size": 4,
+    "name": "Constants.RuntimeVersionNumeric",
+    "type": "DWORD",
+    "comment": ""
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 567920,
+    "size": 4,
+    "name": "globalVariables.next",
+    "type": "DINT",
+    "comment": ""
+  },
+  {
+    "indexGroup": 61472,
+    "indexOffset": 512914,
+    "size": 2,
+    "name": "globalVariables.usbLizenzDongleState",
+    "type": "UINT",
+    "comment": ""
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 513316,
+    "size": 1,
+    "name": "ioBrokerSchnittstelle.testerei",
+    "type": "BOOL",
+    "comment": ""
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 512872,
+    "size": 4,
+    "name": "ioBrokerSchnittstelle.varDint",
+    "type": "DINT",
+    "comment": ""
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 512880,
+    "size": 12,
+    "name": "ioBrokerSchnittstelle.varDut",
+    "type": "beispieldatentyp",
+    "comment": ""
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 512876,
+    "size": 4,
+    "name": "ioBrokerSchnittstelle.varReal",
+    "type": "REAL",
+    "comment": ""
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 513317,
+    "size": 1,
+    "name": "MAIN.blub",
+    "type": "BOOL",
+    "comment": ""
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 512028,
+    "size": 1,
+    "name": "MAIN.test",
+    "type": "BOOL",
+    "comment": ""
+  },
+  {
+    "indexGroup": 61488,
+    "indexOffset": 512913,
+    "size": 1,
+    "name": "MAIN.test1",
+    "type": "BOOL",
+    "comment": ""
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 567936,
+    "size": 32,
+    "name": "MAIN.timerchen",
+    "type": "Tc2_Standard.TON",
+    "comment": ""
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 771504,
+    "size": 32,
+    "name": "MAIN.timerchen1",
+    "type": "Tc2_Standard.TON",
+    "comment": ""
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 513320,
+    "size": 112,
+    "name": "TwinCAT_SystemInfoVarList.__PlcTask",
+    "type": "_Implicit_Task_Info",
+    "comment": ""
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 512928,
+    "size": 256,
+    "name": "TwinCAT_SystemInfoVarList._AppInfo",
+    "type": "PLC.PlcAppSystemInfo",
+    "comment": ""
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 513184,
+    "size": 128,
+    "name": "TwinCAT_SystemInfoVarList._TaskInfo[1]",
+    "type": "PLC.PlcTaskSystemInfo",
+    "comment": "",
+    "arrayid": 1
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 513312,
+    "size": 4,
+    "name": "TwinCAT_SystemInfoVarList._TaskOid_PlcTask",
+    "type": "OTCID",
+    "comment": ""
+  },
+  {
+    "indexGroup": 16448,
+    "indexOffset": 512924,
+    "size": 4,
+    "name": "TwinCAT_SystemInfoVarList._TaskPouOid_PlcTask",
+    "type": "OTCID",
+    "comment": ""
+  }
+]

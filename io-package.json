@@ -1,20 +1,8 @@
 {
     "common": {
         "name": "beckhoff",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "news": {
-            "0.0.2": {
-                "en": "milestone Connection and Sync",
-                "de": "Meilenstein Verbindung und Syncronisation erledigt",
-                "ru": "этап подключения и синхронизации",
-                "pt": "marco Conexão e Sincronização",
-                "nl": "mijlpaal Verbinding en Synchronisatie",
-                "fr": "étape de Connexion et de Synchronisation",
-                "it": "pietra miliare di Connessione e Sincronizzazione",
-                "es": "hito de Conexión y Sincronización",
-                "pl": "etap połączenia i synchronizacji",
-                "zh-cn": "里程碑和同步连接"
-            },
             "0.1.0": {
                 "en": "First Beta Release",
                 "de": "Erste Beta Version",
@@ -146,6 +134,18 @@
                 "es": "Corrección de errores aleatorios",
                 "pl": "Losowe poprawki błędów",
                 "zh-cn": "随机错误修正"
+            },
+            "1.0.2": {
+                "en": "Update testing Node v12 in Appveyor and Travis",
+                "de": "Test aktualisieren auf Node v12 in Appveyor und Travis",
+                "ru": "Обновление тестирующего Node v12 в Appveyor и Travis",
+                "pt": "Atualize o teste do nó v12 no Appveyor e no Travis",
+                "nl": "Update toets Node v12 in Appveyor en Travis",
+                "fr": "Mise à jour du test du nœud v12 dans Appveyor et Travis",
+                "it": "Aggiornamento test Nodo v12 in Appveyor e Travis",
+                "es": "Actualización de pruebas del nodo v12 en Appveyor y Travis",
+                "pl": "Aktualizacja testowania Node v12 w Appveyor i Travis",
+                "zh-cn": "在Appveyor和Travis中更新测试节点v12"
             }
         },
         "title": "Beckhoff TwinCat ADS",

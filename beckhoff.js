@@ -119,7 +119,7 @@ function plcConnection () {
     const options = {
         'host': adapter.config.targetIpAdress,
         'amsNetIdTarget': adapter.config.targetAmsNetId,
-        'amsPortTarget': adapter.config.targetAmsPort,
+        'amsPortTarget': adapter.config.targetAmsPort === '901' ? '801' : adapter.config.targetAmsPort,
         'port': adapter.config.targetTcpPort,
         'amsNetIdSource': adapter.config.sourceAmsNetId,
         'amsPortSource': adapter.config.sourceAmsPort

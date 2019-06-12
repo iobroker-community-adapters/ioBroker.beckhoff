@@ -27,7 +27,11 @@ const adapter = new utils.Adapter({
         });
 
         emitter.on('newSyncReq', () => {
-            lib.plcVarSyncronizing(adsClient, adapter, emitter);
+            if (adapter.config.targetAmsPort === '901') {
+                lib.tpyParser(adapter, emitter);
+            } else {
+                lib.plcVarSyncronizing(adsClient, adapter, emitter);
+            }
         });
     },
     // When Adapter would be stopped some last work we have to do

@@ -1,20 +1,8 @@
 {
     "common": {
         "name": "beckhoff",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "news": {
-            "0.1.0": {
-                "en": "First Beta Release",
-                "de": "Erste Beta Version",
-                "ru": "Первый Бета-Релиз",
-                "pt": "Primeira Versão Beta",
-                "nl": "Eerste Beta Release",
-                "fr": "La Première Version Bêta",
-                "it": "La Prima Beta Release",
-                "es": "La Primera Versión Beta",
-                "pl": "Pierwsza Wersja Beta",
-                "zh-cn": "第一个测试版本"
-            },
             "0.1.1": {
                 "en": "Bugfix in Connection handling",
                 "de": "Bugfix bei der Verbindungsbehandlung",
@@ -146,6 +134,18 @@
                 "es": "Actualización de pruebas del nodo v12 en Appveyor y Travis",
                 "pl": "Aktualizacja testowania Node v12 w Appveyor i Travis",
                 "zh-cn": "在Appveyor和Travis中更新测试节点v12"
+            },
+            "1.0.3": {
+                "en": "Add Support for older TC2 Runtimes and BC PLCs",
+                "de": "Unterstützung für ältere TC2 Runtims und BC Steuerungen hinzugefügt",
+                "ru": "Добавить поддержку для старых сред выполнения TC2 и ПЛК BC",
+                "pt": "Adicionar suporte para tempos de execução mais antigos do TC2 e CLPs do BC",
+                "nl": "Ondersteuning toevoegen voor oudere TC2 Runtimes en BC PLC's",
+                "fr": "Ajout du support pour les anciens automates TC2 et BC",
+                "it": "Aggiungi supporto per i vecchi Runtime del TC2 e PLC BC",
+                "es": "Agregue soporte para tiempos de ejecución TC2 más antiguos y PLC BC",
+                "pl": "Dodaj obsługę starszych czasów wykonania TC2 i sterowników PLC BC",
+                "zh-cn": "添加对旧版TC2运行时和BC PLC的支持"
             }
         },
         "title": "Beckhoff TwinCat ADS",
@@ -209,7 +209,7 @@
         "sourceAmsNetId": "192.168.254.254.1.1",
         "sourceAmsPort": 32905,
         "targetVTable": "",
-        "xmlTpyData":  "",
+        "xmlTpyData": "",
         "reconnectInterval": 15,
         "symbolObjectList": []
     },

@@ -103,9 +103,6 @@ This Project is not affilate to Beckhoff in any way
 ### 0.1.1 (2018-11-04)
 * (dkleber89) Bugfix in Connection handling
 
-### 0.1.0 (2018-11-01)
-* (dkleber89) First Beta Release
-
 
 ## License
 The MIT License (MIT)

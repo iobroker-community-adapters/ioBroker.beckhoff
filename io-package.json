@@ -1,20 +1,8 @@
 {
     "common": {
         "name": "beckhoff",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "news": {
-            "0.1.0": {
-                "en": "First Beta Release",
-                "de": "Erste Beta Version",
-                "ru": "Первый Бета-Релиз",
-                "pt": "Primeira Versão Beta",
-                "nl": "Eerste Beta Release",
-                "fr": "La Première Version Bêta",
-                "it": "La Prima Beta Release",
-                "es": "La Primera Versión Beta",
-                "pl": "Pierwsza Wersja Beta",
-                "zh-cn": "第一个测试版本"
-            },
             "0.1.1": {
                 "en": "Bugfix in Connection handling",
                 "de": "Bugfix bei der Verbindungsbehandlung",
@@ -146,6 +134,18 @@
                 "es": "Actualización de pruebas del nodo v12 en Appveyor y Travis",
                 "pl": "Aktualizacja testowania Node v12 w Appveyor i Travis",
                 "zh-cn": "在Appveyor和Travis中更新测试节点v12"
+            },
+            "1.0.3": {
+                "en": "Increase depth of LOG Details, Update Dependency Versions",
+                "de": "LOG Detailtiefe erhöht, Paketversionen aktualisiert",
+                "ru": "Увеличение глубины деталей LOG, обновление зависимостей версий",
+                "pt": "Aumentar a profundidade dos detalhes do LOG, Atualizar versões de dependência",
+                "nl": "Vergroot de diepte van LOG-details, update afhankelijkheidsversies",
+                "fr": "Augmenter la profondeur des détails du journal, mettre à jour les versions de dépendance",
+                "it": "Aumenta la profondità dei dettagli del LOG, aggiorna le versioni delle dipendenze",
+                "es": "Aumente la profundidad de los Detalles de REGISTRO, Actualice las Versiones de Dependencia",
+                "pl": "Zwiększ głębokość Szczegóły dziennika, Aktualizuj wersje zależności",
+                "zh-cn": "增加LOG详细信息的深度，更新依赖性版本"
             }
         },
         "title": "Beckhoff TwinCat ADS",

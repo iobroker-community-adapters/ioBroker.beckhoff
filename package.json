@@ -1,6 +1,6 @@
 {
   "name": "iobroker.beckhoff",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "beckhoff",
   "author": {
     "name": "dkleber89",
@@ -29,16 +29,15 @@
     "url": "https://github.com/dkleber89/ioBroker.beckhoff"
   },
   "dependencies": {
-    "node-ads-api": "^1.4.11",
-    "@iobroker/adapter-core": "^1.0.3"
+    "@iobroker/adapter-core": "1.0.3",
+    "node-ads-api": "1.4.14"
   },
   "devDependencies": {
-    "axios": "^0.18.0",
-    "chai": "^4.2.0",
-    "gulp": "^4.0.0",
-    "mocha": "^4.1.0",
-    "eslint": "^5.16.0",
-    "eslint-config-recommended": "^4.0.0"
+    "axios": "0.19.0",
+    "chai": "4.2.0",
+    "gulp": "4.0.2",
+    "mocha": "6.2.0",
+    "eslint": "6.1.0"
   },
   "deprecated": false,
   "main": "beckhoff.js",

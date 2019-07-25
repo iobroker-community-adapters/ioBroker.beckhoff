@@ -41,6 +41,8 @@ const adapter = new utils.Adapter({
         if (adsClient !== null) {
             adsClient.end(() => {
                 adsClient = null;
+
+                adapter.log.debug('ADS Connection closed.');
             });
         }
 
@@ -135,6 +137,8 @@ function plcConnection () {
 
         adsClient = ads.connect(options, () => {   // eslint-disable-line no-param-reassign
             if (adsClient === null) {
+                adapter.log.debug('Establish Connection to PLC failed -> Try again');
+
                 endConnReconnect();
 
                 return;

@@ -136,16 +136,16 @@
                 "zh-cn": "在Appveyor和Travis中更新测试节点v12"
             },
             "1.0.3": {
-                "en": "Add Support for older TC2 Runtimes and BC PLCs",
-                "de": "Unterstützung für ältere TC2 Runtims und BC Steuerungen hinzugefügt",
-                "ru": "Добавить поддержку для старых сред выполнения TC2 и ПЛК BC",
-                "pt": "Adicionar suporte para tempos de execução mais antigos do TC2 e CLPs do BC",
-                "nl": "Ondersteuning toevoegen voor oudere TC2 Runtimes en BC PLC's",
-                "fr": "Ajout du support pour les anciens automates TC2 et BC",
-                "it": "Aggiungi supporto per i vecchi Runtime del TC2 e PLC BC",
-                "es": "Agregue soporte para tiempos de ejecución TC2 más antiguos y PLC BC",
-                "pl": "Dodaj obsługę starszych czasów wykonania TC2 i sterowników PLC BC",
-                "zh-cn": "添加对旧版TC2运行时和BC PLC的支持"
+                "en": "Increase depth of LOG Details, Update Dependency Versions",
+                "de": "LOG Detailtiefe erhöht, Paketversionen aktualisiert",
+                "ru": "Увеличение глубины деталей LOG, обновление зависимостей версий",
+                "pt": "Aumentar a profundidade dos detalhes do LOG, Atualizar versões de dependência",
+                "nl": "Vergroot de diepte van LOG-details, update afhankelijkheidsversies",
+                "fr": "Augmenter la profondeur des détails du journal, mettre à jour les versions de dépendance",
+                "it": "Aumenta la profondità dei dettagli del LOG, aggiorna le versioni delle dipendenze",
+                "es": "Aumente la profundidad de los Detalles de REGISTRO, Actualice las Versiones de Dependencia",
+                "pl": "Zwiększ głębokość Szczegóły dziennika, Aktualizuj wersje zależności",
+                "zh-cn": "增加LOG详细信息的深度，更新依赖性版本"
             }
         },
         "title": "Beckhoff TwinCat ADS",

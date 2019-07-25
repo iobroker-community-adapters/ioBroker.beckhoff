@@ -1,20 +1,8 @@
 {
     "common": {
         "name": "beckhoff",
-        "version": "1.0.3",
+        "version": "1.0.4",
         "news": {
-            "0.1.1": {
-                "en": "Bugfix in Connection handling",
-                "de": "Bugfix bei der Verbindungsbehandlung",
-                "ru": "Исправлена ​​ошибка в обработке соединений",
-                "pt": "Correção de bug no manuseio de conexão",
-                "nl": "Bugfix in verbindingsafhandeling",
-                "fr": "Correction de bug dans la gestion de la connexion",
-                "it": "Bugfix nella gestione delle connessioni",
-                "es": "Corrección de errores en el manejo de la conexión",
-                "pl": "Bugfix w obsłudze połączeń",
-                "zh-cn": "连接处理中的错误修正"
-            },
             "0.1.2": {
                 "en": "Bugfix in Adapter Unload",
                 "de": "Bugfix beim beenden des Adapters",
@@ -146,6 +134,18 @@
                 "es": "Aumente la profundidad de los Detalles de REGISTRO, Actualice las Versiones de Dependencia",
                 "pl": "Zwiększ głębokość Szczegóły dziennika, Aktualizuj wersje zależności",
                 "zh-cn": "增加LOG详细信息的深度，更新依赖性版本"
+            },
+            "1.0.4": {
+                "en": "Add Support for older TwinCat2 Systems",
+                "de": "Unterstützung für ältere TwinCat2 Systeme hinzugefügt",
+                "ru": "Добавить поддержку для старых систем TwinCat2",
+                "pt": "Adicionar suporte para sistemas TwinCat2 mais antigos",
+                "nl": "Ondersteuning toevoegen voor oudere TwinCat2-systemen",
+                "fr": "Ajout du support pour les anciens systèmes TwinCat2",
+                "it": "Aggiungi il supporto per i precedenti sistemi TwinCat2",
+                "es": "Añadir soporte para sistemas TwinCat2 más antiguos",
+                "pl": "Dodaj obsługę starszych systemów TwinCat2",
+                "zh-cn": "添加对旧版TwinCat2系统的支持"
             }
         },
         "title": "Beckhoff TwinCat ADS",

@@ -66,7 +66,7 @@ This Project is not affilate to Beckhoff in any way
 
 
 ## Changelog
-### 1.0.3 (2019-07-23)
+### 1.0.4 (2019-08-01)
 * (dkleber89) Increase depth of LOG details, Update dependency versions
 
 ### 1.0.2 (2019-05-18)

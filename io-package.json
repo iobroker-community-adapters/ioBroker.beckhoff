@@ -123,7 +123,7 @@
                 "pl": "Aktualizacja testowania Node v12 w Appveyor i Travis",
                 "zh-cn": "在Appveyor和Travis中更新测试节点v12"
             },
-            "1.0.3": {
+            "1.0.4": {
                 "en": "Increase depth of LOG Details, Update Dependency Versions",
                 "de": "LOG Detailtiefe erhöht, Paketversionen aktualisiert",
                 "ru": "Увеличение глубины деталей LOG, обновление зависимостей версий",

@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "beckhoff",
-        "version": "1.0.4",
+        "version": "1.0.5",
         "news": {
             "0.1.2": {
                 "en": "Bugfix in Adapter Unload",
@@ -135,7 +135,7 @@
                 "pl": "Zwiększ głębokość Szczegóły dziennika, Aktualizuj wersje zależności",
                 "zh-cn": "增加LOG详细信息的深度，更新依赖性版本"
             },
-            "1.0.4": {
+            "1.0.5": {
                 "en": "Add Support for older TwinCat2 Systems",
                 "de": "Unterstützung für ältere TwinCat2 Systeme hinzugefügt",
                 "ru": "Добавить поддержку для старых систем TwinCat2",

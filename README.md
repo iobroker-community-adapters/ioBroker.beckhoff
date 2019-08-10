@@ -119,10 +119,6 @@ This Project is not affilate to Beckhoff in any way
 
 -   (dkleber89) Bugfix in Adapter Unload
 
-### 0.1.1 (2018-11-04)
-
--   (dkleber89) Bugfix in Connection handling
-
 ## License
 
 The MIT License (MIT)

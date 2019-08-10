@@ -1,6 +1,10 @@
 
 ### Project
-./gulp
+/test/
+/lib/env/tools.js
+/admin/words.js
+/admin/i18n/
+/gulpfile.js
 
 # Created by .ignore support plugin (hsz.mobi)
 ### VisualStudioCode template
@@ -56,11 +60,11 @@
 # When using Gradle or Maven with auto-import, you should exclude module files,
 # since they will be recreated, and may cause churn.  Uncomment if using
 # auto-import.
- .idea/modules.xml
- .idea/*.iml
- .idea/modules
- *.iml
- *.ipr
+# .idea/modules.xml
+# .idea/*.iml
+# .idea/modules
+# *.iml
+# *.ipr
 
 # CMake
 cmake-build-*/
@@ -210,4 +214,3 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
-

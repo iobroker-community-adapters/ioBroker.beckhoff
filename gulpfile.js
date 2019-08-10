@@ -11,7 +11,7 @@ const iopackage = require("./io-package.json");
 const version = (pkg && pkg.version) ? pkg.version : iopackage.common.version;
 const fileName = "words.js";
 const EMPTY = "";
-const translate = require("./lib/tools.js").translateText;
+const translate = require("./lib/env/tools.js").translateText;
 const languages = {
     en: {},
     de: {},
@@ -34,7 +34,7 @@ function lang2data(lang, isFlat) {
             if (isFlat) {
                 str += (lang[w] === '' ? (isFlat[w] || w) : lang[w]) + '\n';
             } else {
-                const key = '    "' + w.replace(/"/g, '\\"') + '": ';
+                const key = '  "' + w.replace(/"/g, '\\"') + '": ';
                 str += key + '"' + lang[w].replace(/"/g, '\\"') + '",\n';
             }
         }
@@ -78,7 +78,7 @@ function writeWordJs(data, src) {
     text += 'systemDictionary = {\n';
     for (const word in data) {
         if (data.hasOwnProperty(word)) {
-            text += '    ' + padRight('"' + word.replace(/"/g, '\\"') + '": {', 50);
+            text += '  ' + padRight('"' + word.replace(/"/g, '\\"') + '": {', 50);
             let line = '';
             for (const lang in data[word]) {
                 if (data[word].hasOwnProperty(lang)) {

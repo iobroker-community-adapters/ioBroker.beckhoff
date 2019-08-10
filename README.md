@@ -70,6 +70,10 @@ This Project is not affilate to Beckhoff in any way
 
 ## Changelog
 
+### 1.0.5 (2019-08-10)
+
+-   (dkleber89) Eslint, Prettier with Airbnb Codestyle, CI adopted, little random changes in Project Structure
+
 ### 1.0.4 (2019-08-01)
 
 -   (dkleber89) Increase depth of LOG details, Update dependency versions

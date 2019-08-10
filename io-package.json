@@ -1,20 +1,8 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "news": {
-      "0.1.2": {
-        "en": "Bugfix in Adapter Unload",
-        "de": "Bugfix beim beenden des Adapters",
-        "ru": "Исправление в адаптер выгрузить",
-        "pt": "Correcção de bug na Placa de Descarregar",
-        "nl": "Bugfix in Adapter Lossen",
-        "fr": "Correction de bugs dans l'Adaptateur de Décharger",
-        "it": "Bugfix Adattatore da Scaricare",
-        "es": "Corrección de errores en el Adaptador de Descargar",
-        "pl": "Poprawka w adapter rozładować",
-        "zh-cn": "修正，在适配器卸载"
-      },
       "0.1.3": {
         "en": "Bugfix closing Processes",
         "de": "Bugfix beim beenden des Prozesses",
@@ -146,6 +134,18 @@
         "es": "Cambie a Prettier y Eslint con Airbnb Code Style, CI adoptó",
         "pl": "Zmień na Prettier i Eslint z Airbnb Code Style, przyjęto CI",
         "zh-cn": "使用Airbnb Code Style改为Prettier和Eslint，CI采用"
+      },
+      "0.1.6": {
+        "en": "Add check change of Datatype on resync",
+        "de": "Bei einem resync wird jetzt geprüft ob sich der Datentyp verändert hat",
+        "ru": "Добавить проверку изменения типа данных при повторной синхронизации",
+        "pt": "Adicionar alteração de verificação do tipo de dados no resync",
+        "nl": "Vink de wijziging van het gegevenstype aan bij opnieuw synchroniseren",
+        "fr": "Ajouter un changement de contrôle du type de données lors de la resynchronisation",
+        "it": "Aggiungi la modifica di controllo del tipo di dati al momento della risincronizzazione",
+        "es": "Agregar cambio de verificación de tipo de datos en resincronización",
+        "pl": "Dodaj zmianę wyboru typu danych podczas resynchronizacji",
+        "zh-cn": "在重新同步时添加数据类型的检查更改"
       }
     },
     "title": "Beckhoff TwinCat ADS",

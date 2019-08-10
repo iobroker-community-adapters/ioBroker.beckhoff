@@ -1,251 +1,242 @@
 {
-    "common": {
-        "name": "beckhoff",
-        "version": "1.0.4",
-        "news": {
-            "0.1.1": {
-                "en": "Bugfix in Connection handling",
-                "de": "Bugfix bei der Verbindungsbehandlung",
-                "ru": "Исправлена ​​ошибка в обработке соединений",
-                "pt": "Correção de bug no manuseio de conexão",
-                "nl": "Bugfix in verbindingsafhandeling",
-                "fr": "Correction de bug dans la gestion de la connexion",
-                "it": "Bugfix nella gestione delle connessioni",
-                "es": "Corrección de errores en el manejo de la conexión",
-                "pl": "Bugfix w obsłudze połączeń",
-                "zh-cn": "连接处理中的错误修正"
-            },
-            "0.1.2": {
-                "en": "Bugfix in Adapter Unload",
-                "de": "Bugfix beim beenden des Adapters",
-                "ru": "Исправление в адаптер выгрузить",
-                "pt": "Correcção de bug na Placa de Descarregar",
-                "nl": "Bugfix in Adapter Lossen",
-                "fr": "Correction de bugs dans l'Adaptateur de Décharger",
-                "it": "Bugfix Adattatore da Scaricare",
-                "es": "Corrección de errores en el Adaptador de Descargar",
-                "pl": "Poprawka w adapter rozładować",
-                "zh-cn": "修正，在适配器卸载"
-            },
-            "0.1.3": {
-                "en": "Bugfix closing Processes",
-                "de": "Bugfix beim beenden des Prozesses",
-                "ru": "Закрытие исправление процессов",
-                "pt": "Bugfix Processos de encerramento",
-                "nl": "Bugfix sluiten Processen",
-                "fr": "Correction de clôture des Processus",
-                "it": "Bugfix Processi di chiusura",
-                "es": "Corrección de errores de cierre de los Procesos de",
-                "pl": "Zamknięcie poprawka procesów",
-                "zh-cn": "修正的关闭程序"
-            },
-            "0.1.4": {
-                "en": "Fixing Dataexchange on TwinCat 2 Runtime",
-                "de": "Datenaustausch zu TwinCat2 angepasst",
-                "ru": "Фиксация помощью по TwinCAT с выполнения 2 ",
-                "pt": "Fixação Dataexchange no TwinCat 2 tempo de execução",
-                "nl": "De vaststelling van Dataexchange op TwinCat 2 Runtime",
-                "fr": "Fixation Dataexchange sur TwinCat 2 Runtime",
-                "it": "Fissaggio Dataexchange in TwinCat 2 Runtime",
-                "es": "La fijación de Dataexchange en TwinCat 2 tiempo de ejecución",
-                "pl": "Blokada pomocą w TwinCAT z wykonania 2 ",
-                "zh-cn": "固定Dataexchange在实时传递到自动化控制系统中。2Runtime"
-            },
-            "0.2.0": {
-                "en": "Code cleanup and second Beta Release",
-                "de": "Aufräumen und zweites Beta Release",
-                "ru": "Код очистки и второй бета-версии",
-                "pt": "Limpeza do código e a segunda Versão Beta",
-                "nl": "Code cleanup en tweede Beta Release",
-                "fr": "Nettoyage du Code et de la deuxième Version Bêta",
-                "it": "Pulizia del codice e la seconda Versione Beta",
-                "es": "Limpieza de código y la segunda Versión Beta",
-                "pl": "Kod czyszczenia i drugiej wersji beta",
-                "zh-cn": "代码清理和第二测试版"
-            },
-            "0.2.1": {
-                "en": "Adding IE11 and Mobile Support",
-                "de": "IE11 und Mobile Unterstützung hinzugefügt",
-                "ru": "Добавление IE11 и поддержка мобильных устройств",
-                "pt": "Adicionar IE11 e o Suporte a dispositivos Móveis",
-                "nl": "Het toevoegen van IE11 en Mobiele Ondersteuning",
-                "fr": "L'ajout d'IE11 et Mobile de Soutien",
-                "it": "L'aggiunta di IE11 e Mobile di Supporto",
-                "es": "La adición de IE11 y Soporte Móvil",
-                "pl": "Dodawanie IE11 i wsparcie dla urządzeń mobilnych",
-                "zh-cn": "加internet explorer11和移动的支持"
-            },
-            "0.2.2": {
-                "en": "Debug Version - Send log on 'write after end' error. Issue #2",
-                "de": "Debug Version - Bei 'write after end' fehler log schicken. Issue #2",
-                "ru": "Отладочная версия - отправить отчет на пишу после ошибки конец'. Выпуск #2",
-                "pt": "Versão de depuração - Envio de log em \"escrever depois de terminar um erro\". Edição #2",
-                "nl": "Debug Versie - log op 'schrijf na afloop van de' fout. Probleem #2",
-                "fr": "Version Debug - Envoyer connectez-vous à \"écrire après la fin' erreur. Question #2",
-                "it": "Versione di Debug - Inviare l'accesso 'scrivere dopo la fine' di errore. Problema #2",
-                "es": "Versión de depuración - Envío de registro en \"escribir después del final de' error. Problema #2",
-                "pl": "Za wersja - wyślij raport na piszę po błędu koniec'. Odcinek #2",
-                "zh-cn": "调试版本分发的日志上写之后结束的'误差。 第2个问题"
-            },
-            "0.3.0": {
-                "en": "New Core- and Testfiles from Apollon77 and fix 'write after end'. Issue #2",
-                "de": "Neue Core- and Testfiles von Apollon77 und Lösung für das 'write after end' Problem. Issue #2",
-                "ru": "Новое ядро - и Testfiles от Apollon77 и исправить 'писать после конца'. Выпуск #2",
-                "pt": "Novo Núcleo - e Testfiles de Apollon77 e correção 'de gravação após o final'. Edição #2",
-                "nl": "Nieuwe Kern - en Testfiles van Apollon77 en fix 'schrijf na het einde'. Probleem #2",
-                "fr": "Les nouveaux Core - et Testfiles de Apollon77 et réparer \"écrire après la fin\". Question #2",
-                "it": "Nuovo Core - e Testfiles da Apollon77 e fix 'scrivere dopo la fine'. Problema #2",
-                "es": "Nuevo Núcleo - y Testfiles de Apollon77 y arreglar \"escribir después de la final\". Problema #2",
-                "pl": "Nowe jądro - Smsd od Apollon77 i naprawić 'pisać po końca'. Odcinek #2",
-                "zh-cn": "新的核心和Testfiles从Apollon77和修复写信之后结束的。 第2个问题"
-            },
-            "1.0.0": {
-                "en": "Stable Release, Update Gulp, add new Translations",
-                "de": "Stable-Release, Update Gulp, hinzufügen neuer Übersetzungen",
-                "ru": "Стабильный релиз, обновление залпом, добавить новые переводы",
-                "pt": "Versão estável, Atualização Gole, adicionar novas Traduções",
-                "nl": "Een stabiele versie, Update Gulp, het toevoegen van nieuwe Vertalingen",
-                "fr": "Publication de la Version Stable, mise à Jour de Gulp, ajouter de nouvelles Traductions",
-                "it": "Stabile di Rilascio, l'Aggiornamento Gulp, aggiungere nuove Traduzioni",
-                "es": "La Versión estable, la Actualización de Gulp, añadir nuevas Traducciones",
-                "pl": "Wersja stabilna, aktualizacja duszkiem, dodać nowe tłumaczenia",
-                "zh-cn": "稳定释放、更新口，添加新的翻译"
-            },
-            "1.0.1": {
-                "en": "Random Bugfixes",
-                "de": "Verschieden Bugfixes",
-                "ru": "Случайные исправления",
-                "pt": "Bugfixes Aleatórios",
-                "nl": "Willekeurige Bugfixes",
-                "fr": "Correction de bugs aléatoires",
-                "it": "Bugfix casuali",
-                "es": "Corrección de errores aleatorios",
-                "pl": "Losowe poprawki błędów",
-                "zh-cn": "随机错误修正"
-            },
-            "1.0.2": {
-                "en": "Update testing Node v12 in Appveyor and Travis",
-                "de": "Test aktualisieren auf Node v12 in Appveyor und Travis",
-                "ru": "Обновление тестирующего Node v12 в Appveyor и Travis",
-                "pt": "Atualize o teste do nó v12 no Appveyor e no Travis",
-                "nl": "Update toets Node v12 in Appveyor en Travis",
-                "fr": "Mise à jour du test du nœud v12 dans Appveyor et Travis",
-                "it": "Aggiornamento test Nodo v12 in Appveyor e Travis",
-                "es": "Actualización de pruebas del nodo v12 en Appveyor y Travis",
-                "pl": "Aktualizacja testowania Node v12 w Appveyor i Travis",
-                "zh-cn": "在Appveyor和Travis中更新测试节点v12"
-            },
-            "1.0.4": {
-                "en": "Increase depth of LOG Details, Update Dependency Versions",
-                "de": "LOG Detailtiefe erhöht, Paketversionen aktualisiert",
-                "ru": "Увеличение глубины деталей LOG, обновление зависимостей версий",
-                "pt": "Aumentar a profundidade dos detalhes do LOG, Atualizar versões de dependência",
-                "nl": "Vergroot de diepte van LOG-details, update afhankelijkheidsversies",
-                "fr": "Augmenter la profondeur des détails du journal, mettre à jour les versions de dépendance",
-                "it": "Aumenta la profondità dei dettagli del LOG, aggiorna le versioni delle dipendenze",
-                "es": "Aumente la profundidad de los Detalles de REGISTRO, Actualice las Versiones de Dependencia",
-                "pl": "Zwiększ głębokość Szczegóły dziennika, Aktualizuj wersje zależności",
-                "zh-cn": "增加LOG详细信息的深度，更新依赖性版本"
-            }
-        },
-        "title": "Beckhoff TwinCat ADS",
-        "titleLang": {
-            "en": "Beckhoff TwinCat ADS",
-            "de": "Beckhoff TwinCat ADS",
-            "ru": "Объявления компании Beckhoff TwinCAT с ",
-            "pt": "Beckhoff TwinCat ANÚNCIOS",
-            "nl": "Beckhoff TwinCat ADVERTENTIES",
-            "fr": "Beckhoff TwinCat ANNONCES",
-            "it": "Beckhoff TwinCat ANNUNCI",
-            "es": "Beckhoff TwinCat ANUNCIOS",
-            "pl": "Ogłoszenia firmy Beckhoff TwinCAT z ",
-            "zh-cn": "面广告实时传递到自动化控制系统中。"
-        },
-        "desc": {
-            "en": "ioBroker Beckhoff TwinCat ADS Adapter to communicate with Beckhoff Automation System",
-            "de": "ioBroker Beckhoff TwinCat ADS Adapter für den Datenaustausch mit einer Beckhoff Steuerung",
-            "ru": "ioBroker компания Beckhoff TwinCAT с АДС адаптер для связи с системой автоматизации компании Beckhoff ",
-            "pt": "ioBroker Beckhoff TwinCat ANÚNCIOS Adaptador para se comunicar com Beckhoff Sistema de Automação",
-            "nl": "ioBroker Beckhoff TwinCat ADVERTENTIES Adapter te kunnen communiceren met Beckhoff Automation-Systeem",
-            "fr": "ioBroker Beckhoff TwinCat ANNONCES Adaptateur pour communiquer avec Beckhoff Automation Système",
-            "it": "ioBroker Beckhoff TwinCat ANNUNCI Adapter di comunicare con il Sistema di Automazione Beckhoff",
-            "es": "ioBroker Beckhoff TwinCat ANUNCIOS Adaptador para comunicarse con Beckhoff Automation System",
-            "pl": "ioBroker firma Beckhoff TwinCAT z TD adapter do komunikacji z systemem sterowania firmy Beckhoff ",
-            "zh-cn": "ioBroker面实时传递到自动化控制系统中。器的广告通信方面的自动化系统"
-        },
-        "authors": [
-            "dkleber89 <dkleber89@gmail.com>"
-        ],
-        "docs": {
-            "en": "docs/en/admin.md",
-            "de": "docs/de/admin.md"
-        },
-        "platform": "Javascript/Node.js",
-        "mode": "daemon",
-        "icon": "beckhoff.png",
-        "materialize": true,
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/dkleber89/ioBroker.beckhoff/master/admin/beckhoff.png",
-        "keywords": [
-            "beckhoff",
-            "ads",
-            "plc",
-            "sps",
-            "steuerung",
-            "twincat"
-        ],
-        "readme": "https://github.com/dkleber89/ioBroker.beckhoff/blob/master/README.md",
-        "loglevel": "info",
-        "type": "hardware",
-        "license": "MIT",
-        "messagebox": false,
-        "restartAdapters": []
+  "common": {
+    "name": "beckhoff",
+    "version": "1.0.4",
+    "news": {
+      "0.1.1": {
+        "en": "Bugfix in Connection handling",
+        "de": "Bugfix bei der Verbindungsbehandlung",
+        "ru": "Исправлена ​​ошибка в обработке соединений",
+        "pt": "Correção de bug no manuseio de conexão",
+        "nl": "Bugfix in verbindingsafhandeling",
+        "fr": "Correction de bug dans la gestion de la connexion",
+        "it": "Bugfix nella gestione delle connessioni",
+        "es": "Corrección de errores en el manejo de la conexión",
+        "pl": "Bugfix w obsłudze połączeń",
+        "zh-cn": "连接处理中的错误修正"
+      },
+      "0.1.2": {
+        "en": "Bugfix in Adapter Unload",
+        "de": "Bugfix beim beenden des Adapters",
+        "ru": "Исправление в адаптер выгрузить",
+        "pt": "Correcção de bug na Placa de Descarregar",
+        "nl": "Bugfix in Adapter Lossen",
+        "fr": "Correction de bugs dans l'Adaptateur de Décharger",
+        "it": "Bugfix Adattatore da Scaricare",
+        "es": "Corrección de errores en el Adaptador de Descargar",
+        "pl": "Poprawka w adapter rozładować",
+        "zh-cn": "修正，在适配器卸载"
+      },
+      "0.1.3": {
+        "en": "Bugfix closing Processes",
+        "de": "Bugfix beim beenden des Prozesses",
+        "ru": "Закрытие исправление процессов",
+        "pt": "Bugfix Processos de encerramento",
+        "nl": "Bugfix sluiten Processen",
+        "fr": "Correction de clôture des Processus",
+        "it": "Bugfix Processi di chiusura",
+        "es": "Corrección de errores de cierre de los Procesos de",
+        "pl": "Zamknięcie poprawka procesów",
+        "zh-cn": "修正的关闭程序"
+      },
+      "0.1.4": {
+        "en": "Fixing Dataexchange on TwinCat 2 Runtime",
+        "de": "Datenaustausch zu TwinCat2 angepasst",
+        "ru": "Фиксация помощью по TwinCAT с выполнения 2 ",
+        "pt": "Fixação Dataexchange no TwinCat 2 tempo de execução",
+        "nl": "De vaststelling van Dataexchange op TwinCat 2 Runtime",
+        "fr": "Fixation Dataexchange sur TwinCat 2 Runtime",
+        "it": "Fissaggio Dataexchange in TwinCat 2 Runtime",
+        "es": "La fijación de Dataexchange en TwinCat 2 tiempo de ejecución",
+        "pl": "Blokada pomocą w TwinCAT z wykonania 2 ",
+        "zh-cn": "固定Dataexchange在实时传递到自动化控制系统中。2Runtime"
+      },
+      "0.2.0": {
+        "en": "Code cleanup and second Beta Release",
+        "de": "Aufräumen und zweites Beta Release",
+        "ru": "Код очистки и второй бета-версии",
+        "pt": "Limpeza do código e a segunda Versão Beta",
+        "nl": "Code cleanup en tweede Beta Release",
+        "fr": "Nettoyage du Code et de la deuxième Version Bêta",
+        "it": "Pulizia del codice e la seconda Versione Beta",
+        "es": "Limpieza de código y la segunda Versión Beta",
+        "pl": "Kod czyszczenia i drugiej wersji beta",
+        "zh-cn": "代码清理和第二测试版"
+      },
+      "0.2.1": {
+        "en": "Adding IE11 and Mobile Support",
+        "de": "IE11 und Mobile Unterstützung hinzugefügt",
+        "ru": "Добавление IE11 и поддержка мобильных устройств",
+        "pt": "Adicionar IE11 e o Suporte a dispositivos Móveis",
+        "nl": "Het toevoegen van IE11 en Mobiele Ondersteuning",
+        "fr": "L'ajout d'IE11 et Mobile de Soutien",
+        "it": "L'aggiunta di IE11 e Mobile di Supporto",
+        "es": "La adición de IE11 y Soporte Móvil",
+        "pl": "Dodawanie IE11 i wsparcie dla urządzeń mobilnych",
+        "zh-cn": "加internet explorer11和移动的支持"
+      },
+      "0.2.2": {
+        "en": "Debug Version - Send log on 'write after end' error. Issue #2",
+        "de": "Debug Version - Bei 'write after end' fehler log schicken. Issue #2",
+        "ru": "Отладочная версия - отправить отчет на пишу после ошибки конец'. Выпуск #2",
+        "pt": "Versão de depuração - Envio de log em \"escrever depois de terminar um erro\". Edição #2",
+        "nl": "Debug Versie - log op 'schrijf na afloop van de' fout. Probleem #2",
+        "fr": "Version Debug - Envoyer connectez-vous à \"écrire après la fin' erreur. Question #2",
+        "it": "Versione di Debug - Inviare l'accesso 'scrivere dopo la fine' di errore. Problema #2",
+        "es": "Versión de depuración - Envío de registro en \"escribir después del final de' error. Problema #2",
+        "pl": "Za wersja - wyślij raport na piszę po błędu koniec'. Odcinek #2",
+        "zh-cn": "调试版本分发的日志上写之后结束的'误差。 第2个问题"
+      },
+      "0.3.0": {
+        "en": "New Core- and Testfiles from Apollon77 and fix 'write after end'. Issue #2",
+        "de": "Neue Core- and Testfiles von Apollon77 und Lösung für das 'write after end' Problem. Issue #2",
+        "ru": "Новое ядро - и Testfiles от Apollon77 и исправить 'писать после конца'. Выпуск #2",
+        "pt": "Novo Núcleo - e Testfiles de Apollon77 e correção 'de gravação após o final'. Edição #2",
+        "nl": "Nieuwe Kern - en Testfiles van Apollon77 en fix 'schrijf na het einde'. Probleem #2",
+        "fr": "Les nouveaux Core - et Testfiles de Apollon77 et réparer \"écrire après la fin\". Question #2",
+        "it": "Nuovo Core - e Testfiles da Apollon77 e fix 'scrivere dopo la fine'. Problema #2",
+        "es": "Nuevo Núcleo - y Testfiles de Apollon77 y arreglar \"escribir después de la final\". Problema #2",
+        "pl": "Nowe jądro - Smsd od Apollon77 i naprawić 'pisać po końca'. Odcinek #2",
+        "zh-cn": "新的核心和Testfiles从Apollon77和修复写信之后结束的。 第2个问题"
+      },
+      "1.0.0": {
+        "en": "Stable Release, Update Gulp, add new Translations",
+        "de": "Stable-Release, Update Gulp, hinzufügen neuer Übersetzungen",
+        "ru": "Стабильный релиз, обновление залпом, добавить новые переводы",
+        "pt": "Versão estável, Atualização Gole, adicionar novas Traduções",
+        "nl": "Een stabiele versie, Update Gulp, het toevoegen van nieuwe Vertalingen",
+        "fr": "Publication de la Version Stable, mise à Jour de Gulp, ajouter de nouvelles Traductions",
+        "it": "Stabile di Rilascio, l'Aggiornamento Gulp, aggiungere nuove Traduzioni",
+        "es": "La Versión estable, la Actualización de Gulp, añadir nuevas Traducciones",
+        "pl": "Wersja stabilna, aktualizacja duszkiem, dodać nowe tłumaczenia",
+        "zh-cn": "稳定释放、更新口，添加新的翻译"
+      },
+      "1.0.1": {
+        "en": "Random Bugfixes",
+        "de": "Verschieden Bugfixes",
+        "ru": "Случайные исправления",
+        "pt": "Bugfixes Aleatórios",
+        "nl": "Willekeurige Bugfixes",
+        "fr": "Correction de bugs aléatoires",
+        "it": "Bugfix casuali",
+        "es": "Corrección de errores aleatorios",
+        "pl": "Losowe poprawki błędów",
+        "zh-cn": "随机错误修正"
+      },
+      "1.0.2": {
+        "en": "Update testing Node v12 in Appveyor and Travis",
+        "de": "Test aktualisieren auf Node v12 in Appveyor und Travis",
+        "ru": "Обновление тестирующего Node v12 в Appveyor и Travis",
+        "pt": "Atualize o teste do nó v12 no Appveyor e no Travis",
+        "nl": "Update toets Node v12 in Appveyor en Travis",
+        "fr": "Mise à jour du test du nœud v12 dans Appveyor et Travis",
+        "it": "Aggiornamento test Nodo v12 in Appveyor e Travis",
+        "es": "Actualización de pruebas del nodo v12 en Appveyor y Travis",
+        "pl": "Aktualizacja testowania Node v12 w Appveyor i Travis",
+        "zh-cn": "在Appveyor和Travis中更新测试节点v12"
+      },
+      "1.0.4": {
+        "en": "Increase depth of LOG Details, Update Dependency Versions",
+        "de": "LOG Detailtiefe erhöht, Paketversionen aktualisiert",
+        "ru": "Увеличение глубины деталей LOG, обновление зависимостей версий",
+        "pt": "Aumentar a profundidade dos detalhes do LOG, Atualizar versões de dependência",
+        "nl": "Vergroot de diepte van LOG-details, update afhankelijkheidsversies",
+        "fr": "Augmenter la profondeur des détails du journal, mettre à jour les versions de dépendance",
+        "it": "Aumenta la profondità dei dettagli del LOG, aggiorna le versioni delle dipendenze",
+        "es": "Aumente la profundidad de los Detalles de REGISTRO, Actualice las Versiones de Dependencia",
+        "pl": "Zwiększ głębokość Szczegóły dziennika, Aktualizuj wersje zależności",
+        "zh-cn": "增加LOG详细信息的深度，更新依赖性版本"
+      }
     },
-    "native": {
-        "targetIpAdress": "xxx.xxx.xxx.xxx",
-        "targetAmsNetId": "xxx.xxx.xxx.xxx.xxx.xxx",
-        "targetAmsPort": 851,
-        "targetTcpPort": 48898,
-        "sourceAmsNetId": "192.168.254.254.1.1",
-        "sourceAmsPort": 32905,
-        "targetVTable": "",
-        "reconnectInterval": 15,
-        "symbolObjectList": []
+    "title": "Beckhoff TwinCat ADS",
+    "titleLang": {
+      "en": "Beckhoff TwinCat ADS",
+      "de": "Beckhoff TwinCat ADS",
+      "ru": "Объявления компании Beckhoff TwinCAT с ",
+      "pt": "Beckhoff TwinCat ANÚNCIOS",
+      "nl": "Beckhoff TwinCat ADVERTENTIES",
+      "fr": "Beckhoff TwinCat ANNONCES",
+      "it": "Beckhoff TwinCat ANNUNCI",
+      "es": "Beckhoff TwinCat ANUNCIOS",
+      "pl": "Ogłoszenia firmy Beckhoff TwinCAT z ",
+      "zh-cn": "面广告实时传递到自动化控制系统中。"
     },
-    "instanceObjects": [
-        {
-            "_id": "info",
-            "type": "channel",
-            "common": {
-                "name": "Information"
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.connection",
-            "type": "state",
-            "common": {
-                "role": "indicator.connected",
-                "name": "Connected to PLC",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.plcRun",
-            "type": "state",
-            "common": {
-                "role": "indicator.maintenance",
-                "name": "Connected PLC are in Run Mode",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        }
-    ]
+    "desc": {
+      "en": "ioBroker Beckhoff TwinCat ADS Adapter to communicate with Beckhoff Automation System",
+      "de": "ioBroker Beckhoff TwinCat ADS Adapter für den Datenaustausch mit einer Beckhoff Steuerung",
+      "ru": "ioBroker компания Beckhoff TwinCAT с АДС адаптер для связи с системой автоматизации компании Beckhoff ",
+      "pt": "ioBroker Beckhoff TwinCat ANÚNCIOS Adaptador para se comunicar com Beckhoff Sistema de Automação",
+      "nl": "ioBroker Beckhoff TwinCat ADVERTENTIES Adapter te kunnen communiceren met Beckhoff Automation-Systeem",
+      "fr": "ioBroker Beckhoff TwinCat ANNONCES Adaptateur pour communiquer avec Beckhoff Automation Système",
+      "it": "ioBroker Beckhoff TwinCat ANNUNCI Adapter di comunicare con il Sistema di Automazione Beckhoff",
+      "es": "ioBroker Beckhoff TwinCat ANUNCIOS Adaptador para comunicarse con Beckhoff Automation System",
+      "pl": "ioBroker firma Beckhoff TwinCAT z TD adapter do komunikacji z systemem sterowania firmy Beckhoff ",
+      "zh-cn": "ioBroker面实时传递到自动化控制系统中。器的广告通信方面的自动化系统"
+    },
+    "authors": ["dkleber89 <dkleber89@gmail.com>"],
+    "docs": {
+      "en": "docs/en/admin.md",
+      "de": "docs/de/admin.md"
+    },
+    "platform": "Javascript/Node.js",
+    "mode": "daemon",
+    "icon": "beckhoff.png",
+    "materialize": true,
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/dkleber89/ioBroker.beckhoff/master/admin/beckhoff.png",
+    "keywords": ["beckhoff", "ads", "plc", "sps", "steuerung", "twincat"],
+    "readme": "https://github.com/dkleber89/ioBroker.beckhoff/blob/master/README.md",
+    "loglevel": "info",
+    "type": "hardware",
+    "license": "MIT",
+    "messagebox": false,
+    "restartAdapters": []
+  },
+  "native": {
+    "targetIpAdress": "xxx.xxx.xxx.xxx",
+    "targetAmsNetId": "xxx.xxx.xxx.xxx.xxx.xxx",
+    "targetAmsPort": 851,
+    "targetTcpPort": 48898,
+    "sourceAmsNetId": "192.168.254.254.1.1",
+    "sourceAmsPort": 32905,
+    "targetVTable": "",
+    "reconnectInterval": 15,
+    "symbolObjectList": []
+  },
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "Connected to PLC",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.plcRun",
+      "type": "state",
+      "common": {
+        "role": "indicator.maintenance",
+        "name": "Connected PLC are in Run Mode",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ]
 }

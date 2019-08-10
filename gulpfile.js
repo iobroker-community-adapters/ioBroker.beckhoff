@@ -394,7 +394,7 @@ gulp.task("updatePackages", function (done) {
         };
         iopackage.common.news = Object.assign(newNews, news);
     }
-    fs.writeFileSync("io-package.json", JSON.stringify(iopackage, null, 4));
+    fs.writeFileSync("io-package.json", JSON.stringify(iopackage, null, 2));
     done();
 });
 
@@ -464,12 +464,12 @@ gulp.task('translate', async function (done) {
                 if (!fs.existsSync('./admin/i18n/' + l + '/')) {
                     fs.mkdirSync('./admin/i18n/' + l + '/');
                 }
-                fs.writeFileSync('./admin/i18n/' + l + '/translations.json', JSON.stringify(existing, null, 4));
+                fs.writeFileSync('./admin/i18n/' + l + '/translations.json', JSON.stringify(existing, null, 2));
             }
         }
 
     }
-    fs.writeFileSync('io-package.json', JSON.stringify(iopackage, null, 4));
+    fs.writeFileSync('io-package.json', JSON.stringify(iopackage, null, 2));
 });
 
 gulp.task("translateAndUpdateWordsJS", gulp.series("translate", "adminLanguages2words", "adminWords2languages"));

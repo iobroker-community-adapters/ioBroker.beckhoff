@@ -13,7 +13,7 @@
     },
     "sourceType": "module"
   },
-  "plugins": ["prettier"],
+  "plugins": ["json", "prettier"],
   "rules": {
     "prettier/prettier": "error",
     "quotes": ["error", "single"],

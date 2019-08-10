@@ -2,8 +2,6 @@
 ### Project
 /test/
 /lib/env/tools.js
-/admin/words.js
-/admin/i18n/
 /gulpfile.js
 
 # Created by .ignore support plugin (hsz.mobi)

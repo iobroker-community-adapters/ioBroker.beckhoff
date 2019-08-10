@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ioBroker.beckhoff.tmp.iml" filepath="$PROJECT_DIR$/ioBroker.beckhoff.tmp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ioBroker.beckhoff.iml" filepath="$PROJECT_DIR$/.idea/ioBroker.beckhoff.iml" />
     </modules>
   </component>
 </project>

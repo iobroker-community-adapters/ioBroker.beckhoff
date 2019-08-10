@@ -16,15 +16,9 @@
   "plugins": ["json", "prettier"],
   "rules": {
     "prettier/prettier": "error",
-    "quotes": ["error", "single"],
-    "no-use-before-define": [
-      "error",
-      {
-        "functions": false
-      }
-    ],
-    "object-shorthand": ["error", "consistent-as-needed"],
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "no-use-before-define": ["error", { "functions": false }],
     "no-continue": "off",
-    "no-param-reassign": ["warn", { "props": false }]
+    "no-param-reassign": ["error", { "props": false }]
   }
 }

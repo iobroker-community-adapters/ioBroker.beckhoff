@@ -173,7 +173,9 @@
       "pl": "ioBroker firma Beckhoff TwinCAT z TD adapter do komunikacji z systemem sterowania firmy Beckhoff ",
       "zh-cn": "ioBroker面实时传递到自动化控制系统中。器的广告通信方面的自动化系统"
     },
-    "authors": ["dkleber89 <dkleber89@gmail.com>"],
+    "authors": [
+      "dkleber89 <dkleber89@gmail.com>"
+    ],
     "docs": {
       "en": "docs/en/admin.md",
       "de": "docs/de/admin.md"
@@ -184,7 +186,14 @@
     "materialize": true,
     "enabled": true,
     "extIcon": "https://raw.githubusercontent.com/dkleber89/ioBroker.beckhoff/master/admin/beckhoff.png",
-    "keywords": ["beckhoff", "ads", "plc", "sps", "steuerung", "twincat"],
+    "keywords": [
+      "beckhoff",
+      "ads",
+      "plc",
+      "sps",
+      "steuerung",
+      "twincat"
+    ],
     "readme": "https://github.com/dkleber89/ioBroker.beckhoff/blob/master/README.md",
     "loglevel": "info",
     "type": "hardware",

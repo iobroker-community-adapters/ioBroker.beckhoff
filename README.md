@@ -70,6 +70,10 @@ This Project is not affilate to Beckhoff in any way
 
 ## Changelog
 
+### 1.0.6 (2019-08-11)
+
+-   (dkleber89) Add check change of Datatype on resync
+
 ### 1.0.5 (2019-08-10)
 
 -   (dkleber89) Eslint, Prettier with Airbnb Codestyle, CI adopted, little random changes in Project Structure
@@ -114,10 +118,6 @@ This Project is not affilate to Beckhoff in any way
 ### 0.1.3 (2018-11-11)
 
 -   (dkleber89) Bugfix on ending Processes
-
-### 0.1.2 (2018-11-05)
-
--   (dkleber89) Bugfix in Adapter Unload
 
 ## License
 

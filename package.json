@@ -1,6 +1,6 @@
 {
   "name": "iobroker.beckhoff",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "beckhoff",
   "author": {
     "name": "dkleber89",
@@ -36,13 +36,28 @@
   "devDependencies": {
     "axios": "0.19.0",
     "chai": "4.2.0",
+    "eslint": "5.3.0",
+    "eslint-config-airbnb-base": "13.2.0",
+    "eslint-config-prettier": "6.0.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-json": "1.4.0",
+    "eslint-plugin-prettier": "3.1.0",
     "gulp": "4.0.2",
     "mocha": "6.2.0",
-    "eslint": "6.1.0"
+    "prettier": "1.18.2"
   },
   "deprecated": false,
   "main": "beckhoff.js",
+  "files": [
+    "beckhoff.js",
+    "io-package.json",
+    "/admin/*.*",
+    "/lib/*.*",
+    "/docs"
+  ],
   "scripts": {
+    "lint": "eslint . --ext .json --ext .js",
+    "lint:fix": "eslint . --ext .json --ext .js --fix",
     "test": "node node_modules/mocha/bin/mocha --exit"
   },
   "bugs": {

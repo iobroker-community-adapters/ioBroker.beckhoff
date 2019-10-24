@@ -1,0 +1,24 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "mocha": true
+  },
+  "extends": ["airbnb-base", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "ecmaFeatures": {
+      "impliedStrict": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": ["json", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "no-use-before-define": ["error", { "functions": false }],
+    "no-continue": "off",
+    "no-param-reassign": ["error", { "props": false }]
+  }
+}

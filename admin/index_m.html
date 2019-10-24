@@ -1,175 +1,175 @@
-
 <html>
-    <head>
-        <!-- these 4 files always have to be included -->
-        <link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
+  <head>
+    <!-- these 4 files always have to be included -->
+    <link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/adapter.css" />
 
-        <script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../socket.io/socket.io.js"></script>
 
-        <!-- these files always have to be included -->
-        <script type="text/javascript" src="../../js/translate.js"></script>
-        <script type="text/javascript" src="../../lib/js/materialize.js"></script>
-        <script type="text/javascript" src="../../js/adapter-settings.js"></script>
-        <script type="text/javascript" src="words.js"></script>
-        <style>
-            .m .col .select-wrapper+label {
-                top: -26px;
-            }
-            .m span{
-                font-size: 0.9em;
-            }
-        </style>
-        <script type="text/javascript">
-            let fileData = '';
+    <!-- these files always have to be included -->
+    <script type="text/javascript" src="../../js/translate.js"></script>
+    <script type="text/javascript" src="../../lib/js/materialize.js"></script>
+    <script type="text/javascript" src="../../js/adapter-settings.js"></script>
+    <script type="text/javascript" src="words.js"></script>
+    <style>
+      .m .col .select-wrapper + label {
+        top: -26px;
+      }
+      .m span {
+        font-size: 0.9em;
+      }
+    </style>
+    <script type="text/javascript">
+      let fileData = '';
 
-            function load(settings, onChange) {
-                // Select elements with id=key and class=value
-                if (!settings) return;
+      function load(settings, onChange) {
+        // Select elements with id=key and class=value
+        if (!settings) return;
 
-                // Handle File Upload
-                $('#fileUpload').on('change', function (evt) {
-                    let curFile = evt.target.files[0];
+        // Handle File Upload
+        $('#fileUpload').on('change', function (evt) {
+          let curFile = evt.target.files[0];
 
-                    const $filePath = $('#filepath');
+          const $filePath = $('#filepath');
 
-                    if (!curFile && !/.tpy$/.test(curFile.name)) {
-                        $filePath.removeClass('valid').addClass('invalid');
-                        checkvalidity();
+          if (!curFile && !/.tpy$/.test(curFile.name)) {
+            $filePath.removeClass('valid').addClass('invalid');
+            checkvalidity();
 
-                        return;
-                    }
+            return;
+          }
 
-                    const reader = new FileReader();
+          const reader = new FileReader();
 
-                    reader.onload = function (event) {
-                        fileData = event.target.result;
+          reader.onload = function (event) {
+            fileData = event.target.result;
 
-                        $filePath.removeClass('invalid').addClass('valid');
-                        checkvalidity();
-                    };
+            $filePath.removeClass('invalid').addClass('valid');
+            checkvalidity();
+          };
 
-                    // Read the File
-                    reader.readAsText(curFile);
-                });
+          // Read the File
+          reader.readAsText(curFile);
+        });
 
-                // When something Changed then check if all Valid -> activate Save Buttons
-                $('.value').each(function () {
-                    const $key = $(this);
-                    const id = $key.attr('id');
+        // When something Changed then check if all Valid -> activate Save Buttons
+        $('.value').each(function() {
+          const $key = $(this);
+          const id = $key.attr('id');
 
-                    if ($key.attr('type') === 'checkbox') {
-                        $key.prop('checked', settings[id]).on('change', function () {
-                            if (checkvalidity()){
-                                onChange();
-                            } else {
-                                onChange(false);
-                            }
-                        });
-                    } else {
-                        $key.val(settings[id])
-                            .on('change', function () {
-                                changeInputArea();
-
-                                if (checkvalidity()){
-                                    onChange();
-                                } else {
-                                    onChange(false);
-                                }
-                            })
-                            .on('keyup', function () {
-                                changeInputArea();
-
-                                if (checkvalidity()){
-                                    onChange();
-                                } else {
-                                    onChange(false);
-                                }
-                            });
-                    }
-                });
-
-                $('#filepath').on('change', function () {
-                    if (checkvalidity()) {
-                        onChange();
-                    } else {
-                        onChange(true)
-                    }
-                });
-
-                // Nothing is Changed so Save Button doesen´t need to be activated
+          if ($key.attr('type') === 'checkbox') {
+            $key.prop('checked', settings[id]).on('change', function () {
+              if (checkvalidity()) {
+                onChange();
+              } else {
                 onChange(false);
-
-                // Select Label after Loading
+              }
+            });
+          } else {
+            $key
+              .val(settings[id])
+              .on('change', function () {
                 changeInputArea();
-            }
 
-            // Every Field is Valid?
-            function checkvalidity () {
-                let valid = true;
-
-                $('.value').each(function () {
-                    const $key = $(this);
-                    const element = document.getElementById($key.attr('id'));
-
-                    if ($key.attr('type') !== 'checkbox' && !element.checkValidity()) {
-                        valid = false;
-                    }
-                });
-
-                const filePathSelector = $('#filepath');
-
-                if ($('#fileSelector').attr('style').display === 'inline' && !filePathSelector.hasClass('valid')) {
-                    filePathSelector.addClass('invalid');
-
-                    valid = false;
-                }
-
-                return valid;
-            }
-
-            // Select correct Label for Runtime Version
-            function changeInputArea () {
-                const targetAmsPortElement = document.getElementById('targetAmsPort');
-                const targetAmsPort = targetAmsPortElement.options[targetAmsPortElement.selectedIndex].value;
-
-                if (targetAmsPortElement.selectedIndex === 1) {
-                    document.getElementById('fileSelector').style.display = 'inline';
+                if (checkvalidity()) {
+                  onChange();
                 } else {
-                    document.getElementById('fileSelector').style.display = 'none';
+                  onChange(false);
                 }
+              })
+              .on('keyup', function () {
+                changeInputArea();
 
-                if (targetAmsPort === '801' || targetAmsPort === '901') {
-                    document.getElementById('labTc2').style.display = 'inline';
-                    document.getElementById('labTc3').style.display = 'none';
+                if (checkvalidity()) {
+                  onChange();
                 } else {
-                    document.getElementById('labTc2').style.display = 'none';
-                    document.getElementById('labTc3').style.display = 'inline';
+                  onChange(false);
                 }
+              });
+          }
+        });
+
+        $('#filepath').on('change', function () {
+          if (checkvalidity()) {
+            onChange();
+          } else {
+            onChange(true)
+          }
+        });
+
+        // Nothing is Changed so Save Button doesen´t need to be activated
+        onChange(false);
+
+        // Select Label after Loading
+        changeInputArea();
+    }
+
+    // Every Field is Valid?
+    function checkvalidity () {
+        let valid = true;
+
+        $('.value').each(function () {
+            const $key = $(this);
+            const element = document.getElementById($key.attr('id'));
+
+            if ($key.attr('type') !== 'checkbox' && !element.checkValidity()) {
+                valid = false;
             }
+        });
 
-            function save(callback) {
-                //  Select elements with id=key and class=value and build settings object
-                const obj = {};
+        const filePathSelector = $('#filepath');
 
-                $('.value').each(function () {
-                    const $this = $(this);
+        if ($('#fileSelector').attr('style').display === 'inline' && !filePathSelector.hasClass('valid')) {
+            filePathSelector.addClass('invalid');
 
-                    if ($this.attr('type') === 'checkbox') {
-                        obj[$this.attr('id')] = $this.prop('checked');
-                    } else {
-                        obj[$this.attr('id')] = $this.val();
-                    }
-                });
+            valid = false;
+        }
 
-                if (fileData !== '') {
-                    obj['xmlTpyData'] = fileData;
-                }
+        return valid;
+    }
 
-                callback(obj);
-            }
-        </script>
+    // Select correct Label for Runtime Version
+    function changeInputArea () {
+        const targetAmsPortElement = document.getElementById('targetAmsPort');
+        const targetAmsPort = targetAmsPortElement.options[targetAmsPortElement.selectedIndex].value;
+
+        if (targetAmsPortElement.selectedIndex === 1) {
+            document.getElementById('fileSelector').style.display = 'inline';
+        } else {
+            document.getElementById('fileSelector').style.display = 'none';
+        }
+
+        if (targetAmsPort === '801' || targetAmsPort === '901') {
+            document.getElementById('labTc2').style.display = 'inline';
+            document.getElementById('labTc3').style.display = 'none';
+        } else {
+            document.getElementById('labTc2').style.display = 'none';
+            document.getElementById('labTc3').style.display = 'inline';
+        }
+    }
+
+      function save(callback) {
+        //  Select elements with id=key and class=value and build settings object
+        const obj = {};
+
+        $('.value').each(function() {
+          const $this = $(this);
+
+          if ($this.attr('type') === 'checkbox') {
+            obj[$this.attr('id')] = $this.prop('checked');
+          } else {
+            obj[$this.attr('id')] = $this.val();
+          }
+        });
+
+        if (fileData !== '') {
+            obj['xmlTpyData'] = fileData;
+        }
+
+        callback(obj);
+    }
+    </script>
     </head>
     <body>
         <!-- Config page in a div with class m and adapter-container -> We are using here Materialize Design...

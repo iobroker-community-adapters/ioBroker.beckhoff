@@ -16,7 +16,7 @@ function startAdapter(options) {
   const optionsSave = options || {};
 
   Object.assign(optionsSave, { name: 'beckhoff' });
-  adapter = new utils.Adapter(options);
+  adapter = new utils.Adapter(optionsSave);
 
   // When Adapter is ready then connecting to PLC and Subscribe necessary Handles
   adapter.on('ready', () => {

@@ -115,14 +115,6 @@ function startAdapter(options) {
   return adapter;
 }
 
-// If started as allInOne/compact mode => return function to create instance
-if (module && module.parent) {
-  module.exports = startAdapter;
-} else {
-  // or start the instance directly
-  startAdapter();
-}
-
 /**
  * Establish Connection to PLC and handles some Connectionerror
  *
@@ -221,4 +213,12 @@ function endConnReconnect() {
 
     emitter.emit('reConnect');
   }, adapter.config.reconnectInterval * 1000);
+}
+
+// If started as allInOne/compact mode => return function to create instance
+if (module && module.parent) {
+  module.exports = startAdapter;
+} else {
+  // or start the instance directly
+  startAdapter();
 }

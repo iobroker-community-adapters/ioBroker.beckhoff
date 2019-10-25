@@ -15,102 +15,102 @@ let adapter;
 function startAdapter(options) {
   const optionsSave = options || {};
 
-  Object.assign(optionsSave, {
-    name: 'beckhoff',
-    // When Adapter is ready then connecting to PLC and Subscribe necessary Handles
-    ready: () => {
-      adapter.subscribeStates('*');
+  Object.assign(optionsSave, { name: 'beckhoff' });
+  adapter = new utils.Adapter(options);
 
-      plcConnection();
+  // When Adapter is ready then connecting to PLC and Subscribe necessary Handles
+  adapter.on('ready', () => {
+    adapter.subscribeStates('*');
 
-      emitter.on('updateObjects', () => {
-        lib.createObjectsAndHandles(adsClient, adapter);
-      });
+    plcConnection();
 
-      emitter.on('newSyncReq', () => {
-        lib.plcVarSyncronizing(adsClient, adapter, emitter);
-      });
-    },
-    // When Adapter would be stopped some last work we have to do
-    unload: cb => {
-      emitter.removeAllListeners();
+    emitter.on('updateObjects', () => {
+      lib.createObjectsAndHandles(adsClient, adapter);
+    });
 
-      if (adsClient !== null) {
-        adsClient.end(() => {
-          adsClient = null;
-
-          adapter.log.debug('ADS Connection closed.');
-        });
-      }
-
-      if (checkPlcStateInterval !== null) {
-        clearInterval(checkPlcStateInterval);
-        checkPlcStateInterval = null;
-      }
-
-      try {
-        adapter.setState('info.connection', false, true);
-        adapter.setState('info.plcRun', false, true);
-
-        adapter.log.info('Stopped and Connection closed');
-      } finally {
-        cb();
-      }
-    },
-    // These Function is called when one of the subscribed State fires a 'stateChange' event
-    stateChange: (id, state) => {
-      if (!state) {
-        return;
-      }
-
-      const shortId = id.substring(id.indexOf('.', 9) + 1, id.length);
-
-      switch (shortId) {
-        case 'info.connection':
-          // Only when Value has changed need to do something
-          if (oldConnectionState === state.val) {
-            return;
-          }
-
-          oldConnectionState = state.val;
-
-          if (state.val === true) {
-            // Connect Worker to write changes of Symbol Values in PLC to ioBroker
-            lib.workerPlcToAdapter(adsClient, adapter, emitter);
-
-            if (checkPlcStateInterval === null) {
-              checkPlcStateInterval = setInterval(() => {
-                lib.checkPlcState(adsClient, adapter, emitter);
-              }, adapter.config.reconnectInterval * 1000);
-            }
-          } else if (checkPlcStateInterval !== null) {
-            clearInterval(checkPlcStateInterval);
-            checkPlcStateInterval = null;
-          }
-          break;
-        case 'info.plcRun':
-          // Only when Value has changed need to do something
-          if (oldPlcState === state.val) {
-            break;
-          }
-
-          oldPlcState = state.val;
-
-          if (state.val === true) {
-            emitter.emit('newSyncReq');
-          }
-
-          break;
-        default:
-          if (oldConnectionState) {
-            lib.workerAdapterToPlc(adsClient, adapter, emitter, state, id);
-          }
-          break;
-      }
-    },
+    emitter.on('newSyncReq', () => {
+      lib.plcVarSyncronizing(adsClient, adapter, emitter);
+    });
   });
 
-  adapter = new utils.Adapter(options);
+  // When Adapter would be stopped some last work we have to do
+  adapter.on('unload', cb => {
+    emitter.removeAllListeners();
+
+    if (adsClient !== null) {
+      adsClient.end(() => {
+        adsClient = null;
+
+        adapter.log.debug('ADS Connection closed.');
+      });
+    }
+
+    if (checkPlcStateInterval !== null) {
+      clearInterval(checkPlcStateInterval);
+      checkPlcStateInterval = null;
+    }
+
+    try {
+      adapter.setState('info.connection', false, true);
+      adapter.setState('info.plcRun', false, true);
+
+      adapter.log.info('Stopped and Connection closed');
+    } finally {
+      cb();
+    }
+  });
+
+  // These Function is called when one of the subscribed State fires a 'stateChange' event
+  adapter.on('stateChange', (id, state) => {
+    if (!state) {
+      return;
+    }
+
+    const shortId = id.substring(id.indexOf('.', 9) + 1, id.length);
+
+    switch (shortId) {
+      case 'info.connection':
+        // Only when Value has changed need to do something
+        if (oldConnectionState === state.val) {
+          return;
+        }
+
+        oldConnectionState = state.val;
+
+        if (state.val === true) {
+          // Connect Worker to write changes of Symbol Values in PLC to ioBroker
+          lib.workerPlcToAdapter(adsClient, adapter, emitter);
+
+          if (checkPlcStateInterval === null) {
+            checkPlcStateInterval = setInterval(() => {
+              lib.checkPlcState(adsClient, adapter, emitter);
+            }, adapter.config.reconnectInterval * 1000);
+          }
+        } else if (checkPlcStateInterval !== null) {
+          clearInterval(checkPlcStateInterval);
+          checkPlcStateInterval = null;
+        }
+        break;
+      case 'info.plcRun':
+        // Only when Value has changed need to do something
+        if (oldPlcState === state.val) {
+          break;
+        }
+
+        oldPlcState = state.val;
+
+        if (state.val === true) {
+          emitter.emit('newSyncReq');
+        }
+
+        break;
+      default:
+        if (oldConnectionState) {
+          lib.workerAdapterToPlc(adsClient, adapter, emitter, state, id);
+        }
+        break;
+    }
+  });
 
   return adapter;
 }

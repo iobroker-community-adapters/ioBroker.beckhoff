@@ -199,7 +199,8 @@
     "type": "hardware",
     "license": "MIT",
     "messagebox": false,
-    "restartAdapters": []
+    "restartAdapters": [],
+    "compact": true
   },
   "native": {
     "targetIpAdress": "xxx.xxx.xxx.xxx",

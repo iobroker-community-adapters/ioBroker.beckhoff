@@ -70,6 +70,10 @@ This Project is not affilate to Beckhoff in any way
 
 ## Changelog
 
+### 1.0.7 (2019-10-25)
+
+- (dkleber89) Add Support for Compact Mode -> JS Controller >= 2.0.0
+
 ### 1.0.6 (2019-08-11)
 
 -   (dkleber89) Add check change of Datatype on resync
@@ -114,10 +118,6 @@ This Project is not affilate to Beckhoff in any way
 ### 0.1.4 (2018-11-21)
 
 -   (dkleber89) Fixing Dataexchange on TwinCat 2 Runtime
-
-### 0.1.3 (2018-11-11)
-
--   (dkleber89) Bugfix on ending Processes
 
 ## License
 

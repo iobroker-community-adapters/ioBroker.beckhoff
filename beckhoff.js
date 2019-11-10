@@ -10,11 +10,16 @@ let checkPlcStateInterval = null;
 let oldConnectionState = false;
 let oldPlcState = false;
 
-// Create new Adapter instance
-const adapter = new utils.Adapter({
-  name: 'beckhoff',
+let adapter;
+
+function startAdapter(options) {
+  const optionsSave = options || {};
+
+  Object.assign(optionsSave, { name: 'beckhoff' });
+  adapter = new utils.Adapter(optionsSave);
+
   // When Adapter is ready then connecting to PLC and Subscribe necessary Handles
-  ready: () => {
+  adapter.on('ready', () => {
     adapter.subscribeStates('*');
 
     plcConnection();
@@ -30,9 +35,10 @@ const adapter = new utils.Adapter({
         lib.plcVarSyncronizing(adsClient, adapter, emitter);
       }
     });
-  },
+  });
+
   // When Adapter would be stopped some last work we have to do
-  unload: cb => {
+  adapter.on('unload', cb => {
     emitter.removeAllListeners();
 
     if (adsClient !== null) {
@@ -56,9 +62,10 @@ const adapter = new utils.Adapter({
     } finally {
       cb();
     }
-  },
+  });
+
   // These Function is called when one of the subscribed State fires a 'stateChange' event
-  stateChange: (id, state) => {
+  adapter.on('stateChange', (id, state) => {
     if (!state) {
       return;
     }
@@ -107,8 +114,10 @@ const adapter = new utils.Adapter({
         }
         break;
     }
-  },
-});
+  });
+
+  return adapter;
+}
 
 /**
  * Establish Connection to PLC and handles some Connectionerror
@@ -208,4 +217,12 @@ function endConnReconnect() {
 
     emitter.emit('reConnect');
   }, adapter.config.reconnectInterval * 1000);
+}
+
+// If started as allInOne/compact mode => return function to create instance
+if (module && module.parent) {
+  module.exports = startAdapter;
+} else {
+  // or start the instance directly
+  startAdapter();
 }

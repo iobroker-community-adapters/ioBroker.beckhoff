@@ -1,20 +1,8 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.0.7",
+    "version": "1.1.0",
     "news": {
-      "0.1.4": {
-        "en": "Fixing Dataexchange on TwinCat 2 Runtime",
-        "de": "Datenaustausch zu TwinCat2 angepasst",
-        "ru": "Фиксация помощью по TwinCAT с выполнения 2 ",
-        "pt": "Fixação Dataexchange no TwinCat 2 tempo de execução",
-        "nl": "De vaststelling van Dataexchange op TwinCat 2 Runtime",
-        "fr": "Fixation Dataexchange sur TwinCat 2 Runtime",
-        "it": "Fissaggio Dataexchange in TwinCat 2 Runtime",
-        "es": "La fijación de Dataexchange en TwinCat 2 tiempo de ejecución",
-        "pl": "Blokada pomocą w TwinCAT z wykonania 2 ",
-        "zh-cn": "固定Dataexchange在实时传递到自动化控制系统中。2Runtime"
-      },
       "0.2.0": {
         "en": "Code cleanup and second Beta Release",
         "de": "Aufräumen und zweites Beta Release",
@@ -146,6 +134,18 @@
         "es": "Agregar soporte para modo compacto -> Controlador JS> = 2.0.0",
         "pl": "Dodaj obsługę trybu kompaktowego -> Kontroler JS> = 2.0.0",
         "zh-cn": "添加对紧凑模式的支持-> JS控制器> = 2.0.0"
+      },
+      "1.1.0": {
+        "en": "Add Support for older TwinCat2 Systems with no autosync",
+        "de": "Unterstützung für ältere TwinCat2 Systeme die keinen automatischen Sync unterstützen hinzugefügt",
+        "ru": "Добавить поддержку старых систем TwinCat2 без автосинхронизации",
+        "pt": "Adicionar suporte para sistemas TwinCat2 mais antigos sem sincronização automática",
+        "nl": "Ondersteuning toevoegen voor oudere TwinCat2-systemen zonder autosync",
+        "fr": "Ajout de la prise en charge des systèmes TwinCat2 plus anciens sans synchronisation automatique",
+        "it": "Aggiungi il supporto per i precedenti sistemi TwinCat2 senza autosincronizzazione",
+        "es": "Agregue soporte para sistemas TwinCat2 más antiguos sin sincronización automática",
+        "pl": "Dodaj obsługę starszych systemów TwinCat2 bez autosynchronizacji",
+        "zh-cn": "添加对没有自动同步功能的较旧TwinCat2系统的支持"
       }
     },
     "title": "Beckhoff TwinCat ADS",
@@ -173,7 +173,9 @@
       "pl": "ioBroker firma Beckhoff TwinCAT z TD adapter do komunikacji z systemem sterowania firmy Beckhoff ",
       "zh-cn": "ioBroker面实时传递到自动化控制系统中。器的广告通信方面的自动化系统"
     },
-    "authors": ["dkleber89 <dkleber89@gmail.com>"],
+    "authors": [
+      "dkleber89 <dkleber89@gmail.com>"
+    ],
     "docs": {
       "en": "docs/en/admin.md",
       "de": "docs/de/admin.md"
@@ -184,7 +186,14 @@
     "materialize": true,
     "enabled": true,
     "extIcon": "https://raw.githubusercontent.com/dkleber89/ioBroker.beckhoff/master/admin/beckhoff.png",
-    "keywords": ["beckhoff", "ads", "plc", "sps", "steuerung", "twincat"],
+    "keywords": [
+      "beckhoff",
+      "ads",
+      "plc",
+      "sps",
+      "steuerung",
+      "twincat"
+    ],
     "readme": "https://github.com/dkleber89/ioBroker.beckhoff/blob/master/README.md",
     "loglevel": "info",
     "type": "hardware",

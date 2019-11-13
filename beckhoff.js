@@ -29,7 +29,11 @@ function startAdapter(options) {
     });
 
     emitter.on('newSyncReq', () => {
-      lib.plcVarSyncronizing(adsClient, adapter, emitter);
+      if (adapter.config.targetAmsPort === '901') {
+        lib.tpyParser(adapter, emitter);
+      } else {
+        lib.plcVarSyncronizing(adsClient, adapter, emitter);
+      }
     });
   });
 
@@ -125,7 +129,7 @@ function plcConnection() {
   const options = {
     host: adapter.config.targetIpAdress,
     amsNetIdTarget: adapter.config.targetAmsNetId,
-    amsPortTarget: adapter.config.targetAmsPort,
+    amsPortTarget: adapter.config.targetAmsPort === '901' ? '801' : adapter.config.targetAmsPort,
     port: adapter.config.targetTcpPort,
     amsNetIdSource: adapter.config.sourceAmsNetId,
     amsPortSource: adapter.config.sourceAmsPort,

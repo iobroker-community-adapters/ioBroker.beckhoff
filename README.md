@@ -1,26 +1,22 @@
-[![Build Status](https://travis-ci.org/dkleber89/ioBroker.beckhoff.svg?branch=master)](https://travis-ci.org/dkleber89/ioBroker.beckhoff) [![Build status](https://ci.appveyor.com/api/projects/status/tpqe657lqrir3kew/branch/master?svg=true)](https://ci.appveyor.com/project/dkleber89/iobroker-beckhoff/branch/master)
-[![npm](https://img.shields.io/npm/v/iobroker.beckhoff.svg)](https://www.npmjs.com/package/iobroker.beckhoff) ![Number of Installations](http://iobroker.live/badges/beckhoff-stable.svg) ![Number of Installations](http://iobroker.live/badges/beckhoff-installed.svg)
+[![Build Status](https://travis-ci.org/dkleber89/ioBroker.beckhoff.svg?branch=master)](https://travis-ci.org/dkleber89/ioBroker.beckhoff) [![Build status](https://ci.appveyor.com/api/projects/status/tpqe657lqrir3kew/branch/master?svg=true)](https://ci.appveyor.com/project/dkleber89/iobroker-beckhoff/branch/master) ![npm](https://img.shields.io/npm/dm/iobroker.beckhoff)
+[![npm](https://img.shields.io/npm/v/iobroker.beckhoff.svg)](https://www.npmjs.com/package/iobroker.beckhoff) ![Number of Installations](http://iobroker.live/badges/beckhoff-stable.svg)  ![Number of Installations](http://iobroker.live/badges/beckhoff-installed.svg)
 
 ![Logo](docs/en/img/beckhoff.png)
 
 # ioBroker.beckhoff
-
 This adapter for ioBroker can Communicate with a Beckhoff Automation System (Twincat 2 or 3) over the ADS Protocol.
 The ADS Protocol is implemented in every System of Beckhoff and can be used without any License on ioBroker or Automation System.
 
 This Project is not affilate to Beckhoff in any way
 
 ## Description
-
 ### Requirements
-
 -   Beckhoff PLC that has an ethernet connection and is connected to your LAN
     -   Make your you give the PLC a fixed IP address
     -   Make sure you can ping the PLC from ioBroker
-    -   TwinCat 2 **excluding BC Runtimes** (Needed Symbolinformation are not saved on BC Runtime) or TwinCat 3
+    -   TwinCat 2 **excluding BC Runtimes** or TwinCat 3
 
 ### PLC Configuration
-
 1. Enable ADS on your PLC project. To do this click on your task and then enable the checkbox before `Create symbols`. Download the new configuration and make sure you reboot your PLC. The reboot is only needed when you are using TwinCat 2.
 
     ![createSymbols](docs/en/img/createSymbols.png)
@@ -46,20 +42,21 @@ This Project is not affilate to Beckhoff in any way
     OPTIONAL: You can create a Variable in root of Variable Table with the exact name -> ioBrokerResync (Not Casesensitiv and not matter which Type) -> Every time this Variable changes his value the Table get resynced in ioBroker.
 
 ### Adapter Configuration
-
+#### Twincat 3 and Twincat 2
 1. Choose your Runtime Version
 2. Fill in Target IP-Adress and AMS-Net-ID.
 3. On TwinCat 2 fill in the Instance Name of Struct.
 4. On TwinCat 3 fill in the correct Tablename of the before created GlobalVariableTable.
 5. All other Points u mostly not need to Change.
 
-### Dataexchange
+#### Twincat 2 <= v2.11.2240
+Upload your *.tpy File from your PLC Project -> Every Time you change something on the Struct u communicate with the ioBroker, you need to Upload it again.
 
+### Dataexchange
 -   When some Value is changed in PLC then it will be automatic transferred to ioBroker
 -   When a Value is changed in ioBroker (Important: ACK need to be FALSE!!) then the Value will be automatic transferred to PLC. After that the Adapter set ACK to TRUE.
 
 ### Attention
-
 1. TwinCAT AMS Router doesn't allow multiple TCP connections from the same host. So when you use two instances on the same host to connect to the same TwinCAT router, you will see that TwinCAT will close the first TCP connection and only respond to the newest.
 2. The Adapter Sync the complete GlobalVariableTable. U have different options to trigger a resync:
     - Create a resync Variable in PLC (See [here](#PLC-Configuration))
@@ -69,6 +66,9 @@ This Project is not affilate to Beckhoff in any way
 3. Sync never meant the Dataexchange of the Symbols. Sync is the create or delete the States in ioBroker dependent on the GlobalVariableTable in the PLC.
 
 ## Changelog
+### 1.1.0 (2019-11-12)
+
+- (dkleber89) Add Support for older TwinCat2 Systems with no autosync
 
 ### 1.0.7 (2019-10-25)
 
@@ -114,10 +114,6 @@ This Project is not affilate to Beckhoff in any way
 ### 0.2.0 (2018-11-24)
 
 -   (dkleber89) Code cleanup and second Beta Release
-
-### 0.1.4 (2018-11-21)
-
--   (dkleber89) Fixing Dataexchange on TwinCat 2 Runtime
 
 ## License
 

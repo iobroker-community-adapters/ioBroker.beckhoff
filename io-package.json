@@ -1,20 +1,8 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "news": {
-      "0.2.0": {
-        "en": "Code cleanup and second Beta Release",
-        "de": "Aufräumen und zweites Beta Release",
-        "ru": "Код очистки и второй бета-версии",
-        "pt": "Limpeza do código e a segunda Versão Beta",
-        "nl": "Code cleanup en tweede Beta Release",
-        "fr": "Nettoyage du Code et de la deuxième Version Bêta",
-        "it": "Pulizia del codice e la seconda Versione Beta",
-        "es": "Limpieza de código y la segunda Versión Beta",
-        "pl": "Kod czyszczenia i drugiej wersji beta",
-        "zh-cn": "代码清理和第二测试版"
-      },
       "0.2.1": {
         "en": "Adding IE11 and Mobile Support",
         "de": "IE11 und Mobile Unterstützung hinzugefügt",
@@ -146,6 +134,10 @@
         "es": "Agregue soporte para sistemas TwinCat2 más antiguos sin sincronización automática",
         "pl": "Dodaj obsługę starszych systemów TwinCat2 bez autosynchronizacji",
         "zh-cn": "添加对没有自动同步功能的较旧TwinCat2系统的支持"
+      },
+      "1.2.0": {
+        "en": "Add Support for STRING(80)",
+        "de": "Unterstützung für Datentyp STRING(80)"
       }
     },
     "title": "Beckhoff TwinCat ADS",

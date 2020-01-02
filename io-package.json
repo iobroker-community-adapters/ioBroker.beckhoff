@@ -1,20 +1,8 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "news": {
-      "0.2.0": {
-        "en": "Code cleanup and second Beta Release",
-        "de": "Aufräumen und zweites Beta Release",
-        "ru": "Код очистки и второй бета-версии",
-        "pt": "Limpeza do código e a segunda Versão Beta",
-        "nl": "Code cleanup en tweede Beta Release",
-        "fr": "Nettoyage du Code et de la deuxième Version Bêta",
-        "it": "Pulizia del codice e la seconda Versione Beta",
-        "es": "Limpieza de código y la segunda Versión Beta",
-        "pl": "Kod czyszczenia i drugiej wersji beta",
-        "zh-cn": "代码清理和第二测试版"
-      },
       "0.2.1": {
         "en": "Adding IE11 and Mobile Support",
         "de": "IE11 und Mobile Unterstützung hinzugefügt",
@@ -146,6 +134,18 @@
         "es": "Agregue soporte para sistemas TwinCat2 más antiguos sin sincronización automática",
         "pl": "Dodaj obsługę starszych systemów TwinCat2 bez autosynchronizacji",
         "zh-cn": "添加对没有自动同步功能的较旧TwinCat2系统的支持"
+      },
+      "1.2.0": {
+        "en": "Add Support for Strings with fixed length to 80 Chars ",
+        "de": "Unterstützung für Datentyp STRING mit einer fixen länge von 80 Zeichen hinzugefügt",
+        "ru": "Добавить поддержку строк с фиксированной длиной до 80 символов",
+        "pt": "Adicione suporte para cordas com comprimento fixo a 80 caracteres",
+        "nl": "Ondersteuning toevoegen voor tekenreeksen met vaste lengte tot 80 tekens",
+        "fr": "Ajout de la prise en charge des chaînes de longueur fixe à 80 caractères",
+        "it": "Aggiungi il supporto per stringhe con lunghezza fissa a 80 caratteri",
+        "es": "Agregue soporte para cadenas con longitud fija a 80 caracteres",
+        "pl": "Dodaj obsługę ciągów o stałej długości do 80 znaków",
+        "zh-cn": "将对固定长度的字符串的支持添加到80个字符"
       }
     },
     "title": "Beckhoff TwinCat ADS",

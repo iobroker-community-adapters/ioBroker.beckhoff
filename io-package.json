@@ -1,20 +1,8 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "news": {
-      "0.2.1": {
-        "en": "Adding IE11 and Mobile Support",
-        "de": "IE11 und Mobile Unterstützung hinzugefügt",
-        "ru": "Добавление IE11 и поддержка мобильных устройств",
-        "pt": "Adicionar IE11 e o Suporte a dispositivos Móveis",
-        "nl": "Het toevoegen van IE11 en Mobiele Ondersteuning",
-        "fr": "L'ajout d'IE11 et Mobile de Soutien",
-        "it": "L'aggiunta di IE11 e Mobile di Supporto",
-        "es": "La adición de IE11 y Soporte Móvil",
-        "pl": "Dodawanie IE11 i wsparcie dla urządzeń mobilnych",
-        "zh-cn": "加internet explorer11和移动的支持"
-      },
       "0.2.2": {
         "en": "Debug Version - Send log on 'write after end' error. Issue #2",
         "de": "Debug Version - Bei 'write after end' fehler log schicken. Issue #2",
@@ -146,6 +134,18 @@
         "es": "Agregue soporte para cadenas con longitud fija a 80 caracteres",
         "pl": "Dodaj obsługę ciągów o stałej długości do 80 znaków",
         "zh-cn": "将对固定长度的字符串的支持添加到80个字符"
+      },
+      "1.2.1": {
+        "en": "Add CI over Github Actions; Update Dependencies",
+        "de": "CI über Github Actions; Abhängigkeiten aktualisiert",
+        "ru": "Добавьте CI поверх Github Actions; ",
+        "pt": "Adicionar IC sobre ações do Github; ",
+        "nl": "CI toevoegen via Github-acties; ",
+        "fr": "Ajouter des actions CI sur Github; ",
+        "it": "Aggiungi CI su Github Actions; ",
+        "es": "Agregar CI sobre acciones de Github; ",
+        "pl": "Dodaj CI ponad Akcje Github; ",
+        "zh-cn": "通过Github Action添加CI；"
       }
     },
     "title": "Beckhoff TwinCat ADS",

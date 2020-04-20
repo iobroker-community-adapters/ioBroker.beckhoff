@@ -34,6 +34,7 @@
     "xml2js": "0.4.23"
   },
   "devDependencies": {
+    "@iobroker/testing": "~2.2.0",
     "axios": "0.19.0",
     "chai": "4.2.0",
     "eslint": "5.3.0",
@@ -58,7 +59,9 @@
   "scripts": {
     "lint": "eslint . --ext .json --ext .js",
     "lint:fix": "eslint . --ext .json --ext .js --fix",
-    "test": "node node_modules/mocha/bin/mocha --exit"
+    "test:package": "mocha test/package --exit",
+    "test:unit": "mocha test/unit --exit",
+    "test:integration": "mocha test/integration --exit"
   },
   "bugs": {
     "url": "https://github.com/dkleber89/ioBroker.beckhoff/issues"

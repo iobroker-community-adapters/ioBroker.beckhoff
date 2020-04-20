@@ -1,18 +1,8 @@
 {
   "name": "iobroker.beckhoff",
+  "description": "ioBroker Beckoff Adapter to communicate with a Beckhoff PLC",
   "version": "1.2.0",
-  "description": "beckhoff",
-  "author": {
-    "name": "dkleber89",
-    "email": "dkleber89@gmail.com"
-  },
-  "contributors": [
-    {
-      "name": "dkleber89",
-      "email": "dkleber89@gmail.com"
-    }
-  ],
-  "homepage": "https://github.com/dkleber89/ioBroker.beckhoff",
+  "private": false,
   "license": "MIT",
   "keywords": [
     "ioBroker",
@@ -24,30 +14,17 @@
     "twincat",
     "plc"
   ],
+  "author": {
+    "name": "dkleber89",
+    "email": "dkleber89@gmail.com"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/dkleber89/ioBroker.beckhoff"
   },
-  "dependencies": {
-    "@iobroker/adapter-core": "1.0.3",
-    "node-ads-api": "1.4.14",
-    "xml2js": "0.4.23"
+  "bugs": {
+    "url": "https://github.com/dkleber89/ioBroker.beckhoff/issues"
   },
-  "devDependencies": {
-    "@iobroker/testing": "~2.2.0",
-    "axios": "0.19.0",
-    "chai": "4.2.0",
-    "eslint": "5.3.0",
-    "eslint-config-airbnb-base": "13.2.0",
-    "eslint-config-prettier": "6.0.0",
-    "eslint-plugin-import": "2.18.2",
-    "eslint-plugin-json": "1.4.0",
-    "eslint-plugin-prettier": "3.1.0",
-    "gulp": "4.0.2",
-    "mocha": "6.2.0",
-    "prettier": "1.18.2"
-  },
-  "deprecated": false,
   "main": "beckhoff.js",
   "files": [
     "beckhoff.js",
@@ -57,14 +34,28 @@
     "/docs"
   ],
   "scripts": {
-    "lint": "eslint . --ext .json --ext .js",
-    "lint:fix": "eslint . --ext .json --ext .js --fix",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix",
     "test:package": "mocha test/package --exit",
     "test:unit": "mocha test/unit --exit",
     "test:integration": "mocha test/integration --exit"
   },
-  "bugs": {
-    "url": "https://github.com/dkleber89/ioBroker.beckhoff/issues"
+  "dependencies": {
+    "@iobroker/adapter-core": "^2.3.1",
+    "node-ads-api": "1.4.14",
+    "xml2js": "0.4.23"
   },
-  "readmeFilename": "README.md"
+  "devDependencies": {
+    "@iobroker/testing": "^2.2.0",
+    "axios": "^0.19.2",
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "gulp": "^4.0.2",
+    "mocha": "^7.1.1",
+    "prettier": "^2.0.4"
+  }
 }

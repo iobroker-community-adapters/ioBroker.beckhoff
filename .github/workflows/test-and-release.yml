@@ -101,10 +101,9 @@ jobs:
         uses: bahmutov/npm-install@v1.1.0
 
       - name: Publish package to npm
-        run: |
-          npm config set //registry.npmjs.org/:_authToken=${{ secrets.npm }}
-          npm whoami
-          npm publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.npm }}
 
   # Dummy job for skipped builds - without this, github reports the build as failed
   skip-ci:

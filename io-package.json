@@ -1,20 +1,8 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "news": {
-      "0.2.2": {
-        "en": "Debug Version - Send log on 'write after end' error. Issue #2",
-        "de": "Debug Version - Bei 'write after end' fehler log schicken. Issue #2",
-        "ru": "Отладочная версия - отправить отчет на пишу после ошибки конец'. Выпуск #2",
-        "pt": "Versão de depuração - Envio de log em \"escrever depois de terminar um erro\". Edição #2",
-        "nl": "Debug Versie - log op 'schrijf na afloop van de' fout. Probleem #2",
-        "fr": "Version Debug - Envoyer connectez-vous à \"écrire après la fin' erreur. Question #2",
-        "it": "Versione di Debug - Inviare l'accesso 'scrivere dopo la fine' di errore. Problema #2",
-        "es": "Versión de depuración - Envío de registro en \"escribir después del final de' error. Problema #2",
-        "pl": "Za wersja - wyślij raport na piszę po błędu koniec'. Odcinek #2",
-        "zh-cn": "调试版本分发的日志上写之后结束的'误差。 第2个问题"
-      },
       "0.3.0": {
         "en": "New Core- and Testfiles from Apollon77 and fix 'write after end'. Issue #2",
         "de": "Neue Core- and Testfiles von Apollon77 und Lösung für das 'write after end' Problem. Issue #2",
@@ -146,6 +134,18 @@
         "es": "Agregar CI sobre acciones de Github; ",
         "pl": "Dodaj CI ponad Akcje Github; ",
         "zh-cn": "通过Github Action添加CI；"
+      },
+      "1.2.2": {
+        "en": "Clear reconnectTimeout on Adapter unload",
+        "de": "Löschen des reconnectTimeout wenn der Adapter gestoppt wird",
+        "ru": "Очистить ReconnectTimeout при выгрузке адаптера",
+        "pt": "Limpar reconnectTimeout ao descarregar o adaptador",
+        "nl": "Clear reconnectTimeout on Adapter unload",
+        "fr": "Effacer reconnectTimeout lors du déchargement de l'adaptateur",
+        "it": "Cancella reconnectTimeout allo scaricamento dell'adattatore",
+        "es": "Borrar reconectTimeout en la descarga del adaptador",
+        "pl": "Wyczyść reconnectTimeout przy rozładowaniu adaptera",
+        "zh-cn": "清除适配器卸载时的reconnectTimeout"
       }
     },
     "title": "Beckhoff TwinCat ADS",

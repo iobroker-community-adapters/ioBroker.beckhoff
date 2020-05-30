@@ -9,6 +9,7 @@ let adsClient = null;
 let checkPlcStateInterval = null;
 let oldConnectionState = false;
 let oldPlcState = false;
+let reconnectTimeout = null;
 
 let adapter;
 
@@ -40,6 +41,8 @@ function startAdapter(options) {
   // When Adapter would be stopped some last work we have to do
   adapter.on('unload', cb => {
     emitter.removeAllListeners();
+
+    clearTimeout(reconnectTimeout);
 
     if (adsClient !== null) {
       adsClient.end(() => {
@@ -212,7 +215,7 @@ function endConnReconnect() {
 
   adapter.log.info(`Try to reconnect in ${adapter.config.reconnectInterval} seconds`);
 
-  setTimeout(() => {
+  reconnectTimeout = setTimeout(() => {
     timeAlreadyRunning = false;
 
     emitter.emit('reConnect');

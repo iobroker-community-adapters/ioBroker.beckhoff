@@ -30,13 +30,13 @@ This Project is not affilate to Beckhoff in any way
 
 3. On TwinCat 2 Create a Struct and fill in your needed Symbols. Then add this Struct to a GlobalVariableTable.
 
-    ##### Currently Supported Types: BOOL, BYTE, WORD, DWORD, SINT, USINT, INT, UINT, DINT, UDINT, REAL, STRING(80)
+    ##### Currently Supported Types: BOOL, BYTE, WORD, DWORD, SINT, USINT, INT, UINT, DINT, UDINT, REAL, LREAL, STRING(80)
 
     OPTIONAL: You can create a Variable in root of Struct with the exact name -> ioBrokerResync (Not Casesensitiv and not matter which Type) -> Every time this Variable changes his value the Table get resynced in ioBroker.
 
 4. On TwinCat 3 Create a GlobalVariableTable and fill in your needed Symbols.
 
-    ##### Currently Supported Types: BOOL, BYTE, WORD, DWORD, SINT, USINT, INT, UINT, DINT, UDINT, REAL, STRING(80)
+    ##### Currently Supported Types: BOOL, BYTE, WORD, DWORD, SINT, USINT, INT, UINT, DINT, UDINT, REAL, LREAL, STRING(80)
 
     OPTIONAL: You can create a Variable in root of Variable Table with the exact name -> ioBrokerResync (Not Casesensitiv and not matter which Type) -> Every time this Variable changes his value the Table get resynced in ioBroker.
 
@@ -65,6 +65,10 @@ Upload your *.tpy File from your PLC Project -> Every Time you change something 
 3. Sync never meant the Dataexchange of the Symbols. Sync is the create or delete the States in ioBroker dependent on the GlobalVariableTable in the PLC.
 
 ## Changelog
+### 1.4.0 (2021-01-25)
+
+-   (dkleber89) Add LREAL Support
+
 ### 1.3.0 (2021-01-25)
 
 -   (dkleber89) Set correct type for channels
@@ -108,10 +112,6 @@ Upload your *.tpy File from your PLC Project -> Every Time you change something 
 ### 1.0.1 (2019-04-06)
 
 -   (dkleber89) Random Bugfixes, Add some monitoring that States get correct Ack
-
-### 1.0.0 (2019-03-23)
-
--   (dkleber 89) Stable Release, Update Gulp, add new Translations
 
 ## License
 

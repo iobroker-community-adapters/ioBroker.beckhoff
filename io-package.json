@@ -1,20 +1,8 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "news": {
-      "1.0.0": {
-        "en": "Stable Release, Update Gulp, add new Translations",
-        "de": "Stable-Release, Update Gulp, hinzufügen neuer Übersetzungen",
-        "ru": "Стабильный релиз, обновление залпом, добавить новые переводы",
-        "pt": "Versão estável, Atualização Gole, adicionar novas Traduções",
-        "nl": "Een stabiele versie, Update Gulp, het toevoegen van nieuwe Vertalingen",
-        "fr": "Publication de la Version Stable, mise à Jour de Gulp, ajouter de nouvelles Traductions",
-        "it": "Stabile di Rilascio, l'Aggiornamento Gulp, aggiungere nuove Traduzioni",
-        "es": "La Versión estable, la Actualización de Gulp, añadir nuevas Traducciones",
-        "pl": "Wersja stabilna, aktualizacja duszkiem, dodać nowe tłumaczenia",
-        "zh-cn": "稳定释放、更新口，添加新的翻译"
-      },
       "1.0.1": {
         "en": "Random Bugfixes",
         "de": "Verschieden Bugfixes",
@@ -146,6 +134,18 @@
         "es": "Establecer el tipo correcto de canales",
         "pl": "Ustaw prawidłowy typ kanałów",
         "zh-cn": "为频道设置正确的类型"
+      },
+      "1.4.0": {
+        "en": "Add LREAL support",
+        "de": "LREAL Unterstützung hinzugefügt",
+        "ru": "Добавить поддержку LREAL",
+        "pt": "Adicionar suporte LREAL",
+        "nl": "Voeg LREAL-ondersteuning toe",
+        "fr": "Ajouter le support LREAL",
+        "it": "Aggiungi il supporto LREAL",
+        "es": "Agregar soporte LREAL",
+        "pl": "Dodaj obsługę LREAL",
+        "zh-cn": "添加LREAL支持"
       }
     },
     "title": "Beckhoff TwinCat ADS",

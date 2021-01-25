@@ -14,6 +14,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    'import/no-cycle': 'off',
     'no-use-before-define': ['error', { functions: false }],
     'no-continue': 'off',
     'no-param-reassign': ['error', { props: false }],

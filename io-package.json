@@ -1,20 +1,8 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.2.2",
+    "version": "1.3.0",
     "news": {
-      "0.3.0": {
-        "en": "New Core- and Testfiles from Apollon77 and fix 'write after end'. Issue #2",
-        "de": "Neue Core- and Testfiles von Apollon77 und Lösung für das 'write after end' Problem. Issue #2",
-        "ru": "Новое ядро - и Testfiles от Apollon77 и исправить 'писать после конца'. Выпуск #2",
-        "pt": "Novo Núcleo - e Testfiles de Apollon77 e correção 'de gravação após o final'. Edição #2",
-        "nl": "Nieuwe Kern - en Testfiles van Apollon77 en fix 'schrijf na het einde'. Probleem #2",
-        "fr": "Les nouveaux Core - et Testfiles de Apollon77 et réparer \"écrire après la fin\". Question #2",
-        "it": "Nuovo Core - e Testfiles da Apollon77 e fix 'scrivere dopo la fine'. Problema #2",
-        "es": "Nuevo Núcleo - y Testfiles de Apollon77 y arreglar \"escribir después de la final\". Problema #2",
-        "pl": "Nowe jądro - Smsd od Apollon77 i naprawić 'pisać po końca'. Odcinek #2",
-        "zh-cn": "新的核心和Testfiles从Apollon77和修复写信之后结束的。 第2个问题"
-      },
       "1.0.0": {
         "en": "Stable Release, Update Gulp, add new Translations",
         "de": "Stable-Release, Update Gulp, hinzufügen neuer Übersetzungen",
@@ -146,6 +134,18 @@
         "es": "Borrar reconectTimeout en la descarga del adaptador",
         "pl": "Wyczyść reconnectTimeout przy rozładowaniu adaptera",
         "zh-cn": "清除适配器卸载时的reconnectTimeout"
+      },
+      "1.3.0": {
+        "en": "Set correct type for channels",
+        "de": "Korrekten type für die Channels setzen",
+        "ru": "Установите правильный тип для каналов",
+        "pt": "Defina o tipo correto de canais",
+        "nl": "Stel het juiste type kanalen in",
+        "fr": "Définir le type correct pour les chaînes",
+        "it": "Imposta il tipo corretto per i canali",
+        "es": "Establecer el tipo correcto de canales",
+        "pl": "Ustaw prawidłowy typ kanałów",
+        "zh-cn": "为频道设置正确的类型"
       }
     },
     "title": "Beckhoff TwinCat ADS",

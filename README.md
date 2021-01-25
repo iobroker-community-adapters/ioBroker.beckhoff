@@ -65,6 +65,10 @@ Upload your *.tpy File from your PLC Project -> Every Time you change something 
 3. Sync never meant the Dataexchange of the Symbols. Sync is the create or delete the States in ioBroker dependent on the GlobalVariableTable in the PLC.
 
 ## Changelog
+### 1.3.0 (2021-01-25)
+
+-   (dkleber89) Set correct type for channels
+
 ### 1.2.2 (2020-05-30)
 
 -   (dkleber89) Clear reconnectTimeout on Adapter unload;
@@ -109,17 +113,11 @@ Upload your *.tpy File from your PLC Project -> Every Time you change something 
 
 -   (dkleber 89) Stable Release, Update Gulp, add new Translations
 
-### 0.3.0 (2019-03-09)
-
--   (Appollon77) Core Files/Testing Update and introduce adapter-core
--   (dkleber89) Fix Problem 'write after End'
-
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 dkleber89 <dkleber89@gmail.com>
+Copyright (c) 2018-2021 dkleber89 <dkleber89@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

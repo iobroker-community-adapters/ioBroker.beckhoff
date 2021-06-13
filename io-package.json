@@ -197,6 +197,8 @@
     "readme": "https://github.com/dkleber89/ioBroker.beckhoff/blob/master/README.md",
     "loglevel": "info",
     "type": "hardware",
+    "connectionType": "local",
+    "dataSource": "push",
     "license": "MIT",
     "messagebox": false,
     "restartAdapters": [],

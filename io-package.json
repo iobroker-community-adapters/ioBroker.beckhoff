@@ -1,20 +1,8 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "news": {
-      "1.0.1": {
-        "en": "Random Bugfixes",
-        "de": "Verschieden Bugfixes",
-        "ru": "Случайные исправления",
-        "pt": "Bugfixes Aleatórios",
-        "nl": "Willekeurige Bugfixes",
-        "fr": "Correction de bugs aléatoires",
-        "it": "Bugfix casuali",
-        "es": "Corrección de errores aleatorios",
-        "pl": "Losowe poprawki błędów",
-        "zh-cn": "随机错误修正"
-      },
       "1.0.2": {
         "en": "Update testing Node v12 in Appveyor and Travis",
         "de": "Test aktualisieren auf Node v12 in Appveyor und Travis",
@@ -146,6 +134,18 @@
         "es": "Agregar soporte LREAL",
         "pl": "Dodaj obsługę LREAL",
         "zh-cn": "添加LREAL支持"
+      },
+      "1.4.1": {
+        "en": "Adapter Maintenance",
+        "de": "Adapterpflege",
+        "ru": "Обслуживание адаптера",
+        "pt": "Manutenção do Adaptador",
+        "nl": "Adapteronderhoud",
+        "fr": "Entretien de l'adaptateur",
+        "it": "Manutenzione dell'adattatore",
+        "es": "Mantenimiento del adaptador",
+        "pl": "Konserwacja adaptera",
+        "zh-cn": "适配器维护"
       }
     },
     "title": "Beckhoff TwinCat ADS",

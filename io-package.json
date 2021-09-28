@@ -1,20 +1,8 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.4.1",
+    "version": "1.5.0",
     "news": {
-      "1.0.2": {
-        "en": "Update testing Node v12 in Appveyor and Travis",
-        "de": "Test aktualisieren auf Node v12 in Appveyor und Travis",
-        "ru": "Обновление тестирующего Node v12 в Appveyor и Travis",
-        "pt": "Atualize o teste do nó v12 no Appveyor e no Travis",
-        "nl": "Update toets Node v12 in Appveyor en Travis",
-        "fr": "Mise à jour du test du nœud v12 dans Appveyor et Travis",
-        "it": "Aggiornamento test Nodo v12 in Appveyor e Travis",
-        "es": "Actualización de pruebas del nodo v12 en Appveyor y Travis",
-        "pl": "Aktualizacja testowania Node v12 w Appveyor i Travis",
-        "zh-cn": "在Appveyor和Travis中更新测试节点v12"
-      },
       "1.0.4": {
         "en": "Increase depth of LOG Details, Update Dependency Versions",
         "de": "LOG Detailtiefe erhöht, Paketversionen aktualisiert",
@@ -146,6 +134,18 @@
         "es": "Mantenimiento del adaptador",
         "pl": "Konserwacja adaptera",
         "zh-cn": "适配器维护"
+      },
+      "1.5.0": {
+        "en": "Process next state in list when register subscriptions not before the previous is finish processed in plc",
+        "de": "Bearbeite bei der Registrierung der Subscriptions den nächsten State erst, wenn der vorherige fertig bearbeitet wurde",
+        "ru": "Обрабатывать следующее состояние в списке, если подписки регистрируются не раньше, чем предыдущая обработка завершается в plc.",
+        "pt": "Processa o próximo estado na lista quando registrar as assinaturas não antes que o anterior termine processado no plc",
+        "nl": "Verwerk de volgende status in de lijst wanneer abonnementen worden geregistreerd niet voordat de vorige is voltooid, verwerkt in plc",
+        "fr": "Traiter l'état suivant dans la liste lorsque les abonnements d'enregistrement ne sont pas terminés avant la fin du traitement dans plc",
+        "it": "Elabora lo stato successivo nell'elenco quando si registrano gli abbonamenti non prima che il precedente sia stato elaborato in plc",
+        "es": "Procese el siguiente estado en la lista cuando registre suscripciones no antes de que termine el procesamiento anterior en plc",
+        "pl": "Przetwarzaj następny stan na liście, gdy zarejestruj subskrypcje nie przed zakończeniem poprzedniego przetwarzania w PLC",
+        "zh-cn": "当注册订阅不在 plc 中前一个完成处理之前处理列表中的下一个状态"
       }
     },
     "title": "Beckhoff TwinCat ADS",

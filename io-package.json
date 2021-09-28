@@ -137,7 +137,15 @@
       },
       "1.5.0": {
         "en": "Process next state in list when register subscriptions not before the previous is finish processed in plc",
-        "de": "Bearbeite bei der Registrierung der Subscriptions den nächsten State erst, wenn der vorherige fertig bearbeitet wurde"
+        "de": "Bearbeite bei der Registrierung der Subscriptions den nächsten State erst, wenn der vorherige fertig bearbeitet wurde",
+        "ru": "Обрабатывать следующее состояние в списке, если подписки регистрируются не раньше, чем предыдущая обработка завершается в plc.",
+        "pt": "Processa o próximo estado na lista quando registrar as assinaturas não antes que o anterior termine processado no plc",
+        "nl": "Verwerk de volgende status in de lijst wanneer abonnementen worden geregistreerd niet voordat de vorige is voltooid, verwerkt in plc",
+        "fr": "Traiter l'état suivant dans la liste lorsque les abonnements d'enregistrement ne sont pas terminés avant la fin du traitement dans plc",
+        "it": "Elabora lo stato successivo nell'elenco quando si registrano gli abbonamenti non prima che il precedente sia stato elaborato in plc",
+        "es": "Procese el siguiente estado en la lista cuando registre suscripciones no antes de que termine el procesamiento anterior en plc",
+        "pl": "Przetwarzaj następny stan na liście, gdy zarejestruj subskrypcje nie przed zakończeniem poprzedniego przetwarzania w PLC",
+        "zh-cn": "当注册订阅不在 plc 中前一个完成处理之前处理列表中的下一个状态"
       }
     },
     "title": "Beckhoff TwinCat ADS",

@@ -48,7 +48,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x, 16.x]
+        node-version: [12.x, 14.x, 16.x]
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     runs-on: ${{ matrix.os }}
@@ -64,9 +64,6 @@ jobs:
 
       - name: Install Dependencies
         uses: bahmutov/npm-install@v1
-
-      - name: Run unit tests
-        run: npm run test:unit
 
       - name: Run integration tests (unix only)
         if: startsWith(runner.OS, 'windows') == false

@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.5.0",
+    "version": "1.5.1",
     "news": {
       "1.0.4": {
         "en": "Increase depth of LOG Details, Update Dependency Versions",

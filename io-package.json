@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.5.0",
+    "version": "1.5.1",
     "news": {
       "1.0.4": {
         "en": "Increase depth of LOG Details, Update Dependency Versions",
@@ -146,6 +146,18 @@
         "es": "Procese el siguiente estado en la lista cuando registre suscripciones no antes de que termine el procesamiento anterior en plc",
         "pl": "Przetwarzaj następny stan na liście, gdy zarejestruj subskrypcje nie przed zakończeniem poprzedniego przetwarzania w PLC",
         "zh-cn": "当注册订阅不在 plc 中前一个完成处理之前处理列表中的下一个状态"
+      },
+      "1.5.1": {
+        "en": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, DT support and support for strings with all char length added",
+        "de": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, DT-Unterstützung und Unterstützung für Zeichenfolgen mit hinzugefügter Zeichenlänge",
+        "ru": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, поддержка DT и поддержка строк с добавленной длиной всех символов",
+        "pt": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, suporte DT e suporte para strings com todos os comprimentos de caracteres adicionados",
+        "nl": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, DT-ondersteuning en ondersteuning voor strings met alle tekenlengtes toegevoegd",
+        "fr": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, prise en charge de DT et prise en charge des chaînes avec toute la longueur de caractères ajoutée",
+        "it": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, supporto DT e supporto per stringhe con tutta la lunghezza del carattere aggiunta",
+        "es": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, compatibilidad con DT y compatibilidad con cadenas con todas las longitudes de caracteres añadidas",
+        "pl": "Obsługa TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, DT i obsługa ciągów znaków z dodaną długością znaków",
+        "zh-cn": "TIME、TIME_OF_DAY、TOD、DATE、DATE_AND_TIME、DT 支持并支持添加了所有字符长度的字符串"
       }
     },
     "title": "Beckhoff TwinCat ADS",

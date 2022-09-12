@@ -1,4 +1,4 @@
-admin
-test
-lib/env/tools.js
-gulpfile.js
+admin/build/
+build/
+.prettierrc.js
+**/.eslintrc.js

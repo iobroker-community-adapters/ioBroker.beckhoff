@@ -1,128 +1,129 @@
-![GitHub](https://img.shields.io/github/license/dkleber89/ioBroker.beckhoff) ![Test and Release](https://github.com/dkleber89/ioBroker.beckhoff/workflows/Test%20and%20Release/badge.svg) ![npm](https://img.shields.io/npm/dm/iobroker.beckhoff) [![npm](https://img.shields.io/npm/v/iobroker.beckhoff.svg)](https://www.npmjs.com/package/iobroker.beckhoff) ![Number of Installations](http://iobroker.live/badges/beckhoff-stable.svg)  ![Number of Installations](http://iobroker.live/badges/beckhoff-installed.svg)
-
-![Logo](docs/en/img/beckhoff.png)
-
+![Logo](admin/beckhoff.png)
 # ioBroker.beckhoff
-This adapter for ioBroker can Communicate with a Beckhoff Automation System (Twincat 2 or 3) over the ADS Protocol.
-The ADS Protocol is implemented in every System of Beckhoff and can be used without any License on ioBroker or Automation System.
 
-This Project is not affilate to Beckhoff in any way
+[![NPM version](https://img.shields.io/npm/v/iobroker.beckhoff.svg)](https://www.npmjs.com/package/iobroker.beckhoff)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.beckhoff.svg)](https://www.npmjs.com/package/iobroker.beckhoff)
+![Number of Installations](https://iobroker.live/badges/beckhoff-installed.svg)
+![Current version in stable repository](https://iobroker.live/badges/beckhoff-stable.svg)
 
-## Description
-### Requirements
--   Beckhoff PLC that has an ethernet connection and is connected to your LAN
-    -   Make your you give the PLC a fixed IP address
-    -   Make sure you can ping the PLC from ioBroker
-    -   TwinCat 2 **excluding BC Runtimes** or TwinCat 3
+[![NPM](https://nodei.co/npm/iobroker.beckhoff.png?downloads=true)](https://nodei.co/npm/iobroker.beckhoff/)
 
-### PLC Configuration
-1. Enable ADS on your PLC project. To do this click on your task and then enable the checkbox before `Create symbols`. Download the new configuration and make sure you reboot your PLC. The reboot is only needed when you are using TwinCat 2.
+**Tests:** ![Test and Release](https://github.com/dkleber89/ioBroker.beckhoff/workflows/Test%20and%20Release/badge.svg)
 
-    ![createSymbols](docs/en/img/createSymbols.png)
+## beckhoff adapter for ioBroker
 
-2. Now add a static route to our Beckhoff PLC. The route should point to your server that will run the proxy application.
+ioBroker Beckhoff TwinCat ADS Adapter to communicate with Beckhoff Automation System
 
-    Here an example to add a Static Route directly on PLC u can add this Route also from your EngineeringPC to the PLC.
+## Developer manual
+This section is intended for the developer. It can be deleted later.
 
-    ![createSymbols](docs/en/img/addRoute.png)
+### DISCLAIMER
 
-    Important is that the AmsNetId and the AdressInfo (IP-Adress) matches with the Adapter Settings. For further Information about TwinCat Router and Security read Documentation on Synchronisierung [Beckhoff Information System](https://infosys.beckhoff.com/ 'Beckhoff Information System')
+Please make sure that you consider copyrights and trademarks when you use names or logos of a company and add a disclaimer to your README.
+You can check other adapters for examples or ask in the developer community. Using a name or logo of a company without permission may cause legal problems for you.
 
-3. On TwinCat 2 Create a Struct and fill in your needed Symbols. Then add this Struct to a GlobalVariableTable.
+### Getting started
 
-    ##### Currently Supported Types: BOOL, BYTE, WORD, DWORD, SINT, USINT, INT, UINT, DINT, UDINT, REAL, LREAL, TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, DT, STRING
+You are almost done, only a few steps left:
+1. Create a new repository on GitHub with the name `ioBroker.beckhoff`
+1. Initialize the current folder as a new git repository:  
+    ```bash
+    git init -b master
+    git add .
+    git commit -m "Initial commit"
+    ```
+1. Link your local repository with the one on GitHub:  
+    ```bash
+    git remote add origin https://github.com/dkleber89/ioBroker.beckhoff
+    ```
 
-    OPTIONAL: You can create a Variable in root of Struct with the exact name -> ioBrokerResync (Not Casesensitiv and not matter which Type) -> Every time this Variable changes his value the Table get resynced in ioBroker.
+1. Push all files to the GitHub repo:  
+    ```bash
+    git push origin master
+    ```
+1. Add a new secret under https://github.com/dkleber89/ioBroker.beckhoff/settings/secrets. It must be named `AUTO_MERGE_TOKEN` and contain a personal access token with push access to the repository, e.g. yours. You can create a new token under https://github.com/settings/tokens.
 
-4. On TwinCat 3 Create a GlobalVariableTable and fill in your needed Symbols.
+1. Head over to [src/main.ts](src/main.ts) and start programming!
 
-    ##### Currently Supported Types: BOOL, BYTE, WORD, DWORD, SINT, USINT, INT, UINT, DINT, UDINT, REAL, LREAL, TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, DT, STRING
+### Best Practices
+We've collected some [best practices](https://github.com/ioBroker/ioBroker.repositories#development-and-coding-best-practices) regarding ioBroker development and coding in general. If you're new to ioBroker or Node.js, you should
+check them out. If you're already experienced, you should also take a look at them - you might learn something new :)
 
-    OPTIONAL: You can create a Variable in root of Variable Table with the exact name -> ioBrokerResync (Not Casesensitiv and not matter which Type) -> Every time this Variable changes his value the Table get resynced in ioBroker.
+### Scripts in `package.json`
+Several npm scripts are predefined for your convenience. You can run them using `npm run <scriptname>`
+| Script name | Description |
+|-------------|-------------|
+| `build` | Compile the TypeScript and React sources. |
+| `watch` | Compile the TypeScript and React sources and watch for changes. |
+| `build:ts` | Compile the TypeScript sources. |
+| `watch:ts` | Compile the TypeScript sources and watch for changes. |
+| `build:react` | Compile the React sources. |
+| `watch:react` | Compile the React sources and watch for changes. |
+| `test:ts` | Executes the tests you defined in `*.test.ts` files. |
+| `test:package` | Ensures your `package.json` and `io-package.json` are valid. |
+| `test:integration` | Tests the adapter startup with an actual instance of ioBroker. |
+| `test` | Performs a minimal test run on package files and your tests. |
+| `check` | Performs a type-check on your code (without compiling anything). |
+| `lint` | Runs `ESLint` to check your code for formatting errors and potential bugs. |
+| `translate` | Translates texts in your adapter to all required languages, see [`@iobroker/adapter-dev`](https://github.com/ioBroker/adapter-dev#manage-translations) for more details. |
+| `release` | Creates a new release, see [`@alcalzone/release-script`](https://github.com/AlCalzone/release-script#usage) for more details. |
 
-### Adapter Configuration
-#### Twincat 3 and Twincat 2
-1. Choose your Runtime Version
-2. Fill in Target IP-Adress and AMS-Net-ID.
-3. On TwinCat 2 fill in the Instance Name of Struct.
-4. On TwinCat 3 fill in the correct Tablename of the before created GlobalVariableTable.
-5. All other Points u mostly not need to Change.
+### Configuring the compilation
+The adapter template uses [esbuild](https://esbuild.github.io/) to compile TypeScript and/or React code. You can configure many compilation settings 
+either in `tsconfig.json` or by changing options for the build tasks. These options are described in detail in the
+[`@iobroker/adapter-dev` documentation](https://github.com/ioBroker/adapter-dev#compile-adapter-files).
 
-#### Twincat 2 <= v2.11.2240
-Upload your *.tpy File from your PLC Project -> Every Time you change something on the Struct u communicate with the ioBroker, you need to Upload it again.
+### Writing tests
+When done right, testing code is invaluable, because it gives you the 
+confidence to change your code while knowing exactly if and when 
+something breaks. A good read on the topic of test-driven development 
+is https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92. 
+Although writing tests before the code might seem strange at first, but it has very 
+clear upsides.
 
-### Dataexchange
--   When some Value is changed in PLC then it will be automatic transferred to ioBroker
--   When a Value is changed in ioBroker (Important: ACK need to be FALSE!!) then the Value will be automatic transferred to PLC. After that the Adapter set ACK to TRUE.
+The template provides you with basic tests for the adapter startup and package files.
+It is recommended that you add your own tests into the mix.
 
-### Attention
-1. TwinCAT AMS Router doesn't allow multiple TCP connections from the same host. So when you use two instances on the same host to connect to the same TwinCAT router, you will see that TwinCAT will close the first TCP connection and only respond to the newest.
-2. The Adapter Sync the complete GlobalVariableTable. U have different options to trigger a resync:
-    - Create a resync Variable in PLC (See [here](#PLC-Configuration))
-    - When the PLC are not in Run longer your Resync Intervall -> Then the Sync will triggered after the start of PLC.
-    - Every Time you Download the Project to your PLC except "OnlineChange"
-    - Restart the Adapter
-3. Sync never meant the Dataexchange of the Symbols. Sync is the create or delete the States in ioBroker dependent on the GlobalVariableTable in the PLC.
+### Publishing the adapter
+Using GitHub Actions, you can enable automatic releases on npm whenever you push a new git tag that matches the form 
+`v<major>.<minor>.<patch>`. We **strongly recommend** that you do. The necessary steps are described in `.github/workflows/test-and-release.yml`.
+
+Since you installed the release script, you can create a new
+release simply by calling:
+```bash
+npm run release
+```
+Additional command line options for the release script are explained in the
+[release-script documentation](https://github.com/AlCalzone/release-script#command-line).
+
+To get your adapter released in ioBroker, please refer to the documentation 
+of [ioBroker.repositories](https://github.com/ioBroker/ioBroker.repositories#requirements-for-adapter-to-get-added-to-the-latest-repository).
+
+### Test the adapter manually with dev-server
+Since you set up `dev-server`, you can use it to run, test and debug your adapter.
+
+You may start `dev-server` by calling from your dev directory:
+```bash
+dev-server watch
+```
+
+The ioBroker.admin interface will then be available at http://localhost:8081/
+
+Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev-server#command-line) for more details.
 
 ## Changelog
-### 1.5.1 (2022-03-19)
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 
--   (PLCHome) Add TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME and DT support
--   (PLCHome) Support for strings with all char length
-
-### 1.5.0 (2021-09-28)
-
--   (dkleber89) Process next state in list when register subscriptions not before the previous is finish processed in plc
-### 1.4.1 (2021-06-13)
-
--   (dkleber89) Some little Adapter maintenance
-
-### 1.4.0 (2021-01-25)
-
--   (dkleber89) Add LREAL Support
-
-### 1.3.0 (2021-01-25)
-
--   (dkleber89) Set correct type for channels
-
-### 1.2.2 (2020-05-30)
-
--   (dkleber89) Clear reconnectTimeout on Adapter unload;
-
-### 1.2.1 (2020-04-20)
-
-- (dkleber89) Add CI over Github Actions; Update Dependencies;
-
-### 1.2.0 (2020-01-02)
-
-- (dkleber89) Add Support for Strings with fixed length to 80 Chars
-
-### 1.1.0 (2019-11-12)
-
-- (dkleber89) Add Support for older TwinCat2 Systems with no autosync
-
-### 1.0.7 (2019-10-25)
-
-- (dkleber89) Add Support for Compact Mode -> JS Controller >= 2.0.0
-
-### 1.0.6 (2019-08-11)
-
--   (dkleber89) Add check change of Datatype on resync
-
-### 1.0.5 (2019-08-10)
-
--   (dkleber89) Eslint, Prettier with Airbnb Codestyle, CI adopted, little random changes in Project Structure
-
-### 1.0.4 (2019-08-01)
-
--   (dkleber89) Increase depth of LOG details, Update dependency versions
-
+### **WORK IN PROGRESS**
+* (dkleber89) initial release
 
 ## License
+MIT License
 
-The MIT License (MIT)
-
-Copyright (c) 2018-2021 dkleber89 <dkleber89@gmail.com>
+Copyright (c) 2022 dkleber89 <dkleber89@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -131,13 +132,13 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

@@ -1,6 +1,6 @@
 {
   "name": "iobroker.beckhoff",
-  "version": "1.5.1",
+  "version": "2.0.0-canary.0",
   "description": "ioBroker Beckhoff TwinCat ADS Adapter to communicate with Beckhoff Automation System",
   "author": {
     "name": "dkleber89",

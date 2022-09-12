@@ -1,4 +1,5 @@
 ![Logo](admin/beckhoff.png)
+
 # ioBroker.beckhoff
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.beckhoff.svg)](https://www.npmjs.com/package/iobroker.beckhoff)
@@ -10,120 +11,96 @@
 
 **Tests:** ![Test and Release](https://github.com/dkleber89/ioBroker.beckhoff/workflows/Test%20and%20Release/badge.svg)
 
-## beckhoff adapter for ioBroker
+# ioBroker.beckhoff
 
-ioBroker Beckhoff TwinCat ADS Adapter to communicate with Beckhoff Automation System
+This adapter for ioBroker can Communicate with a Beckhoff Automation System (Twincat 2 or 3) over the ADS Protocol.
+The ADS Protocol is implemented in every System of Beckhoff and can be used without any License on ioBroker or Automation System.
 
-## Developer manual
-This section is intended for the developer. It can be deleted later.
+This Project is not affilate to Beckhoff in any way
 
-### DISCLAIMER
+## Description
 
-Please make sure that you consider copyrights and trademarks when you use names or logos of a company and add a disclaimer to your README.
-You can check other adapters for examples or ask in the developer community. Using a name or logo of a company without permission may cause legal problems for you.
+### Requirements
 
-### Getting started
+-   Beckhoff PLC that has an ethernet connection and is connected to your LAN
+    -   Make your you give the PLC a fixed IP address
+    -   Make sure you can ping the PLC from ioBroker
+    -   TwinCat 2 **excluding BC Runtimes** or TwinCat 3
 
-You are almost done, only a few steps left:
-1. Create a new repository on GitHub with the name `ioBroker.beckhoff`
-1. Initialize the current folder as a new git repository:  
-    ```bash
-    git init -b master
-    git add .
-    git commit -m "Initial commit"
-    ```
-1. Link your local repository with the one on GitHub:  
-    ```bash
-    git remote add origin https://github.com/dkleber89/ioBroker.beckhoff
-    ```
+### PLC Configuration
 
-1. Push all files to the GitHub repo:  
-    ```bash
-    git push origin master
-    ```
-1. Add a new secret under https://github.com/dkleber89/ioBroker.beckhoff/settings/secrets. It must be named `AUTO_MERGE_TOKEN` and contain a personal access token with push access to the repository, e.g. yours. You can create a new token under https://github.com/settings/tokens.
+1. Now add a static route to our Beckhoff PLC. The route should point to your server that will run the proxy application.
 
-1. Head over to [src/main.ts](src/main.ts) and start programming!
+    Here an example to add a Static Route directly on PLC u can add this Route also from your EngineeringPC to the PLC.
 
-### Best Practices
-We've collected some [best practices](https://github.com/ioBroker/ioBroker.repositories#development-and-coding-best-practices) regarding ioBroker development and coding in general. If you're new to ioBroker or Node.js, you should
-check them out. If you're already experienced, you should also take a look at them - you might learn something new :)
+    ![createSymbols](docs/addRoute.png)
 
-### Scripts in `package.json`
-Several npm scripts are predefined for your convenience. You can run them using `npm run <scriptname>`
-| Script name | Description |
-|-------------|-------------|
-| `build` | Compile the TypeScript and React sources. |
-| `watch` | Compile the TypeScript and React sources and watch for changes. |
-| `build:ts` | Compile the TypeScript sources. |
-| `watch:ts` | Compile the TypeScript sources and watch for changes. |
-| `build:react` | Compile the React sources. |
-| `watch:react` | Compile the React sources and watch for changes. |
-| `test:ts` | Executes the tests you defined in `*.test.ts` files. |
-| `test:package` | Ensures your `package.json` and `io-package.json` are valid. |
-| `test:integration` | Tests the adapter startup with an actual instance of ioBroker. |
-| `test` | Performs a minimal test run on package files and your tests. |
-| `check` | Performs a type-check on your code (without compiling anything). |
-| `lint` | Runs `ESLint` to check your code for formatting errors and potential bugs. |
-| `translate` | Translates texts in your adapter to all required languages, see [`@iobroker/adapter-dev`](https://github.com/ioBroker/adapter-dev#manage-translations) for more details. |
-| `release` | Creates a new release, see [`@alcalzone/release-script`](https://github.com/AlCalzone/release-script#usage) for more details. |
+    Important is that the AmsNetId and the AdressInfo (IP-Adress) matches with the Adapter Settings. For further Information about TwinCat Router and Security read Documentation on Synchronisierung [Beckhoff Information System](https://infosys.beckhoff.com/ 'Beckhoff Information System')
 
-### Configuring the compilation
-The adapter template uses [esbuild](https://esbuild.github.io/) to compile TypeScript and/or React code. You can configure many compilation settings 
-either in `tsconfig.json` or by changing options for the build tasks. These options are described in detail in the
-[`@iobroker/adapter-dev` documentation](https://github.com/ioBroker/adapter-dev#compile-adapter-files).
+2. On TwinCat 2 Create a Struct and fill in your needed Symbols. Then add this Struct to a GlobalVariableTable.
 
-### Writing tests
-When done right, testing code is invaluable, because it gives you the 
-confidence to change your code while knowing exactly if and when 
-something breaks. A good read on the topic of test-driven development 
-is https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92. 
-Although writing tests before the code might seem strange at first, but it has very 
-clear upsides.
+    ##### Currently Supported Types: BOOL, BYTE, WORD, DWORD, SINT, USINT, INT, UINT, DINT, UDINT, REAL, LREAL, TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, DT, STRING
 
-The template provides you with basic tests for the adapter startup and package files.
-It is recommended that you add your own tests into the mix.
+    OPTIONAL: You can create a Variable in root of Struct with the exact name -> ioBrokerResync (Not Casesensitiv and not matter which Type) -> Every time this Variable changes his value the Table get resynced in ioBroker.
 
-### Publishing the adapter
-Using GitHub Actions, you can enable automatic releases on npm whenever you push a new git tag that matches the form 
-`v<major>.<minor>.<patch>`. We **strongly recommend** that you do. The necessary steps are described in `.github/workflows/test-and-release.yml`.
+3. On TwinCat 3 Create a GlobalVariableTable and fill in your needed Symbols.
 
-Since you installed the release script, you can create a new
-release simply by calling:
-```bash
-npm run release
-```
-Additional command line options for the release script are explained in the
-[release-script documentation](https://github.com/AlCalzone/release-script#command-line).
+    ##### Currently Supported Types: BOOL, BYTE, WORD, DWORD, SINT, USINT, INT, UINT, DINT, UDINT, REAL, LREAL, TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, DT, STRING
 
-To get your adapter released in ioBroker, please refer to the documentation 
-of [ioBroker.repositories](https://github.com/ioBroker/ioBroker.repositories#requirements-for-adapter-to-get-added-to-the-latest-repository).
+    OPTIONAL: You can create a Variable in root of Variable Table with the exact name -> ioBrokerResync (Not Casesensitiv and not matter which Type) -> Every time this Variable changes his value the Table get resynced in ioBroker.
 
-### Test the adapter manually with dev-server
-Since you set up `dev-server`, you can use it to run, test and debug your adapter.
+### Adapter Configuration
 
-You may start `dev-server` by calling from your dev directory:
-```bash
-dev-server watch
-```
-
-The ioBroker.admin interface will then be available at http://localhost:8081/
-
-Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev-server#command-line) for more details.
+#### TBD
 
 ## Changelog
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
 
-### **WORK IN PROGRESS**
-* (dkleber89) initial release
+### 2.0.0-canary.0 (**WORK IN PROGRESS**)
+
+-   (dkleber89) First Release of complete new written Adapter in Typscript
+
+### 1.5.1 (2022-03-19)
+
+-   (PLCHome) Add TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME and DT support
+-   (PLCHome) Support for strings with all char length
+
+### 1.5.0 (2021-09-28)
+
+-   (dkleber89) Process next state in list when register subscriptions not before the previous is finish processed in plc
+
+### 1.4.1 (2021-06-13)
+
+-   (dkleber89) Some little Adapter maintenance
+
+### 1.4.0 (2021-01-25)
+
+-   (dkleber89) Add LREAL Support
+
+### 1.3.0 (2021-01-25)
+
+-   (dkleber89) Set correct type for channels
+
+### 1.2.2 (2020-05-30)
+
+-   (dkleber89) Clear reconnectTimeout on Adapter unload;
+
+### 1.2.1 (2020-04-20)
+
+-   (dkleber89) Add CI over Github Actions; Update Dependencies;
+
+### 1.2.0 (2020-01-02)
+
+-   (dkleber89) Add Support for Strings with fixed length to 80 Chars
+
+### 1.1.0 (2019-11-12)
+
+-   (dkleber89) Add Support for older TwinCat2 Systems with no autosync
 
 ## License
+
 MIT License
 
-Copyright (c) 2022 dkleber89 <dkleber89@gmail.com>
+Copyright (c) 2018-2022 dkleber89 <dkleber89@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

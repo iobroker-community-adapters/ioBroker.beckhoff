@@ -33,7 +33,7 @@ This Project is not affilate to Beckhoff in any way
 
     Here an example to add a Static Route directly on PLC u can add this Route also from your EngineeringPC to the PLC.
 
-    ![createSymbols](docs/addRoute.png)
+    ![addRoute](docs/addRoute.png)
 
     Important is that the AmsNetId and the AdressInfo (IP-Adress) matches with the Adapter Settings. For further Information about TwinCat Router and Security read Documentation on Synchronisierung [Beckhoff Information System](https://infosys.beckhoff.com/ 'Beckhoff Information System')
 

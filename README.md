@@ -16,7 +16,7 @@
 This adapter for ioBroker can Communicate with a Beckhoff Automation System (Twincat 2 or 3) over the ADS Protocol.
 The ADS Protocol is implemented in every System of Beckhoff and can be used without any License on ioBroker or Automation System.
 
-This Project is not affilate to Beckhoff in any way
+**This Project is not affilate to Beckhoff in any way**
 
 ## Description
 

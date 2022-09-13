@@ -1,5 +1,10 @@
 {
-    "beckhoff adapter settings": "Adapterinstellingen voor beckhoff",
-    "option1": "Optie 1",
-    "option2": "Optie 2"
+    "amsNetIdSource": "De AMS-NetId van de adapter",
+    "amsNetIdTarget": "De AMS-NetId van de doelcomputer",
+    "amsPortSource": "De AMS-poort van de adapter",
+    "amsPortTarget": "De AMS-poort van de TwinCat-runtime",
+    "beckhoff adapter settings": "Adapterinstellingen voor Beckhoff ADS Adapter",
+    "host": "Het IP-adres of de hostnaam van de doelcomputer",
+    "port": "De TCP-poort van de doelcomputer",
+    "timeout": "Time-out verbinding"
 }

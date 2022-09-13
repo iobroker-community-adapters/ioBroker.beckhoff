@@ -5,16 +5,20 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 import * as utils from '@iobroker/adapter-core';
+import { PLC } from './lib/PLC';
 
 // Load your modules here, e.g.:
 // import * as fs from "fs";
 
 class Beckhoff extends utils.Adapter {
+    private plc?: PLC;
+
     public constructor(options: Partial<utils.AdapterOptions> = {}) {
         super({
             ...options,
             name: 'beckhoff',
         });
+
         this.on('ready', this.onReady.bind(this));
         this.on('stateChange', this.onStateChange.bind(this));
         // this.on('objectChange', this.onObjectChange.bind(this));
@@ -26,6 +30,7 @@ class Beckhoff extends utils.Adapter {
      */
     private async onReady(): Promise<void> {
         // Initialize your adapter here
+        this.plc = new PLC(this.config);
 
         // Reset the connection indicator during startup
         this.setState('info.connection', false, true);

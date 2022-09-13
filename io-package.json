@@ -201,7 +201,15 @@
             "common": {
                 "name": "Information"
             },
-            "native": {}
+            "native": {
+                "amsNetIdSource": "192.168.254.254.1.1",
+                "amsNetIdTarget": "xxx.xxx.xxx.xxx.xxx.xxx",
+                "amsPortSource": "32905",
+                "amsPortTarget": "851",
+                "host": "xxx.xxx.xxx.xxx",
+                "port": 48898,
+                "timeout": 10000
+            }
         },
         {
             "_id": "info.connection",

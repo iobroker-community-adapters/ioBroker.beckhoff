@@ -62,7 +62,7 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
         this.state = {};
     }
 
-    renderInput(title: AdminWord, attr: string, type: string) {
+    renderInput(title: AdminWord, attr: string, type?: string, helperText?: string) {
         return (
             <TextField
                 label={I18n.t(title)}
@@ -71,6 +71,7 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
                 type={type || 'text'}
                 onChange={(e) => this.props.onChange(attr, e.target.value)}
                 margin="normal"
+                helperText={helperText}
             />
         );
     }
@@ -129,9 +130,12 @@ class Settings extends React.Component<SettingsProps, SettingsState> {
     render() {
         return (
             <form className={this.props.classes.tab}>
-                {this.renderCheckbox('option1', 'option1')}
-                <br />
-                {this.renderInput('option2', 'option2', 'text')}
+                {this.renderInput('host', 'host')}
+                {this.renderInput('port', 'port', 'number')}
+                {this.renderInput('amsNetIdTarget', 'amsNetIdTarget')}
+                {this.renderInput('amsPortTarget', 'amsPortTarget', 'number')}
+                {this.renderInput('amsNetIdSource', 'amsNetIdSource')}
+                {this.renderInput('amsPortSource', 'amsPortSource', 'number')}
             </form>
         );
     }

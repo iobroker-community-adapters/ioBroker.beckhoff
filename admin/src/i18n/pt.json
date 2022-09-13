@@ -1,5 +1,10 @@
 {
-    "beckhoff adapter settings": "Configurações do adaptador para beckhoff",
-    "option1": "Opção 1",
-    "option2": "opção 2"
+    "amsNetIdSource": "O AMS-NetId do adaptador",
+    "amsNetIdTarget": "O AMS-NetId da máquina de destino",
+    "amsPortSource": "A porta AMS do adaptador",
+    "amsPortTarget": "A porta AMS do tempo de execução do TwinCat",
+    "beckhoff adapter settings": "Configurações do adaptador para Beckhoff ADS Adapter",
+    "host": "O IP ou nome de host da máquina de destino",
+    "port": "A porta TCP da máquina de destino",
+    "timeout": "Tempo limite de conexão"
 }

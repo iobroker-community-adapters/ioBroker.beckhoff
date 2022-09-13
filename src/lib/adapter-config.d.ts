@@ -4,9 +4,7 @@ import { AdsClientConnectOptions } from 'node-ads';
 // Augment the globally declared type ioBroker.AdapterConfig
 declare global {
     namespace ioBroker {
-        interface AdapterConfig {
-            adsClientConnectOptions: AdsClientConnectOptions;
-        }
+        interface AdapterConfig extends AdsClientConnectOptions {}
     }
 }
 

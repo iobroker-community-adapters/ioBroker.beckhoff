@@ -5,23 +5,20 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 import * as utils from '@iobroker/adapter-core';
-import { PLC } from './lib/PLC';
 
 // Load your modules here, e.g.:
 // import * as fs from "fs";
 
 class Beckhoff extends utils.Adapter {
-    private plc?: PLC;
-
     public constructor(options: Partial<utils.AdapterOptions> = {}) {
         super({
             ...options,
             name: 'beckhoff',
         });
-
         this.on('ready', this.onReady.bind(this));
         this.on('stateChange', this.onStateChange.bind(this));
         // this.on('objectChange', this.onObjectChange.bind(this));
+        // this.on('message', this.onMessage.bind(this));
         this.on('unload', this.onUnload.bind(this));
     }
 
@@ -30,15 +27,14 @@ class Beckhoff extends utils.Adapter {
      */
     private async onReady(): Promise<void> {
         // Initialize your adapter here
-        this.plc = new PLC(this.config);
 
         // Reset the connection indicator during startup
         this.setState('info.connection', false, true);
 
         // The adapters config (in the instance object everything under the attribute "native") is accessible via
         // this.config:
-        // this.log.info('config option1: ' + this.config.option1);
-        // this.log.info('config option2: ' + this.config.option2);
+        this.log.info('config option1: ' + this.config.option1);
+        this.log.info('config option2: ' + this.config.option2);
 
         /*
 		For every state in the system there has to be also an object of type state
@@ -130,6 +126,23 @@ class Beckhoff extends utils.Adapter {
             this.log.info(`state ${id} deleted`);
         }
     }
+
+    // If you need to accept messages in your adapter, uncomment the following block and the corresponding line in the constructor.
+    // /**
+    //  * Some message was sent to this instance over message box. Used by email, pushover, text2speech, ...
+    //  * Using this method requires "common.messagebox" property to be set to true in io-package.json
+    //  */
+    // private onMessage(obj: ioBroker.Message): void {
+    //     if (typeof obj === 'object' && obj.message) {
+    //         if (obj.command === 'send') {
+    //             // e.g. send email or pushover or whatever
+    //             this.log.info('send command');
+
+    //             // Send response in callback if required
+    //             if (obj.callback) this.sendTo(obj.from, obj.command, 'Message received', obj.callback);
+    //         }
+    //     }
+    // }
 }
 
 if (require.main !== module) {

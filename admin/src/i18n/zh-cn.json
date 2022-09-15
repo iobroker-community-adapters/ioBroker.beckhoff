@@ -1,0 +1,10 @@
+{
+    "amsNetIdSource": "适配器的 AMS-NetId",
+    "amsNetIdTarget": "目标机器的 AMS-NetId",
+    "amsPortSource": "适配器的 AMS 端口",
+    "amsPortTarget": "TwinCat 运行时的 AMS 端口",
+    "beckhoff adapter settings": "Beckhoff ADS 适配器的适配器设置",
+    "host": "目标机器的 IP 或主机名",
+    "port": "目标机器的 TCP 端口",
+    "timeout": "连接超时"
+}

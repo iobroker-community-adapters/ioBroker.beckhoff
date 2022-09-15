@@ -1,0 +1,10 @@
+{
+    "amsNetIdSource": "Die AMS-NetId des Adapters",
+    "amsNetIdTarget": "Die AMS-NetId der Zielmaschine",
+    "amsPortSource": "Der AMS-Port des Adapters",
+    "amsPortTarget": "Der AMS-Port der TwinCat Runtime",
+    "beckhoff adapter settings": "Adaptereinstellungen für Beckhoff ADS Adapter",
+    "host": "Die IP oder der Hostname des Zielcomputers",
+    "port": "Der TCP-Port des Zielcomputers",
+    "timeout": "Verbindungszeitüberschreitung"
+}

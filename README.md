@@ -53,7 +53,6 @@ The ADS Protocol is implemented in every System of Beckhoff and can be used with
 
 #### TBD
 
-
 ## Changelog
 
 ### 2.0.0-canary.0 (**WORK IN PROGRESS**)

@@ -1,8 +1,8 @@
-import { AdsClient, AdsClientConnectOptions, connect } from 'node-ads';
+import { AdsClientConnectOptions } from 'node-ads';
 
 export class PLC {
     private adsClientConnectOptions: AdsClientConnectOptions;
-   // private adsClient: AdsClient;
+    // private adsClient: AdsClient;
 
     constructor(adsClientConnectOptions: AdsClientConnectOptions) {
         this.adsClientConnectOptions = adsClientConnectOptions;

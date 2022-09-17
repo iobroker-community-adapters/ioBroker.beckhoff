@@ -1,10 +1,15 @@
 {
-    "amsNetIdSource": "AMS-NetId адаптера",
-    "amsNetIdTarget": "AMS-NetId целевой машины",
-    "amsPortSource": "AMS-порт адаптера",
-    "amsPortTarget": "AMS-порт среды выполнения TwinCat",
-    "beckhoff adapter settings": "Настройки адаптера для Beckhoff ADS Adapter",
-    "host": "IP или имя хоста целевой машины",
-    "port": "TCP-порт целевой машины",
-    "timeout": "Время соединения вышло"
+    "reconnectInterval": "Интервал повторного подключения в секундах для подключения к ПЛК",
+    "sourceAmsNetId": "AMS-NetId адаптера",
+    "sourceAmsPort": "AMS-порт адаптера",
+    "targetAmsNetId": "AMS-NetId целевой машины",
+    "targetAmsPort": "AMS-порт среды выполнения TwinCat",
+    "targetHost": "IP или имя хоста целевой машины",
+    "targetTcpPort": "TCP-порт целевой машины",
+    "timeout": "Время ожидания соединения в миллисекундах",
+    "beckhoffAdapterSettings": "Настройки адаптера для Beckhoff ADS Adapter",
+    "mandatoryField": "Это обязательное поле",
+    "validPortNumberNeeded": "Введите действительный номер порта, например. 851",
+    "validAmsNetIdNeeded": "Введите действительный сетевой идентификатор AMS, например. 10.0.0.1.1.1",
+    "formValidationErrorDescription": "Пожалуйста, заполните все необходимые поля настроек правильно"
 }

@@ -30,8 +30,6 @@ class Beckhoff extends utils.Adapter {
   }
   async onReady() {
     this.setState("info.connection", false, true);
-    this.log.info("config option1: " + this.config.option1);
-    this.log.info("config option2: " + this.config.option2);
     await this.setObjectNotExistsAsync("testVariable", {
       type: "state",
       common: {

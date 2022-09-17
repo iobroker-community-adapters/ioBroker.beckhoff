@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../../../src/lib/PLC/PLC.ts"],
-  "sourcesContent": ["import { AdsClient, AdsClientConnectOptions, connect } from 'node-ads';\n\nexport class PLC {\n    private adsClientConnectOptions: AdsClientConnectOptions;\n   // private adsClient: AdsClient;\n\n    constructor(adsClientConnectOptions: AdsClientConnectOptions) {\n        this.adsClientConnectOptions = adsClientConnectOptions;\n\n        // this.adsClient = connect(this.adsClientConnectOptions, () => {\n        //     this.adsClient.readDeviceInfo((err, result) => {\n        //         console.log(err);\n        //         console.log(result);\n        //     });\n\n        //     this.adsClient.end();\n        // });\n    }\n}\n"],
+  "sourcesContent": ["import { AdsClientConnectOptions } from 'node-ads';\n\nexport class PLC {\n    private adsClientConnectOptions: AdsClientConnectOptions;\n    // private adsClient: AdsClient;\n\n    constructor(adsClientConnectOptions: AdsClientConnectOptions) {\n        this.adsClientConnectOptions = adsClientConnectOptions;\n\n        // this.adsClient = connect(this.adsClientConnectOptions, () => {\n        //     this.adsClient.readDeviceInfo((err, result) => {\n        //         console.log(err);\n        //         console.log(result);\n        //     });\n\n        //     this.adsClient.end();\n        // });\n    }\n}\n"],
   "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAEO,MAAM,IAAI;AAAA,EAIb,YAAY,yBAAkD;AAC1D,SAAK,0BAA0B;AAAA,EAUnC;AACJ;",
   "names": []
 }

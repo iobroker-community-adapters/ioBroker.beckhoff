@@ -1,10 +1,15 @@
 {
-    "amsNetIdSource": "Die AMS-NetId des Adapters",
-    "amsNetIdTarget": "Die AMS-NetId der Zielmaschine",
-    "amsPortSource": "Der AMS-Port des Adapters",
-    "amsPortTarget": "Der AMS-Port der TwinCat Runtime",
-    "beckhoff adapter settings": "Adaptereinstellungen für Beckhoff ADS Adapter",
-    "host": "Die IP oder der Hostname des Zielcomputers",
-    "port": "Der TCP-Port des Zielcomputers",
-    "timeout": "Verbindungszeitüberschreitung"
+    "reconnectInterval": "Wiederverbindungsintervall in Sekunden für die Verbindung zur SPS",
+    "sourceAmsNetId": "Die AMS-NetId des Adapters",
+    "sourceAmsPort": "Der AMS-Port des Adapters",
+    "targetAmsNetId": "Die AMS-NetId der Zielmaschine",
+    "targetAmsPort": "Der AMS-Port der TwinCat Runtime",
+    "targetHost": "Die IP oder der Hostname des Zielcomputers",
+    "targetTcpPort": "Der TCP-Port des Zielcomputers",
+    "timeout": "Verbindungs-Timeout-Zeit in Millisekunden",
+    "beckhoffAdapterSettings": "Adaptereinstellungen für Beckhoff ADS Adapter",
+    "mandatoryField": "Dies ist ein Pflichtfeld",
+    "validPortNumberNeeded": "Geben Sie eine gültige Portnummer ein, z.B. 851",
+    "validAmsNetIdNeeded": "Gültige AMS Net ID eingeben, z.B. 10.0.0.1.1.1",
+    "formValidationErrorDescription": "Bitte füllen Sie alle erforderlichen Einstellungsfelder ordnungsgemäß aus"
 }

@@ -4,8 +4,14 @@
 declare global {
     namespace ioBroker {
         interface AdapterConfig {
-            option1: boolean;
-            option2: string;
+            reconnectInterval: number;
+            sourceAmsNetId: string;
+            sourceAmsPort: number;
+            targetAmsNetId: string;
+            targetAmsPort: number;
+            targetHost: string;
+            targetTcpPort: number;
+            timeout: number;
         }
     }
 }

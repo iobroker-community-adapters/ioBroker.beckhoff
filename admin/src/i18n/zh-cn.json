@@ -1,10 +1,15 @@
 {
-    "amsNetIdSource": "适配器的 AMS-NetId",
-    "amsNetIdTarget": "目标机器的 AMS-NetId",
-    "amsPortSource": "适配器的 AMS 端口",
-    "amsPortTarget": "TwinCat 运行时的 AMS 端口",
-    "beckhoff adapter settings": "Beckhoff ADS 适配器的适配器设置",
-    "host": "目标机器的 IP 或主机名",
-    "port": "目标机器的 TCP 端口",
-    "timeout": "连接超时"
+    "reconnectInterval": "连接到 PLC 的重新连接间隔（以秒为单位）",
+    "sourceAmsNetId": "适配器的 AMS-NetId",
+    "sourceAmsPort": "适配器的 AMS 端口",
+    "targetAmsNetId": "目标机器的 AMS-NetId",
+    "targetAmsPort": "TwinCat 运行时的 AMS 端口",
+    "targetHost": "目标机器的 IP 或主机名",
+    "targetTcpPort": "目标机器的 TCP 端口",
+    "timeout": "连接超时时间（以毫秒为单位）",
+    "beckhoffAdapterSettings": "Beckhoff ADS 适配器的适配器设置",
+    "mandatoryField": "这是必填字段",
+    "validPortNumberNeeded": "输入有效的端口号，例如851",
+    "validAmsNetIdNeeded": "输入有效的 AMS 网络 ID，例如10.0.0.1.1.1",
+    "formValidationErrorDescription": "请正确填写所有需要的设置字段"
 }

@@ -1,10 +1,15 @@
 {
-    "amsNetIdSource": "AMS-NetId adaptera",
-    "amsNetIdTarget": "AMS-NetId maszyny docelowej",
-    "amsPortSource": "Port AMS adaptera",
-    "amsPortTarget": "Port AMS środowiska wykonawczego TwinCat",
-    "beckhoff adapter settings": "Ustawienia adaptera dla adaptera Beckhoff ADS",
-    "host": "Adres IP lub nazwa hosta maszyny docelowej",
-    "port": "Port TCP maszyny docelowej",
-    "timeout": "Czas połączenia minął"
+    "reconnectInterval": "Interwał ponownego łączenia w sekundach dla połączenia z PLC",
+    "sourceAmsNetId": "AMS-NetId adaptera",
+    "sourceAmsPort": "Port AMS adaptera",
+    "targetAmsNetId": "AMS-NetId maszyny docelowej",
+    "targetAmsPort": "Port AMS środowiska wykonawczego TwinCat",
+    "targetHost": "Adres IP lub nazwa hosta maszyny docelowej",
+    "targetTcpPort": "Port TCP maszyny docelowej",
+    "timeout": "Czas oczekiwania na połączenie w milisekundach",
+    "beckhoffAdapterSettings": "Ustawienia adaptera dla adaptera Beckhoff ADS",
+    "mandatoryField": "Jest to pole obowiązkowe",
+    "validPortNumberNeeded": "Wprowadź prawidłowy numer portu, np. 851",
+    "validAmsNetIdNeeded": "Wprowadź prawidłowy AMS Net ID, np. 10.0.0.1.1.1",
+    "formValidationErrorDescription": "Proszę wypełnić poprawnie wszystkie wymagane pola ustawień"
 }

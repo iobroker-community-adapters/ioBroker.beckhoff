@@ -190,13 +190,14 @@
         ]
     },
     "native": {
-        "amsNetIdSource": "192.168.254.254.1.1",
-        "amsNetIdTarget": "xxx.xxx.xxx.xxx.xxx.xxx",
-        "amsPortSource": "32905",
-        "amsPortTarget": "851",
-        "host": "xxx.xxx.xxx.xxx",
-        "port": 48898,
-        "timeout": 10000
+        "reconnectInterval": 30000,
+        "sourceAmsNetId": "192.168.254.254.1.1",
+        "sourceAmsPort": "32905",
+        "targetAmsNetId": "",
+        "targetAmsPort": "851",
+        "targetHost": "",
+        "targetTcpPort": 48898,
+        "timeout": 500
     },
     "objects": [],
     "instanceObjects": [

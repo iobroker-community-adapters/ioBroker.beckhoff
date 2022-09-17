@@ -1,10 +1,15 @@
 {
-    "amsNetIdSource": "De AMS-NetId van de adapter",
-    "amsNetIdTarget": "De AMS-NetId van de doelcomputer",
-    "amsPortSource": "De AMS-poort van de adapter",
-    "amsPortTarget": "De AMS-poort van de TwinCat-runtime",
-    "beckhoff adapter settings": "Adapterinstellingen voor Beckhoff ADS Adapter",
-    "host": "Het IP-adres of de hostnaam van de doelcomputer",
-    "port": "De TCP-poort van de doelcomputer",
-    "timeout": "Time-out verbinding"
+    "reconnectInterval": "Interval opnieuw verbinden in seconden voor verbinding met PLC",
+    "sourceAmsNetId": "De AMS-NetId van de adapter",
+    "sourceAmsPort": "De AMS-poort van de adapter",
+    "targetAmsNetId": "De AMS-NetId van de doelcomputer",
+    "targetAmsPort": "De AMS-poort van de TwinCat-runtime",
+    "targetHost": "Het IP-adres of de hostnaam van de doelcomputer",
+    "targetTcpPort": "De TCP-poort van de doelcomputer",
+    "timeout": "Time-outtijd verbinding in milliseconden",
+    "beckhoffAdapterSettings": "Adapterinstellingen voor Beckhoff ADS Adapter",
+    "mandatoryField": "Dit is een verplicht veld",
+    "validPortNumberNeeded": "Voer een geldig poortnummer in, b.v. 851",
+    "validAmsNetIdNeeded": "Voer een geldige AMS Net ID in, b.v. 10.0.0.1.1.1",
+    "formValidationErrorDescription": "Vul a.u.b. alle benodigde instellingsvelden correct in"
 }

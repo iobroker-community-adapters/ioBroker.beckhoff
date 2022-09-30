@@ -18,20 +18,38 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var utils = __toESM(require("@iobroker/adapter-core"));
+var import_PLC = require("./lib/PLC");
 class Beckhoff extends utils.Adapter {
   constructor(options = {}) {
     super({
       ...options,
       name: "beckhoff"
     });
+    this._plc = null;
     this.on("ready", this.onReady.bind(this));
     this.on("stateChange", this.onStateChange.bind(this));
     this.on("unload", this.onUnload.bind(this));
   }
   async onReady() {
+    this._plc = new import_PLC.PLC(
+      this,
+      {
+        host: this.config.targetHost,
+        port: this.config.targetTcpPort,
+        amsNetIdTarget: this.config.targetAmsNetId,
+        amsPortTarget: this.config.targetAmsPort,
+        amsNetIdSource: this.config.sourceAmsNetId,
+        amsPortSource: this.config.sourceAmsPort,
+        timeout: this.config.timeout
+      },
+      this.config.reconnectInterval
+    );
   }
   async onUnload(callback) {
     try {
+      if (this._plc) {
+        await this._plc.closeConnection();
+      }
       callback();
     } catch (e) {
       callback();

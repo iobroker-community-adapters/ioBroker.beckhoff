@@ -5,13 +5,13 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 import * as utils from '@iobroker/adapter-core';
-// import { PLC } from './lib/PLC';
+import { PLC } from './lib/PLC';
 
 // Load your modules here, e.g.:
 // import * as fs from "fs";
 
 class Beckhoff extends utils.Adapter {
-    // private _plc: PLC | null = null;
+    private _plc: PLC | null = null;
 
     public constructor(options: Partial<utils.AdapterOptions> = {}) {
         super({
@@ -30,19 +30,19 @@ class Beckhoff extends utils.Adapter {
      */
     private async onReady(): Promise<void> {
         // Initialize your adapter here
-        // this._plc = new PLC(
-        //     this,
-        //     {
-        //         host: this.config.targetHost,
-        //         port: this.config.targetTcpPort,
-        //         amsNetIdTarget: this.config.targetAmsNetId,
-        //         amsPortTarget: this.config.targetAmsPort,
-        //         amsNetIdSource: this.config.sourceAmsNetId,
-        //         amsPortSource: this.config.sourceAmsPort,
-        //         timeout: this.config.timeout,
-        //     },
-        //     this.config.reconnectInterval,
-        // );
+        this._plc = new PLC(
+            this,
+            {
+                host: this.config.targetHost,
+                port: this.config.targetTcpPort,
+                amsNetIdTarget: this.config.targetAmsNetId,
+                amsPortTarget: this.config.targetAmsPort,
+                amsNetIdSource: this.config.sourceAmsNetId,
+                amsPortSource: this.config.sourceAmsPort,
+                timeout: this.config.timeout,
+            },
+            this.config.reconnectInterval,
+        );
         /*
 		For every state in the system there has to be also an object of type state
 		Here a simple template for a boolean variable named "testVariable"
@@ -88,9 +88,9 @@ class Beckhoff extends utils.Adapter {
      */
     private async onUnload(callback: () => void): Promise<void> {
         try {
-            // if (this._plc) {
-            //     await this._plc.closeConnection();
-            // }
+            if (this._plc) {
+                await this._plc.closeConnection();
+            }
 
             callback();
         } catch (e) {

@@ -31,10 +31,7 @@ class PLC {
     this._adapter = { log: adapter.log, setState: adapter.setState };
     this._adsClientConnectOptions = adsClientConnectOptions;
     this._reconnectInterval = reconnectInterval;
-    this._adapter.setState("info.connection", this.connected, true, void 0, (err) => {
-      if (err)
-        this._adapter.log.error(err == null ? void 0 : err.message);
-    });
+    this._adapter.setState("info.connection", this.connected, true);
     this._adapter.log.info(`Connecting to "${this._adsClientConnectOptions.host}"`);
     this._adsClient = (0, import_node_ads.connect)(
       {
@@ -62,6 +59,7 @@ class PLC {
   }
   _onConnected() {
     this.connected = true;
+    this._adapter.setState("info.connection", this.connected, true);
     this._adapter.log.info(`Connection to "${this._adsClientConnectOptions.host}" established`);
     const readDeviceInfo = () => {
       this._adsClient.readDeviceInfo((error, result) => {
@@ -85,6 +83,7 @@ class PLC {
       this._checkDeviceStateInterval = null;
     }
     this.connected = false;
+    this._adapter.setState("info.connection", this.connected, true);
     this.deviceInfo = null;
     this._adsClient.end(() => {
       this._adapter.log.debug(

@@ -14,7 +14,17 @@ export class PLC {
     public deviceInfo: AdsReadDeviceInfoResult | null = null;
 
     constructor(adapter: AdapterInstance, adsClientConnectOptions: AdsClientConnectOptions, reconnectInterval: number) {
-        this._adapter = { log: adapter.log, setState: adapter.setState };
+        this._adapter = {
+            log: {
+                level: adapter.log.level,
+                debug: adapter.log.debug.bind(adapter),
+                error: adapter.log.error.bind(adapter),
+                info: adapter.log.info.bind(adapter),
+                silly: adapter.log.silly.bind(adapter),
+                warn: adapter.log.warn.bind(adapter),
+            },
+            setState: adapter.setState.bind(adapter),
+        };
         this._adsClientConnectOptions = adsClientConnectOptions;
         this._reconnectInterval = reconnectInterval;
 

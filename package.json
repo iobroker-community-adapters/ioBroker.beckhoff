@@ -74,7 +74,7 @@
   ],
   "scripts": {
     "prebuild": "rimraf build admin/build",
-    "build": "npm run prebuild && build-adapter all",
+    "build": "build-adapter all",
     "watch": "build-adapter all --watch",
     "prebuild:ts": "rimraf build",
     "build:ts": "build-adapter ts",

@@ -28,17 +28,7 @@ class PLC {
     this._reconnectTimer = null;
     this.connected = false;
     this.deviceInfo = null;
-    this._adapter = {
-      log: {
-        level: adapter.log.level,
-        debug: adapter.log.debug.bind(adapter),
-        error: adapter.log.error.bind(adapter),
-        info: adapter.log.info.bind(adapter),
-        silly: adapter.log.silly.bind(adapter),
-        warn: adapter.log.warn.bind(adapter)
-      },
-      setState: adapter.setState.bind(adapter)
-    };
+    this._adapter = adapter;
     this._adsClientConnectOptions = adsClientConnectOptions;
     this._reconnectInterval = reconnectInterval;
     this._adapter.setState("info.connection", this.connected, true);

@@ -2,7 +2,7 @@ import { AdapterInstance } from '@iobroker/adapter-core';
 import { AdsClient, AdsClientConnectOptions, AdsReadDeviceInfoResult, connect } from 'node-ads';
 
 export class PLC {
-    private _adapter: Pick<AdapterInstance, 'log' | 'setState'>;
+    private _adapter: AdapterInstance;
     private _adsClientConnectOptions: AdsClientConnectOptions;
     private _reconnectInterval: number;
 
@@ -14,17 +14,7 @@ export class PLC {
     public deviceInfo: AdsReadDeviceInfoResult | null = null;
 
     constructor(adapter: AdapterInstance, adsClientConnectOptions: AdsClientConnectOptions, reconnectInterval: number) {
-        this._adapter = {
-            log: {
-                level: adapter.log.level,
-                debug: adapter.log.debug.bind(adapter),
-                error: adapter.log.error.bind(adapter),
-                info: adapter.log.info.bind(adapter),
-                silly: adapter.log.silly.bind(adapter),
-                warn: adapter.log.warn.bind(adapter),
-            },
-            setState: adapter.setState.bind(adapter),
-        };
+        this._adapter = adapter;
         this._adsClientConnectOptions = adsClientConnectOptions;
         this._reconnectInterval = reconnectInterval;
 

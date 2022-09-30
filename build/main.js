@@ -31,6 +31,7 @@ class Beckhoff extends utils.Adapter {
     this.on("unload", this.onUnload.bind(this));
   }
   async onReady() {
+    this.setState("info.connection", false, true);
     this._plc = new import_PLC.PLC(
       this,
       {
@@ -47,6 +48,7 @@ class Beckhoff extends utils.Adapter {
   }
   async onUnload(callback) {
     try {
+      this.setState("info.connection", false, true);
       if (this._plc) {
         await this._plc.closeConnection();
       }

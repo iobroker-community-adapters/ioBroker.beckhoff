@@ -18,40 +18,38 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var utils = __toESM(require("@iobroker/adapter-core"));
+var import_PLC = require("./lib/PLC");
 class Beckhoff extends utils.Adapter {
   constructor(options = {}) {
     super({
       ...options,
       name: "beckhoff"
     });
+    this._plc = null;
     this.on("ready", this.onReady.bind(this));
     this.on("stateChange", this.onStateChange.bind(this));
     this.on("unload", this.onUnload.bind(this));
   }
   async onReady() {
-    this.setState("info.connection", false, true);
-    await this.setObjectNotExistsAsync("testVariable", {
-      type: "state",
-      common: {
-        name: "testVariable",
-        type: "boolean",
-        role: "indicator",
-        read: true,
-        write: true
+    this._plc = new import_PLC.PLC(
+      this,
+      {
+        host: this.config.targetHost,
+        port: this.config.targetTcpPort,
+        amsNetIdTarget: this.config.targetAmsNetId,
+        amsPortTarget: this.config.targetAmsPort,
+        amsNetIdSource: this.config.sourceAmsNetId,
+        amsPortSource: this.config.sourceAmsPort,
+        timeout: this.config.timeout
       },
-      native: {}
-    });
-    this.subscribeStates("testVariable");
-    await this.setStateAsync("testVariable", true);
-    await this.setStateAsync("testVariable", { val: true, ack: true });
-    await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
-    let result = await this.checkPasswordAsync("admin", "iobroker");
-    this.log.info("check user admin pw iobroker: " + result);
-    result = await this.checkGroupAsync("admin", "admin");
-    this.log.info("check group user admin group admin: " + result);
+      this.config.reconnectInterval
+    );
   }
-  onUnload(callback) {
+  async onUnload(callback) {
     try {
+      if (this._plc) {
+        await this._plc.closeConnection();
+      }
       callback();
     } catch (e) {
       callback();

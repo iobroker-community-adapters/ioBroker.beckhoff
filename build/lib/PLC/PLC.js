@@ -58,7 +58,6 @@ class PLC {
   }
   _onConnected() {
     this.connected = true;
-    this._adapter.setState("info.connection", this.connected, true);
     this._adapter.log.info(`Connection to "${this._adsClientConnectOptions.host}" established`);
     const readDeviceInfo = () => {
       this._adsClient.readDeviceInfo((error, result) => {
@@ -82,7 +81,6 @@ class PLC {
       this._checkDeviceStateInterval = null;
     }
     this.connected = false;
-    this._adapter.setState("info.connection", this.connected, true);
     this.deviceInfo = null;
     this._adsClient.end(() => {
       this._adapter.log.debug(

@@ -18,7 +18,11 @@ export class PLC {
         this._adsClientConnectOptions = adsClientConnectOptions;
         this._reconnectInterval = reconnectInterval;
 
-        // this._adapter.setState('info.connection', this.connected, true);
+        try {
+            this._adapter.setState('info.connection', this.connected, true);
+        } catch (error) {
+            this._adapter.log.debug('Error');
+        }
 
         this._adapter.log.info(`Connecting to "${this._adsClientConnectOptions.host}"`);
 

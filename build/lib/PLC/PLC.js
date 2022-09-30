@@ -31,6 +31,11 @@ class PLC {
     this._adapter = { log: adapter.log, setState: adapter.setState };
     this._adsClientConnectOptions = adsClientConnectOptions;
     this._reconnectInterval = reconnectInterval;
+    try {
+      this._adapter.setState("info.connection", this.connected, true);
+    } catch (error) {
+      this._adapter.log.debug("Error");
+    }
     this._adapter.log.info(`Connecting to "${this._adsClientConnectOptions.host}"`);
     this._adsClient = (0, import_node_ads.connect)(
       {

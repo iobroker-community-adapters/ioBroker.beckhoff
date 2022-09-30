@@ -29,8 +29,6 @@ class Beckhoff extends utils.Adapter {
      * Is called when databases are connected and adapter received configuration.
      */
     private async onReady(): Promise<void> {
-
-        this.setState('info.connection', false, true);
         // Initialize your adapter here
         this._plc = new PLC(
             this,
@@ -90,8 +88,6 @@ class Beckhoff extends utils.Adapter {
      */
     private async onUnload(callback: () => void): Promise<void> {
         try {
-            this.setState('info.connection', false, true);
-            
             if (this._plc) {
                 await this._plc.closeConnection();
             }

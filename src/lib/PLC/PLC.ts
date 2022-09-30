@@ -21,21 +21,32 @@ export class PLC {
         this._adapter.setState('info.connection', this.connected, true);
 
         this._adapter.log.info(`Connecting to "${this._adsClientConnectOptions.host}"`);
+
         this._adsClient = connect(
             {
                 verbose: this._adapter.log.level === 'debug' ? 1 : this._adapter.log.level === 'silly' ? 2 : 0,
                 ...this._adsClientConnectOptions,
             },
-            this._onConnected,
+            () => this._onConnected(),
         );
 
         this._adsClient.on('timeout', (error) => {
+            if (this._reconnectTimer) {
+                clearTimeout(this._reconnectTimer);
+                this._reconnectTimer = null;
+            }
+
             this._adapter.log.error(`Timeout occured in AdsClient: ${error}`);
 
             this._onDisconnecting();
         });
 
         this._adsClient.on('error', (error) => {
+            if (this._reconnectTimer) {
+                clearTimeout(this._reconnectTimer);
+                this._reconnectTimer = null;
+            }
+
             this._adapter.log.error(`Error ocurred in AdsClient: ${error}`);
 
             this._onDisconnecting();
@@ -45,21 +56,28 @@ export class PLC {
     private _onConnected(): void {
         this.connected = true;
         this._adapter.setState('info.connection', this.connected, true);
+
         this._adapter.log.info(`Connection to "${this._adsClientConnectOptions.host}" established`);
 
-        this._checkDeviceStateInterval = setInterval(() => {
+        const readDeviceInfo = (): void => {
             this._adsClient.readDeviceInfo((error, result) => {
                 if (error) {
-                    this._adapter.log.error(`Error on check Device state occurred: ${error.message}`);
+                    this._adapter.log.error(`Error on check Device state occurred: ${error}`);
 
                     this._onDisconnecting();
                 }
 
                 if (result) {
+                    this._adapter.log.debug(`Received new device Info: ${JSON.stringify(result)}`);
+
                     this.deviceInfo = result;
                 }
             });
-        }, 5000);
+        };
+
+        readDeviceInfo();
+
+        this._checkDeviceStateInterval = setInterval(readDeviceInfo, 5000);
     }
 
     private _onDisconnecting(): void {

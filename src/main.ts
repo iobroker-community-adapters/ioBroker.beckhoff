@@ -1,27 +1,24 @@
 /*
  * Created with @iobroker/create-adapter v2.2.1
  */
-
-// The adapter-core module gives you access to the core ioBroker functions
-// you need to create an adapter
 import * as utils from '@iobroker/adapter-core';
+import { DataStructure } from './lib/DataStructure';
 import { PLC } from './lib/PLC';
 
-// Load your modules here, e.g.:
-// import * as fs from "fs";
-
 class Beckhoff extends utils.Adapter {
-    private _plc: PLC | null = null;
+    private _plc?: PLC;
+    private _dataStructure?: DataStructure;
 
     public constructor(options: Partial<utils.AdapterOptions> = {}) {
         super({
             ...options,
             name: 'beckhoff',
         });
+
         this.on('ready', this.onReady.bind(this));
         this.on('stateChange', this.onStateChange.bind(this));
+        // TODO: Do we need objectChange?
         // this.on('objectChange', this.onObjectChange.bind(this));
-        // this.on('message', this.onMessage.bind(this));
         this.on('unload', this.onUnload.bind(this));
     }
 
@@ -29,7 +26,6 @@ class Beckhoff extends utils.Adapter {
      * Is called when databases are connected and adapter received configuration.
      */
     private async onReady(): Promise<void> {
-        // Initialize your adapter here
         this._plc = new PLC(
             this,
             {
@@ -43,6 +39,9 @@ class Beckhoff extends utils.Adapter {
             },
             this.config.reconnectInterval,
         );
+
+        this._dataStructure = new DataStructure(this, this._plc);
+
         /*
 		For every state in the system there has to be also an object of type state
 		Here a simple template for a boolean variable named "testVariable"

@@ -1,7 +1,8 @@
 import { AdapterInstance } from '@iobroker/adapter-core';
+import EventEmitter from 'events';
 import { AdsClient, AdsClientConnectOptions, AdsReadDeviceInfoResult, connect } from 'node-ads';
 
-export class PLC {
+export class PLC extends EventEmitter {
     private _adapter: AdapterInstance;
     private _adsClientConnectOptions: AdsClientConnectOptions;
     private _reconnectInterval: number;
@@ -9,11 +10,13 @@ export class PLC {
     private _adsClient: AdsClient;
     private _checkDeviceStateInterval: NodeJS.Timer | null = null;
     private _reconnectTimer: NodeJS.Timeout | null = null;
+    private _connected = false;
 
-    public connected = false;
-    public deviceInfo: AdsReadDeviceInfoResult | null = null;
+    private _deviceInfo: AdsReadDeviceInfoResult | null = null;
 
     constructor(adapter: AdapterInstance, adsClientConnectOptions: AdsClientConnectOptions, reconnectInterval: number) {
+        super();
+
         this._adapter = adapter;
         this._adsClientConnectOptions = adsClientConnectOptions;
         this._reconnectInterval = reconnectInterval;
@@ -53,6 +56,22 @@ export class PLC {
         });
     }
 
+    public get connected(): boolean {
+        return this._connected;
+    }
+
+    private set connected(connected: boolean) {
+        this._connected = connected;
+
+        if (connected) {
+            this.emit('connected');
+        }
+    }
+
+    public get deviceInfo(): AdsReadDeviceInfoResult | null {
+        return this._deviceInfo;
+    }
+
     private _onConnected(): void {
         this.connected = true;
         this._adapter.setState('info.connection', this.connected, true);
@@ -70,14 +89,14 @@ export class PLC {
                 if (result) {
                     this._adapter.log.debug(`Received new device Info: ${JSON.stringify(result)}`);
 
-                    this.deviceInfo = result;
+                    this._deviceInfo = result;
                 }
             });
         };
 
         readDeviceInfo();
 
-        this._checkDeviceStateInterval = setInterval(readDeviceInfo, 5000);
+        this._checkDeviceStateInterval = setInterval(readDeviceInfo, 10000);
     }
 
     private _onDisconnecting(): void {
@@ -90,13 +109,15 @@ export class PLC {
 
         this.connected = false;
         this._adapter.setState('info.connection', this.connected, true);
-        this.deviceInfo = null;
+        this._deviceInfo = null;
 
-        this._adsClient.end(() => {
-            this._adapter.log.debug(
-                `Disconnect from "${this._adsClientConnectOptions.host}" done, start reconnect timer`,
-            );
-            this._reconnect();
+        this._adsClient.releaseNotificationHandles(() => {
+            this._adsClient.end(() => {
+                this._adapter.log.debug(
+                    `Disconnect from "${this._adsClientConnectOptions.host}" done, start reconnect timer`,
+                );
+                this._reconnect();
+            });
         });
     }
 
@@ -137,10 +158,12 @@ export class PLC {
             }
 
             if (this._adsClient) {
-                this._adsClient.end(() => {
-                    clearTimeout(timeout);
-                    this._adapter.log.info('Close AdsClient connection done');
-                    resolve();
+                this._adsClient.releaseNotificationHandles(() => {
+                    this._adsClient.end(() => {
+                        clearTimeout(timeout);
+                        this._adapter.log.info('Close AdsClient connection done');
+                        resolve();
+                    });
                 });
             }
         });

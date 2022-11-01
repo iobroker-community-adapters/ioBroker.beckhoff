@@ -22,7 +22,7 @@
     "url": "https://github.com/dkleber89/ioBroker.beckhoff.git"
   },
   "dependencies": {
-    "@iobroker/adapter-core": "^2.6.6",
+    "@iobroker/adapter-core": "^2.6.7",
     "node-ads": "^1.5.1",
     "yup": "^0.32.11"
   },

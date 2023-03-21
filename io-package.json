@@ -214,7 +214,10 @@
     "license": "MIT",
     "messagebox": false,
     "restartAdapters": [],
-    "compact": true
+    "compact": true,
+    "dependencies":  {
+      "js-controller": ">=2.0.0"
+    }
   },
   "native": {
     "targetIpAdress": "xxx.xxx.xxx.xxx",

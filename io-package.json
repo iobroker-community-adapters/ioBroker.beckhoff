@@ -1,20 +1,8 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.5.1",
+    "version": "1.5.2",
     "news": {
-      "1.0.4": {
-        "en": "Increase depth of LOG Details, Update Dependency Versions",
-        "de": "LOG Detailtiefe erhöht, Paketversionen aktualisiert",
-        "ru": "Увеличение глубины деталей LOG, обновление зависимостей версий",
-        "pt": "Aumentar a profundidade dos detalhes do LOG, Atualizar versões de dependência",
-        "nl": "Vergroot de diepte van LOG-details, update afhankelijkheidsversies",
-        "fr": "Augmenter la profondeur des détails du journal, mettre à jour les versions de dépendance",
-        "it": "Aumenta la profondità dei dettagli del LOG, aggiorna le versioni delle dipendenze",
-        "es": "Aumente la profundidad de los Detalles de REGISTRO, Actualice las Versiones de Dependencia",
-        "pl": "Zwiększ głębokość Szczegóły dziennika, Aktualizuj wersje zależności",
-        "zh-cn": "增加LOG详细信息的深度，更新依赖性版本"
-      },
       "1.0.5": {
         "en": "Change to Prettier and Eslint with Airbnb Code Style, CI adopted",
         "de": "Prettier und Eslint verwendet um Airbnb Code Style durchzusetzen, CI angepasst",
@@ -158,6 +146,18 @@
         "es": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, compatibilidad con DT y compatibilidad con cadenas con todas las longitudes de caracteres añadidas",
         "pl": "Obsługa TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, DT i obsługa ciągów znaków z dodaną długością znaków",
         "zh-cn": "TIME、TIME_OF_DAY、TOD、DATE、DATE_AND_TIME、DT 支持并支持添加了所有字符长度的字符串"
+      },
+      "1.5.2": {
+        "en": "Fix Adapter Checker Issues",
+        "de": "Probleme mit der Adapterprüfung beheben",
+        "ru": "Устранение проблем с проверкой адаптера",
+        "pt": "Corrigir problemas do verificador do adaptador",
+        "nl": "Problemen met adaptercontrole oplossen",
+        "fr": "Résoudre les problèmes de vérificateur d'adaptateur",
+        "it": "Risolvi i problemi del controllo dell'adattatore",
+        "es": "Solucionar problemas del comprobador de adaptadores",
+        "pl": "Napraw problemy z kontrolerem adaptera",
+        "zh-cn": "修复适配器检查器问题"
       }
     },
     "title": "Beckhoff TwinCat ADS",
@@ -215,7 +215,7 @@
     "messagebox": false,
     "restartAdapters": [],
     "compact": true,
-    "dependencies":  {
+    "dependencies": {
       "js-controller": ">=2.0.0"
     }
   },

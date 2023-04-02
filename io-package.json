@@ -13,7 +13,8 @@
                 "it": "Aggiungi il supporto per i precedenti sistemi TwinCat2 senza autosincronizzazione",
                 "es": "Agregue soporte para sistemas TwinCat2 más antiguos sin sincronización automática",
                 "pl": "Dodaj obsługę starszych systemów TwinCat2 bez autosynchronizacji",
-                "zh-cn": "添加对没有自动同步功能的较旧TwinCat2系统的支持"
+                "zh-cn": "添加对没有自动同步功能的较旧TwinCat2系统的支持",
+                "uk": "Додайте підтримку старіших систем TwinCat2 без автосинхронізації"
             },
             "1.2.0": {
                 "en": "Add Support for Strings with fixed length to 80 Chars ",
@@ -25,7 +26,8 @@
                 "it": "Aggiungi il supporto per stringhe con lunghezza fissa a 80 caratteri",
                 "es": "Agregue soporte para cadenas con longitud fija a 80 caracteres",
                 "pl": "Dodaj obsługę ciągów o stałej długości do 80 znaków",
-                "zh-cn": "将对固定长度的字符串的支持添加到80个字符"
+                "zh-cn": "将对固定长度的字符串的支持添加到80个字符",
+                "uk": "Додайте підтримку для рядків із фіксованою довжиною до 80 символів"
             },
             "1.2.1": {
                 "en": "Add CI over Github Actions; Update Dependencies",
@@ -37,7 +39,8 @@
                 "it": "Aggiungi CI su Github Actions; ",
                 "es": "Agregar CI sobre acciones de Github; ",
                 "pl": "Dodaj CI ponad Akcje Github; ",
-                "zh-cn": "通过Github Action添加CI；"
+                "zh-cn": "通过Github Action添加CI；",
+                "uk": "Додати CI поверх Github Actions; Оновити залежності"
             },
             "1.2.2": {
                 "en": "Clear reconnectTimeout on Adapter unload",
@@ -49,7 +52,8 @@
                 "it": "Cancella reconnectTimeout allo scaricamento dell'adattatore",
                 "es": "Borrar reconectTimeout en la descarga del adaptador",
                 "pl": "Wyczyść reconnectTimeout przy rozładowaniu adaptera",
-                "zh-cn": "清除适配器卸载时的reconnectTimeout"
+                "zh-cn": "清除适配器卸载时的reconnectTimeout",
+                "uk": "Очистити reconnectTimeout під час вивантаження адаптера"
             },
             "1.3.0": {
                 "en": "Set correct type for channels",
@@ -61,7 +65,8 @@
                 "it": "Imposta il tipo corretto per i canali",
                 "es": "Establecer el tipo correcto de canales",
                 "pl": "Ustaw prawidłowy typ kanałów",
-                "zh-cn": "为频道设置正确的类型"
+                "zh-cn": "为频道设置正确的类型",
+                "uk": "Встановіть правильний тип каналів"
             },
             "1.4.0": {
                 "en": "Add LREAL support",
@@ -73,7 +78,8 @@
                 "it": "Aggiungi il supporto LREAL",
                 "es": "Agregar soporte LREAL",
                 "pl": "Dodaj obsługę LREAL",
-                "zh-cn": "添加LREAL支持"
+                "zh-cn": "添加LREAL支持",
+                "uk": "Додайте підтримку LREAL"
             },
             "1.4.1": {
                 "en": "Adapter Maintenance",
@@ -85,7 +91,8 @@
                 "it": "Manutenzione dell'adattatore",
                 "es": "Mantenimiento del adaptador",
                 "pl": "Konserwacja adaptera",
-                "zh-cn": "适配器维护"
+                "zh-cn": "适配器维护",
+                "uk": "Обслуговування адаптера"
             },
             "1.5.0": {
                 "en": "Process next state in list when register subscriptions not before the previous is finish processed in plc",
@@ -97,7 +104,8 @@
                 "it": "Elabora lo stato successivo nell'elenco quando si registrano gli abbonamenti non prima che il precedente sia stato elaborato in plc",
                 "es": "Procese el siguiente estado en la lista cuando registre suscripciones no antes de que termine el procesamiento anterior en plc",
                 "pl": "Przetwarzaj następny stan na liście, gdy zarejestruj subskrypcje nie przed zakończeniem poprzedniego przetwarzania w PLC",
-                "zh-cn": "当注册订阅不在 plc 中前一个完成处理之前处理列表中的下一个状态"
+                "zh-cn": "当注册订阅不在 plc 中前一个完成处理之前处理列表中的下一个状态",
+                "uk": "Обробляти наступний стан у списку, якщо реєструвати підписки не раніше, ніж завершиться обробка попереднього в plc"
             },
             "1.5.1": {
                 "en": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, DT support and support for strings with all char length added",
@@ -109,7 +117,8 @@
                 "it": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, supporto DT e supporto per stringhe con tutta la lunghezza del carattere aggiunta",
                 "es": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, compatibilidad con DT y compatibilidad con cadenas con todas las longitudes de caracteres añadidas",
                 "pl": "Obsługa TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, DT i obsługa ciągów znaków z dodaną długością znaków",
-                "zh-cn": "TIME、TIME_OF_DAY、TOD、DATE、DATE_AND_TIME、DT 支持并支持添加了所有字符长度的字符串"
+                "zh-cn": "TIME、TIME_OF_DAY、TOD、DATE、DATE_AND_TIME、DT 支持并支持添加了所有字符长度的字符串",
+                "uk": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, підтримка DT і підтримка рядків із додаванням усіх символів"
             },
             "2.0.0-canary.0": {
                 "en": "First Release of complete new written Adapter in Typescript",
@@ -121,10 +130,10 @@
                 "it": "Prima versione del nuovo adattatore scritto completo in dattiloscritto",
                 "es": "Primera versión del nuevo adaptador escrito completo en mecanografiado",
                 "pl": "Pierwsze wydanie całkowicie nowego, napisanego Adaptera w Typescript",
-                "zh-cn": "在 Typescript 中首次发布完整的新编写的适配器"
+                "zh-cn": "在 Typescript 中首次发布完整的新编写的适配器",
+                "uk": "Перший випуск повністю нового написаного адаптера в Typescript"
             }
         },
-        "title": "Beckhoff TwinCat ADS",
         "titleLang": {
             "en": "Beckhoff TwinCat ADS",
             "de": "Beckhoff TwinCat ADS",
@@ -135,7 +144,8 @@
             "it": "Beckhoff TwinCat ADS",
             "es": "Beckhoff TwinCat ANUNCIOS",
             "pl": "Beckhoff TwinCat ADS",
-            "zh-cn": "倍福 TwinCat ADS"
+            "zh-cn": "倍福 TwinCat ADS",
+            "uk": "Beckhoff TwinCat ADS"
         },
         "desc": {
             "en": "ioBroker Beckhoff TwinCat ADS Adapter to communicate with Beckhoff Automation System",
@@ -147,7 +157,8 @@
             "it": "ioBroker Adattatore Beckhoff TwinCat ADS per comunicare con il sistema di automazione Beckhoff",
             "es": "Adaptador ioBroker Beckhoff TwinCat ADS para comunicarse con el sistema de automatización Beckhoff",
             "pl": "ioBroker Beckhoff TwinCat ADS Adapter do komunikacji z Beckhoff Automation System",
-            "zh-cn": "ioBroker Beckhoff TwinCat ADS 适配器与 Beckhoff 自动化系统通信"
+            "zh-cn": "ioBroker Beckhoff TwinCat ADS 适配器与 Beckhoff 自动化系统通信",
+            "uk": "Адаптер ioBroker Beckhoff TwinCat ADS для зв’язку із системою автоматизації Beckhoff"
         },
         "authors": [
             "dkleber89 <dkleber89@gmail.com>"
@@ -159,6 +170,8 @@
             "twincat",
             "smart home",
             "home automation",
+            "iobroker",
+            "adapter",
             "iobroker"
         ],
         "license": "MIT",

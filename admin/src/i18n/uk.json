@@ -1,0 +1,15 @@
+{
+    "reconnectInterval": "Інтервал повторного підключення в секундах для підключення до ПЛК",
+    "sourceAmsNetId": "AMS-NetId адаптера",
+    "sourceAmsPort": "AMS-порт адаптера",
+    "targetAmsNetId": "AMS-NetId цільової машини",
+    "targetAmsPort": "AMS-порт середовища виконання TwinCat",
+    "targetHost": "IP-адреса або ім’я хоста цільової машини",
+    "targetTcpPort": "Порт TCP цільової машини",
+    "timeout": "Час очікування підключення в мілісекундах",
+    "beckhoffAdapterSettings": "Налаштування адаптера для адаптера Beckhoff ADS",
+    "mandatoryField": "Це обов'язкове поле",
+    "validPortNumberNeeded": "Введіть дійсний номер порту, напр. 851",
+    "validAmsNetIdNeeded": "Введіть дійсний ідентифікатор мережі AMS, напр. 10.0.0.1.1.1",
+    "formValidationErrorDescription": "Будь ласка, правильно заповніть усі необхідні поля налаштування"
+}

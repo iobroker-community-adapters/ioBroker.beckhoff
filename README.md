@@ -100,7 +100,7 @@ The ADS Protocol is implemented in every System of Beckhoff and can be used with
 
 MIT License
 
-Copyright (c) 2018-2022 dkleber89 <dkleber89@gmail.com>
+Copyright (c) 2018-2023 dkleber89 <dkleber89@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

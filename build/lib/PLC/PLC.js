@@ -1,7 +1,9 @@
 "use strict";
+var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __export = (target, all) => {
   for (var name in all)
@@ -15,19 +17,25 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var PLC_exports = {};
 __export(PLC_exports, {
   PLC: () => PLC
 });
 module.exports = __toCommonJS(PLC_exports);
+var import_events = __toESM(require("events"));
 var import_node_ads = require("node-ads");
-class PLC {
+class PLC extends import_events.default {
   constructor(adapter, adsClientConnectOptions, reconnectInterval) {
+    super();
     this._checkDeviceStateInterval = null;
     this._reconnectTimer = null;
-    this.connected = false;
-    this.deviceInfo = null;
+    this._connected = false;
+    this._deviceInfo = null;
     this._adapter = adapter;
     this._adsClientConnectOptions = adsClientConnectOptions;
     this._reconnectInterval = reconnectInterval;
@@ -57,6 +65,18 @@ class PLC {
       this._onDisconnecting();
     });
   }
+  get connected() {
+    return this._connected;
+  }
+  set connected(connected) {
+    this._connected = connected;
+    if (connected) {
+      this.emit("connected");
+    }
+  }
+  get deviceInfo() {
+    return this._deviceInfo;
+  }
   _onConnected() {
     this.connected = true;
     this._adapter.setState("info.connection", this.connected, true);
@@ -69,12 +89,12 @@ class PLC {
         }
         if (result) {
           this._adapter.log.debug(`Received new device Info: ${JSON.stringify(result)}`);
-          this.deviceInfo = result;
+          this._deviceInfo = result;
         }
       });
     };
     readDeviceInfo();
-    this._checkDeviceStateInterval = setInterval(readDeviceInfo, 5e3);
+    this._checkDeviceStateInterval = setInterval(readDeviceInfo, 1e4);
   }
   _onDisconnecting() {
     this._adapter.log.info(`Disconnect from "${this._adsClientConnectOptions.host}"`);
@@ -84,12 +104,14 @@ class PLC {
     }
     this.connected = false;
     this._adapter.setState("info.connection", this.connected, true);
-    this.deviceInfo = null;
-    this._adsClient.end(() => {
-      this._adapter.log.debug(
-        `Disconnect from "${this._adsClientConnectOptions.host}" done, start reconnect timer`
-      );
-      this._reconnect();
+    this._deviceInfo = null;
+    this._adsClient.releaseNotificationHandles(() => {
+      this._adsClient.end(() => {
+        this._adapter.log.debug(
+          `Disconnect from "${this._adsClientConnectOptions.host}" done, start reconnect timer`
+        );
+        this._reconnect();
+      });
     });
   }
   _reconnect() {
@@ -124,10 +146,12 @@ class PLC {
         this._reconnectTimer = null;
       }
       if (this._adsClient) {
-        this._adsClient.end(() => {
-          clearTimeout(timeout);
-          this._adapter.log.info("Close AdsClient connection done");
-          resolve();
+        this._adsClient.releaseNotificationHandles(() => {
+          this._adsClient.end(() => {
+            clearTimeout(timeout);
+            this._adapter.log.info("Close AdsClient connection done");
+            resolve();
+          });
         });
       }
     });

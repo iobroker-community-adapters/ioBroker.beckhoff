@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/lib/DataStructure/DataStructure.ts"],
+  "sourcesContent": ["import { AdapterInstance } from '@iobroker/adapter-core';\nimport { AdsDatatyp, AdsSymbol } from 'node-ads';\nimport { PLC } from '../PLC';\n\nexport class DataStructure {\n    private _adapter: AdapterInstance;\n    private _plc: PLC;\n\n    private _symbols?: AdsSymbol[] | null;\n    private _datatypes?: AdsDatatyp[] | null;\n\n    constructor(adapter: AdapterInstance, plc: PLC) {\n        this._adapter = adapter;\n        this._plc = plc;\n\n        this._plc.on('connected', () => this.load());\n    }\n\n    private load() {\n        this._adapter.log.debug('load called in data structure');\n    }\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAIO,MAAM,cAAc;AAAA,EAOvB,YAAY,SAA0B,KAAU;AAC5C,SAAK,WAAW;AAChB,SAAK,OAAO;AAEZ,SAAK,KAAK,GAAG,aAAa,MAAM,KAAK,KAAK,CAAC;AAAA,EAC/C;AAAA,EAEQ,OAAO;AACX,SAAK,SAAS,IAAI,MAAM,+BAA+B;AAAA,EAC3D;AACJ;",
+  "names": []
+}

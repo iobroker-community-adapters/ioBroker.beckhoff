@@ -18,6 +18,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var utils = __toESM(require("@iobroker/adapter-core"));
+var import_DataStructure = require("./lib/DataStructure");
 var import_PLC = require("./lib/PLC");
 class Beckhoff extends utils.Adapter {
   constructor(options = {}) {
@@ -25,7 +26,6 @@ class Beckhoff extends utils.Adapter {
       ...options,
       name: "beckhoff"
     });
-    this._plc = null;
     this.on("ready", this.onReady.bind(this));
     this.on("stateChange", this.onStateChange.bind(this));
     this.on("unload", this.onUnload.bind(this));
@@ -44,6 +44,7 @@ class Beckhoff extends utils.Adapter {
       },
       this.config.reconnectInterval
     );
+    this._dataStructure = new import_DataStructure.DataStructure(this, this._plc);
   }
   async onUnload(callback) {
     try {

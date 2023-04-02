@@ -16,5 +16,7 @@ export class DataStructure {
         this._plc.on('connected', () => this.load());
     }
 
-    private load() {}
+    private load() {
+        this._adapter.log.debug('load called in data structure');
+    }
 }

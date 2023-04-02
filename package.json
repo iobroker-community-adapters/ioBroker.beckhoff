@@ -86,8 +86,7 @@
     "test": "npm run test:ts && npm run test:package",
     "check": "tsc --noEmit && tsc --noEmit -p admin/tsconfig.json",
     "lint": "eslint --ext .ts,.tsx src/ admin/src/",
-    "translate": "translate-adapter",
-    "release": "release-script"
+    "translate": "translate-adapter"
   },
   "bugs": {
     "url": "https://github.com/dkleber89/ioBroker.beckhoff/issues"

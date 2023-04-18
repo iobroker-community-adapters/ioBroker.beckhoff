@@ -63,10 +63,15 @@ jobs:
           node-version: ${{ matrix.node-version }}
       
       - name: NPM update
-        if: startsWith(matrix.node-version, '14.x')
+        if: startsWith(matrix.node-version, '14.x') && startsWith(runner.OS, 'windows') == false
         run: npm install -g npm@latest
+        
+      - name: NPM install
+        if: startsWith(matrix.node-version, '14.x') && startsWith(runner.OS, 'windows')
+        run: npm install
 
       - name: NPM install
+        if: startsWith(runner.OS, 'windows') == false
         run: npm ci
 
       - name: Run integration tests (unix only)

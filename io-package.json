@@ -197,7 +197,7 @@
     "icon": "beckhoff.png",
     "materialize": true,
     "enabled": true,
-    "extIcon": "https://raw.githubusercontent.com/dkleber89/ioBroker.beckhoff/master/admin/beckhoff.png",
+    "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.beckhoff/master/admin/beckhoff.png",
     "keywords": [
       "beckhoff",
       "ads",
@@ -206,7 +206,7 @@
       "steuerung",
       "twincat"
     ],
-    "readme": "https://github.com/dkleber89/ioBroker.beckhoff/blob/master/README.md",
+    "readme": "https://github.com/iobroker-community-adapters/ioBroker.beckhoff/blob/master/README.md",
     "loglevel": "info",
     "type": "hardware",
     "connectionType": "local",

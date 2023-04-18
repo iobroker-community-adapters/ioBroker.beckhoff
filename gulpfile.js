@@ -22,6 +22,7 @@ const languages = {
   it: {},
   es: {},
   pl: {},
+  uk: {},
   'zh-cn': {},
 };
 
@@ -378,6 +379,7 @@ gulp.task('updatePackages', function(done) {
       it: 'notizie',
       es: 'noticias',
       pl: 'nowości',
+      uk: 'hовини',
       'zh-cn': '新',
     };
     iopackage.common.news = Object.assign(newNews, news);

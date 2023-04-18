@@ -1,0 +1,19 @@
+{
+  "Adapter AMS Port": "Адаптер AMS Port",
+  "Adapter AMS-Net-ID": "Адаптер AMS-Net-ID",
+  "In Seconds (min. 5 Sec)": "За секунди (мін. 5 с)",
+  "Interval for reconnect": "Інтервал для повторного підключення",
+  "On save Adapter restarts with new config immediately": "Після збереження адаптер негайно перезавантажується з новою конфігурацією",
+  "Optional:": "Додатково:",
+  "PLC Runtime Version": "Версія PLC Runtime",
+  "Target AMS-Net-ID": "Цільовий AMS-Net-ID",
+  "Target IP-Adress": "Цільова IP-адреса",
+  "Target Struct": "Цільова структура",
+  "Target TCP Port": "Цільовий порт TCP",
+  "Target variable table": "Таблиця цільових змінних",
+  "e.g. 192.168.0.1": "напр. ",
+  "e.g. 192.168.0.1.1.1": "напр. ",
+  "e.g. 192.168.254.254.1.1": "напр. ",
+  "e.g. 32905": "напр. ",
+  "e.g. ioBrokerHandshake": "напр. "
+}

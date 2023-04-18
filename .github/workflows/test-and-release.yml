@@ -70,8 +70,8 @@ jobs:
         if: startsWith(matrix.node-version, '14.x') && startsWith(runner.OS, 'windows')
         run: npm install
 
-      - name: NPM install
-        if: startsWith(runner.OS, 'windows') == false
+      - name: NPM ci
+        if: startsWith(matrix.node-version, '14.x') == false || startsWith(runner.OS, 'windows') == false
         run: npm ci
 
       - name: Run integration tests (unix only)

@@ -64,7 +64,7 @@ jobs:
       
       - name: NPM update
         if: startsWith(matrix.node-version, '14.x')
-        run: npm install npm@latest
+        run: npm install -g npm@latest
 
       - name: NPM install
         run: npm ci

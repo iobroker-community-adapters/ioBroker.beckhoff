@@ -33,7 +33,7 @@ jobs:
           node-version: 18.x
 
       - name: NPM install
-        run: npm install
+        run: npm ci
 
       - name: Lint source code
         run: npm run lint
@@ -63,7 +63,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: NPM install
-        run: npm install
+        run: npm ci
 
       - name: Run integration tests (unix only)
         if: startsWith(runner.OS, 'windows') == false
@@ -95,7 +95,7 @@ jobs:
           node-version: 18.x
 
       - name: NPM install
-        run: npm install
+        run: npm ci
 
       - name: Publish package to npm
         uses: JS-DevTools/npm-publish@v1

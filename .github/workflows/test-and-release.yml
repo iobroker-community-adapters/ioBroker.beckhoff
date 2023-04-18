@@ -32,8 +32,8 @@ jobs:
         with:
           node-version: 18.x
 
-      - name: Install Dependencies
-        uses: bahmutov/npm-install@v1
+      - name: NPM install
+        run: npm ci
 
       - name: Lint source code
         run: npm run lint
@@ -61,9 +61,18 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      
+      - name: NPM update
+        if: startsWith(matrix.node-version, '14.x') && startsWith(runner.OS, 'windows') == false
+        run: npm install -g npm@latest
+        
+      - name: NPM install
+        if: startsWith(matrix.node-version, '14.x') && startsWith(runner.OS, 'windows')
+        run: npm install
 
-      - name: Install Dependencies
-        uses: bahmutov/npm-install@v1
+      - name: NPM ci
+        if: startsWith(matrix.node-version, '14.x') == false || startsWith(runner.OS, 'windows') == false
+        run: npm ci
 
       - name: Run integration tests (unix only)
         if: startsWith(runner.OS, 'windows') == false
@@ -94,8 +103,8 @@ jobs:
         with:
           node-version: 18.x
 
-      - name: Install Dependencies
-        uses: bahmutov/npm-install@v1
+      - name: NPM install
+        run: npm ci
 
       - name: Publish package to npm
         uses: JS-DevTools/npm-publish@v1

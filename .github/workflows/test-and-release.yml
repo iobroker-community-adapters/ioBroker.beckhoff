@@ -32,8 +32,8 @@ jobs:
         with:
           node-version: 18.x
 
-      - name: Install Dependencies
-        uses: bahmutov/npm-install@v1
+      - name: NPM install with caching
+        uses: bahmutov/npm-install@v1.6.0
 
       - name: Lint source code
         run: npm run lint
@@ -62,8 +62,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install Dependencies
-        uses: bahmutov/npm-install@v1
+      - name: NPM install with caching
+        uses: bahmutov/npm-install@v1.6.0
 
       - name: Run integration tests (unix only)
         if: startsWith(runner.OS, 'windows') == false
@@ -94,8 +94,8 @@ jobs:
         with:
           node-version: 18.x
 
-      - name: Install Dependencies
-        uses: bahmutov/npm-install@v1
+      - name: NPM install with caching
+        uses: bahmutov/npm-install@v1.6.0
 
       - name: Publish package to npm
         uses: JS-DevTools/npm-publish@v1

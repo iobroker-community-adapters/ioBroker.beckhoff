@@ -48,7 +48,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x, 18.x]
+        node-version: [14.x, 16.x, 18.x]
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     runs-on: ${{ matrix.os }}
@@ -61,6 +61,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      
+      - name: NPM update
+        if: startsWith(matrix.node-version, '14.x')
+        run: npm install npm@latest
 
       - name: NPM install
         run: npm ci

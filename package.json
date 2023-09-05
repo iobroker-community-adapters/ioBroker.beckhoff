@@ -39,6 +39,9 @@
     "test:package": "mocha test/package --exit",
     "test:integration": "mocha test/integration --exit"
   },
+  "engines": {
+    "node": ">=16"
+  },
   "dependencies": {
     "@iobroker/adapter-core": "^2.5.1",
     "node-ads-api": "^1.4.17",

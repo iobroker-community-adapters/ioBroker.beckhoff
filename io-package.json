@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.5.3-alpha.0",
+    "version": "1.5.3",
     "news": {
+      "1.5.3": {
+        "en": "Dependencies have been updated",
+        "de": "Abhängigkeiten wurden aktualisiert",
+        "ru": "В зависимости были обновлены",
+        "pt": "As dependências foram atualizadas",
+        "nl": "Afhankelijkheid",
+        "fr": "Les dépendances ont été mises à jour",
+        "it": "Le dipendenze sono state aggiornate",
+        "es": "Se han actualizado las dependencias",
+        "pl": "Zależności zostały zaktualizowane",
+        "uk": "Оновлено залежність",
+        "zh-cn": "已更新了属地"
+      },
       "1.5.3-alpha.0": {
         "en": "Standard test environment has been updated",
         "de": "Standardtestumgebung wurde aktualisiert",
@@ -80,19 +93,6 @@
         "pl": "Dodaj obsługę ciągów o stałej długości do 80 znaków",
         "zh-cn": "将对固定长度的字符串的支持添加到80个字符",
         "uk": "Додайте підтримку для рядків із фіксованою довжиною до 80 символів"
-      },
-      "1.2.1": {
-        "en": "Add CI over Github Actions; Update Dependencies",
-        "de": "CI über Github Actions; Abhängigkeiten aktualisiert",
-        "ru": "Добавьте CI поверх Github Actions; ",
-        "pt": "Adicionar IC sobre ações do Github; ",
-        "nl": "CI toevoegen via Github-acties; ",
-        "fr": "Ajouter des actions CI sur Github; ",
-        "it": "Aggiungi CI su Github Actions; ",
-        "es": "Agregar CI sobre acciones de Github; ",
-        "pl": "Dodaj CI ponad Akcje Github; ",
-        "zh-cn": "通过Github Action添加CI；",
-        "uk": "Додати CI поверх Github Actions; "
       }
     },
     "titleLang": {

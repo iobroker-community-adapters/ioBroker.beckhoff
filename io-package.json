@@ -206,33 +206,41 @@
       "en": "docs/en/admin.md",
       "de": "docs/de/admin.md"
     },
+    "keywords": [
+        "beckhoff",
+        "ads",
+        "plc",
+        "sps",
+        "steuerung",
+        "twincat"
+    ],
+    "license": "MIT",
     "platform": "Javascript/Node.js",
-    "mode": "daemon",
+    "main": "beckhoff.js",
     "icon": "beckhoff.png",
-    "materialize": true,
     "enabled": true,
     "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.beckhoff/master/admin/beckhoff.png",
-    "keywords": [
-      "beckhoff",
-      "ads",
-      "plc",
-      "sps",
-      "steuerung",
-      "twincat"
-    ],
     "readme": "https://github.com/iobroker-community-adapters/ioBroker.beckhoff/blob/master/README.md",
     "loglevel": "info",
+    "mode": "daemon",
     "type": "hardware",
+    "compact": true,
     "connectionType": "local",
     "dataSource": "push",
-    "license": "MIT",
+    "materialize": true,
     "messagebox": false,
     "restartAdapters": [],
-    "compact": true,
-    "dependencies": {
-      "js-controller": ">=2.0.0"
-    }
-  },
+    "dependencies": [
+        {
+          "js-controller": ">=4.0.24"
+        }
+      ],
+      "globalDependencies": [
+        {
+          "admin": ">=5.1.13"
+        }
+      ]
+    },
   "native": {
     "targetIpAdress": "xxx.xxx.xxx.xxx",
     "targetAmsNetId": "xxx.xxx.xxx.xxx.xxx.xxx",

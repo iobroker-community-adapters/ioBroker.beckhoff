@@ -1,8 +1,12 @@
 {
   "name": "iobroker.beckhoff",
-  "description": "ioBroker Beckoff Adapter to communicate with a Beckhoff PLC",
   "version": "1.5.2",
-  "private": false,
+  "description": "ioBroker Beckoff Adapter to communicate with a Beckhoff PLC",
+  "author": {
+    "name": "dkleber89",
+    "email": "dkleber89@gmail.com"
+  },
+  "homepage": "https://github.com/iobroker-community-adapters/ioBroker.beckhoff",
   "license": "MIT",
   "keywords": [
     "ioBroker",
@@ -14,30 +18,9 @@
     "twincat",
     "plc"
   ],
-  "author": {
-    "name": "dkleber89",
-    "email": "dkleber89@gmail.com"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/iobroker-community-adapters/ioBroker.beckhoff"
-  },
-  "bugs": {
-    "url": "https://github.com/iobroker-community-adapters/ioBroker.beckhoff/issues"
-  },
-  "main": "beckhoff.js",
-  "files": [
-    "beckhoff.js",
-    "io-package.json",
-    "/admin/*.*",
-    "/lib/*.*",
-    "/docs"
-  ],
-  "scripts": {
-    "lint": "eslint . --ext .js",
-    "lint:fix": "eslint . --ext .js --fix",
-    "test:package": "mocha test/package --exit",
-    "test:integration": "mocha test/integration --exit"
   },
   "engines": {
     "node": ">=16"
@@ -48,16 +31,52 @@
     "xml2js": "^0.5.0"
   },
   "devDependencies": {
+    "@alcalzone/release-script": "^3.6.0",
+    "@alcalzone/release-script-plugin-iobroker": "^3.6.0",
+    "@alcalzone/release-script-plugin-license": "^3.5.9",
+    "@alcalzone/release-script-plugin-manual-review": "^3.5.9",
+    "@iobroker/adapter-dev": "^1.2.0",
     "@iobroker/testing": "^4.1.0",
-    "axios": "^1.5.1",
+    "@tsconfig/node14": "^14.1.0",
+    "@types/chai": "^4.3.8",
+    "@types/chai-as-promised": "^7.1.6",
+    "@types/mocha": "^10.0.2",
+    "@types/node": "^20.8.6",
+    "@types/proxyquire": "^1.3.29",
+    "@types/sinon": "^10.0.16",
+    "@types/sinon-chai": "^3.2.10",
     "chai": "^4.3.10",
-    "eslint": "^8.52.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-prettier": "^4.0.0",
-    "gulp": "^4.0.2",
-    "mocha": "^10.0.0",
-    "prettier": "^2.4.1"
-  }
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^8.9.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "mocha": "^10.2.0",
+    "prettier": "^3.0.3",
+    "proxyquire": "^2.1.3",
+    "sinon": "^15.2.0",
+    "sinon-chai": "^3.7.0",
+    "typescript": "~5.2.2"
+  },
+  "main": "beckhoff.js",
+  "files": [
+    "beckhoff.js",
+    "io-package.json",
+    "/admin/*.*",
+    "/lib/*.*",
+    "/docs"
+  ],
+  "scripts": {
+    "test:js": "mocha --config test/mocharc.custom.json \"{!(node_modules|test)/**/*.test.js,*.test.js,test/**/test!(PackageFiles|Startup).js}\"",
+    "test:package": "mocha test/package --exit",
+    "test:integration": "mocha test/integration --exit",
+    "test": "npm run test:js && npm run test:package",
+    "check": "tsc --noEmit -p tsconfig.check.json",
+    "lint": "eslint .",
+    "translate": "translate-adapter",
+    "release": "release-script"
+  },
+  "bugs": {
+    "url": "https://github.com/iobroker-community-adapters/ioBroker.beckhoff/issues"
+  },
+  "readmeFilename": "README.md"
 }

@@ -1,4 +1,2 @@
-admin
-test
-lib/env/tools.js
-gulpfile.js
+**/.eslintrc.js
+admin/words.js

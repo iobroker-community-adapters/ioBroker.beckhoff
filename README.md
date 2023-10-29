@@ -102,8 +102,7 @@ Upload your \*.tpy File from your PLC Project -> Every Time you change something
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.5.3-alpha.0 (2023-10-29)
 
 - (mcm1957) Standard test environment has been updated
 

@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.5.2",
+    "version": "1.5.3-alpha.0",
     "news": {
+      "1.5.3-alpha.0": {
+        "en": "Standard test environment has been updated",
+        "de": "Standardtestumgebung wurde aktualisiert",
+        "ru": "Стандартная испытательная среда была обновлена",
+        "pt": "Ambiente de teste padrão foi atualizado",
+        "nl": "Standaard test milieu is geüpload",
+        "fr": "L ' environnement d ' essai normalisé a été mis à jour",
+        "it": "L'ambiente di test standard è stato aggiornato",
+        "es": "Se ha actualizado el entorno de pruebas estándar",
+        "pl": "Środowisko testowe zostało zaktualizowane",
+        "uk": "Оновлено стандартне дослідження",
+        "zh-cn": "已更新了标准试验环境。"
+      },
       "1.0.5": {
         "en": "Change to Prettier and Eslint with Airbnb Code Style, CI adopted",
         "de": "Prettier und Eslint verwendet um Airbnb Code Style durchzusetzen, CI angepasst",
@@ -80,97 +93,6 @@
         "pl": "Dodaj CI ponad Akcje Github; ",
         "zh-cn": "通过Github Action添加CI；",
         "uk": "Додати CI поверх Github Actions; "
-      },
-      "1.2.2": {
-        "en": "Clear reconnectTimeout on Adapter unload",
-        "de": "Löschen des reconnectTimeout wenn der Adapter gestoppt wird",
-        "ru": "Очистить ReconnectTimeout при выгрузке адаптера",
-        "pt": "Limpar reconnectTimeout ao descarregar o adaptador",
-        "nl": "Clear reconnectTimeout on Adapter unload",
-        "fr": "Effacer reconnectTimeout lors du déchargement de l'adaptateur",
-        "it": "Cancella reconnectTimeout allo scaricamento dell'adattatore",
-        "es": "Borrar reconectTimeout en la descarga del adaptador",
-        "pl": "Wyczyść reconnectTimeout przy rozładowaniu adaptera",
-        "zh-cn": "清除适配器卸载时的reconnectTimeout",
-        "uk": "Очистити reconnectTimeout під час вивантаження адаптера"
-      },
-      "1.3.0": {
-        "en": "Set correct type for channels",
-        "de": "Korrekten type für die Channels setzen",
-        "ru": "Установите правильный тип для каналов",
-        "pt": "Defina o tipo correto de canais",
-        "nl": "Stel het juiste type kanalen in",
-        "fr": "Définir le type correct pour les chaînes",
-        "it": "Imposta il tipo corretto per i canali",
-        "es": "Establecer el tipo correcto de canales",
-        "pl": "Ustaw prawidłowy typ kanałów",
-        "zh-cn": "为频道设置正确的类型",
-        "uk": "Встановіть правильний тип каналів"
-      },
-      "1.4.0": {
-        "en": "Add LREAL support",
-        "de": "LREAL Unterstützung hinzugefügt",
-        "ru": "Добавить поддержку LREAL",
-        "pt": "Adicionar suporte LREAL",
-        "nl": "Voeg LREAL-ondersteuning toe",
-        "fr": "Ajouter le support LREAL",
-        "it": "Aggiungi il supporto LREAL",
-        "es": "Agregar soporte LREAL",
-        "pl": "Dodaj obsługę LREAL",
-        "zh-cn": "添加LREAL支持",
-        "uk": "Додайте підтримку LREAL"
-      },
-      "1.4.1": {
-        "en": "Adapter Maintenance",
-        "de": "Adapterpflege",
-        "ru": "Обслуживание адаптера",
-        "pt": "Manutenção do Adaptador",
-        "nl": "Adapteronderhoud",
-        "fr": "Entretien de l'adaptateur",
-        "it": "Manutenzione dell'adattatore",
-        "es": "Mantenimiento del adaptador",
-        "pl": "Konserwacja adaptera",
-        "zh-cn": "适配器维护",
-        "uk": "Обслуговування адаптера"
-      },
-      "1.5.0": {
-        "en": "Process next state in list when register subscriptions not before the previous is finish processed in plc",
-        "de": "Bearbeite bei der Registrierung der Subscriptions den nächsten State erst, wenn der vorherige fertig bearbeitet wurde",
-        "ru": "Обрабатывать следующее состояние в списке, если подписки регистрируются не раньше, чем предыдущая обработка завершается в plc.",
-        "pt": "Processa o próximo estado na lista quando registrar as assinaturas não antes que o anterior termine processado no plc",
-        "nl": "Verwerk de volgende status in de lijst wanneer abonnementen worden geregistreerd niet voordat de vorige is voltooid, verwerkt in plc",
-        "fr": "Traiter l'état suivant dans la liste lorsque les abonnements d'enregistrement ne sont pas terminés avant la fin du traitement dans plc",
-        "it": "Elabora lo stato successivo nell'elenco quando si registrano gli abbonamenti non prima che il precedente sia stato elaborato in plc",
-        "es": "Procese el siguiente estado en la lista cuando registre suscripciones no antes de que termine el procesamiento anterior en plc",
-        "pl": "Przetwarzaj następny stan na liście, gdy zarejestruj subskrypcje nie przed zakończeniem poprzedniego przetwarzania w PLC",
-        "zh-cn": "当注册订阅不在 plc 中前一个完成处理之前处理列表中的下一个状态",
-        "uk": "Обробляти наступний стан у списку, якщо реєструвати підписки не раніше, ніж завершиться обробка попереднього в plc"
-      },
-      "1.5.1": {
-        "en": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, DT support and support for strings with all char length added",
-        "de": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, DT-Unterstützung und Unterstützung für Zeichenfolgen mit hinzugefügter Zeichenlänge",
-        "ru": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, поддержка DT и поддержка строк с добавленной длиной всех символов",
-        "pt": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, suporte DT e suporte para strings com todos os comprimentos de caracteres adicionados",
-        "nl": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, DT-ondersteuning en ondersteuning voor strings met alle tekenlengtes toegevoegd",
-        "fr": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, prise en charge de DT et prise en charge des chaînes avec toute la longueur de caractères ajoutée",
-        "it": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, supporto DT e supporto per stringhe con tutta la lunghezza del carattere aggiunta",
-        "es": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, compatibilidad con DT y compatibilidad con cadenas con todas las longitudes de caracteres añadidas",
-        "pl": "Obsługa TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, DT i obsługa ciągów znaków z dodaną długością znaków",
-        "zh-cn": "TIME、TIME_OF_DAY、TOD、DATE、DATE_AND_TIME、DT 支持并支持添加了所有字符长度的字符串",
-        "uk": "TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME, підтримка DT і підтримка рядків із додаванням усіх символів"
-      },
-      "1.5.2": {
-        "en": "Fix Adapter Checker Issues",
-        "de": "Probleme mit der Adapterprüfung beheben",
-        "ru": "Устранение проблем с проверкой адаптера",
-        "pt": "Corrigir problemas do verificador do adaptador",
-        "nl": "Problemen met adaptercontrole oplossen",
-        "fr": "Résoudre les problèmes de vérificateur d'adaptateur",
-        "it": "Risolvi i problemi del controllo dell'adattatore",
-        "es": "Solucionar problemas del comprobador de adaptadores",
-        "pl": "Napraw problemy z kontrolerem adaptera",
-        "zh-cn": "修复适配器检查器问题",
-        "uk": "Виправити проблеми з перевіркою адаптера"
       }
     },
     "titleLang": {
@@ -207,12 +129,12 @@
       "de": "docs/de/admin.md"
     },
     "keywords": [
-        "beckhoff",
-        "ads",
-        "plc",
-        "sps",
-        "steuerung",
-        "twincat"
+      "beckhoff",
+      "ads",
+      "plc",
+      "sps",
+      "steuerung",
+      "twincat"
     ],
     "license": "MIT",
     "platform": "Javascript/Node.js",
@@ -231,16 +153,16 @@
     "messagebox": false,
     "restartAdapters": [],
     "dependencies": [
-        {
-          "js-controller": ">=4.0.24"
-        }
-      ],
-      "globalDependencies": [
-        {
-          "admin": ">=5.1.13"
-        }
-      ]
-    },
+      {
+        "js-controller": ">=4.0.24"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=5.1.13"
+      }
+    ]
+  },
   "native": {
     "targetIpAdress": "xxx.xxx.xxx.xxx",
     "targetAmsNetId": "xxx.xxx.xxx.xxx.xxx.xxx",

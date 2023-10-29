@@ -1,8 +1,32 @@
-![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.beckhoff) ![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.beckhoff/workflows/Test%20and%20Release/badge.svg) ![npm](https://img.shields.io/npm/dm/iobroker.beckhoff) [![npm](https://img.shields.io/npm/v/iobroker.beckhoff.svg)](https://www.npmjs.com/package/iobroker.beckhoff) ![Number of Installations](http://iobroker.live/badges/beckhoff-stable.svg) ![Number of Installations](http://iobroker.live/badges/beckhoff-installed.svg)
-
 ![Logo](docs/en/img/beckhoff.png)
 
 # ioBroker.beckhoff
+
+[![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.beckhoff)](https://github.com/iobroker-community-adapters/ioBroker.beckhoff/blob/master/LICENSE)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.beckhoff.svg)](https://www.npmjs.com/package/iobroker.beckhoff)
+![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.beckhoff)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/beckhoff/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.beckhoff)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.beckhoff/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.beckhoff)
+![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.beckhoff)
+</br>
+**Version:** </br>
+[![NPM version](http://img.shields.io/npm/v/iobroker.beckhoff.svg)](https://www.npmjs.com/package/iobroker.beckhoff)
+![Current version in stable repository](https://iobroker.live/badges/beckhoff-stable.svg)
+![Number of Installations](https://iobroker.live/badges/beckhoff-installed.svg)
+</br>
+**Tests:** </br>
+[![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.beckhoff/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.beckhoff/actions/workflows/test-and-release.yml)
+[![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.beckhoff/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.beckhoff/actions/workflows/codeql.yml)
+
+<!--
+## Sentry
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+-->
+
+## BECKHOFF Adapter for ioBroker
 
 This adapter for ioBroker can Communicate with a Beckhoff Automation System (Twincat 2 or 3) over the ADS Protocol.
 The ADS Protocol is implemented in every System of Beckhoff and can be used without any License on ioBroker or Automation System.
@@ -74,6 +98,14 @@ Upload your \*.tpy File from your PLC Project -> Every Time you change something
 3. Sync never meant the Dataexchange of the Symbols. Sync is the create or delete the States in ioBroker dependent on the GlobalVariableTable in the PLC.
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+
+- (mcm1957) Standard test environment has been updated
 
 ### 1.5.2 (2023-03-21)
 

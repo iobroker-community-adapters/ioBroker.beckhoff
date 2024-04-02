@@ -136,7 +136,10 @@
       "steuerung",
       "twincat"
     ],
-    "license": "MIT",
+    "licenseInformation": {
+      "license": "MIT",
+      "type": "free"
+    },
     "platform": "Javascript/Node.js",
     "main": "beckhoff.js",
     "icon": "beckhoff.png",
@@ -144,6 +147,7 @@
     "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.beckhoff/master/admin/beckhoff.png",
     "readme": "https://github.com/iobroker-community-adapters/ioBroker.beckhoff/blob/master/README.md",
     "loglevel": "info",
+    "tuer": 2,
     "mode": "daemon",
     "type": "hardware",
     "compact": true,

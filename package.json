@@ -23,7 +23,7 @@
     "url": "https://github.com/iobroker-community-adapters/ioBroker.beckhoff"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "dependencies": {
     "@iobroker/adapter-core": "^3.3.2",

@@ -262,3 +262,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/node,react,linux,windows,jetbrains,visualstudiocode
+
+#ignore .commitinfo created by ioBroker release script
+.commitinfo

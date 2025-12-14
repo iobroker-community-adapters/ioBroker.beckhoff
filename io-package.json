@@ -1,218 +1,217 @@
 {
-  "common": {
-    "name": "beckhoff",
-    "version": "1.6.0",
-    "news": {
-      "1.6.0": {
-        "en": "Adapter requires node.js 18 and js-controller >= 5 now\nDependencies have been updated",
-        "de": "Adapter benötigt node.js 18 und js-controller >= 5 jetzt\nAbhängigkeiten wurden aktualisiert",
-        "ru": "Адаптер требует node.js 18 и js-controller >= 5 сейчас\nЗависимость обновлена",
-        "pt": "Adapter requer node.js 18 e js-controller >= 5 agora\nAs dependências foram atualizadas",
-        "nl": "Adapter vereist node.js 18 en js-controller Nu 5\nAfhankelijkheden zijn bijgewerkt",
-        "fr": "Adaptateur nécessite node.js 18 et js-controller >= 5 maintenant\nLes dépendances ont été actualisées",
-        "it": "Adattatore richiede node.js 18 e js-controller >= 5 ora\nLe dipendenze sono state aggiornate",
-        "es": "Adaptador requiere node.js 18 y js-controller √= 5 ahora\nSe han actualizado las dependencias",
-        "pl": "Adapter wymaga node.js 18 i sterownika js- > = 5 teraz\nZaktualizowano zależności",
-        "uk": "Адаптер вимагає node.js 18 і js-controller >= 5 тепер\nЗалежність було оновлено",
-        "zh-cn": "适配器需要节点.js 18和js控制器 QQ 现在5号\n依赖关系已更新"
-      },
-      "1.5.3": {
-        "en": "Dependencies have been updated",
-        "de": "Abhängigkeiten wurden aktualisiert",
-        "ru": "В зависимости были обновлены",
-        "pt": "As dependências foram atualizadas",
-        "nl": "Afhankelijkheid",
-        "fr": "Les dépendances ont été mises à jour",
-        "it": "Le dipendenze sono state aggiornate",
-        "es": "Se han actualizado las dependencias",
-        "pl": "Zależności zostały zaktualizowane",
-        "uk": "Оновлено залежність",
-        "zh-cn": "已更新了属地"
-      },
-      "1.5.3-alpha.0": {
-        "en": "Standard test environment has been updated",
-        "de": "Standardtestumgebung wurde aktualisiert",
-        "ru": "Стандартная испытательная среда была обновлена",
-        "pt": "Ambiente de teste padrão foi atualizado",
-        "nl": "Standaard test milieu is geüpload",
-        "fr": "L ' environnement d ' essai normalisé a été mis à jour",
-        "it": "L'ambiente di test standard è stato aggiornato",
-        "es": "Se ha actualizado el entorno de pruebas estándar",
-        "pl": "Środowisko testowe zostało zaktualizowane",
-        "uk": "Оновлено стандартне дослідження",
-        "zh-cn": "已更新了标准试验环境。"
-      },
-      "1.0.5": {
-        "en": "Change to Prettier and Eslint with Airbnb Code Style, CI adopted",
-        "de": "Prettier und Eslint verwendet um Airbnb Code Style durchzusetzen, CI angepasst",
-        "ru": "Изменение на более красивое и Eslint с использованием стиля кода Airbnb, CI принят",
-        "pt": "Mude para Prettier e Eslint com o Airbnb Code Style, CI adopted",
-        "nl": "Verander naar Prettier en Eslint met Airbnb Code Style, CI aangenomen",
-        "fr": "Changement à Prettier et Eslint avec Airbnb Code Style, CI adopté",
-        "it": "Modifica in Prettier ed Eslint con Airbnb Code Style, CI adottato",
-        "es": "Cambie a Prettier y Eslint con Airbnb Code Style, CI adoptó",
-        "pl": "Zmień na Prettier i Eslint z Airbnb Code Style, przyjęto CI",
-        "zh-cn": "使用Airbnb Code Style改为Prettier和Eslint，CI采用",
-        "uk": "Змініть на Prettier і Eslint із стилем коду Airbnb, прийнятим CI"
-      },
-      "1.0.6": {
-        "en": "Add check change of Datatype on resync",
-        "de": "Bei einem resync wird jetzt geprüft ob sich der Datentyp verändert hat",
-        "ru": "Добавить проверку изменения типа данных при повторной синхронизации",
-        "pt": "Adicionar alteração de verificação do tipo de dados no resync",
-        "nl": "Vink de wijziging van het gegevenstype aan bij opnieuw synchroniseren",
-        "fr": "Ajouter un changement de contrôle du type de données lors de la resynchronisation",
-        "it": "Aggiungi la modifica di controllo del tipo di dati al momento della risincronizzazione",
-        "es": "Agregar cambio de verificación de tipo de datos en resincronización",
-        "pl": "Dodaj zmianę wyboru typu danych podczas resynchronizacji",
-        "zh-cn": "在重新同步时添加数据类型的检查更改",
-        "uk": "Додайте перевірку зміни типу даних під час повторної синхронізації"
-      },
-      "1.0.7": {
-        "en": "Add Support for Compact Mode -> JS Controller >= 2.0.0",
-        "de": "Unterstützung für den Compact Mode hinzugefügt -> JS Controller >= 2.0.0",
-        "ru": "Добавить поддержку для компактного режима -> JS Controller> = 2.0.0",
-        "pt": "Adicionar suporte para o modo compacto -> JS Controller> = 2.0.0",
-        "nl": "Ondersteuning toevoegen voor de compacte modus -> JS-controller> = 2.0.0",
-        "fr": "Ajouter un support pour le mode compact -> Contrôleur JS> = 2.0.0",
-        "it": "Aggiungi supporto per la modalità compatta -> Controller JS> = 2.0.0",
-        "es": "Agregar soporte para modo compacto -> Controlador JS> = 2.0.0",
-        "pl": "Dodaj obsługę trybu kompaktowego -> Kontroler JS> = 2.0.0",
-        "zh-cn": "添加对紧凑模式的支持-> JS控制器> = 2.0.0",
-        "uk": "Додайте підтримку для компактного режиму -> Контролер JS >= 2.0.0"
-      },
-      "1.1.0": {
-        "en": "Add Support for older TwinCat2 Systems with no autosync",
-        "de": "Unterstützung für ältere TwinCat2 Systeme die keinen automatischen Sync unterstützen hinzugefügt",
-        "ru": "Добавить поддержку старых систем TwinCat2 без автосинхронизации",
-        "pt": "Adicionar suporte para sistemas TwinCat2 mais antigos sem sincronização automática",
-        "nl": "Ondersteuning toevoegen voor oudere TwinCat2-systemen zonder autosync",
-        "fr": "Ajout de la prise en charge des systèmes TwinCat2 plus anciens sans synchronisation automatique",
-        "it": "Aggiungi il supporto per i precedenti sistemi TwinCat2 senza autosincronizzazione",
-        "es": "Agregue soporte para sistemas TwinCat2 más antiguos sin sincronización automática",
-        "pl": "Dodaj obsługę starszych systemów TwinCat2 bez autosynchronizacji",
-        "zh-cn": "添加对没有自动同步功能的较旧TwinCat2系统的支持",
-        "uk": "Додайте підтримку старіших систем TwinCat2 без автосинхронізації"
-      }
+    "common": {
+        "name": "beckhoff",
+        "version": "1.6.0",
+        "news": {
+            "1.6.0": {
+                "en": "Adapter requires node.js 18 and js-controller >= 5 now\nDependencies have been updated",
+                "de": "Adapter benötigt node.js 18 und js-controller >= 5 jetzt\nAbhängigkeiten wurden aktualisiert",
+                "ru": "Адаптер требует node.js 18 и js-controller >= 5 сейчас\nЗависимость обновлена",
+                "pt": "Adapter requer node.js 18 e js-controller >= 5 agora\nAs dependências foram atualizadas",
+                "nl": "Adapter vereist node.js 18 en js-controller Nu 5\nAfhankelijkheden zijn bijgewerkt",
+                "fr": "Adaptateur nécessite node.js 18 et js-controller >= 5 maintenant\nLes dépendances ont été actualisées",
+                "it": "Adattatore richiede node.js 18 e js-controller >= 5 ora\nLe dipendenze sono state aggiornate",
+                "es": "Adaptador requiere node.js 18 y js-controller √= 5 ahora\nSe han actualizado las dependencias",
+                "pl": "Adapter wymaga node.js 18 i sterownika js- > = 5 teraz\nZaktualizowano zależności",
+                "uk": "Адаптер вимагає node.js 18 і js-controller >= 5 тепер\nЗалежність було оновлено",
+                "zh-cn": "适配器需要节点.js 18和js控制器 QQ 现在5号\n依赖关系已更新"
+            },
+            "1.5.3": {
+                "en": "Dependencies have been updated",
+                "de": "Abhängigkeiten wurden aktualisiert",
+                "ru": "В зависимости были обновлены",
+                "pt": "As dependências foram atualizadas",
+                "nl": "Afhankelijkheid",
+                "fr": "Les dépendances ont été mises à jour",
+                "it": "Le dipendenze sono state aggiornate",
+                "es": "Se han actualizado las dependencias",
+                "pl": "Zależności zostały zaktualizowane",
+                "uk": "Оновлено залежність",
+                "zh-cn": "已更新了属地"
+            },
+            "1.5.3-alpha.0": {
+                "en": "Standard test environment has been updated",
+                "de": "Standardtestumgebung wurde aktualisiert",
+                "ru": "Стандартная испытательная среда была обновлена",
+                "pt": "Ambiente de teste padrão foi atualizado",
+                "nl": "Standaard test milieu is geüpload",
+                "fr": "L ' environnement d ' essai normalisé a été mis à jour",
+                "it": "L'ambiente di test standard è stato aggiornato",
+                "es": "Se ha actualizado el entorno de pruebas estándar",
+                "pl": "Środowisko testowe zostało zaktualizowane",
+                "uk": "Оновлено стандартне дослідження",
+                "zh-cn": "已更新了标准试验环境。"
+            },
+            "1.0.5": {
+                "en": "Change to Prettier and Eslint with Airbnb Code Style, CI adopted",
+                "de": "Prettier und Eslint verwendet um Airbnb Code Style durchzusetzen, CI angepasst",
+                "ru": "Изменение на более красивое и Eslint с использованием стиля кода Airbnb, CI принят",
+                "pt": "Mude para Prettier e Eslint com o Airbnb Code Style, CI adopted",
+                "nl": "Verander naar Prettier en Eslint met Airbnb Code Style, CI aangenomen",
+                "fr": "Changement à Prettier et Eslint avec Airbnb Code Style, CI adopté",
+                "it": "Modifica in Prettier ed Eslint con Airbnb Code Style, CI adottato",
+                "es": "Cambie a Prettier y Eslint con Airbnb Code Style, CI adoptó",
+                "pl": "Zmień na Prettier i Eslint z Airbnb Code Style, przyjęto CI",
+                "zh-cn": "使用Airbnb Code Style改为Prettier和Eslint，CI采用",
+                "uk": "Змініть на Prettier і Eslint із стилем коду Airbnb, прийнятим CI"
+            },
+            "1.0.6": {
+                "en": "Add check change of Datatype on resync",
+                "de": "Bei einem resync wird jetzt geprüft ob sich der Datentyp verändert hat",
+                "ru": "Добавить проверку изменения типа данных при повторной синхронизации",
+                "pt": "Adicionar alteração de verificação do tipo de dados no resync",
+                "nl": "Vink de wijziging van het gegevenstype aan bij opnieuw synchroniseren",
+                "fr": "Ajouter un changement de contrôle du type de données lors de la resynchronisation",
+                "it": "Aggiungi la modifica di controllo del tipo di dati al momento della risincronizzazione",
+                "es": "Agregar cambio de verificación de tipo de datos en resincronización",
+                "pl": "Dodaj zmianę wyboru typu danych podczas resynchronizacji",
+                "zh-cn": "在重新同步时添加数据类型的检查更改",
+                "uk": "Додайте перевірку зміни типу даних під час повторної синхронізації"
+            },
+            "1.0.7": {
+                "en": "Add Support for Compact Mode -> JS Controller >= 2.0.0",
+                "de": "Unterstützung für den Compact Mode hinzugefügt -> JS Controller >= 2.0.0",
+                "ru": "Добавить поддержку для компактного режима -> JS Controller> = 2.0.0",
+                "pt": "Adicionar suporte para o modo compacto -> JS Controller> = 2.0.0",
+                "nl": "Ondersteuning toevoegen voor de compacte modus -> JS-controller> = 2.0.0",
+                "fr": "Ajouter un support pour le mode compact -> Contrôleur JS> = 2.0.0",
+                "it": "Aggiungi supporto per la modalità compatta -> Controller JS> = 2.0.0",
+                "es": "Agregar soporte para modo compacto -> Controlador JS> = 2.0.0",
+                "pl": "Dodaj obsługę trybu kompaktowego -> Kontroler JS> = 2.0.0",
+                "zh-cn": "添加对紧凑模式的支持-> JS控制器> = 2.0.0",
+                "uk": "Додайте підтримку для компактного режиму -> Контролер JS >= 2.0.0"
+            },
+            "1.1.0": {
+                "en": "Add Support for older TwinCat2 Systems with no autosync",
+                "de": "Unterstützung für ältere TwinCat2 Systeme die keinen automatischen Sync unterstützen hinzugefügt",
+                "ru": "Добавить поддержку старых систем TwinCat2 без автосинхронизации",
+                "pt": "Adicionar suporte para sistemas TwinCat2 mais antigos sem sincronização automática",
+                "nl": "Ondersteuning toevoegen voor oudere TwinCat2-systemen zonder autosync",
+                "fr": "Ajout de la prise en charge des systèmes TwinCat2 plus anciens sans synchronisation automatique",
+                "it": "Aggiungi il supporto per i precedenti sistemi TwinCat2 senza autosincronizzazione",
+                "es": "Agregue soporte para sistemas TwinCat2 más antiguos sin sincronización automática",
+                "pl": "Dodaj obsługę starszych systemów TwinCat2 bez autosynchronizacji",
+                "zh-cn": "添加对没有自动同步功能的较旧TwinCat2系统的支持",
+                "uk": "Додайте підтримку старіших систем TwinCat2 без автосинхронізації"
+            }
+        },
+        "titleLang": {
+            "en": "Beckhoff TwinCat ADS",
+            "de": "Beckhoff TwinCat ADS",
+            "ru": "Объявления компании Beckhoff TwinCAT с ",
+            "pt": "Beckhoff TwinCat ANÚNCIOS",
+            "nl": "Beckhoff TwinCat ADVERTENTIES",
+            "fr": "Beckhoff TwinCat ANNONCES",
+            "it": "Beckhoff TwinCat ANNUNCI",
+            "es": "Beckhoff TwinCat ANUNCIOS",
+            "pl": "Ogłoszenia firmy Beckhoff TwinCAT z ",
+            "zh-cn": "面广告实时传递到自动化控制系统中。",
+            "uk": "Beckhoff TwinCat ADS"
+        },
+        "desc": {
+            "en": "ioBroker Beckhoff TwinCat ADS Adapter to communicate with Beckhoff Automation System",
+            "de": "ioBroker Beckhoff TwinCat ADS Adapter für den Datenaustausch mit einer Beckhoff Steuerung",
+            "ru": "ioBroker компания Beckhoff TwinCAT с АДС адаптер для связи с системой автоматизации компании Beckhoff ",
+            "pt": "ioBroker Beckhoff TwinCat ANÚNCIOS Adaptador para se comunicar com Beckhoff Sistema de Automação",
+            "nl": "ioBroker Beckhoff TwinCat ADVERTENTIES Adapter te kunnen communiceren met Beckhoff Automation-Systeem",
+            "fr": "ioBroker Beckhoff TwinCat ANNONCES Adaptateur pour communiquer avec Beckhoff Automation Système",
+            "it": "ioBroker Beckhoff TwinCat ANNUNCI Adapter di comunicare con il Sistema di Automazione Beckhoff",
+            "es": "ioBroker Beckhoff TwinCat ANUNCIOS Adaptador para comunicarse con Beckhoff Automation System",
+            "pl": "ioBroker firma Beckhoff TwinCAT z TD adapter do komunikacji z systemem sterowania firmy Beckhoff ",
+            "zh-cn": "ioBroker面实时传递到自动化控制系统中。器的广告通信方面的自动化系统",
+            "uk": "Адаптер ioBroker Beckhoff TwinCat ADS для зв’язку із системою автоматизації Beckhoff"
+        },
+        "authors": [
+            "dkleber89 <dkleber89@gmail.com>"
+        ],
+        "docs": {
+            "en": "docs/en/admin.md",
+            "de": "docs/de/admin.md"
+        },
+        "keywords": [
+            "beckhoff",
+            "ads",
+            "plc",
+            "sps",
+            "steuerung",
+            "twincat"
+        ],
+        "licenseInformation": {
+            "license": "MIT",
+            "type": "free"
+        },
+        "platform": "Javascript/Node.js",
+        "icon": "beckhoff.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.beckhoff/master/admin/beckhoff.png",
+        "readme": "https://github.com/iobroker-community-adapters/ioBroker.beckhoff/blob/master/README.md",
+        "loglevel": "info",
+        "tier": 2,
+        "mode": "daemon",
+        "type": "hardware",
+        "compact": true,
+        "connectionType": "local",
+        "dataSource": "push",
+        "materialize": true,
+        "messagebox": false,
+        "restartAdapters": [],
+        "dependencies": [
+            {
+                "js-controller": ">=5.0.0"
+            }
+        ],
+        "globalDependencies": [
+            {
+                "admin": ">=5.1.13"
+            }
+        ]
     },
-    "titleLang": {
-      "en": "Beckhoff TwinCat ADS",
-      "de": "Beckhoff TwinCat ADS",
-      "ru": "Объявления компании Beckhoff TwinCAT с ",
-      "pt": "Beckhoff TwinCat ANÚNCIOS",
-      "nl": "Beckhoff TwinCat ADVERTENTIES",
-      "fr": "Beckhoff TwinCat ANNONCES",
-      "it": "Beckhoff TwinCat ANNUNCI",
-      "es": "Beckhoff TwinCat ANUNCIOS",
-      "pl": "Ogłoszenia firmy Beckhoff TwinCAT z ",
-      "zh-cn": "面广告实时传递到自动化控制系统中。",
-      "uk": "Beckhoff TwinCat ADS"
+    "native": {
+        "targetIpAdress": "xxx.xxx.xxx.xxx",
+        "targetAmsNetId": "xxx.xxx.xxx.xxx.xxx.xxx",
+        "targetAmsPort": 851,
+        "targetTcpPort": 48898,
+        "sourceAmsNetId": "192.168.254.254.1.1",
+        "sourceAmsPort": 32905,
+        "targetVTable": "",
+        "xmlTpyData": "",
+        "reconnectInterval": 15,
+        "symbolObjectList": []
     },
-    "desc": {
-      "en": "ioBroker Beckhoff TwinCat ADS Adapter to communicate with Beckhoff Automation System",
-      "de": "ioBroker Beckhoff TwinCat ADS Adapter für den Datenaustausch mit einer Beckhoff Steuerung",
-      "ru": "ioBroker компания Beckhoff TwinCAT с АДС адаптер для связи с системой автоматизации компании Beckhoff ",
-      "pt": "ioBroker Beckhoff TwinCat ANÚNCIOS Adaptador para se comunicar com Beckhoff Sistema de Automação",
-      "nl": "ioBroker Beckhoff TwinCat ADVERTENTIES Adapter te kunnen communiceren met Beckhoff Automation-Systeem",
-      "fr": "ioBroker Beckhoff TwinCat ANNONCES Adaptateur pour communiquer avec Beckhoff Automation Système",
-      "it": "ioBroker Beckhoff TwinCat ANNUNCI Adapter di comunicare con il Sistema di Automazione Beckhoff",
-      "es": "ioBroker Beckhoff TwinCat ANUNCIOS Adaptador para comunicarse con Beckhoff Automation System",
-      "pl": "ioBroker firma Beckhoff TwinCAT z TD adapter do komunikacji z systemem sterowania firmy Beckhoff ",
-      "zh-cn": "ioBroker面实时传递到自动化控制系统中。器的广告通信方面的自动化系统",
-      "uk": "Адаптер ioBroker Beckhoff TwinCat ADS для зв’язку із системою автоматизації Beckhoff"
-    },
-    "authors": [
-      "dkleber89 <dkleber89@gmail.com>"
-    ],
-    "docs": {
-      "en": "docs/en/admin.md",
-      "de": "docs/de/admin.md"
-    },
-    "keywords": [
-      "beckhoff",
-      "ads",
-      "plc",
-      "sps",
-      "steuerung",
-      "twincat"
-    ],
-    "licenseInformation": {
-      "license": "MIT",
-      "type": "free"
-    },
-    "platform": "Javascript/Node.js",
-    "main": "beckhoff.js",
-    "icon": "beckhoff.png",
-    "enabled": true,
-    "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.beckhoff/master/admin/beckhoff.png",
-    "readme": "https://github.com/iobroker-community-adapters/ioBroker.beckhoff/blob/master/README.md",
-    "loglevel": "info",
-    "tier": 2,
-    "mode": "daemon",
-    "type": "hardware",
-    "compact": true,
-    "connectionType": "local",
-    "dataSource": "push",
-    "materialize": true,
-    "messagebox": false,
-    "restartAdapters": [],
-    "dependencies": [
-      {
-        "js-controller": ">=5.0.0"
-      }
-    ],
-    "globalDependencies": [
-      {
-        "admin": ">=5.1.13"
-      }
+    "instanceObjects": [
+        {
+            "_id": "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "Connected to PLC",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.plcRun",
+            "type": "state",
+            "common": {
+                "role": "indicator.maintenance",
+                "name": "Connected PLC are in Run Mode",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        }
     ]
-  },
-  "native": {
-    "targetIpAdress": "xxx.xxx.xxx.xxx",
-    "targetAmsNetId": "xxx.xxx.xxx.xxx.xxx.xxx",
-    "targetAmsPort": 851,
-    "targetTcpPort": 48898,
-    "sourceAmsNetId": "192.168.254.254.1.1",
-    "sourceAmsPort": 32905,
-    "targetVTable": "",
-    "xmlTpyData": "",
-    "reconnectInterval": 15,
-    "symbolObjectList": []
-  },
-  "instanceObjects": [
-    {
-      "_id": "info",
-      "type": "channel",
-      "common": {
-        "name": "Information"
-      },
-      "native": {}
-    },
-    {
-      "_id": "info.connection",
-      "type": "state",
-      "common": {
-        "role": "indicator.connected",
-        "name": "Connected to PLC",
-        "type": "boolean",
-        "read": true,
-        "write": false,
-        "def": false
-      },
-      "native": {}
-    },
-    {
-      "_id": "info.plcRun",
-      "type": "state",
-      "common": {
-        "role": "indicator.maintenance",
-        "name": "Connected PLC are in Run Mode",
-        "type": "boolean",
-        "read": true,
-        "write": false,
-        "def": false
-      },
-      "native": {}
-    }
-  ]
 }

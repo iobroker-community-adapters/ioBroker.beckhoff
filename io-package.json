@@ -122,7 +122,8 @@
       "uk": "Адаптер ioBroker Beckhoff TwinCat ADS для зв’язку із системою автоматизації Beckhoff"
     },
     "authors": [
-      "dkleber89 <dkleber89@gmail.com>"
+      "dkleber89 <dkleber89@gmail.com>",
+      "iobroker-community-adapters <iobroker-community-adapters@gmx.de>"
     ],
     "docs": {
       "en": "docs/en/admin.md",
@@ -158,12 +159,12 @@
     "restartAdapters": [],
     "dependencies": [
       {
-        "js-controller": ">=5.0.0"
+        "js-controller": ">=6.0.11"
       }
     ],
     "globalDependencies": [
       {
-        "admin": ">=5.1.13"
+        "admin": ">=7.6.17"
       }
     ]
   },

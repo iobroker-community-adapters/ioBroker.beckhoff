@@ -78,5 +78,11 @@
   "bugs": {
     "url": "https://github.com/iobroker-community-adapters/ioBroker.beckhoff/issues"
   },
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "contributors": [
+    {
+      "name": "iobroker-community-adapters",
+      "email": "iobroker-community-adapters@gmx.de"
+    }
+  ]
 }

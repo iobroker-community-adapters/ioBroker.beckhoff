@@ -143,7 +143,6 @@ function plcConnection() {
         adapter.log.debug('Start establish Connection to PLC');
 
         adsClient = ads.connect(options, () => {
-            // eslint-disable-line no-param-reassign
             if (adsClient === null) {
                 adapter.log.debug('Establish Connection to PLC failed -> Try again');
 

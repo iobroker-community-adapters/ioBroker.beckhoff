@@ -106,7 +106,7 @@ Upload your \*.tpy File from your PLC Project -> Every Time you change something
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
 * (copilot) Setup and update GitHub Copilot instructions with ioBroker-specific development patterns and Beckhoff adapter context
-* (copilot) **ENHANCED**: Migrated to ESLint 9 and @iobroker/eslint-config standard configuration
+* (copilot) Migrated to ESLint 9 and @iobroker/eslint-config standard configuration
 
 ### 1.6.0 (2024-04-02)
 

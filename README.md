@@ -103,6 +103,7 @@ Upload your \*.tpy File from your PLC Project -> Every Time you change something
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (mcm1957) Adapter requires node.js >= 20 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
 - (copilot) Migrated to ESLint 9 and @iobroker/eslint-config standard configuration

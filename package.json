@@ -1,6 +1,6 @@
 {
   "name": "iobroker.beckhoff",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "ioBroker Beckoff Adapter to communicate with a Beckhoff PLC",
   "author": {
     "name": "dkleber89",

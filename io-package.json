@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.6.0",
+    "version": "1.7.0",
     "news": {
+      "1.7.0": {
+        "en": "Adapter requires node.js >= 20 now\nAdapter requires js-controller >= 6.0.11 now\nAdapter requires admin >= 7.6.17 now\nMigrated to ESLint 9 and @iobroker/eslint-config standard configuration\nDependencies have been updated",
+        "de": "Adapter benötigt node.js >= 20 jetzt\nAdapter benötigt jetzt js-controller >= 6.0.11\nAdapter benötigt admin >= 7.6.17 jetzt\nMigration auf ESLint 9 und @iobroker/eslint-config Standardkonfiguration\nAbhängigkeiten wurden aktualisiert",
+        "ru": "Адаптер требует node.js >= 20 сейчас\nАдаптер требует js-контроллер >= 6.0.11\nАдаптер требует администратора >= 7.6.17\nМиграция в стандартную конфигурацию ESLint 9 и @iobroker/eslint-config\nЗависимости были обновлены",
+        "pt": "Adaptador requer nod.js >= 20 agora\nAdaptador requer js-controlador >= 6.0.11 agora\nAdaptador requer admin >= 7.6.17 agora\nMigrado para a configuração padrão ESLint 9 e @iobroker/eslint-config\nAs dependências foram atualizadas",
+        "nl": "Voor de adapter zijn node.js < 20 now\nAdapter vereist js-controller > 6,0.11 nu\nVoor adapter is admin < 7.6.17 nu nodig\nMigreren naar ESLint 9 en @iobroker/eslint-config standaardconfiguratie\nAfhankelijkheden zijn bijgewerkt",
+        "fr": "Adaptateur nécessite node.js >= 20 maintenant\nAdaptateur nécessite js-controller >= 6.0.11 maintenant\nAdaptateur nécessite admin >= 7.6.17 maintenant\nMigré en configuration standard ESLint 9 et @iobroker/eslint-config\nLes dépendances ont été actualisées",
+        "it": "Adattatore richiede node.js >= 20 ora\nAdattatore richiede js-controller >= 6.0.11 ora\nAdattatore richiede admin >= 7.6.17 ora\nMigrato a ESLint 9 e @iobroker/eslint-config configurazione standard\nLe dipendenze sono state aggiornate",
+        "es": "Adaptador requiere node.js >= 20 ahora\nAdaptador requiere js-controller >= 6.0.11\nAdaptador requiere administración= 7.6.17 ahora\nMigrated to ESLint 9 and @iobroker/eslint-config standard settings\nSe han actualizado las dependencias",
+        "pl": "Adapter wymaga node.js > = 20\nAdapter wymaga sterownika js- > = 6.0.11\nAdapter wymaga admin > = 7.6.17\nMigrant to ESLint 9 and @ iobroker / eslint- config standard configuration\nZaktualizowano zależności",
+        "uk": "Адаптер вимагає node.js >= 20 тепер\nАдаптер вимагає js-controller >=6.0.11 тепер\nАдаптер вимагає адмін >= 7.6.17 тепер\nMigrated to ESLint 9 і @iobroker/eslint-config стандартна конфігурація\nЗалежність було оновлено",
+        "zh-cn": "适配器需要节点.js >= 20 现在\n适配器需要js控制器 现在6.0.11\n适任者需要行政主管 现在7.6.17\n切换到 ESLint 9 和 @iobroster/eslint- config 标准配置\n依赖关系已更新"
+      },
       "1.6.0": {
         "en": "Adapter requires node.js 18 and js-controller >= 5 now\nDependencies have been updated",
         "de": "Adapter benötigt node.js 18 und js-controller >= 5 jetzt\nAbhängigkeiten wurden aktualisiert",
@@ -80,19 +93,6 @@
         "pl": "Dodaj obsługę trybu kompaktowego -> Kontroler JS> = 2.0.0",
         "zh-cn": "添加对紧凑模式的支持-> JS控制器> = 2.0.0",
         "uk": "Додайте підтримку для компактного режиму -> Контролер JS >= 2.0.0"
-      },
-      "1.1.0": {
-        "en": "Add Support for older TwinCat2 Systems with no autosync",
-        "de": "Unterstützung für ältere TwinCat2 Systeme die keinen automatischen Sync unterstützen hinzugefügt",
-        "ru": "Добавить поддержку старых систем TwinCat2 без автосинхронизации",
-        "pt": "Adicionar suporte para sistemas TwinCat2 mais antigos sem sincronização automática",
-        "nl": "Ondersteuning toevoegen voor oudere TwinCat2-systemen zonder autosync",
-        "fr": "Ajout de la prise en charge des systèmes TwinCat2 plus anciens sans synchronisation automatique",
-        "it": "Aggiungi il supporto per i precedenti sistemi TwinCat2 senza autosincronizzazione",
-        "es": "Agregue soporte para sistemas TwinCat2 más antiguos sin sincronización automática",
-        "pl": "Dodaj obsługę starszych systemów TwinCat2 bez autosynchronizacji",
-        "zh-cn": "添加对没有自动同步功能的较旧TwinCat2系统的支持",
-        "uk": "Додайте підтримку старіших систем TwinCat2 без автосинхронізації"
       }
     },
     "titleLang": {

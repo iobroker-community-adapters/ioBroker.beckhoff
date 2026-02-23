@@ -2,10 +2,10 @@
   "name": "iobroker.beckhoff",
   "version": "1.7.0",
   "description": "ioBroker Beckoff Adapter to communicate with a Beckhoff PLC",
-  "author": {
-    "name": "dkleber89",
-    "email": "dkleber89@gmail.com"
-  },
+  "author": "dkleber89 <dkleber89@gmail.com>",
+  "contributors": [
+    "iobroker-community-adapters <iobroker-community-adapters@gmx.de>"
+  ],
   "homepage": "https://github.com/iobroker-community-adapters/ioBroker.beckhoff",
   "license": "MIT",
   "keywords": [
@@ -64,11 +64,5 @@
   "bugs": {
     "url": "https://github.com/iobroker-community-adapters/ioBroker.beckhoff/issues"
   },
-  "readmeFilename": "README.md",
-  "contributors": [
-    {
-      "name": "iobroker-community-adapters",
-      "email": "iobroker-community-adapters@gmx.de"
-    }
-  ]
+  "readmeFilename": "README.md"
 }

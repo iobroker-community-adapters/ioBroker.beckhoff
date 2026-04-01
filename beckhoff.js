@@ -1,4 +1,4 @@
-const events = require('events');
+const events = require('node:events');
 const utils = require('@iobroker/adapter-core');
 const ads = require('node-ads-api');
 const lib = require('./lib');

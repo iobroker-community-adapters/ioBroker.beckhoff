@@ -104,6 +104,7 @@ Upload your \*.tpy File from your PLC Project -> Every Time you change something
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 
 ### 1.7.0 (2026-02-12)

@@ -180,6 +180,8 @@ Upload your \*.tpy File from your PLC Project -> Every Time you change something
 
 - (dkleber89) Eslint, Prettier with Airbnb Codestyle, CI adopted, little random changes in Project Structure
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)

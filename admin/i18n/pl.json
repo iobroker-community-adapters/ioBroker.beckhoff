@@ -21,5 +21,6 @@
   "TwinCat 3": "TwinCat 3",
   "e.g. plcProject.tpy": "np. plcProject.tpy",
   "Paste TPY file content (e.g. plcProject.tpy)": "Wklej zawartość pliku TPY (np. plcProject.tpy)",
-  "TPY file content": "Zawartość pliku TPY"
+  "TPY file content": "Zawartość pliku TPY",
+  "Required for TwinCat 2 <= v2.11.2240: Paste TPY file content (e.g. plcProject.tpy)": "Wymagane dla TwinCat 2 <= v2.11.2240: wklej zawartość pliku TPY (np. plcProject.tpy)"
 }

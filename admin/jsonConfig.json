@@ -41,7 +41,7 @@
     "xmlTpyData": {
       "type": "text",
       "label": "TPY file content",
-      "help": "Paste TPY file content (e.g. plcProject.tpy)",
+      "help": "Required for TwinCat 2 <= v2.11.2240: Paste TPY file content (e.g. plcProject.tpy)",
       "hidden": "data.targetAmsPort !== '901'",
       "minRows": 6,
       "maxRows": 16,

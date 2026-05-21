@@ -40,7 +40,7 @@
     },
     "xmlTpyData": {
       "type": "text",
-      "label": "TwinCat 2 <= v2.11.2240",
+      "label": "TPY file content",
       "help": "Paste TPY file content (e.g. plcProject.tpy)",
       "hidden": "data.targetAmsPort !== '901'",
       "minRows": 6,

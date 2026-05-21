@@ -20,5 +20,6 @@
   "TwinCat 2 <= v2.11.2240": "TwinCat 2 <= v2.11.2240",
   "TwinCat 3": "TwinCat 3",
   "e.g. plcProject.tpy": "por exemplo plcProject.tpy",
-  "Paste TPY file content (e.g. plcProject.tpy)": "Cole o conteúdo do ficheiro TPY (por exemplo plcProject.tpy)"
+  "Paste TPY file content (e.g. plcProject.tpy)": "Cole o conteúdo do ficheiro TPY (por exemplo plcProject.tpy)",
+  "TPY file content": "Conteúdo do ficheiro TPY"
 }

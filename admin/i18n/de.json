@@ -15,5 +15,9 @@
   "e.g. 192.168.0.1.1.1": "z.B. 192.168.0.1.1.1",
   "e.g. 192.168.254.254.1.1": "z.B. 192.168.254.254.1.1",
   "e.g. 32905": "z.B. 32905",
-  "e.g. ioBrokerHandshake": "z.B. ioBrokerSchnittstelle"
+  "e.g. ioBrokerHandshake": "z.B. ioBrokerSchnittstelle",
+  "TwinCat 2": "TwinCat 2",
+  "TwinCat 2 <= v2.11.2240": "TwinCat 2 <= v2.11.2240",
+  "TwinCat 3": "TwinCat 3",
+  "e.g. plcProject.tpy": "e.g. plcProject.tpy"
 }

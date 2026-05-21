@@ -19,5 +19,6 @@
   "TwinCat 2": "TwinCat 2",
   "TwinCat 2 <= v2.11.2240": "TwinCat 2 <= v2.11.2240",
   "TwinCat 3": "TwinCat 3",
-  "e.g. plcProject.tpy": "e.g. plcProject.tpy"
+  "e.g. plcProject.tpy": "z.B. plcProjekt.tpy",
+  "Paste TPY file content (e.g. plcProject.tpy)": "TPY-Dateiinhalt einfügen (z.B. plcProjekt.tpy)"
 }

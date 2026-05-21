@@ -15,5 +15,12 @@
   "e.g. 192.168.0.1.1.1": "например ",
   "e.g. 192.168.254.254.1.1": "например ",
   "e.g. 32905": "например ",
-  "e.g. ioBrokerHandshake": "например "
+  "e.g. ioBrokerHandshake": "например ",
+  "TwinCat 2": "TwinCat 2",
+  "TwinCat 2 <= v2.11.2240": "TwinCat 2 <= v2.11.2240",
+  "TwinCat 3": "TwinCat 3",
+  "e.g. plcProject.tpy": "например plcProject.tpy",
+  "Paste TPY file content (e.g. plcProject.tpy)": "Вставьте содержимое файла TPY (например plcProject.tpy)",
+  "TPY file content": "Содержимое файла TPY",
+  "Required for TwinCat 2 <= v2.11.2240: Paste TPY file content (e.g. plcProject.tpy)": "Требуется для TwinCat 2 <= v2.11.2240: вставьте содержимое файла TPY (например plcProject.tpy)"
 }

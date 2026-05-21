@@ -15,5 +15,12 @@
   "e.g. 192.168.0.1.1.1": "bijv. ",
   "e.g. 192.168.254.254.1.1": "bijv. ",
   "e.g. 32905": "bijv. ",
-  "e.g. ioBrokerHandshake": "bijv. "
+  "e.g. ioBrokerHandshake": "bijv. ",
+  "TwinCat 2": "TwinCat 2",
+  "TwinCat 2 <= v2.11.2240": "TwinCat 2 <= v2.11.2240",
+  "TwinCat 3": "TwinCat 3",
+  "e.g. plcProject.tpy": "bijv. plcProject.tpy",
+  "Paste TPY file content (e.g. plcProject.tpy)": "Plak TPY-bestandsinhoud (bijv. plcProject.tpy)",
+  "TPY file content": "TPY-bestandsinhoud",
+  "Required for TwinCat 2 <= v2.11.2240: Paste TPY file content (e.g. plcProject.tpy)": "Vereist voor TwinCat 2 <= v2.11.2240: plak TPY-bestandsinhoud (bijv. plcProject.tpy)"
 }

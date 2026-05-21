@@ -1,0 +1,165 @@
+{
+  "i18n": true,
+  "type": "panel",
+  "items": {
+    "_runtimeVersion": {
+      "type": "header",
+      "text": "PLC Runtime Version",
+      "size": 2,
+      "newLine": true,
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12
+    },
+    "targetAmsPort": {
+      "type": "select",
+      "label": "PLC Runtime Version",
+      "options": [
+        {
+          "label": "TwinCat 2",
+          "value": "801"
+        },
+        {
+          "label": "TwinCat 2 <= v2.11.2240",
+          "value": "901"
+        },
+        {
+          "label": "TwinCat 3",
+          "value": "851"
+        }
+      ],
+      "default": "851",
+      "newLine": true,
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4
+    },
+    "xmlTpyData": {
+      "type": "text",
+      "label": "TwinCat 2 <= v2.11.2240",
+      "help": "e.g. plcProject.tpy",
+      "hidden": "data.targetAmsPort !== '901'",
+      "minRows": 6,
+      "maxRows": 16,
+      "newLine": false,
+      "xs": 12,
+      "sm": 6,
+      "md": 8,
+      "lg": 8,
+      "xl": 8
+    },
+    "targetIpAdress": {
+      "type": "text",
+      "label": "Target IP-Adress",
+      "help": "e.g. 192.168.0.1",
+      "validator": "data.targetIpAdress && /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(data.targetIpAdress)",
+      "newLine": true,
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4
+    },
+    "targetAmsNetId": {
+      "type": "text",
+      "label": "Target AMS-Net-ID",
+      "help": "e.g. 192.168.0.1.1.1",
+      "validator": "data.targetAmsNetId && /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(data.targetAmsNetId)",
+      "newLine": false,
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4
+    },
+    "targetTcpPort": {
+      "type": "number",
+      "label": "Target TCP Port",
+      "help": "e.g. 48898",
+      "min": 1,
+      "max": 65535,
+      "step": 1,
+      "newLine": false,
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4
+    },
+    "targetVTable": {
+      "type": "text",
+      "label": "Target variable table",
+      "help": "e.g. ioBrokerHandshake",
+      "newLine": true,
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4
+    },
+    "reconnectInterval": {
+      "type": "number",
+      "label": "Interval for reconnect",
+      "help": "In Seconds (min. 5 Sec)",
+      "min": 5,
+      "step": 1,
+      "newLine": false,
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4
+    },
+    "_optional": {
+      "type": "header",
+      "text": "Optional:",
+      "size": 3,
+      "newLine": true,
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12
+    },
+    "sourceAmsNetId": {
+      "type": "text",
+      "label": "Adapter AMS-Net-ID",
+      "help": "e.g. 192.168.254.254.1.1",
+      "validator": "data.sourceAmsNetId && /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(data.sourceAmsNetId)",
+      "newLine": true,
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4
+    },
+    "sourceAmsPort": {
+      "type": "number",
+      "label": "Adapter AMS Port",
+      "help": "e.g. 32905",
+      "min": 1,
+      "max": 65535,
+      "step": 1,
+      "newLine": false,
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4
+    },
+    "_saveInfo": {
+      "type": "staticText",
+      "text": "On save Adapter restarts with new config immediately",
+      "newLine": true,
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12
+    }
+  }
+}

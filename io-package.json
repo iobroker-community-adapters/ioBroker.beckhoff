@@ -154,6 +154,9 @@
     "connectionType": "local",
     "dataSource": "push",
     "materialize": true,
+    "adminUI": {
+      "config": "json"
+    },
     "messagebox": false,
     "restartAdapters": [],
     "dependencies": [

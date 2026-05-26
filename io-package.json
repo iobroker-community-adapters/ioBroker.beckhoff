@@ -153,7 +153,6 @@
     "compact": true,
     "connectionType": "local",
     "dataSource": "push",
-    "materialize": true,
     "messagebox": false,
     "restartAdapters": [],
     "dependencies": [
@@ -165,7 +164,10 @@
       {
         "admin": ">=7.7.22"
       }
-    ]
+    ],
+    "adminUI": {
+      "config": "materialize"
+    }
   },
   "native": {
     "targetIpAdress": "xxx.xxx.xxx.xxx",

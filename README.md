@@ -2,6 +2,12 @@
 
 # ioBroker.beckhoff
 
+## Fork preview release: 1.8.0-beta.2
+
+[Release notes and downloads](https://github.com/zonfacter/ioBroker.beckhoff/releases/tag/v1.8.0-beta.2) · [Installable adapter package](https://github.com/zonfacter/ioBroker.beckhoff/releases/download/v1.8.0-beta.2/iobroker.beckhoff-1.8.0-beta.2.tgz) · [Changelog](#changelog)
+
+This preview is maintained in the `zonfacter` fork. The npm and ioBroker stable badges below refer to the original adapter. The beta requires Node.js >=20.19.4, js-controller >=6.0.11 and Admin >=7.7.22.
+
 [![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.beckhoff)](https://github.com/iobroker-community-adapters/ioBroker.beckhoff/blob/master/LICENSE)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.beckhoff.svg)](https://www.npmjs.com/package/iobroker.beckhoff)
 ![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.beckhoff)
@@ -121,6 +127,15 @@ Use Node.js 22 or newer. The adapter runtime supports Node.js >=20.19.4. Develop
 
 ### 1.8.0-beta.2 (2026-10-13)
 - (zonfacter) Preserve existing prefix selection, including similarly named global tables
+- (zonfacter) Reuse symbol metadata after short outages; recreate ADS handles/notifications and refresh current values
+- (zonfacter) Refresh missing write acknowledgements without reloading metadata or replaying writes
+- (zonfacter) Add configurable ADS request timeout and hostname support
+- (zonfacter) Replace the old configuration UI with responsive jsonConfig, native TPY upload and packaged translations; preserve existing configuration keys and legacy TPY data
+- (zonfacter) Isolate compact-mode connections and reject stale callbacks
+- (zonfacter) Support Node.js >=20.19.4 at runtime; test Node 20 with js-controller 7.1.0 separately from modern development tools
+- (zonfacter) Update dependencies, type checking and CI; restrict automatic npm publishing to the original repository
+
+Verified with 25 connection/protocol regression tests, 61 package/schema checks, type checking and an existing TwinCAT 2 installation. Existing TPY data and object mappings were preserved. Browser rendering of the new configuration UI and a deliberate timeout on the production PLC have not been tested. The ADS symbol-version counter is not a unique program identity; see the cache limitations above.
 
 ### 1.8.0-beta.1 (2026-10-13)
 - (zonfacter) Verify runtime support for Node.js 20.19.4 to preserve existing installations

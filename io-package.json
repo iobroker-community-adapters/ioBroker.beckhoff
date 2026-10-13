@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.8.0-beta.2",
+    "version": "1.8.0-beta.3",
     "news": {
+      "1.8.0-beta.3": {
+        "en": "Show the selected TPY filename immediately and after reopening settings; indicate stored XML or missing selection.",
+        "de": "Gewählten TPY-Dateinamen sofort und nach erneutem Öffnen anzeigen; vorhandene XML-Daten oder fehlende Auswahl kennzeichnen."
+      },
       "1.8.0-beta.2": {
         "en": "Preserve historical variable-table prefix matching and all existing object IDs.",
         "de": "Bisherige Pr?fixauswahl der Variablentabellen und alle bestehenden Objekt-IDs erhalten."

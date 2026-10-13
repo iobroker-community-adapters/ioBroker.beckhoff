@@ -1,0 +1,177 @@
+{
+  "i18n": true,
+  "type": "panel",
+  "items": {
+    "targetAmsPort": {
+      "type": "select",
+      "label": "PLC Runtime Version",
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4,
+      "options": [
+        {
+          "label": "TwinCat 2",
+          "value": "801"
+        },
+        {
+          "label": "TwinCat 2 <= v2.11.2240",
+          "value": "901"
+        },
+        {
+          "label": "TwinCat 3",
+          "value": "851"
+        }
+      ],
+      "default": "851"
+    },
+    "targetIpAdress": {
+      "type": "text",
+      "label": "Target IP address or hostname",
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4,
+      "trim": true,
+      "validator": "!!data.targetIpAdress && data.targetIpAdress.length <= 253 && (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(data.targetIpAdress) || (!/^\\d+\\.\\d+\\.\\d+\\.\\d+$/.test(data.targetIpAdress) && /^[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\\.?$/.test(data.targetIpAdress)))"
+    },
+    "targetAmsNetId": {
+      "type": "text",
+      "label": "Target AMS-Net-ID",
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4,
+      "validator": "!!data.targetAmsNetId && /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(data.targetAmsNetId)"
+    },
+    "sourceAmsNetId": {
+      "type": "text",
+      "label": "Adapter AMS-Net-ID",
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4,
+      "validator": "!!data.sourceAmsNetId && /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(data.sourceAmsNetId)"
+    },
+    "targetTcpPort": {
+      "type": "number",
+      "label": "Target TCP Port",
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4,
+      "min": 1,
+      "max": 65535,
+      "step": 1
+    },
+    "sourceAmsPort": {
+      "type": "number",
+      "label": "Adapter AMS Port",
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4,
+      "min": 1,
+      "max": 65535,
+      "step": 1
+    },
+    "targetVTable": {
+      "type": "text",
+      "label": "Target variable table",
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4,
+      "help": "e.g. ioBrokerHandshake"
+    },
+    "reconnectInterval": {
+      "type": "number",
+      "label": "Interval for reconnect",
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4,
+      "min": 5,
+      "max": 86400,
+      "step": 1,
+      "help": "In Seconds (min. 5 Sec)"
+    },
+    "adsTimeout": {
+      "type": "number",
+      "label": "ADS request timeout (ms)",
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4,
+      "min": 100,
+      "max": 60000,
+      "step": 100,
+      "default": 500,
+      "help": "Timeout for each PLC request; independent of the reconnect interval."
+    },
+    "cacheSymbolTable": {
+      "type": "checkbox",
+      "label": "Reuse symbol metadata after short outages",
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4,
+      "default": true,
+      "help": "Changed symbol versions and observed PLC stops always trigger a full synchronization."
+    },
+    "symbolCacheMaxAge": {
+      "type": "number",
+      "label": "Maximum outage for symbol cache (seconds)",
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4,
+      "min": 0,
+      "max": 86400,
+      "step": 1,
+      "default": 300,
+      "disabled": "!data.cacheSymbolTable"
+    },
+    "tpyFile": {
+      "type": "fileSelector",
+      "label": "TPY file",
+      "xs": 12,
+      "sm": 6,
+      "md": 4,
+      "lg": 4,
+      "xl": 4,
+      "hidden": "String(data.targetAmsPort) !== '901'",
+      "pattern": "*.tpy",
+      "objectID": "beckhoff.%INSTANCE%.tpy",
+      "upload": "/",
+      "refresh": true,
+      "maxSize": 16777216,
+      "fileTypes": "text",
+      "help": "Upload and select a TPY file, or leave the selection empty to use the existing XML contents."
+    },
+    "xmlTpyData": {
+      "type": "text",
+      "label": "TPY contents (existing configuration)",
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12,
+      "hidden": "String(data.targetAmsPort) !== '901'",
+      "disabled": "!!data.tpyFile",
+      "minRows": 4,
+      "maxRows": 12
+    }
+  }
+}

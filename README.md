@@ -73,7 +73,7 @@ This Project is not affilate to Beckhoff in any way
 #### Twincat 3 and Twincat 2
 
 1. Choose your Runtime Version
-2. Fill in Target IP-Adress and AMS-Net-ID.
+2. Fill in the target IP address or hostname and AMS-Net-ID.
 3. On TwinCat 2 fill in the Instance Name of Struct.
 4. On TwinCat 3 fill in the correct Tablename of the before created GlobalVariableTable.
 5. All other Points u mostly not need to Change.
@@ -90,12 +90,28 @@ Upload your \*.tpy File from your PLC Project -> Every Time you change something
 ### Attention
 
 1. TwinCAT AMS Router doesn't allow multiple TCP connections from the same host. So when you use two instances on the same host to connect to the same TwinCAT router, you will see that TwinCAT will close the first TCP connection and only respond to the newest.
-2. The Adapter Sync the complete GlobalVariableTable. U have different options to trigger a resync:
-   - Create a resync Variable in PLC (See [here](#PLC-Configuration))
-   - When the PLC are not in Run longer your Resync Intervall -> Then the Sync will triggered after the start of PLC.
-   - Every Time you Download the Project to your PLC except "OnlineChange"
-   - Restart the Adapter
-3. Sync never meant the Dataexchange of the Symbols. Sync is the create or delete the States in ioBroker dependent on the GlobalVariableTable in the PLC.
+2. A full metadata synchronization runs on adapter startup, on symbol-version changes, after an observed PLC STOP/RUN transition, and when `ioBrokerResync` changes.
+3. A reconnect after a short network outage can reuse symbol names and data types. ADS handles and notifications are recreated, and current PLC values are read again. Object IDs and user-defined mappings are preserved.
+
+### Connection settings
+
+- **ADS request timeout (ms)** (`adsTimeout`, default **500**): timeout for each ADS request. For slow or VPN connections, try **2000**. This does not change the reconnect interval.
+- **Interval for reconnect** (`reconnectInterval`, default **15 seconds**): delay between connection attempts and interval for PLC-state/acknowledgement checks.
+- **Reuse symbol metadata after short outages** (`cacheSymbolTable`, default **true**): keeps an in-memory metadata cache for the same configured PLC and variable table. A new adapter process always performs a full synchronization.
+- **Maximum outage for symbol cache** (`symbolCacheMaxAge`, default **300 seconds**): longer outages require a full synchronization. Set to zero or disable caching to always reload metadata.
+
+The cache is checked against the ADS symbol version before and after registration. Version changes, observed PLC stops, failed cached subscriptions/reads and explicit resync requests trigger a full synchronization. A missing write acknowledgement only refreshes current values; it does not download symbol metadata or replay PLC writes.
+
+The ADS symbol version is an 8-bit counter, not a unique PLC boot/program identifier. A PLC restart or counter wrap during an unobserved outage can reuse the same number. For installations where this can occur, disable caching or maintain a PLC `ioBrokerResync` counter that changes on startup/program changes. The outage limit reduces reuse after long gaps; it cannot prove program identity.
+
+### Legacy TPY files
+
+For TwinCAT 2 <= v2.11.2240, upload and select a `.tpy` file in the configuration UI. Files are stored under `beckhoff.<instance>.tpy` and are read on adapter startup. The existing `xmlTpyData` configuration remains supported: clear the file selection to use or edit the existing XML contents. A selected file takes precedence. Upload a new TPY file whenever the PLC symbol definitions change.
+
+### Development validation
+
+Use Node.js 22 or newer. CI tests Node.js 22, 24 and 26 on Linux, Windows and macOS. Run `npm ci`, `npm test`, `npm run check`, `npm run lint` and `npm run test:integration`. The connection regression tests use simulated ADS clients and never control a real PLC. Successful startup/CI tests do not replace validation against the target TwinCAT runtime.
+
 
 ## Changelog
 <!--
@@ -103,7 +119,12 @@ Upload your \*.tpy File from your PLC Project -> Every Time you change something
     ### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 1.8.0-beta.0 (2026-10-13)
+- (zonfacter) Reuse symbol metadata on short reconnects, renew session handles and refresh values
+- (zonfacter) Add configurable ADS request timeout and hostname support
+- (zonfacter) Migrate to responsive jsonConfig with native TPY upload and packaged translations
+- (zonfacter) Isolate compact-mode sessions, guard stale callbacks and avoid metadata reloads for missing acknowledgements
+- (zonfacter) Update adapter-core, testing tools, CI checks and compatible dependency fixes
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 
@@ -206,3 +227,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+### Dependency audit (2026-10-13)
+
+Compatible lockfile fixes have been applied. Six npm audit findings remain in the dependency chains of `@iobroker/adapter-core` (`node-forge`, GHSA-86w9-cpqp-85rv) and the development test tooling (`esbuild`, GHSA-67mh-4wv8-2f99). npm currently proposes downgrading adapter-core/testing rather than a compatible fix. No forced downgrade or arbitrary dependency override was applied. Recheck these findings when upstream fixes become available.

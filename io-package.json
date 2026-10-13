@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.7.0",
+    "version": "1.8.0-beta.0",
     "news": {
+      "1.8.0-beta.0": {
+        "en": "Reconnect symbol cache, configurable ADS timeout, hostname support and responsive jsonConfig with TPY upload.",
+        "de": "Symbolcache beim Reconnect, einstellbarer ADS-Timeout, Hostnamen und responsive jsonConfig mit TPY-Upload."
+      },
       "1.7.0": {
         "en": "Adapter requires node.js >= 20 now\nAdapter requires js-controller >= 6.0.11 now\nAdapter requires admin >= 7.6.17 now\nMigrated to ESLint 9 and @iobroker/eslint-config standard configuration\nDependencies have been updated",
         "de": "Adapter benötigt node.js >= 20 jetzt\nAdapter benötigt jetzt js-controller >= 6.0.11\nAdapter benötigt admin >= 7.6.17 jetzt\nMigration auf ESLint 9 und @iobroker/eslint-config Standardkonfiguration\nAbhängigkeiten wurden aktualisiert",
@@ -166,11 +170,11 @@
       }
     ],
     "adminUI": {
-      "config": "materialize"
+      "config": "json"
     }
   },
   "native": {
-    "targetIpAdress": "xxx.xxx.xxx.xxx",
+    "targetIpAdress": "",
     "targetAmsNetId": "xxx.xxx.xxx.xxx.xxx.xxx",
     "targetAmsPort": 851,
     "targetTcpPort": 48898,
@@ -179,7 +183,11 @@
     "targetVTable": "",
     "xmlTpyData": "",
     "reconnectInterval": 15,
-    "symbolObjectList": []
+    "symbolObjectList": [],
+    "adsTimeout": 500,
+    "cacheSymbolTable": true,
+    "symbolCacheMaxAge": 300,
+    "tpyFile": ""
   },
   "instanceObjects": [
     {
@@ -213,6 +221,15 @@
         "read": true,
         "write": false,
         "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "tpy",
+      "type": "meta",
+      "common": {
+        "name": "TPY files",
+        "type": "meta.user"
       },
       "native": {}
     }

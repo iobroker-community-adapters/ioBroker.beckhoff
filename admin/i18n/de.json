@@ -27,5 +27,8 @@
   "Upload and select a TPY file, or leave the selection empty to use the existing XML contents.": "TPY-Datei hochladen und ausw?hlen. Ohne Auswahl wird der bisherige XML-Inhalt verwendet.",
   "TwinCat 2": "TwinCat 2",
   "TwinCat 2 <= v2.11.2240": "TwinCat 2 <= v2.11.2240",
-  "TwinCat 3": "TwinCat 3"
+  "TwinCat 3": "TwinCat 3",
+  "Selected TPY file": "Gewählte TPY-Datei",
+  "Stored TPY XML is selected. No separate file is selected.": "Die gespeicherten TPY-XML-Daten sind ausgewählt. Es ist keine separate Datei gewählt.",
+  "No TPY file or stored TPY XML is selected.": "Es ist weder eine TPY-Datei noch ein gespeicherter TPY-XML-Inhalt ausgewählt."
 }

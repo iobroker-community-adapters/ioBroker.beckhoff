@@ -1,6 +1,6 @@
 {
   "name": "iobroker.beckhoff",
-  "version": "1.8.0-beta.0",
+  "version": "1.8.0-beta.1",
   "description": "ioBroker Beckoff Adapter to communicate with a Beckhoff PLC",
   "author": "dkleber89 <dkleber89@gmail.com>",
   "contributors": [
@@ -23,7 +23,7 @@
     "url": "https://github.com/iobroker-community-adapters/ioBroker.beckhoff"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=20.19.4"
   },
   "dependencies": {
     "@iobroker/adapter-core": "^3.4.3",

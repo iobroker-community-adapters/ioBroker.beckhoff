@@ -110,7 +110,7 @@ For TwinCAT 2 <= v2.11.2240, upload and select a `.tpy` file in the configuratio
 
 ### Development validation
 
-Use Node.js 22 or newer. CI tests Node.js 22, 24 and 26 on Linux, Windows and macOS. Run `npm ci`, `npm test`, `npm run check`, `npm run lint` and `npm run test:integration`. The connection regression tests use simulated ADS clients and never control a real PLC. Successful startup/CI tests do not replace validation against the target TwinCAT runtime.
+Use Node.js 22 or newer. The adapter runtime supports Node.js >=20.19.4. Development tools require Node.js >=22.19.0. CI tests Node.js 20.19.4, 22, 24 and 26 on Linux, Windows and macOS. Run `npm ci`, `npm test`, `npm run check`, `npm run lint` and `npm run test:integration`. The connection regression tests use simulated ADS clients and never control a real PLC. Successful startup/CI tests do not replace validation against the target TwinCAT runtime.
 
 
 ## Changelog
@@ -118,6 +118,9 @@ Use Node.js 22 or newer. CI tests Node.js 22, 24 and 26 on Linux, Windows and ma
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 1.8.0-beta.1 (2026-10-13)
+- (zonfacter) Verify runtime support for Node.js 20.19.4 to preserve existing installations
 
 ### 1.8.0-beta.0 (2026-10-13)
 - (zonfacter) Reuse symbol metadata on short reconnects, renew session handles and refresh values

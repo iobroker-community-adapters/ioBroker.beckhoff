@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.8.0-beta.0",
+    "version": "1.8.0-beta.1",
     "news": {
+      "1.8.0-beta.1": {
+        "en": "Verified runtime compatibility with Node.js 20.19.4; preserve existing installations without a host-wide Node upgrade.",
+        "de": "Laufzeitkompatibilit?t mit Node.js 20.19.4 gepr?ft; bestehende Installation ohne systemweites Node-Upgrade erhalten."
+      },
       "1.8.0-beta.0": {
         "en": "Reconnect symbol cache, configurable ADS timeout, hostname support and responsive jsonConfig with TPY upload.",
         "de": "Symbolcache beim Reconnect, einstellbarer ADS-Timeout, Hostnamen und responsive jsonConfig mit TPY-Upload."

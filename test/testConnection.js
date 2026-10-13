@@ -357,4 +357,20 @@ describe('Metadata and configuration compatibility', () => {
         assert.equal(stateId(fixture({targetAmsPort: '851'}).adapter, 'GVL.x'), 'plc.GVL.x');
         assert.equal(stateId(fixture({targetAmsPort: '801'}).adapter, '.GVL.x'), 'plc.GVL.x');
     });
+
+    it('retains historical prefix matches such as iobroker and iobroker137', async () => {
+        const f = fixture({ targetAmsPort: '901', targetVTable: 'iobroker', xmlTpyData:
+            '<PlcProjectInfo><Symbols><Symbol><Name>.iobroker.x</Name><Type>BOOL</Type></Symbol><Symbol><Name>.iobroker137.y</Name><Type>INT</Type></Symbol><Symbol><Name>.other.z</Name><Type>BOOL</Type></Symbol></Symbols><DataTypes><DataType><Name>Unused</Name></DataType></DataTypes></PlcProjectInfo>' });
+        const symbols = await lib.tpyParser(f.adapter);
+        assert.deepEqual(symbols.map(item => item.symname), ['.iobroker.x', '.iobroker137.y']);
+        f.adapter.config.targetAmsPort = '851';
+        const session = { adapter: f.adapter, isCurrent: () => true, client: {
+            getDatatyps: cb => cb(null, []),
+            getSymbols: cb => cb(null, [
+                { name: 'iobroker.x', type: 'BOOL' }, { name: 'iobroker137.y', type: 'INT' }, { name: 'other.z', type: 'BOOL' },
+            ]),
+        } };
+        const adsSymbols = await lib.plcVarSyncronizing(session);
+        assert.deepEqual(adsSymbols.map(item => item.symname), ['iobroker.x', 'iobroker137.y']);
+    });
 });

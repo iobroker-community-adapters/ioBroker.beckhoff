@@ -119,6 +119,9 @@ Use Node.js 22 or newer. The adapter runtime supports Node.js >=20.19.4. Develop
     ### **WORK IN PROGRESS**
 -->
 
+### 1.8.0-beta.2 (2026-10-13)
+- (zonfacter) Preserve existing prefix selection, including similarly named global tables
+
 ### 1.8.0-beta.1 (2026-10-13)
 - (zonfacter) Verify runtime support for Node.js 20.19.4 to preserve existing installations
 

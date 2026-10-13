@@ -2,9 +2,9 @@
 
 # ioBroker.beckhoff
 
-## Fork preview release: 1.8.0-beta.3
+## Fork preview release: 1.8.0-beta.4
 
-[Release notes and downloads](https://github.com/zonfacter/ioBroker.beckhoff/releases/tag/v1.8.0-beta.3) · [Installable adapter package](https://github.com/zonfacter/ioBroker.beckhoff/releases/download/v1.8.0-beta.3/iobroker.beckhoff-1.8.0-beta.3.tgz) · [Changelog](#changelog)
+[Release notes and downloads](https://github.com/zonfacter/ioBroker.beckhoff/releases/tag/v1.8.0-beta.4) · [Installable adapter package](https://github.com/zonfacter/ioBroker.beckhoff/releases/download/v1.8.0-beta.4/iobroker.beckhoff-1.8.0-beta.4.tgz) · [Changelog](#changelog)
 
 This preview is maintained in the `zonfacter` fork. The npm and ioBroker stable badges below refer to the original adapter. The beta requires Node.js >=20.19.4, js-controller >=6.0.11 and Admin >=7.7.22.
 
@@ -124,6 +124,9 @@ Use Node.js 22 or newer. The adapter runtime supports Node.js >=20.19.4. Develop
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 1.8.0-beta.4 (2026-10-13)
+- (zonfacter) Restore German umlauts that had been replaced by literal question marks in Admin translations, documentation and release notes
 
 ### 1.8.0-beta.3 (2026-10-13)
 - (zonfacter) Show the selected TPY filename directly from saved configuration, independently of the native file-selector dropdown

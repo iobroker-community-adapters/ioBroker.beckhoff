@@ -79,16 +79,16 @@ Die \*.tpy Datei aus dem SPS Projekt muss hochgeladen werden. -> Immer wenn am S
 Die neue Konfiguration akzeptiert eine IPv4-Adresse oder einen Hostnamen. Die AMS-Net-ID bleibt separat erforderlich.
 
 - `adsTimeout`: Timeout je ADS-Anfrage in Millisekunden, Standard 500. Bei langsamen Verbindungen kann z.B. 2000 sinnvoll sein.
-- `reconnectInterval`: Wartezeit vor einem neuen Verbindungsversuch und Intervall der SPS-Statuspr?fung, Standard 15 Sekunden.
+- `reconnectInterval`: Wartezeit vor einem neuen Verbindungsversuch und Intervall der SPS-Statusprüfung, Standard 15 Sekunden.
 - `cacheSymbolTable`: Symbolbeschreibungen bei kurzen Verbindungsunterbrechungen wiederverwenden, Standard aktiv.
-- `symbolCacheMaxAge`: maximale Ausfalldauer f?r die Wiederverwendung, Standard 300 Sekunden. Null deaktiviert die Wiederverwendung nach einem Ausfall.
+- `symbolCacheMaxAge`: maximale Ausfalldauer für die Wiederverwendung, Standard 300 Sekunden. Null deaktiviert die Wiederverwendung nach einem Ausfall.
 
-Nach dem Reconnect werden die Symbolversion gepr?ft, neue ADS-Handles und Benachrichtigungen angelegt und aktuelle Werte gelesen. Bei unver?nderter Symbolversion werden die Symbole und Datentypen nicht vollst?ndig heruntergeladen; der Objektabgleich entf?llt. Bestehende IDs, Namen und Zuordnungen bleiben erhalten.
+Nach dem Reconnect werden die Symbolversion geprüft, neue ADS-Handles und Benachrichtigungen angelegt und aktuelle Werte gelesen. Bei unveränderter Symbolversion werden die Symbole und Datentypen nicht vollständig heruntergeladen; der Objektabgleich entfällt. Bestehende IDs, Namen und Zuordnungen bleiben erhalten.
 
-Ge?nderte Symbolversionen, erkannte SPS-STOP/RUN-Wechsel, Fehler mit zwischengespeicherten Symbolen und ?nderungen von `ioBrokerResync` l?sen eine vollst?ndige Synchronisation aus. Ein ausbleibendes Schreib-Acknowledge aktualisiert nur die Werte und wiederholt keine SPS-Schreibbefehle.
+Geänderte Symbolversionen, erkannte SPS-STOP/RUN-Wechsel, Fehler mit zwischengespeicherten Symbolen und Änderungen von `ioBrokerResync` lösen eine vollständige Synchronisation aus. Ein ausbleibendes Schreib-Acknowledge aktualisiert nur die Werte und wiederholt keine SPS-Schreibbefehle.
 
-Die Symbolversion ist ein 8-Bit-Z?hler. Bei einem w?hrend der Unterbrechung unbemerkten SPS-Neustart oder Z?hler?berlauf kann dieselbe Version erneut auftreten. Falls dies in der Anlage m?glich ist, den Cache deaktivieren oder `ioBrokerResync` in der SPS beim Start und bei Programm?nderungen ?ndern. Die zeitliche Grenze allein erkennt solche ?nderungen nicht sicher.
+Die Symbolversion ist ein 8-Bit-Zähler. Bei einem während der Unterbrechung unbemerkten SPS-Neustart oder Zählerüberlauf kann dieselbe Version erneut auftreten. Falls dies in der Anlage möglich ist, den Cache deaktivieren oder `ioBrokerResync` in der SPS beim Start und bei Programmänderungen ändern. Die zeitliche Grenze allein erkennt solche Änderungen nicht sicher.
 
 ## TPY-Dateiupload
 
-F?r TwinCAT 2 <= v2.11.2240 kann eine `.tpy`-Datei hochgeladen und ausgew?hlt werden. Die Dateien liegen im ioBroker-Dateispeicher unter `beckhoff.<Instanz>.tpy`. Der Adapter liest die Auswahl beim Start. Ohne Dateiauswahl wird der bisherige Inhalt von `xmlTpyData` verwendet, der weiterhin bearbeitet werden kann. Eine ausgew?hlte Datei hat Vorrang. Nach ?nderungen der SPS-Symboldefinitionen muss die TPY-Datei aktualisiert werden.
+Für TwinCAT 2 <= v2.11.2240 kann eine `.tpy`-Datei hochgeladen und ausgewählt werden. Die Dateien liegen im ioBroker-Dateispeicher unter `beckhoff.<Instanz>.tpy`. Der Adapter liest die Auswahl beim Start. Ohne Dateiauswahl wird der bisherige Inhalt von `xmlTpyData` verwendet, der weiterhin bearbeitet werden kann. Eine ausgewählte Datei hat Vorrang. Nach Änderungen der SPS-Symboldefinitionen muss die TPY-Datei aktualisiert werden.

@@ -8,6 +8,37 @@
 
 This preview is maintained in the `zonfacter` fork. The npm and ioBroker stable badges below refer to the original adapter. The beta requires Node.js >=20.19.4, js-controller >=6.0.11 and Admin >=7.7.22.
 
+### Install the preview / Vorschau installieren
+
+Run the ioBroker CLI in your existing installation directory (usually `/opt/iobroker`). Use the version tag to install this exact preview:
+
+```bash
+cd /opt/iobroker
+iobroker url https://github.com/zonfacter/ioBroker.beckhoff/tree/v1.8.0-beta.5
+```
+
+Deutsch: Im bestehenden ioBroker-Installationsverzeichnis ausführen. Der Tag legt die Version fest. Die `.tgz`-Downloadadresse aus den Release-Assets funktioniert **nicht direkt mit `iobroker url`**: js-controller 7.1.0 lehnt diesen GitHub-Pfad mit `Cannot install from GitHub. Invalid URL` ab.
+
+The GitHub release-asset download URL is not a repository URL accepted by `iobroker url` in js-controller 7.1.0. The tagged repository URL above is the recommended CLI command. Do not use the moving `master` branch when you want this exact version.
+
+### Install the downloaded package / Heruntergeladenes Paket installieren
+
+Alternatively, download the `.tgz` first and pass its **local file path** to the CLI. Example for Linux:
+
+```bash
+curl --fail --location https://github.com/zonfacter/ioBroker.beckhoff/releases/download/v1.8.0-beta.5/iobroker.beckhoff-1.8.0-beta.5.tgz --output /tmp/iobroker.beckhoff-1.8.0-beta.5.tgz
+cd /opt/iobroker
+iobroker url /tmp/iobroker.beckhoff-1.8.0-beta.5.tgz beckhoff
+```
+
+Deutsch: Das Release-Paket zuerst herunterladen, danach den lokalen Dateipfad verwenden. Der zusätzliche Parameter `beckhoff` nennt den Adapter ausdrücklich. Unter Windows den tatsächlichen lokalen Pfad einsetzen.
+
+The release's `SHA256SUMS.txt` contains the package checksum: `2f4ae79c0d2b600968c3b4bdecc027d641738165530ac15e0888d4365b8bc586`.
+
+Both install routes were exercised with the real ioBroker CLI in an isolated Windows test installation using Node.js 20.19.4 and js-controller 7.1.0. The direct release-asset URL was rejected; the tagged URL and downloaded package installed Beta.5 and updated the existing test instance. The CLI reports exit code 0 even for this invalid-URL case, so check its output and the installed version as well. See [issue #8](https://github.com/zonfacter/ioBroker.beckhoff/issues/8).
+
+After updating, restart your existing Beckhoff instance if needed (for example `iobroker restart beckhoff.0`) and reopen/reload its Admin settings. / Nach dem Update die bestehende Beckhoff-Instanz bei Bedarf neu starten und ihre Admin-Einstellungen neu öffnen/laden.
+
 [![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.beckhoff)](https://github.com/iobroker-community-adapters/ioBroker.beckhoff/blob/master/LICENSE)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.beckhoff.svg)](https://www.npmjs.com/package/iobroker.beckhoff)
 ![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.beckhoff)
@@ -128,6 +159,7 @@ Use Node.js 22 or newer. The adapter runtime supports Node.js >=20.19.4. Develop
 -->
 
 ### 1.8.0-beta.5 (2026-10-14)
+- (zonfacter) Document verified CLI installation from the version tag or a downloaded local TGZ; explain the rejected GitHub release-asset URL (documentation follow-up, issue #8)
 - (zonfacter) Fix the native TPY dropdown by using a named tpy directory instead of Admin's invalid null root-directory request
 - (zonfacter) Prepare existing TPY files before startup, retain originals, avoid overwriting different contents and return matching selection values to the configuration UI
 

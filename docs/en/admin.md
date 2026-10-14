@@ -72,3 +72,16 @@ Upload your \*.tpy File from your PLC Project -> Every Time you change something
    - Every Time you Download the Project to your PLC except "OnlineChange"
    - Restart the Adapter
 3. Sync never meant the Dataexchange of the Symbols. Sync is the create or delete the States in ioBroker dependent on the GlobalVariableTable in the PLC.
+
+
+## Connection recovery
+
+The target address accepts IPv4 or a hostname. `adsTimeout` configures each ADS request (default 500 ms); `reconnectInterval` configures the reconnect/status-check interval (default 15 seconds).
+
+`cacheSymbolTable` reuses in-memory symbol metadata after short outages (enabled by default). `symbolCacheMaxAge` limits the outage duration to 300 seconds by default. Reconnects always recreate ADS handles and notifications and read current values. Symbol-version changes, observed STOP/RUN transitions, failed cached subscriptions/reads and `ioBrokerResync` changes force a full synchronization. Missing write acknowledgements refresh values without downloading metadata or replaying writes.
+
+The symbol version is an 8-bit counter. A restart or counter wrap during an unobserved outage may reuse the same number. Disable caching or update a PLC `ioBrokerResync` counter on startup/program changes if this can occur. The outage limit is not a unique program-identity check.
+
+## TPY upload
+
+For TwinCAT 2 <= v2.11.2240, upload and select a `.tpy` file. The adapter reads it from `beckhoff.<instance>.tpy` on startup. A selected file takes precedence over `xmlTpyData`; clear the selection to use the existing XML contents. Update the file whenever PLC symbol definitions change.

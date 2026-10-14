@@ -153,7 +153,6 @@
     "compact": true,
     "connectionType": "local",
     "dataSource": "push",
-    "messagebox": false,
     "restartAdapters": [],
     "dependencies": [
       {
@@ -166,11 +165,14 @@
       }
     ],
     "adminUI": {
-      "config": "materialize"
+      "config": "json"
+    },
+    "supportedMessages": {
+      "custom": true
     }
   },
   "native": {
-    "targetIpAdress": "xxx.xxx.xxx.xxx",
+    "targetIpAdress": "",
     "targetAmsNetId": "xxx.xxx.xxx.xxx.xxx.xxx",
     "targetAmsPort": 851,
     "targetTcpPort": 48898,
@@ -179,7 +181,11 @@
     "targetVTable": "",
     "xmlTpyData": "",
     "reconnectInterval": 15,
-    "symbolObjectList": []
+    "symbolObjectList": [],
+    "adsTimeout": 500,
+    "cacheSymbolTable": true,
+    "symbolCacheMaxAge": 300,
+    "tpyFile": ""
   },
   "instanceObjects": [
     {
@@ -213,6 +219,15 @@
         "read": true,
         "write": false,
         "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "tpy",
+      "type": "meta",
+      "common": {
+        "name": "TPY files",
+        "type": "meta.user"
       },
       "native": {}
     }

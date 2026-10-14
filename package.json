@@ -41,15 +41,19 @@
     "@tsconfig/node22": "^22.0.6",
     "@types/node": "^22.20.5",
     "@types/proxyquire": "^1.3.31",
+    "proxyquire": "^2.1.3",
+    "sinon": "^21.1.2",
     "typescript": "~5.9.3"
   },
   "main": "beckhoff.js",
   "files": [
+    "LICENSE",
     "beckhoff.js",
     "io-package.json",
-    "/admin/*.*",
-    "/lib/*.*",
-    "/docs"
+    "lib/",
+    "docs/",
+    "admin{,/!(src)/**}/*.{html,css,png,svg,jpg,js}",
+    "admin{,/!(src)/**}/!(tsconfig|tsconfig.*|.eslintrc).{json,json5}"
   ],
   "scripts": {
     "test:js": "mocha --config test/mocharc.custom.json \"{!(node_modules|test)/**/*.test.js,*.test.js,test/**/test!(PackageFiles|Startup).js}\"",

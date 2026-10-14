@@ -38,6 +38,7 @@ function fixture(config = {}) {
     const counts = { symbols: 0, datatypes: 0, reads: 0, writes: 0, reconciles: 0 };
     let version = 1;
     let value = true;
+    let symbolName = 'GVL.enabled';
     let plcState = ads.ADSSTATE.RUN;
     let rejectNextHandle = false;
     const fakeAds = {
@@ -49,7 +50,7 @@ function fixture(config = {}) {
             client.getDatatyps = cb => { counts.datatypes++; cb(null, []); };
             client.getSymbols = cb => {
                 counts.symbols++;
-                cb(null, [{ name: 'GVL.enabled', type: 'BOOL', size: 1 }]);
+                cb(null, [{ name: symbolName, type: 'BOOL', size: 1 }]);
             };
             client.releaseNotificationHandles = cb => cb(null);
             client.notify = (handle, cb) => {
@@ -94,6 +95,7 @@ function fixture(config = {}) {
     return {
         runtime, adapter, clients, counts, states, objects,
         setVersion: next => { version = next; }, setValue: next => { value = next; },
+        setSymbolName: next => { symbolName = next; },
         setPlcState: next => { plcState = next; }, rejectHandle: () => { rejectNextHandle = true; },
     };
 }
@@ -145,6 +147,45 @@ describe('ADS reconnect and metadata synchronization', () => {
         assert.equal(f.counts.symbols, 2);
         assert.equal(f.counts.reconciles, 2);
     });
+
+    for (const notification of ['symbol version', 'resync counter']) {
+    it(`resynchronizes a ${notification} notification during the final connection-state write`, async () => {
+        const f = fixture(); await start(f);
+        if (notification === 'resync counter') {
+            f.setSymbolName('GVL.ioBrokerResync');
+        }
+        const session = f.runtime.session;
+        const write = f.adapter.setStateAsync;
+        let release;
+        f.adapter.setStateAsync = async (id, val, ack) => {
+            if (id === 'info.connection' && val && !release) {
+                await new Promise(resolve => { release = resolve; });
+            }
+            return write(id, val, ack);
+        };
+        const sync = f.runtime.sync(session, true);
+        await clock.tickAsync(1);
+        assert.equal(typeof release, 'function');
+        if (notification === 'symbol version') {
+            f.setVersion(2);
+            f.clients[0].emit('notification', { indexGroup: ads.ADSIGRP.SYM_VERSION, value: 2 });
+        } else {
+            f.setValue(false);
+            const handle = f.adapter.config.symbolObjectList[0];
+            handle.value = false;
+            f.clients[0].emit('notification', handle);
+        }
+        await clock.tickAsync(1);
+        release();
+        await sync;
+        assert.equal(session.ready, true);
+        assert.equal(session.acceptValues, true);
+        assert.equal(session.needsFullSync, false);
+        assert.equal(f.runtime.cache.version, notification === 'symbol version' ? 2 : 1);
+        assert.equal(f.counts.symbols, 3);
+        assert.equal(f.counts.writes, 0);
+    });
+    }
 
     it('falls back to a full sync if cached subscriptions fail', async () => {
         const f = fixture(); await start(f); f.rejectHandle(); await reconnect(f);

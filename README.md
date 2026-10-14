@@ -2,43 +2,6 @@
 
 # ioBroker.beckhoff
 
-## Fork preview release: 1.8.0-beta.5
-
-[Release notes and downloads](https://github.com/zonfacter/ioBroker.beckhoff/releases/tag/v1.8.0-beta.5) · [Installable adapter package](https://github.com/zonfacter/ioBroker.beckhoff/releases/download/v1.8.0-beta.5/iobroker.beckhoff-1.8.0-beta.5.tgz) · [Changelog](#changelog)
-
-This preview is maintained in the `zonfacter` fork. The npm and ioBroker stable badges below refer to the original adapter. The beta requires Node.js >=20.19.4, js-controller >=6.0.11 and Admin >=7.7.22.
-
-### Install the preview / Vorschau installieren
-
-Run the ioBroker CLI in your existing installation directory (usually `/opt/iobroker`). Use the version tag to install this exact preview:
-
-```bash
-cd /opt/iobroker
-iobroker url https://github.com/zonfacter/ioBroker.beckhoff/tree/v1.8.0-beta.5
-```
-
-Deutsch: Im bestehenden ioBroker-Installationsverzeichnis ausführen. Der Tag legt die Version fest. Die `.tgz`-Downloadadresse aus den Release-Assets funktioniert **nicht direkt mit `iobroker url`**: js-controller 7.1.0 lehnt diesen GitHub-Pfad mit `Cannot install from GitHub. Invalid URL` ab.
-
-The GitHub release-asset download URL is not a repository URL accepted by `iobroker url` in js-controller 7.1.0. The tagged repository URL above is the recommended CLI command. Do not use the moving `master` branch when you want this exact version.
-
-### Install the downloaded package / Heruntergeladenes Paket installieren
-
-Alternatively, download the `.tgz` first and pass its **local file path** to the CLI. Example for Linux:
-
-```bash
-curl --fail --location https://github.com/zonfacter/ioBroker.beckhoff/releases/download/v1.8.0-beta.5/iobroker.beckhoff-1.8.0-beta.5.tgz --output /tmp/iobroker.beckhoff-1.8.0-beta.5.tgz
-cd /opt/iobroker
-iobroker url /tmp/iobroker.beckhoff-1.8.0-beta.5.tgz beckhoff
-```
-
-Deutsch: Das Release-Paket zuerst herunterladen, danach den lokalen Dateipfad verwenden. Der zusätzliche Parameter `beckhoff` nennt den Adapter ausdrücklich. Unter Windows den tatsächlichen lokalen Pfad einsetzen.
-
-The release's `SHA256SUMS.txt` contains the package checksum: `2f4ae79c0d2b600968c3b4bdecc027d641738165530ac15e0888d4365b8bc586`.
-
-Both install routes were exercised with the real ioBroker CLI in an isolated Windows test installation using Node.js 20.19.4 and js-controller 7.1.0. The direct release-asset URL was rejected; the tagged URL and downloaded package installed Beta.5 and updated the existing test instance. The CLI reports exit code 0 even for this invalid-URL case, so check its output and the installed version as well. See [issue #8](https://github.com/zonfacter/ioBroker.beckhoff/issues/8).
-
-After updating, restart your existing Beckhoff instance if needed (for example `iobroker restart beckhoff.0`) and reopen/reload its Admin settings. / Nach dem Update die bestehende Beckhoff-Instanz bei Bedarf neu starten und ihre Admin-Einstellungen neu öffnen/laden.
-
 [![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.beckhoff)](https://github.com/iobroker-community-adapters/ioBroker.beckhoff/blob/master/LICENSE)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.beckhoff.svg)](https://www.npmjs.com/package/iobroker.beckhoff)
 ![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.beckhoff)
@@ -149,7 +112,7 @@ Existing TPY files are copied into the named `tpy/` directory at startup. Origin
 
 ### Development validation
 
-Use Node.js 22 or newer. The adapter runtime supports Node.js >=20.19.4. Development tools require Node.js >=22.19.0. CI tests Node.js 20.19.4, 22, 24 and 26 on Linux, Windows and macOS. Run `npm ci`, `npm test`, `npm run check`, `npm run lint` and `npm run test:integration`. The connection regression tests use simulated ADS clients and never control a real PLC. Successful startup/CI tests do not replace validation against the target TwinCAT runtime.
+Use Node.js 22 or newer. Development tools require Node.js >=22.19.0. The standard CI tests Node.js 22, 24 and 26 on Linux, Windows and macOS. Run `npm ci`, `npm test`, `npm run check`, `npm run lint` and `npm run test:integration`. The connection regression tests use simulated ADS clients and never control a real PLC. Successful startup/CI tests do not replace validation against the target TwinCAT runtime.
 
 
 ## Changelog
@@ -158,41 +121,15 @@ Use Node.js 22 or newer. The adapter runtime supports Node.js >=20.19.4. Develop
     ### **WORK IN PROGRESS**
 -->
 
-### 1.8.0-beta.5 (2026-10-14)
-- (zonfacter) Document verified CLI installation from the version tag or a downloaded local TGZ; explain the rejected GitHub release-asset URL (documentation follow-up, issue #8)
-- (zonfacter) Fix the native TPY dropdown by using a named tpy directory instead of Admin's invalid null root-directory request
-- (zonfacter) Prepare existing TPY files before startup, retain originals, avoid overwriting different contents and return matching selection values to the configuration UI
-
-### 1.8.0-beta.4 (2026-10-13)
-- (zonfacter) Restore German umlauts that had been replaced by literal question marks in Admin translations, documentation and release notes
-
-### 1.8.0-beta.3 (2026-10-13)
-- (zonfacter) Show the selected TPY filename directly from saved configuration, independently of the native file-selector dropdown
-- (zonfacter) Update TPY feedback immediately on selection changes and distinguish stored legacy XML from an empty selection
-
-### 1.8.0-beta.2 (2026-10-13)
-- (zonfacter) Preserve existing prefix selection, including similarly named global tables
-- (zonfacter) Reuse symbol metadata after short outages; recreate ADS handles/notifications and refresh current values
-- (zonfacter) Refresh missing write acknowledgements without reloading metadata or replaying writes
-- (zonfacter) Add configurable ADS request timeout and hostname support
-- (zonfacter) Replace the old configuration UI with responsive jsonConfig, native TPY upload and packaged translations; preserve existing configuration keys and legacy TPY data
-- (zonfacter) Isolate compact-mode connections and reject stale callbacks
-- (zonfacter) Support Node.js >=20.19.4 at runtime; test Node 20 with js-controller 7.1.0 separately from modern development tools
-- (zonfacter) Update dependencies, type checking and CI; restrict automatic npm publishing to the original repository
-
-Verified with 25 connection/protocol regression tests, 61 package/schema checks, type checking and an existing TwinCAT 2 installation. Existing TPY data and object mappings were preserved. Browser rendering of the new configuration UI and a deliberate timeout on the production PLC have not been tested. The ADS symbol-version counter is not a unique program identity; see the cache limitations above.
-
-### 1.8.0-beta.1 (2026-10-13)
-- (zonfacter) Verify runtime support for Node.js 20.19.4 to preserve existing installations
-
-### 1.8.0-beta.0 (2026-10-13)
-- (zonfacter) Reuse symbol metadata on short reconnects, renew session handles and refresh values
-- (zonfacter) Add configurable ADS request timeout and hostname support
-- (zonfacter) Migrate to responsive jsonConfig with native TPY upload and packaged translations
-- (zonfacter) Isolate compact-mode sessions, guard stale callbacks and avoid metadata reloads for missing acknowledgements
-- (zonfacter) Update adapter-core, testing tools, CI checks and compatible dependency fixes
+### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
+- (zonfacter) Reuse validated symbol metadata after short reconnects, renew ADS handles and refresh values; fully synchronize on metadata changes, observed PLC stops or expired caches
+- (zonfacter) Add a configurable ADS request timeout and hostname support; preserve variable-table prefix matching and existing object mappings
+- (zonfacter) Migrate to responsive jsonConfig with native TPY upload, persistent filename feedback and packaged translations; retain legacy XML and TPY paths
+- (zonfacter) Prepare a named TPY file directory without removing originals or overwriting differing files; support configuration requests through supportedMessages.custom
+- (zonfacter) Isolate compact-mode sessions, reject stale callbacks and avoid a metadata reload when only a write acknowledgement is missing
+- (zonfacter) Fix synchronization when a metadata notification arrives during the final connection-state write
 
 ### 1.7.0 (2026-02-12)
 - (mcm1957) Adapter requires node.js >= 20 now

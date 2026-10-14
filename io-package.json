@@ -1,32 +1,8 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.8.0-beta.5",
+    "version": "1.7.0",
     "news": {
-      "1.8.0-beta.5": {
-        "en": "Fix the empty TPY dropdown using a named directory; prepare existing files without deleting originals or overwriting differing files.",
-        "de": "Leere TPY-Auswahlliste durch benanntes Verzeichnis korrigiert; vorhandene Dateien ohne Löschen oder Überschreiben abweichender Inhalte übernommen."
-      },
-      "1.8.0-beta.4": {
-        "en": "Repair German umlauts in Admin labels/help, documentation and release notes.",
-        "de": "Deutsche Umlaute in Admin-Beschriftungen, Hilfetexten, Dokumentation und Versionshinweisen korrigiert."
-      },
-      "1.8.0-beta.3": {
-        "en": "Show the selected TPY filename immediately and after reopening settings; indicate stored XML or missing selection.",
-        "de": "Gewählten TPY-Dateinamen sofort und nach erneutem Öffnen anzeigen; vorhandene XML-Daten oder fehlende Auswahl kennzeichnen."
-      },
-      "1.8.0-beta.2": {
-        "en": "Preserve historical variable-table prefix matching and all existing object IDs.",
-        "de": "Bisherige Präfixauswahl der Variablentabellen und alle bestehenden Objekt-IDs erhalten."
-      },
-      "1.8.0-beta.1": {
-        "en": "Verified runtime compatibility with Node.js 20.19.4; preserve existing installations without a host-wide Node upgrade.",
-        "de": "Laufzeitkompatibilität mit Node.js 20.19.4 geprüft; bestehende Installation ohne systemweites Node-Upgrade erhalten."
-      },
-      "1.8.0-beta.0": {
-        "en": "Reconnect symbol cache, configurable ADS timeout, hostname support and responsive jsonConfig with TPY upload.",
-        "de": "Symbolcache beim Reconnect, einstellbarer ADS-Timeout, Hostnamen und responsive jsonConfig mit TPY-Upload."
-      },
       "1.7.0": {
         "en": "Adapter requires node.js >= 20 now\nAdapter requires js-controller >= 6.0.11 now\nAdapter requires admin >= 7.6.17 now\nMigrated to ESLint 9 and @iobroker/eslint-config standard configuration\nDependencies have been updated",
         "de": "Adapter benötigt node.js >= 20 jetzt\nAdapter benötigt jetzt js-controller >= 6.0.11\nAdapter benötigt admin >= 7.6.17 jetzt\nMigration auf ESLint 9 und @iobroker/eslint-config Standardkonfiguration\nAbhängigkeiten wurden aktualisiert",
@@ -177,7 +153,6 @@
     "compact": true,
     "connectionType": "local",
     "dataSource": "push",
-    "messagebox": true,
     "restartAdapters": [],
     "dependencies": [
       {
@@ -191,6 +166,9 @@
     ],
     "adminUI": {
       "config": "json"
+    },
+    "supportedMessages": {
+      "custom": true
     }
   },
   "native": {

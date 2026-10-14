@@ -12,7 +12,8 @@ const prepareTpyFiles = require('./lib/tpyFiles');
  */
 function startAdapter(options) {
     const adapter = new utils.Adapter({ ...options, name: 'beckhoff' });
-    const config = adapter.config;
+    /** @returns {Record<string, any>} Native settings loaded by the adapter core. */
+    const getConfig = () => adapter.config;
     const connection = new Connection(adapter, ads, lib);
     let preparation = Promise.resolve();
     const prepare = selected => {
@@ -25,6 +26,7 @@ function startAdapter(options) {
     };
     adapter.on('ready', () => {
         (async () => {
+            const config = getConfig();
             if (String(config.targetAmsPort) === '901') {
                 try {
                     // Only the runtime copy changes. Native settings remain intact until saved in Admin.
@@ -42,6 +44,7 @@ function startAdapter(options) {
         if (message?.command !== 'prepareTpyFiles' || !message.callback) {
             return;
         }
+        const config = getConfig();
         const value = typeof message.message?.value === 'string' ? message.message.value : config.tpyFile || '';
         prepare(value)
             .then(path => adapter.sendTo(message.from, message.command, path, message.callback))

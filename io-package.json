@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "beckhoff",
-    "version": "1.8.0-beta.4",
+    "version": "1.8.0-beta.5",
     "news": {
+      "1.8.0-beta.5": {
+        "en": "Fix the empty TPY dropdown using a named directory; prepare existing files without deleting originals or overwriting differing files.",
+        "de": "Leere TPY-Auswahlliste durch benanntes Verzeichnis korrigiert; vorhandene Dateien ohne Löschen oder Überschreiben abweichender Inhalte übernommen."
+      },
       "1.8.0-beta.4": {
         "en": "Repair German umlauts in Admin labels/help, documentation and release notes.",
         "de": "Deutsche Umlaute in Admin-Beschriftungen, Hilfetexten, Dokumentation und Versionshinweisen korrigiert."
@@ -173,7 +177,7 @@
     "compact": true,
     "connectionType": "local",
     "dataSource": "push",
-    "messagebox": false,
+    "messagebox": true,
     "restartAdapters": [],
     "dependencies": [
       {

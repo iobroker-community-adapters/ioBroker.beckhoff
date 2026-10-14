@@ -2,9 +2,9 @@
 
 # ioBroker.beckhoff
 
-## Fork preview release: 1.8.0-beta.4
+## Fork preview release: 1.8.0-beta.5
 
-[Release notes and downloads](https://github.com/zonfacter/ioBroker.beckhoff/releases/tag/v1.8.0-beta.4) · [Installable adapter package](https://github.com/zonfacter/ioBroker.beckhoff/releases/download/v1.8.0-beta.4/iobroker.beckhoff-1.8.0-beta.4.tgz) · [Changelog](#changelog)
+[Release notes and downloads](https://github.com/zonfacter/ioBroker.beckhoff/releases/tag/v1.8.0-beta.5) · [Installable adapter package](https://github.com/zonfacter/ioBroker.beckhoff/releases/download/v1.8.0-beta.5/iobroker.beckhoff-1.8.0-beta.5.tgz) · [Changelog](#changelog)
 
 This preview is maintained in the `zonfacter` fork. The npm and ioBroker stable badges below refer to the original adapter. The beta requires Node.js >=20.19.4, js-controller >=6.0.11 and Admin >=7.7.22.
 
@@ -114,6 +114,8 @@ The ADS symbol version is an 8-bit counter, not a unique PLC boot/program identi
 
 For TwinCAT 2 <= v2.11.2240, upload and select a `.tpy` file in the configuration UI. Files are stored under `beckhoff.<instance>.tpy` and are read on adapter startup. The existing `xmlTpyData` configuration remains supported: clear the file selection to use or edit the existing XML contents. A selected file takes precedence. Upload a new TPY file whenever the PLC symbol definitions change.
 
+Existing TPY files are copied into the named `tpy/` directory at startup. Originals remain available, and differing existing files are never overwritten. The configuration dialog maps an old selection to its managed copy; saving the settings persists that path. Upload, file listing and selected values now use the same directory. The adapter continues to support existing saved paths.
+
 ### Development validation
 
 Use Node.js 22 or newer. The adapter runtime supports Node.js >=20.19.4. Development tools require Node.js >=22.19.0. CI tests Node.js 20.19.4, 22, 24 and 26 on Linux, Windows and macOS. Run `npm ci`, `npm test`, `npm run check`, `npm run lint` and `npm run test:integration`. The connection regression tests use simulated ADS clients and never control a real PLC. Successful startup/CI tests do not replace validation against the target TwinCAT runtime.
@@ -124,6 +126,10 @@ Use Node.js 22 or newer. The adapter runtime supports Node.js >=20.19.4. Develop
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 1.8.0-beta.5 (2026-10-14)
+- (zonfacter) Fix the native TPY dropdown by using a named tpy directory instead of Admin's invalid null root-directory request
+- (zonfacter) Prepare existing TPY files before startup, retain originals, avoid overwriting different contents and return matching selection values to the configuration UI
 
 ### 1.8.0-beta.4 (2026-10-13)
 - (zonfacter) Restore German umlauts that had been replaced by literal question marks in Admin translations, documentation and release notes

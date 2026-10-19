@@ -230,7 +230,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-### Dependency audit (2026-10-13)
-
-Compatible lockfile fixes have been applied. Six npm audit findings remain in the dependency chains of `@iobroker/adapter-core` (`node-forge`, GHSA-86w9-cpqp-85rv) and the development test tooling (`esbuild`, GHSA-67mh-4wv8-2f99). npm currently proposes downgrading adapter-core/testing rather than a compatible fix. No forced downgrade or arbitrary dependency override was applied. Recheck these findings when upstream fixes become available.

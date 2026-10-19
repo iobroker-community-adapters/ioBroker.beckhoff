@@ -1,0 +1,14 @@
+{
+  "extends": "@tsconfig/node22/tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "strict": false,
+    "skipLibCheck": true,
+    "module": "commonjs",
+    "moduleResolution": "node"
+  },
+  "include": ["beckhoff.js", "lib/*.js"],
+  "exclude": ["node_modules", "test"]
+}

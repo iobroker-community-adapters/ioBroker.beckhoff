@@ -47,13 +47,13 @@
   },
   "main": "beckhoff.js",
   "files": [
-    "LICENSE",
-    "beckhoff.js",
-    "io-package.json",
-    "lib/",
-    "docs/",
+    "admin{,/!(src)/**}/!(tsconfig|tsconfig.*|.eslintrc).{json,json5}",
     "admin{,/!(src)/**}/*.{html,css,png,svg,jpg,js}",
-    "admin{,/!(src)/**}/!(tsconfig|tsconfig.*|.eslintrc).{json,json5}"
+    "lib/",
+    "www/",
+    "io-package.json",
+    "LICENSE",
+    "beckhoff.js"
   ],
   "scripts": {
     "test:js": "mocha --config test/mocharc.custom.json \"{!(node_modules|test)/**/*.test.js,*.test.js,test/**/test!(PackageFiles|Startup).js}\"",

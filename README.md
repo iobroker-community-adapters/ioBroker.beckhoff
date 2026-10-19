@@ -130,6 +130,7 @@ Use Node.js 22 or newer. Development tools require Node.js >=22.19.0. The standa
 - (zonfacter) Prepare a named TPY file directory without removing originals or overwriting differing files; support configuration requests through supportedMessages.custom
 - (zonfacter) Isolate compact-mode sessions, reject stale callbacks and avoid a metadata reload when only a write acknowledgement is missing
 - (zonfacter) Fix synchronization when a metadata notification arrives during the final connection-state write
+- (mcm1957) Dependencies have been updated
 
 ### 1.7.0 (2026-02-12)
 - (mcm1957) Adapter requires node.js >= 20 now

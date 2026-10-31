@@ -116,6 +116,9 @@ Use Node.js 22 or newer. Development tools require Node.js >=22.19.0. The standa
 
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
